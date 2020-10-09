@@ -17,7 +17,7 @@ module Decidim
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.courses", scope: "decidim.admin"),
                     decidim_admin_courses.courses_path,
-                    icon_name: "dial",
+                    icon_name: "book",
                     position: 3.5,
                     active: :inclusive
                     # TODO: if: allowed_to?(:enter, :space_area, space_name: :courses)
