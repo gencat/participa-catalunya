@@ -1,25 +1,30 @@
 version: '3'
 services:
   app:
-    image: decidim/decidim:0.22.0
+    image: decidim/decidim:0.22.0-test
     volumes:
-      - .:/app
+      - .:/code
       - bundle:/usr/local/bundle
-      - node_modules:/app/node_modules
+      - node_modules:/code/node_modules
     environment:
       - PORT=3000
       - DATABASE_HOST=pg
       - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=secret
       - RAILS_ENV=development
     ports:
       - 3000:3000
     links:
       - pg
-    command: bundle exec puma
+    entrypoint: config/docker/entrypoint.dev.sh
   pg:
     image: postgres
     volumes:
-      - pg-data:/var/lib/postgresql/data
+      - pg-data:/var/lib/postgresql/data/pgdata
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_DB: participa-catalunya_development
+      POSTGRES_PASSWORD: secret
 volumes:
   node_modules: {}
   bundle: {}

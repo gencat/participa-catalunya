@@ -4,6 +4,14 @@ Free Open-Source participatory democracy, citizen participation and open governm
 
 This is the open-source repository for participa-catalunya, based on [Decidim](https://github.com/decidim/decidim).
 
+## Development with docker
+
+If you want to develop using Docker you can run `docker-compose up`.
+
+It will install ruby deps, run the migrations and start the development server for you.
+
+Then you can open a console with `docker-compose run app bash` and continue to the next section.
+
 ## Setting up the application
 
 You will need to do some steps before having the app working properly once you've deployed it:
