@@ -4,7 +4,7 @@
 
 ## Usage
 
-Courses will be available as a Component for a Participatory
+Courses will be available as a brand new Participatory
 Space.
 
 ## Installation
