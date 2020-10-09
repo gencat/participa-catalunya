@@ -212,6 +212,12 @@ GIT
     decidim-verifications (0.22.0)
       decidim-core (= 0.22.0)
 
+PATH
+  remote: decidim-courses
+  specs:
+    decidim-courses (0.22.0)
+      decidim-core (= 0.22.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -794,6 +800,7 @@ DEPENDENCIES
   daemons
   decidim!
   decidim-consultations!
+  decidim-courses!
   decidim-dev!
   decidim-initiatives!
   delayed_job_active_record
