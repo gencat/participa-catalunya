@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # The data store for a Consultation in the Decidim::Consultations component.
+  # The data store for a Course in the Decidim::Course space.
   class Course < ApplicationRecord
     include Decidim::Participable
     include Decidim::Publicable
@@ -31,6 +31,7 @@ module Decidim
     def to_param
       slug
     end
+
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
       Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
