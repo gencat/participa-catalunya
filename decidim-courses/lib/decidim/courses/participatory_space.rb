@@ -13,7 +13,7 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
   # participatory_space.query_type = "Decidim::Courses::CourseType"
 
   participatory_space.register_resource(:course) do |resource|
-    resource.model_class_name = "Decidim::Courses::Course"
+    resource.model_class_name = "Decidim::Course"
     # resource.card = "decidim/courses/course"
     # resource.searchable = true
   end
