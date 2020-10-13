@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_100115) do
+ActiveRecord::Schema.define(version: 2020_10_13_063654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -525,6 +525,25 @@ ActiveRecord::Schema.define(version: 2020_10_09_100115) do
     t.jsonb "content", null: false
     t.index ["organization_id"], name: "index_decidim_contextual_help_sections_on_organization_id"
     t.index ["section_id"], name: "index_decidim_contextual_help_sections_on_section_id"
+  end
+
+  create_table "decidim_courses", force: :cascade do |t|
+    t.integer "decidim_organization_id"
+    t.jsonb "title", null: false
+    t.jsonb "description", null: false
+    t.string "slug", null: false
+    t.datetime "course_date"
+    t.integer "duration"
+    t.jsonb "instructors"
+    t.string "modality", null: false
+    t.integer "decidim_scope_id"
+    t.text "registration_link"
+    t.text "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "published_at"
+    t.index ["decidim_organization_id", "slug"], name: "index_unique_course_slug_and_organization", unique: true
+    t.index ["decidim_organization_id"], name: "index_decidim_courses_on_decidim_organization_id"
   end
 
   create_table "decidim_debates_debates", id: :serial, force: :cascade do |t|

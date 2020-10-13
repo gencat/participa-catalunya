@@ -7,5 +7,3 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # You can remove the 'faker' gem if you don't want Decidim seeds.
 Decidim.seed!
-
-organization = Decidim::Organization.first

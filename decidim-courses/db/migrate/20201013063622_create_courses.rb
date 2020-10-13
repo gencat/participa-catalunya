@@ -1,6 +1,10 @@
 class CreateCourses < ActiveRecord::Migration[5.2]
   def change
-    create_table :courses do |t|
+    create_table :decidim_courses do |t|
+      t.integer :decidim_organization_id,
+              foreign_key: true,
+              index: { name: "index_decidim_courses_on_decidim_organization_id" }
+
       t.jsonb :title, null: false
       t.jsonb :description, null: false
       t.string :slug, null: false
@@ -14,6 +18,10 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.datetime :created_at, null: false
       t.datetime :updated_at, null: false
       t.datetime :published_at
+
+      t.index [:decidim_organization_id, :slug],
+        name: "index_unique_course_slug_and_organization",
+        unique: true
     end
   end
 end
