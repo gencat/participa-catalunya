@@ -1,0 +1,11 @@
+---
+en:
+  decidim:
+    admin:
+      menu:
+        courses: Formación
+    components:
+      courses:
+        name: Espacio de formación
+    menu:
+      courses: Formación
