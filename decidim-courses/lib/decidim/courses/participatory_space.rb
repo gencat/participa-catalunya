@@ -5,7 +5,7 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
   participatory_space.model_class_name = "Decidim::Courses::Course"
 
   participatory_space.participatory_spaces do |organization|
-    Decidim::Courses.where(organization: organization)
+    Decidim::Course.where(organization: organization)
   end
 
   participatory_space.permissions_class_name = "Decidim::Courses::Permissions"
