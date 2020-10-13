@@ -1,6 +1,11 @@
 ---
 en:
   decidim:
+    admin:
+      menu:
+        courses: Courses
     components:
       courses:
-        name: Courses
+        name: Training space
+    menu:
+      courses: Courses

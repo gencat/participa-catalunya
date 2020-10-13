@@ -10,13 +10,21 @@ module Decidim
       isolate_namespace Decidim::Courses
 
       routes do
-        # Add engine routes here
-        # resources :courses
-        # root to: "courses#index"
+        resources :courses, only: [:index, :show], param: :slug, path: "courses"
       end
 
       initializer "decidim_courses.assets" do |app|
         app.config.assets.precompile += %w[decidim_courses_manifest.js decidim_courses_manifest.css]
+      end
+
+      initializer "decidim_courses.menu" do
+        Decidim.menu :menu do |menu|
+          menu.item I18n.t("menu.courses", scope: "decidim"),
+                    decidim_courses.courses_path,
+                    position: 3.5,
+                    # TODO: if: Decidim::Assembly.where(organization: current_organization).published.any?,
+                    active: :inclusive
+        end
       end
     end
   end
