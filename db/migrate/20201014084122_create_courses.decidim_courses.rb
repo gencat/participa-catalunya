@@ -1,6 +1,12 @@
+# This migration comes from decidim_courses (originally 20201014083640)
 class CreateCourses < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_courses do |t|
+      t.string :hashtag
+      t.string :hero_image
+      t.string :banner_image
+      t.boolean :promoted, default: false
+      t.boolean :show_statistics, default: false
       t.integer :decidim_organization_id,
               foreign_key: true,
               index: { name: "index_decidim_courses_on_decidim_organization_id" }

@@ -5,7 +5,8 @@ module Decidim
   class Course < ApplicationRecord
     include Decidim::Participable
     include Decidim::Publicable
-    include Decidim::HasCategory      
+    include Decidim::HasCategory
+    include Decidim::Scopable 
     include Decidim::HasAttachments
     include Decidim::Resourceable
     include Decidim::Traceable
@@ -19,14 +20,21 @@ module Decidim
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
 
-    belongs_to :highlighted_scope,
-               foreign_key: "decidim_highlighted_scope_id",
-               class_name: "Decidim::Scope"
-
     mount_uploader :banner_image, Decidim::BannerImageUploader
     mount_uploader :introductory_image, Decidim::BannerImageUploader
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
+
+
+    searchable_fields({
+                        scope_id: :decidim_scope_id,
+                        participatory_space: :itself,
+                        A: :title,
+                        B: :description,
+                        datetime: :published_at
+                      },
+                      index_on_create: ->(_course) { false },
+                      index_on_update: ->(course) { course.visible? })
 
     def to_param
       slug
