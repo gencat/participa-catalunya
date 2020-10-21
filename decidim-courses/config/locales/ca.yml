@@ -52,6 +52,9 @@ ca:
       menu:
         courses: Formacions
         courses_submenu:
+          attachment_collections: Carpetes
+          attachment_files: Fitxers
+          attachments: Adjunts
           info: Informació
       models:
         course:

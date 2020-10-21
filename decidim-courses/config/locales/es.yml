@@ -52,6 +52,9 @@ es:
       menu:
         courses: Formaciones
         courses_submenu:
+          attachment_collections: Carpetas
+          attachment_files: Archivos
+          attachments: Adjuntos
           info: Información
       models:
         course:

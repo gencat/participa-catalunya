@@ -12,6 +12,9 @@ module Decidim
       routes do
         resources :courses, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "course_publications", only: [:create, :destroy]
+
+          resources :attachment_collections, controller: "course_attachment_collections"
+          resources :attachments, controller: "course_attachments"
         end
       end
 

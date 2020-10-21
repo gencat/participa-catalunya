@@ -52,6 +52,9 @@ en:
       menu:
         courses: Courses
         courses_submenu:
+          attachment_collections: Folders
+          attachment_files: Files
+          attachments: Attachments
           info: Info
       models:
         course:
