@@ -36,6 +36,32 @@ module Decidim
           end
         end
 
+        def edit
+          enforce_permission_to :update, :course, course: current_course
+          @form = form(CourseForm).from_model(current_course)
+          render layout: "decidim/admin/course"
+        end
+
+        def update
+          enforce_permission_to :update, :course, course: current_course
+          @form = form(CourseForm).from_params(
+            course_params,
+            course_id: current_course.id
+          )
+
+          UpdateCourse.call(current_course, @form) do
+            on(:ok) do |course|
+              flash[:notice] = I18n.t("courses.update.success", scope: "decidim.admin")
+              redirect_to edit_course_path(course)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("courses.update.error", scope: "decidim.admin")
+              render :edit, layout: "decidim/admin/course"
+            end
+          end
+        end
+
         private
 
         def collection
@@ -49,6 +75,14 @@ module Decidim
         end
 
         alias current_participatory_space current_course
+
+        def course_params
+          {
+            id: params[:slug],
+            banner_image: current_course.banner_image,
+            hero_image: current_course.hero_image
+          }.merge(params[:course].to_unsafe_h)
+        end
       end
     end
   end

@@ -31,14 +31,21 @@ ca:
         create:
           error: S'ha produït un error en crear una nova formació.
           success: Formació creada correctament.
+        edit:
+          update: Actualitzar
         index:
           not_published: No publicat
           published: Publicat
         new:
           create: Crear
           title: Nova formació
+        update:
+          error: S'ha produït un error en actualitzar aquesta formació.
+          success: La formació s'ha actualitzat correctament.
       menu:
         courses: Formacions
+        courses_submenu:
+          info: Informació
       models:
         course:
           fields:

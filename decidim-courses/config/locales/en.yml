@@ -31,14 +31,21 @@ en:
         create:
           error: There was a problem creating a new course.
           success: Course created successfully.
+        edit:
+          update: Update
         index:
           not_published: Not published
           published: Published
         new:
           create: Create
           title: New course
+        update:
+          error: There was a problem updating this course.
+          success: Course successfully updated.
       menu:
         courses: Courses
+        courses_submenu:
+          info: Info
       models:
         course:
           fields:

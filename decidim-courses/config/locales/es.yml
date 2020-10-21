@@ -31,14 +31,21 @@ es:
         create:
           error: Se ha producido un error al crear una nueva formación.
           success: Formación creada correctamente.
+        edit:
+          update: Actualizar
         index:
           not_published: No publicado
           published: Publicado
         new:
           create: Crear
           title: Nueva formación
+        update:
+          error: Se ha producido un error al actualizar esta formación.
+          success: La formación se ha actualizado correctamente.
       menu:
         courses: Formaciones
+        courses_submenu:
+          info: Información
       models:
         course:
           fields:
