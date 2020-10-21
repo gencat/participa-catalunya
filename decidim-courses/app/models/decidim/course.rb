@@ -6,12 +6,11 @@ module Decidim
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::HasCategory
-    include Decidim::Scopable 
+    include Decidim::Scopable
     include Decidim::HasAttachments
     include Decidim::Resourceable
     include Decidim::Traceable
     include Decidim::Loggable
-    include Decidim::ParticipatorySpaceResourceable
     include Decidim::Randomable
     include Decidim::Searchable
 
