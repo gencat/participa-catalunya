@@ -1,11 +1,32 @@
 ---
-en:
+ca:
+  activerecord:
+    models:
+      decidim/course:
+        one: Formació
+        other: Formacions
   decidim:
     admin:
+      actions:
+        new_course: Nova formació
+      courses:
+        index:
+          not_published: No publicat
+          published: Publicat
       menu:
-        courses: Formació
+        courses: Formacions
+      models:
+        course:
+          fields:
+            course_date: Data
+            promoted: Destacada
+            published: Publicat
+            title: Títol
+          name: Curs
+      titles:
+        courses: Formacions
     components:
       courses:
         name: Espai de formació
     menu:
-      courses: Formació
+      courses: Formacions

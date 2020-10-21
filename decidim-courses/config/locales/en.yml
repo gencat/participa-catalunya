@@ -1,8 +1,29 @@
 ---
 en:
+  activerecord:
+    models:
+      decidim/course:
+        one: Course
+        other: Courses
   decidim:
     admin:
+      actions:
+        new_course: New course
+      courses:
+        index:
+          not_published: Not published
+          published: Published
       menu:
+        courses: Courses
+      models:
+        course:
+          fields:
+            course_date: Date
+            promoted: Promoted
+            published: Published
+            title: Title
+          name: Course
+      titles:
         courses: Courses
     components:
       courses:
