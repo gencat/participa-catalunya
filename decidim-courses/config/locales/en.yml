@@ -42,6 +42,13 @@ en:
         update:
           error: There was a problem updating this course.
           success: Course successfully updated.
+      course_publications:
+        create:
+          error: There was a problem publishing this course.
+          success: Course successfully published.
+        destroy:
+          error: There was a problem unpublishing this course.
+          success: Course successfully unpublished.
       menu:
         courses: Courses
         courses_submenu:

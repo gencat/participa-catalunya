@@ -42,6 +42,13 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta formació.
           success: La formació s'ha actualitzat correctament.
+      course_publications:
+        create:
+          error: S'ha produït un error en publicar aquesta formació.
+          success: Formació publicada correctament.
+        destroy:
+          error: S'ha produït un error en publicar aquesta formació.
+          success: Formació despublicada correctament.
       menu:
         courses: Formacions
         courses_submenu:

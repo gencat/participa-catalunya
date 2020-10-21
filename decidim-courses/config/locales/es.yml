@@ -42,6 +42,13 @@ es:
         update:
           error: Se ha producido un error al actualizar esta formación.
           success: La formación se ha actualizado correctamente.
+      course_publications:
+        create:
+          error: Se ha producido un error al publicar esta formación.
+          success: Formación publicada correctamente.
+        destroy:
+          error: Se ha producido un error al despublicar esta formación.
+          success: Formación despublicada correctamente.
       menu:
         courses: Formaciones
         courses_submenu:

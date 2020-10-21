@@ -10,7 +10,9 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :courses, param: :slug, except: [:show, :destroy]
+        resources :courses, param: :slug, except: [:show, :destroy] do
+          resource :publish, controller: "course_publications", only: [:create, :destroy]
+        end
       end
 
       initializer "decidim_courses.admin_menu" do
