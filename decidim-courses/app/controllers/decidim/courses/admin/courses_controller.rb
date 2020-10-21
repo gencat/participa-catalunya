@@ -14,6 +14,28 @@ module Decidim
           @courses = filtered_collection
         end
 
+        def new
+          enforce_permission_to :create, :course
+          @form = form(CourseForm).instance
+        end
+
+        def create
+          enforce_permission_to :create, :course
+          @form = form(CourseForm).from_params(params)
+
+          CreateCourse.call(@form) do
+            on(:ok) do |course|
+              flash[:notice] = I18n.t("courses.create.success", scope: "decidim.admin")
+              redirect_to courses_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("courses.create.error", scope: "decidim.admin")
+              render :new
+            end
+          end
+        end
+
         private
 
         def collection

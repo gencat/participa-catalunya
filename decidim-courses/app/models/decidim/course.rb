@@ -21,7 +21,7 @@ module Decidim
                class_name: "Decidim::Organization"
 
     mount_uploader :banner_image, Decidim::BannerImageUploader
-    mount_uploader :introductory_image, Decidim::BannerImageUploader
+    mount_uploader :hero_image, Decidim::HeroImageUploader
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
 

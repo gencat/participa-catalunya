@@ -1,5 +1,23 @@
 ---
 ca:
+  activemodel:
+    attributes:
+      course:
+        banner_image: Imatge de bàner
+        course_date: Data de la formació
+        decidim_scope_id: Àmbit
+        description: Descripció
+        duration: Durada
+        hashtag: Hashtag
+        hero_image: Imatge de portada
+        instructors: Instructors
+        modality: Modalitat
+        promoted: Destacat
+        published_at: Publicat el
+        scope_id: Àmbit
+        scopes_enabled: Àmbits habilitats
+        slug: Nom curt d'URL
+        title: Títol
   activerecord:
     models:
       decidim/course:
@@ -10,9 +28,15 @@ ca:
       actions:
         new_course: Nova formació
       courses:
+        create:
+          error: S'ha produït un error en crear una nova formació.
+          success: Formació creada correctament.
         index:
           not_published: No publicat
           published: Publicat
+        new:
+          create: Crear
+          title: Nova formació
       menu:
         courses: Formacions
       models:
@@ -22,11 +46,28 @@ ca:
             promoted: Destacada
             published: Publicat
             title: Títol
-          name: Curs
+          name: Formació
       titles:
         courses: Formacions
     components:
       courses:
         name: Espai de formació
+    courses:
+      admin:
+        courses:
+          form:
+            duration: Duració
+            duration_help: Duració de la formació en minuts
+            filters: Filtres
+            images: Imatges
+            other: Altre
+            select_a_modality: Selecciona una modalitat
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta formació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            title: Títol
+            visbility: Visibilitat
+      modality:
+        blended: Mixte
+        face-to-face: Presencial
+        online: Online
     menu:
       courses: Formacions

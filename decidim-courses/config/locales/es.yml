@@ -1,5 +1,23 @@
 ---
 es:
+  activemodel:
+    attributes:
+      course:
+        banner_image: Imagen de banner
+        course_date: Fecha de la formación
+        decidim_scope_id: Ámbito
+        description: Descripción
+        duration: Duración
+        hashtag: Hashtag
+        hero_image: Imagen de portada
+        instructors: Instructores
+        modality: Modalidad
+        promoted: Destacado
+        published_at: Publicado el
+        scope_id: Ámbito
+        scopes_enabled: Ámbitos habilitados
+        slug: Texto corto de URL
+        title: Título
   activerecord:
     models:
       decidim/course:
@@ -10,9 +28,15 @@ es:
       actions:
         new_course: Nueva formación
       courses:
+        create:
+          error: Se ha producido un error al crear una nueva formación.
+          success: Formación creada correctamente.
         index:
           not_published: No publicado
           published: Publicado
+        new:
+          create: Crear
+          title: Nueva formación
       menu:
         courses: Formaciones
       models:
@@ -22,11 +46,28 @@ es:
             promoted: Destacado
             published: Publicado
             title: Título
-          name: Curso
+          name: Formación
       titles:
         courses: Formaciones
     components:
       courses:
         name: Espacio de formación
+    courses:
+      admin:
+        courses:
+          form:
+            duration: Duración
+            duration_help: Duración de la formación en minutos
+            filters: Filtros
+            images: Imágenes
+            other: Otro
+            select_a_modality: Selecciona una modalidad
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta formación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            title: Título
+            visbility: Visibilidad
+      modality:
+        blended: Mixto
+        face-to-face: Presencial
+        online: Online
     menu:
       courses: Formaciones
