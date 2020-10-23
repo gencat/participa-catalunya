@@ -8,6 +8,11 @@ module Decidim
 
         return permission_action if course && !course.is_a?(Decidim::Course)
 
+        if read_admin_dashboard_action?
+          user_can_read_admin_dashboard?
+          return permission_action
+        end
+
         return permission_action unless user
 
         if !user.admin?
