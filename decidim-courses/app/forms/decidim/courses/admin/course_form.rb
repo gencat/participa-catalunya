@@ -9,8 +9,6 @@ module Decidim
       class CourseForm < Form
         include TranslatableAttributes
 
-        MODALITIES = %w(face-to-face online blended).freeze
-
         mimic :course
 
         translatable_attribute :description, String
@@ -40,7 +38,7 @@ module Decidim
 
         validate :slug_uniqueness
 
-        validates :modality, inclusion: { in: MODALITIES }
+        validates :modality, inclusion: { in: ::Decidim::Course::MODALITIES }
         validates :title, :description, translatable_presence: true
 
         validates :banner_image,

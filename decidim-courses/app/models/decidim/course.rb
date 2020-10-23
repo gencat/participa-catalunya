@@ -15,6 +15,7 @@ module Decidim
     include Decidim::Randomable
     include Decidim::Searchable
 
+    MODALITIES = %w(face-to-face online blended).freeze
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -25,6 +26,8 @@ module Decidim
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
 
+    validates :slug, uniqueness: { scope: :organization }
+    validates :slug, presence: true, format: { with: Decidim::Course.slug_format }
 
     searchable_fields({
                         scope_id: :decidim_scope_id,
