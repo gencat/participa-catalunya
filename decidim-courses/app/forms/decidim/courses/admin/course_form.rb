@@ -59,7 +59,7 @@ module Decidim
         end
 
         def modalities_for_select
-          MODALITIES.map do |modality|
+          ::Decidim::Course::MODALITIES.map do |modality|
             [
               I18n.t("modality.#{modality}", scope: "decidim.courses"),
               modality
