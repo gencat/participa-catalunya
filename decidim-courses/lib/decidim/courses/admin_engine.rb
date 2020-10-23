@@ -18,6 +18,10 @@ module Decidim
         end
       end
 
+      initializer "decidim_courses.admin_assets" do |app|
+        app.config.assets.precompile += %w(admin/decidim_courses_manifest.js)
+      end
+
       initializer "decidim_courses.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.courses", scope: "decidim.admin"),
