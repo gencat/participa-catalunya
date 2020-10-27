@@ -8,6 +8,7 @@ module Decidim
     include Decidim::HasCategory
     include Decidim::Scopable 
     include Decidim::HasAttachments
+    include Decidim::Followable
     include Decidim::Resourceable
     include Decidim::Traceable
     include Decidim::Loggable
@@ -20,8 +21,8 @@ module Decidim
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
 
+    mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
-    mount_uploader :introductory_image, Decidim::BannerImageUploader
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
 

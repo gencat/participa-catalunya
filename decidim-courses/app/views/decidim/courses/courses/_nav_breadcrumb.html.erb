@@ -1,0 +1,11 @@
+<div class="lines-breadcrumb">
+  <% root = courses.shift %>
+  <%= link_to translated_attribute(root.title), course_path(root) %>
+
+  <% courses.each do |course| %>
+    <span class="breadcrumb--separator">></span>
+    <div>
+      <%= link_to translated_attribute(course.title), course_path(course) %>
+    </div>
+  <% end %>
+</div>

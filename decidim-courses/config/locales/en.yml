@@ -1,6 +1,12 @@
 ---
 en:
   decidim:
+    courses:
+      show:
+        read_more: Read more
+        read_less: Read less
+        course_date: Course date
+        duration: Duration
     admin:
       menu:
         courses: Courses
