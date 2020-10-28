@@ -38,7 +38,7 @@ module Decidim
 
         validate :slug_uniqueness
 
-        validates :modality, inclusion: { in: ::Decidim::Course::MODALITIES }
+        validates :modality, presence: true, inclusion: { in: ::Decidim::Course::MODALITIES }
         validates :title, :description, translatable_presence: true
 
         validates :banner_image,
