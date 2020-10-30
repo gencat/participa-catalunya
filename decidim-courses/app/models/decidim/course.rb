@@ -6,25 +6,28 @@ module Decidim
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::HasCategory
-    include Decidim::Scopable 
+    include Decidim::Scopable
     include Decidim::HasAttachments
+    include Decidim::HasAttachmentCollections
     include Decidim::Resourceable
     include Decidim::Traceable
     include Decidim::Loggable
-    include Decidim::ParticipatorySpaceResourceable
     include Decidim::Randomable
     include Decidim::Searchable
 
+    MODALITIES = %w(face-to-face online blended).freeze
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
 
     mount_uploader :banner_image, Decidim::BannerImageUploader
-    mount_uploader :introductory_image, Decidim::BannerImageUploader
+    mount_uploader :hero_image, Decidim::HeroImageUploader
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
 
+    validates :slug, uniqueness: { scope: :organization }
+    validates :slug, presence: true, format: { with: Decidim::Course.slug_format }
 
     searchable_fields({
                         scope_id: :decidim_scope_id,

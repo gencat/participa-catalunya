@@ -18,6 +18,7 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.integer :duration
       t.jsonb :instructors
       t.string :modality, null: false
+      t.boolean :scopes_enabled, null: false, default: true
       t.integer :decidim_scope_id
       t.text :registration_link
       t.text :address

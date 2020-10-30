@@ -10,7 +10,16 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :courses, param: :slug, except: [:show, :destroy]
+        resources :courses, param: :slug, except: [:show, :destroy] do
+          resource :publish, controller: "course_publications", only: [:create, :destroy]
+
+          resources :attachment_collections, controller: "course_attachment_collections"
+          resources :attachments, controller: "course_attachments"
+        end
+      end
+
+      initializer "decidim_courses.admin_assets" do |app|
+        app.config.assets.precompile += %w(admin/decidim_courses_manifest.js)
       end
 
       initializer "decidim_courses.admin_menu" do

@@ -1,11 +1,90 @@
 ---
-en:
+es:
+  activemodel:
+    attributes:
+      course:
+        banner_image: Imagen de banner
+        course_date: Fecha de la formación
+        decidim_scope_id: Ámbito
+        description: Descripción
+        duration: Duración
+        hashtag: Hashtag
+        hero_image: Imagen de portada
+        instructors: Instructores
+        modality: Modalidad
+        promoted: Destacado
+        published_at: Publicado el
+        scope_id: Ámbito
+        scopes_enabled: Ámbitos habilitados
+        slug: Texto corto de URL
+        title: Título
+  activerecord:
+    models:
+      decidim/course:
+        one: Formación
+        other: Formaciones
   decidim:
     admin:
+      actions:
+        new_course: Nueva formación
+      courses:
+        create:
+          error: Se ha producido un error al crear una nueva formación.
+          success: Formación creada correctamente.
+        edit:
+          update: Actualizar
+        index:
+          not_published: No publicado
+          published: Publicado
+        new:
+          create: Crear
+          title: Nueva formación
+        update:
+          error: Se ha producido un error al actualizar esta formación.
+          success: La formación se ha actualizado correctamente.
+      course_publications:
+        create:
+          error: Se ha producido un error al publicar esta formación.
+          success: Formación publicada correctamente.
+        destroy:
+          error: Se ha producido un error al despublicar esta formación.
+          success: Formación despublicada correctamente.
       menu:
-        courses: Formación
+        courses: Formaciones
+        courses_submenu:
+          attachment_collections: Carpetas
+          attachment_files: Archivos
+          attachments: Adjuntos
+          info: Información
+      models:
+        course:
+          fields:
+            course_date: Fecha
+            promoted: Destacado
+            published: Publicado
+            title: Título
+          name: Formación
+      titles:
+        courses: Formaciones
     components:
       courses:
         name: Espacio de formación
+    courses:
+      admin:
+        courses:
+          form:
+            duration: Duración
+            duration_help: Duración de la formación en minutos
+            filters: Filtros
+            images: Imágenes
+            other: Otro
+            select_a_modality: Selecciona una modalidad
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta formación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            title: Título
+            visbility: Visibilidad
+      modality:
+        blended: Mixto
+        face-to-face: Presencial
+        online: Online
     menu:
-      courses: Formación
+      courses: Formaciones
