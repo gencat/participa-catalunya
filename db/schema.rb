@@ -525,6 +525,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_084454) do
     t.integer "duration"
     t.jsonb "instructors"
     t.string "modality", null: false
+    t.boolean "scopes_enabled", default: true, null: false
     t.integer "decidim_scope_id"
     t.text "registration_link"
     t.text "address"
