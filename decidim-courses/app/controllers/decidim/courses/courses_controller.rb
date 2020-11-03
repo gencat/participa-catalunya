@@ -5,11 +5,15 @@ module Decidim
     # A controller that holds the logic to show Courses in a public layout.
     class CoursesController < Decidim::Courses::ApplicationController
       include ParticipatorySpaceContext
+      participatory_space_layout only: :show
       include FilterResource
+
       helper Decidim::ResourceHelper
       helper Decidim::AttachmentsHelper
       helper Decidim::ResourceReferenceHelper
-      participatory_space_layout only: :show
+      layout "decidim/course"
+
+      helper_method :stats
 
       def show
         enforce_permission_to :read, :course, course: current_participatory_space
@@ -25,6 +29,11 @@ module Decidim
 
       def current_participatory_space_manifest
         @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:courses)
+      end
+
+      # TODO create CourseStatsPresenter
+      def stats
+        #@stats ||= CourseStatsPresenter.new(course: current_participatory_space)
       end
     end
   end

@@ -49,6 +49,7 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
         promoted: true,
         published_at: 2.weeks.ago,
         modality: "online",
+        address: Faker::Lorem.word,
         organization: organization,
         scope: n.positive? ? Decidim::Scope.reorder(Arel.sql("RANDOM()")).first : nil,
         created_at: 1.day.from_now,

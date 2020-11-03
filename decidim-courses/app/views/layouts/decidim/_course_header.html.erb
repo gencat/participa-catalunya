@@ -1,10 +1,10 @@
-<div class="course-header">
-  <div class="course-header__inner">
-    <div class="row column course-header__main"
+<div class="process-header">
+  <div class="process-header__inner">
+    <div class="row column process-header__main"
         style="background-image:url(<%= current_participatory_space.banner_image.url %>);">
     </div>
-    <div class="course-header__container row collapse column">
-      <div class="columns mediumlarge-8 course-header__info">
+    <div class="process-header__container row collapse column">
+      <div class="columns mediumlarge-8 process-header__info">
         <div>
           <h1 class="text-highlight heading2">
             <%= translated_attribute(current_participatory_space.title) %>
@@ -13,14 +13,15 @@
         <div>
           <h2 class="text-highlight heading-small">
             <% if current_participatory_space.hashtag.present? %>
-              <span class="course-header__hashtag">
+              <span class="process-header__hashtag">
                 <%= link_to "##{decidim_html_escape(current_participatory_space.hashtag)}", "https://twitter.com/hashtag/#{decidim_html_escape(current_participatory_space.hashtag)}", target: "_blank" %>
               </span>
             <% end %>
-            <%= translated_attribute(current_participatory_space.subtitle) %>
+            <%= translated_attribute(current_participatory_space.title) %>
           </h2>
         </div>
       </div>
     </div>
   </div>
+  <%= render partial: "layouts/decidim/course_navigation", locals: { participatory_space: current_participatory_space } %>
 </div>

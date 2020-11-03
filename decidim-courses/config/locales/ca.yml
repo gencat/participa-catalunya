@@ -23,7 +23,23 @@ ca:
       decidim/course:
         one: Formació
         other: Formacions
+  layouts:
+    decidim:
+      course_navigation:
+        course_menu_item: El Curs
   decidim:
+    course:
+      statistics:
+        headline: Activitat
+      show:
+        address: Direcció
+        registration_link: Enllaç de registre
+        modality: Modalitat
+        minutes: minuts
+        read_more: Llegir més
+        read_less: Llegir menys
+        course_date: Data de la formació
+        duration: Durada
     admin:
       actions:
         new_course: Nova formació
