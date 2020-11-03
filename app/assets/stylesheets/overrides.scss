@@ -1,0 +1,275 @@
+@import "decidim/variables";
+@import "foundation";
+@import "decidim/utils/settings";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+$black: #4A4A4A;
+$blue_pc: #2A6EBB;
+$grey_input_pc: #E2E2E2; 
+$grey_hero_pc: #EAEAEA;
+$grey_border_pc: #E1E1E1;
+
+// BODY
+body{
+  font-family: "Open Sans", "Source Sans Pro", Helvetica, Roboto, Arial, sans-serif; 
+}
+
+// HEADER
+
+.topbar{
+  & > *{ margin-bottom: auto;} 
+  & > .topbar__user { margin-top: 10px; }
+  & > .topbar__admin__link { margin-top: 7px; }
+  .logo-wrapper{
+    min-height: 90px;
+    margin-bottom: inherit;
+    & > * {
+      margin-top: auto;
+    }
+  }
+}
+
+.title-bar{
+  min-height: 122px;
+  background: $white;
+  color: $black;
+  a:focus, .button:focus{
+    outline-color: rgba($blue_pc, 0.8);
+  }
+}
+
+.logo-wrapper{
+  img{
+    max-height: 75px;
+  }
+  span{
+    color: $blue_pc;
+  }
+}
+
+// HEADER SEARCH FORM
+.topbar__search {
+  input{
+    background: $grey_input_pc;
+    color: $black;
+    &::placeholder{
+      color: $black;
+    }
+  }
+  
+  button > svg {
+    width: 1.315em;
+    height: 1.315em;
+  }
+  
+  &:focus-within input, &:focus-within button, &:focus-within button:hover{
+    background-color: $grey_input_pc;
+    color: $black;
+  }
+  
+  &:focus-within button, &:focus-within button:hover{
+    color: $blue_pc;
+  }
+  
+  &:not(:focus-within) button{
+    color: $blue_pc;
+    background: $grey_input_pc;
+  }
+}
+
+// HEADER MENU
+.topbar__dropmenu{
+  font-weight: 600;
+} 
+
+.topbar__dropmenu .is-dropdown-submenu li a{
+  color: $black;
+  &:hover, &:focus{
+    color: $black;
+  }
+}
+
+.topbar__notifications .icon, .topbar__conversations .icon{
+  fill: $black;
+}
+
+.dropdown.menu > li.is-active > a{
+  color: $blue_pc;
+  &::after{
+    border-top-color: $blue_pc !important; 
+  }
+}
+
+.topbar__dropmenu > ul > li > a{
+  color: $black;
+}
+
+.topbar__dropmenu > ul > li > a::after{
+  border-top-color: $black !important;
+}
+
+.topbar__user__login a{
+  color: $black;
+}
+
+.topbar__admin__link a{
+  color: $black;
+  font-weight: bold;
+  
+  &:hover{
+    color: inherit;
+  }
+}
+
+// NAVBAR
+.navbar{
+  background: $blue_pc;
+}
+
+.main-nav__link--active a, .main-nav__link a:hover{
+  background: rgba($white, 0.35);
+  box-shadow: none;
+}
+.main-nav__link a{
+  color: $white;
+  font-weight: 600;
+}
+
+.home-section:nth-of-type(2n + 1){
+  background: $grey_hero_pc;
+}
+
+.main-nav{
+  .main-nav__link{
+    border-right: 2px solid rgba($white, 0.35);
+    &:last-child{
+      border-right: 2px solid rgba($white, 0.0);
+    }
+  }
+}
+
+
+// OTHERS
+// BUTTONS
+.button{
+  border-radius: 5px;
+  &:hover{
+    -webkit-filter: brightness(110%);
+    filter: brightness(110%);
+  }
+  &.hollow{
+    background-color: $blue_pc;
+    color: $white;
+    border: 1px solid transparent;
+  }
+  &.button--sc{
+    text-transform: none;
+  }
+  
+}
+.button--shadow.secondary{
+  background-color: $blue_pc;
+}
+
+// LINKS
+a, a:focus, a:hover, .card__link, .card__link:hover, .author-data .author__name{
+  color: $blue_pc;
+}
+.link, .link:hover{
+  color: $blue_pc;
+}
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+  border-color: $blue_pc transparent transparent;
+}
+.link-alt{
+  color: $blue_pc;
+}
+.comment__reply.muted-link, .comment__reply[data-toggle].muted-link{
+  color: $blue_pc;
+}
+.comment__reply.muted-link:hover, .comment__reply[data-toggle].muted-link:hover{
+  color: $blue_pc;
+}
+.opinion-toggle--meh:hover, .opinion-toggle--meh:focus, .opinion-toggle--meh.is-active{
+  background-color: $blue_pc;
+}
+
+// HEADINGS
+.section-heading{
+  font-size: 1.5em;
+  color: $blue_pc;
+  font-weight: bold;
+}
+.heading5, .author-data--big .author__name, .card__title{
+  font-size: 1.125em;
+  font-weight: 600;
+}
+
+// CARDS
+.card-grid .card, .card-grid .chart-tooltip, .card-grid .conference-registration, .card-grid .conference-speaker .speaker-bio, .conference-speaker .card-grid .speaker-bio, .card-grid .add-message, .card-grid .comment-thread{
+  border-color: $grey_border_pc;
+}
+
+// ICONS
+.result-view .title .icon{
+  fill: $blue_pc;
+}
+
+// EXTRA
+.process-stats__data::after{
+  border-color: $blue_pc;
+}
+
+.collapsible-list .collapsible-list__see-more, .collapsible-list .collapsible-list__see-more:hover,
+.collapsible-list .collapsible-list__see-less, .collapsible-list .collapsible-list__see-less:hover{
+  color: $blue_pc;
+}
+
+.card--list__data__icon:hover .icon, .card--list__data__icon--lg:hover .icon{
+  fill: $blue_pc;
+}
+
+.accountability .categories .categories--group .card__link .category--line strong{
+  color: $blue_pc;
+}
+
+.pagination .current{
+  background-color: $blue_pc;
+}
+
+.orgchart .as-text{
+  fill: $blue_pc;
+}
+
+.card--list__icon{
+  fill: $blue_pc;
+}
+
+.inline-filters button[data-toggle]{
+  color: $blue_pc;
+}
+
+.side-panel__tabs .tabs-title.is-active > [role=tab], .side-panel__tabs .tabs-title.is-active > a{
+  color: $blue_pc;
+}
+
+.side-panel__tabs .tabs-title > [role=tab]:hover, .side-panel__tabs .tabs-title > a:hover{
+  color: $blue_pc;
+}
+
+.white-button, .white-button:hover{
+  color: $blue_pc;
+}
+
+#profile-tabs.tabs .tabs-title a{
+  color: $blue_pc;
+}
+
+// MOBILE
+@media only screen and (max-width: 639px){
+  .title-bar{ border-color: $white;}
+  .topbar .topbar__admin__link { margin-top: 0px; }
+  .main-nav .main-nav__link{ border-right: none; }
+  .topbar__user__login a{ color: $white; }
+}
