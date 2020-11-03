@@ -24,16 +24,16 @@ module Decidim
       def current_participatory_space
         return unless params[:slug]
 
-        @current_participatory_space ||=  Decidim::Course.where(slug: params[:slug], organization: current_organization).first
+        @current_participatory_space ||= Decidim::Course.where(slug: params[:slug], organization: current_organization).first
       end
 
       def current_participatory_space_manifest
         @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:courses)
       end
 
-      # TODO create CourseStatsPresenter
+      # TODO: create CourseStatsPresenter
       def stats
-        #@stats ||= CourseStatsPresenter.new(course: current_participatory_space)
+        # @stats ||= CourseStatsPresenter.new(course: current_participatory_space)
       end
     end
   end

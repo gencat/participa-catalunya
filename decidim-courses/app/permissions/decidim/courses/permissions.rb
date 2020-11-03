@@ -23,7 +23,7 @@ module Decidim
 
         return permission_action unless user
 
-        if !user.admin?
+        unless user.admin?
           disallow!
           return permission_action
         end
@@ -142,7 +142,7 @@ module Decidim
           :category,
           :component,
           :component_data,
-          :course,
+          :course
         ].include?(permission_action.subject)
 
         allow! if is_allowed

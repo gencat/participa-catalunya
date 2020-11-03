@@ -54,7 +54,7 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
         scope: n.positive? ? Decidim::Scope.reorder(Arel.sql("RANDOM()")).first : nil,
         created_at: 1.day.from_now,
         duration: Random.new.rand(100),
-        course_date: 2.days.from_now,
+        course_date: 2.days.from_now
       }
 
       course = Decidim.traceability.perform_action!(

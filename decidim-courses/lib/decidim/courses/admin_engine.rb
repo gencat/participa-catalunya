@@ -29,7 +29,7 @@ module Decidim
                     icon_name: "book",
                     position: 3.5,
                     active: :inclusive
-                    # TODO: if: allowed_to?(:enter, :space_area, space_name: :courses)
+          # TODO: if: allowed_to?(:enter, :space_area, space_name: :courses)
         end
       end
 

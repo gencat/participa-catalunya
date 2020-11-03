@@ -14,7 +14,7 @@ module Decidim
       end
 
       initializer "decidim_courses.assets" do |app|
-        app.config.assets.precompile += %w[decidim_courses_manifest.js decidim_courses_manifest.css]
+        app.config.assets.precompile += %w(decidim_courses_manifest.js decidim_courses_manifest.css)
       end
 
       initializer "decidim_courses.menu" do
