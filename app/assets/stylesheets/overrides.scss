@@ -75,6 +75,7 @@ body{
   &:not(:focus-within) button{
     color: $blue_pc;
     background: $grey_input_pc;
+    filter: none;
   }
 }
 
