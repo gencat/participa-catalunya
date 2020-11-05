@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    components:
+      resource_bank:
+        name: ResourceBank
