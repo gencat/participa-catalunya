@@ -218,6 +218,12 @@ PATH
     decidim-courses (0.22.0)
       decidim-core (= 0.22.0)
 
+PATH
+  remote: decidim-resource_bank
+  specs:
+    decidim-resource_bank (0.22.0)
+      decidim-core (= 0.22.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -803,6 +809,7 @@ DEPENDENCIES
   decidim-courses!
   decidim-dev!
   decidim-initiatives!
+  decidim-resource_bank!
   delayed_job_active_record
   faker (~> 1.9)
   figaro

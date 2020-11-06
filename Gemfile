@@ -10,6 +10,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-courses", path: "./decidim-courses"
+gem "decidim-resource_bank", path: "./decidim-resource_bank"
 
 gem "bootsnap", "~> 1.3"
 
