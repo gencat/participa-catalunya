@@ -21,6 +21,113 @@ describe "Courses", type: :system do
     switch_to_host(organization.host)
   end
 
+  context "when there are no courses and directly accessing from URL" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_courses.courses_path }
+    end
+  end
+
+  context "when there are no courses and accessing from the homepage" do
+    it "the menu link is not shown" do
+      visit decidim.root_path
+
+      within ".main-nav" do
+        expect(page).to have_no_content("Courses")
+      end
+    end
+  end
+
+  context "when the course does not exist" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_courses.course_path(99_999_999) }
+    end
+  end
+
+  context "when there are some courses and all are unpublished" do
+    before do
+      create(:course, :unpublished, organization: organization)
+      create(:course, :published)
+    end
+
+    context "and directly accessing from URL" do
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim_courses.courses_path }
+      end
+    end
+
+    context "and accessing from the homepage" do
+      it "the menu link is not shown" do
+        visit decidim.root_path
+
+        within ".main-nav" do
+          expect(page).to have_no_content("Courses")
+        end
+      end
+    end
+  end
+
+  context "when there are some published courses" do
+    let!(:course) { base_course }
+    let!(:promoted_course) { create(:course, :promoted, organization: organization) }
+    let!(:unpublished_course) { create(:course, :unpublished, organization: organization) }
+
+    it_behaves_like "editable content for admins" do
+      let(:target_path) { decidim_courses.courses_path }
+    end
+
+    it_behaves_like "shows contextual help" do
+      let(:index_path) { decidim_courses.courses_path }
+      let(:manifest_name) { :courses }
+    end
+
+    context "and requesting the courses path" do
+      before do
+        visit decidim_courses.courses_path
+      end
+
+      context "and accessing from the homepage" do
+        it "the menu link is shown" do
+          visit decidim.root_path
+
+          within ".main-nav" do
+            expect(page).to have_content("Courses")
+            click_link "Courses"
+          end
+
+          expect(page).to have_current_path decidim_courses.courses_path
+        end
+      end
+
+      it "lists all the highlighted courses" do
+        within "#highlighted-courses" do
+          expect(page).to have_content(translated(promoted_course.title, locale: :en))
+          expect(page).to have_selector(".card--full", count: 1)
+        end
+      end
+
+      it "lists the courses" do
+        within "#courses" do
+          within "#course h3" do
+            expect(page).to have_content("2")
+          end
+
+          expect(page).to have_content(translated(course.title, locale: :en))
+          expect(page).to have_content(translated(promoted_course.title, locale: :en))
+          expect(page).to have_selector(".card", count: 2)
+          expect(page).to have_selector(".card.card--stack", count: 1)
+
+          expect(page).not_to have_content(translated(unpublished_course.title, locale: :en))
+        end
+      end
+
+      it "links to the individual course page" do
+        first(".card__link", text: translated(course.title, locale: :en)).click
+
+        expect(page).to have_current_path decidim_courses.course_path(course)
+      end
+    end
+  end
+
   context "when going to the course page" do
     let!(:course) { base_course }
 
