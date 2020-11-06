@@ -26,7 +26,7 @@ es:
   layouts:
     decidim:
       course_navigation:
-        course_menu_item: El Curso
+        course_menu_item: La formación
   decidim:
     course:
       statistics:

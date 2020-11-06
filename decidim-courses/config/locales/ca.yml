@@ -26,13 +26,13 @@ ca:
   layouts:
     decidim:
       course_navigation:
-        course_menu_item: El Curs
+        course_menu_item: La formació
   decidim:
     course:
       statistics:
         headline: Activitat
       show:
-        address: Direcció
+        address: Adreça
         registration_link: Enllaç de registre
         modality: Modalitat
         minutes: minuts
