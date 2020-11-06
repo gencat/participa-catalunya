@@ -36,7 +36,6 @@ module Decidim
                         B: :description,
                         datetime: :published_at
                       },
-                      index_on_create: ->(_course) { false },
                       index_on_create: ->(course) { course.visible? },
                       index_on_update: ->(course) { course.visible? })
 

@@ -24,7 +24,7 @@ module Decidim
       def current_participatory_space
         return unless params[:slug]
 
-        @current_participatory_space ||= Decidim::Course.where(slug: params[:slug], organization: current_organization).first
+        @current_participatory_space ||= Decidim::Course.find_by(slug: params[:slug], organization: current_organization)
       end
 
       def current_participatory_space_manifest

@@ -121,11 +121,6 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
-      # Checks if the permission_action is to read in the admin or not.
-      def admin_read_permission_action?
-        permission_action.action == :read
-      end
-
       def user_can_read_current_course?
         return unless read_course_list_permission_action?
         return if permission_action.subject == :course_list
