@@ -40,6 +40,7 @@ ca:
         read_less: Llegir menys
         course_date: Data de la formació
         duration: Durada
+        scope: Àmbit
     admin:
       actions:
         new_course: Nova formació

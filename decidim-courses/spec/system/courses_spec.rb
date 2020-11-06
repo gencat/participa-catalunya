@@ -10,6 +10,7 @@ describe "Courses", type: :system do
   let(:base_course) do
     create(
       :course,
+      :with_scope,
       organization: organization,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       show_statistics: show_statistics
@@ -41,6 +42,7 @@ describe "Courses", type: :system do
             expect(page).to have_content(course.duration)
             expect(page).to have_content(translated(course.modality, locale: :en))
             expect(page).to have_content(course.hashtag)
+            expect(page).to have_content(translated(course.scope.name, locale: :en))
           end
         end
 

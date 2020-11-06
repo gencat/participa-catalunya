@@ -40,6 +40,7 @@ es:
         read_less: Leer menos
         course_date: Fecha de la formación
         duration: Duración
+        scope: Ámbito
     admin:
       actions:
         new_course: Nueva formación
