@@ -10,13 +10,18 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        # Add admin engine routes here
-        # resources :resource_bank do
-        #   collection do
-        #     resources :exports, only: [:create]
-        #   end
-        # end
-        # root to: "resource_bank#index"
+        resources :resource_banks, param: :slug, except: [:show, :destroy]
+      end
+
+      initializer "decidim_resource_banks.admin_menu" do
+        Decidim.menu :admin_menu do |menu|
+          menu.item I18n.t("menu.resource_banks", scope: "decidim.admin"),
+                    decidim_admin_resource_banks.resource_banks_path,
+                    icon_name: "globe",
+                    position: 3.5,
+                    active: :inclusive
+          # TODO: if: allowed_to?(:enter, :space_area, space_name: :resource_bank)
+        end
       end
 
       def load_seed

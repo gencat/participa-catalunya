@@ -1,6 +1,11 @@
 ---
 en:
   decidim:
+    admin:
+      menu:
+        resource_banks: Resource bank
     components:
       resource_banks:
-        name: ResourceBank
+        name: Resource bank
+    menu:
+      resource_banks: Resource bank
