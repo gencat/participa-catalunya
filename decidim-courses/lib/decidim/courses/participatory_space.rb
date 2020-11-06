@@ -14,8 +14,8 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
 
   participatory_space.register_resource(:course) do |resource|
     resource.model_class_name = "Decidim::Course"
-    # resource.card = "decidim/courses/course"
-    # resource.searchable = true
+    resource.card = "decidim/courses/course"
+    resource.searchable = true
   end
 
   participatory_space.context(:public) do |context|

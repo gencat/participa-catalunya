@@ -36,8 +36,8 @@ module Decidim
                         B: :description,
                         datetime: :published_at
                       },
-                      index_on_create: ->(course) { course.visible? },
-                      index_on_update: ->(course) { course.visible? })
+                      index_on_create: ->(course) { course.published? },
+                      index_on_update: ->(course) { course.published? })
 
     def to_param
       slug
@@ -46,6 +46,13 @@ module Decidim
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
       Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+    end
+
+    # Scope to return only the promoted courses.
+    #
+    # Returns an ActiveRecord::Relation.
+    def self.promoted
+      where(promoted: true)
     end
   end
 end

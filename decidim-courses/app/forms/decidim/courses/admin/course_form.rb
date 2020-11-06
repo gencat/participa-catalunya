@@ -23,7 +23,7 @@ module Decidim
         attribute :slug, String
 
         attribute :address, String
-        attribute :course_date, Decidim::Attributes::LocalizedDate
+        attribute :course_date, Decidim::Attributes::TimeWithZone
         attribute :duration, Integer
         attribute :modality, String
         attribute :registration_link, String
