@@ -52,18 +52,10 @@ module Decidim
                       [:course, :participatory_space].include?(permission_action.subject) &&
                       course
 
-        return disallow! unless can_view_private_space?
         return allow! if user&.admin?
         return allow! if course.published?
 
         toggle_allow(can_manage_course?)
-      end
-
-      def can_view_private_space?
-        return true unless course.private_space && !course.is_transparent?
-        return false unless user
-
-        user.admin || course.users.include?(user)
       end
 
       def public_list_members_action?
