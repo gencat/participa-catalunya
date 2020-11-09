@@ -2,7 +2,7 @@
 
 module Decidim
   module ResourceBanks
-    # Custom helpers, scoped to the resource_bank engine.
+    # Custom helpers, scoped to the resource_banks engine.
     #
     module ApplicationHelper
     end

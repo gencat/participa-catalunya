@@ -1,6 +1,4 @@
-# Decidim::ResourceBank
-
-.
+# Decidim::ResourceBanks
 
 ## Usage
 

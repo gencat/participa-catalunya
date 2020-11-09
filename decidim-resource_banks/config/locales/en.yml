@@ -2,5 +2,5 @@
 en:
   decidim:
     components:
-      resource_bank:
+      resource_banks:
         name: ResourceBank
