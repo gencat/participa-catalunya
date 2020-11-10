@@ -41,7 +41,7 @@ describe "Filter Courses", type: :system do
         select I18n.t("modality.online", scope: "decidim.courses"), from: "filter[modality]"
       end
 
-      it "lists all processes belonging to that modality" do
+      it "lists all courses belonging to that modality" do
         within "#courses" do
           expect(page).to have_content(translated(course_online.title))
           expect(page).not_to have_content(translated(course_face_to_face.title))

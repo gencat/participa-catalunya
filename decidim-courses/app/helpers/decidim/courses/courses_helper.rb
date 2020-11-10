@@ -2,7 +2,7 @@
 
 module Decidim
   module Courses
-    # Helpers related to the Assemblies layout.
+    # Helpers related to the Courses layout.
     module CoursesHelper
       include Decidim::ResourceHelper
       include Decidim::AttachmentsHelper
