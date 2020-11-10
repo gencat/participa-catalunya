@@ -5,7 +5,7 @@ require "decidim/core"
 
 module Decidim
   module ResourceBanks
-    # This is the engine that runs on the public interface of resource_bank.
+    # This is the engine that runs on the public interface of resource_banks.
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::ResourceBanks
 
