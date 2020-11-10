@@ -8,8 +8,9 @@ DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
-gem "decidim-courses", path: "./decidim-courses"
 gem "decidim-initiatives", DECIDIM_VERSION
+gem "decidim-courses", path: "./decidim-courses"
+gem "decidim-resource_banks", path: "./decidim-resource_banks"
 
 gem "bootsnap", "~> 1.3"
 
