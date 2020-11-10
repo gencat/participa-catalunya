@@ -55,7 +55,7 @@ module Decidim
             modality: form.modality,
             registration_link: form.registration_link,
             banner_image: form.banner_image,
-            hero_image: form.hero_image,
+            hero_image: form.hero_image
           )
         end
       end

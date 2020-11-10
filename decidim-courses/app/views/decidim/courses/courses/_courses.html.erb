@@ -1,0 +1,19 @@
+<section id="courses" class="section row collapse">
+  <div class="row column">
+    <div class="flex--sbe">
+      <h3 id="courses-count" class="section-heading collapse">
+        <%= render partial: "count" %>
+      </h3>
+    </div>
+    <hr class="reset mt-s mb-s">
+    <div class="row" id="participatory-space-filters">
+      <%= render partial: "filters_small_view" %>
+      <div class="show-for-mediumlarge">
+        <%= render partial: "filters", locals: { checkboxes_on_top: false } %>
+      </div>
+    </div>
+  </div>
+  <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+    <%= render courses %>
+  </div>
+</section>

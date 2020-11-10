@@ -23,7 +23,24 @@ ca:
       decidim/course:
         one: Formació
         other: Formacions
+  layouts:
+    decidim:
+      course_navigation:
+        course_menu_item: La formació
   decidim:
+    course:
+      statistics:
+        headline: Activitat
+      show:
+        address: Adreça
+        registration_link: Enllaç de registre
+        modality: Modalitat
+        minutes: minuts
+        read_more: Llegir més
+        read_less: Llegir menys
+        course_date: Data de la formació
+        duration: Durada
+        scope: Àmbit
     admin:
       actions:
         new_course: Nova formació
@@ -82,9 +99,24 @@ ca:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta formació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Títol
             visbility: Visibilitat
+      filters:
+        select_a_modality: Selecciona una modalitat
+      index:
+        title: Formacions
       modality:
         blended: Mixte
         face-to-face: Presencial
         online: Online
     menu:
       courses: Formacions
+  layouts:
+    decidim:
+      courses:
+        index:
+          promoted_courses: "Formacions destacades"
+        order_by_courses:
+          courses:
+            one: "%{count} formació"
+            other: "%{count} formacions"
+        promoted_course:
+          more_info: "Més informació"

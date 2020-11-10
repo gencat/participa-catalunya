@@ -14,8 +14,8 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
 
   participatory_space.register_resource(:course) do |resource|
     resource.model_class_name = "Decidim::Course"
-    # resource.card = "decidim/courses/course"
-    # resource.searchable = true
+    resource.card = "decidim/courses/course"
+    resource.searchable = true
   end
 
   participatory_space.context(:public) do |context|
@@ -49,11 +49,12 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
         promoted: true,
         published_at: 2.weeks.ago,
         modality: "online",
+        address: Faker::Lorem.word,
         organization: organization,
         scope: n.positive? ? Decidim::Scope.reorder(Arel.sql("RANDOM()")).first : nil,
         created_at: 1.day.from_now,
         duration: Random.new.rand(100),
-        course_date: 2.days.from_now,
+        course_date: 2.days.from_now
       }
 
       course = Decidim.traceability.perform_action!(

@@ -1,0 +1,87 @@
+<% add_decidim_meta_tags({
+                           image_url: current_participatory_space.hero_image.url,
+                           description: translated_attribute(current_participatory_space.description),
+                           url: course_url(current_participatory_space),
+                           twitter_handler: current_organization.twitter_handler
+                         }) %>
+
+<%
+  edit_link(
+    resource_locator(current_participatory_space).edit,
+    :update,
+    :course,
+    course: current_participatory_space
+  )
+%>
+
+<%= participatory_space_floating_help %>
+
+<div class="row column">
+  <div class="row">
+    <div class="columns medium-7 mediumlarge-8">
+      <div class="section">
+        <div class="lead">
+
+        </div>
+        <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
+
+      </div>
+
+      <%= attachments_for current_participatory_space %>
+
+      <%= render_hook(:participatory_space_highlighted_elements) %>
+
+
+    </div>
+
+    <div class="section columns medium-5 mediumlarge-4 large-3">
+      <div class="card extra definition-data">
+        <% if translated_attribute(current_participatory_space.scope).present? %>
+          <div class="definition-data__item scope">
+            <span class="definition-data__title"><%= t("scope", scope: "decidim.course.show") %></span>
+            <%= translated_attribute(current_participatory_space.scope.name) %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_space.course_date.present? %>
+          <div class="definition-data__item course_date">
+            <span class="definition-data__title"><%= t("course_date", scope: "decidim.course.show") %></span>
+            <%= l current_participatory_space.course_date, format: :decidim_short %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_space.duration.present? %>
+          <div class="definition-data__item duration">
+            <span class="definition-data__title"><%= t("duration", scope: "decidim.course.show") %></span>
+            <%= "#{current_participatory_space.duration} #{t("minutes", scope: "decidim.course.show")}" %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_space.modality.present? %>
+          <div class="definition-data__item modality">
+            <span class="definition-data__title"><%= t("modality", scope: "decidim.course.show") %></span>
+            <%= current_participatory_space.modality %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_space.address.present? %>
+          <div class="definition-data__item course_address">
+            <span class="definition-data__title"><%= t("address", scope: "decidim.course.show") %></span>
+            <%= current_participatory_space.address %>
+          </div>
+        <% end %>
+
+        <div class="definition-data__item registration_link">
+          <span class="definition-data__title"><%= t("registration_link", scope: "decidim.course.show") %></span>
+          <%= current_participatory_space.registration_link %>
+        </div>
+      </div>
+      <%= resource_reference(current_participatory_space) %>
+      <%= render partial: "decidim/shared/share_modal" %>
+    </div>
+  </div>
+
+  <% if current_participatory_space.show_statistics? %>
+    <%= render partial: "statistics" %>
+  <% end %>
+</div>
