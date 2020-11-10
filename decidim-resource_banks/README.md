@@ -2,8 +2,7 @@
 
 ## Usage
 
-ResourceBanks will be available as a Component for a Participatory
-Space.
+ResourceBanks will be available as a Participatory Space.
 
 ## Installation
 
