@@ -16,7 +16,6 @@ module Decidim
         if permission_action.scope == :public
           public_list_courses_action?
           public_read_course_action?
-          public_list_members_action?
           public_report_content_action?
           return permission_action
         end
@@ -52,17 +51,9 @@ module Decidim
                       [:course, :participatory_space].include?(permission_action.subject) &&
                       course
 
-        return allow! if user&.admin?
         return allow! if course.published?
 
-        toggle_allow(can_manage_course?)
-      end
-
-      def public_list_members_action?
-        return unless permission_action.action == :list &&
-                      permission_action.subject == :members
-
-        allow!
+        toggle_allow(user&.admin?)
       end
 
       def public_report_content_action?

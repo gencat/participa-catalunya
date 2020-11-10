@@ -28,8 +28,8 @@ module Decidim
                     decidim_admin_courses.courses_path,
                     icon_name: "book",
                     position: 3.5,
-                    active: :inclusive
-          # TODO: if: allowed_to?(:enter, :space_area, space_name: :courses)
+                    active: :inclusive,
+                    if: allowed_to?(:enter, :space_area, space_name: :courses)
         end
       end
 

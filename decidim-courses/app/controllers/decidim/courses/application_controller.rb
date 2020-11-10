@@ -9,6 +9,7 @@ module Decidim
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::ApplicationController
       helper Decidim::ApplicationHelper
+      helper Decidim::Courses::CoursesHelper
       include NeedsPermission
 
       register_permissions(Decidim::Courses::ApplicationController,

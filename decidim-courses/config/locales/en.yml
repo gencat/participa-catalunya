@@ -99,9 +99,24 @@ en:
             slug_help: 'URL slugs are used to generate the URLs that point to this course. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
             visbility: Visibility
+      filters:
+        select_a_modality: Select a modality
+      index:
+        title: Courses
       modality:
         blended: Blended
         face-to-face: Face to face
         online: Online
     menu:
       courses: Courses
+  layouts:
+    decidim:
+      courses:
+        index:
+          promoted_courses: "Highlighted courses"
+        order_by_courses:
+          courses:
+            one: "%{count} course"
+            other: "%{count} courses"
+        promoted_course:
+          more_info: "More info"

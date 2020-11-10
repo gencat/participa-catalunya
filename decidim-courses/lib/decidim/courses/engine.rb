@@ -22,7 +22,7 @@ module Decidim
           menu.item I18n.t("menu.courses", scope: "decidim"),
                     decidim_courses.courses_path,
                     position: 3.5,
-                    # TODO: if: Decidim::Assembly.where(organization: current_organization).published.any?,
+                    if: Decidim::Course.where(organization: current_organization).published.any?,
                     active: :inclusive
         end
       end

@@ -1,0 +1,14 @@
+<%= filter_form_for filter do |form| %>
+  <div class="columns mediumlarge-6 large-5">
+    <%= scopes_picker_filter form, :scope_id, checkboxes_on_top %>
+  </div>
+  <div class="columns mediumlarge-6 large-5">
+    <div class="filters__section modality_modalities_select_filter">
+      <fieldset>
+        <legend class="mini-title"><%= t("modality", scope: "activemodel.attributes.course") %></legend>
+        <%= modalities_select_field(form, :modality) %>
+      </fieldset>
+    </div>
+  </div>
+<% end %>
+
