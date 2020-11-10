@@ -23,7 +23,24 @@ es:
       decidim/course:
         one: Formación
         other: Formaciones
+  layouts:
+    decidim:
+      course_navigation:
+        course_menu_item: La formación
   decidim:
+    course:
+      statistics:
+        headline: Actividad
+      show:
+        address: Dirección
+        registration_link: Enlace de registro
+        modality: Modalidad
+        minutes: minutos
+        read_more: Leer más
+        read_less: Leer menos
+        course_date: Fecha de la formación
+        duration: Duración
+        scope: Ámbito
     admin:
       actions:
         new_course: Nueva formación

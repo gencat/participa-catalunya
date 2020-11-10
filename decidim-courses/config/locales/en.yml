@@ -23,7 +23,24 @@ en:
       decidim/course:
         one: Course
         other: Courses
+  layouts:
+    decidim:
+      course_navigation:
+        course_menu_item: The Course
   decidim:
+    course:
+      statistics:
+        headline: Activity
+      show:
+        address: Address
+        registration_link: Registration_link
+        modality: Modality
+        minutes: minutes
+        read_more: Read more
+        read_less: Read less
+        course_date: Course date
+        duration: Duration
+        scope: Scope
     admin:
       actions:
         new_course: New course

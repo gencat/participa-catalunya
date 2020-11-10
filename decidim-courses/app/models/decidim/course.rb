@@ -21,8 +21,8 @@ module Decidim
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
 
-    mount_uploader :banner_image, Decidim::BannerImageUploader
     mount_uploader :hero_image, Decidim::HeroImageUploader
+    mount_uploader :banner_image, Decidim::BannerImageUploader
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
 
@@ -36,7 +36,6 @@ module Decidim
                         B: :description,
                         datetime: :published_at
                       },
-                      index_on_create: ->(_course) { false },
                       index_on_create: ->(course) { course.visible? },
                       index_on_update: ->(course) { course.visible? })
 

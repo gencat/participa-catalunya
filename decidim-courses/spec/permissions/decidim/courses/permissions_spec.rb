@@ -52,7 +52,7 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true,
+      org_admin: true
     )
   end
 
@@ -64,7 +64,7 @@ describe Decidim::Courses::Permissions do
     it_behaves_like(
       "access for roles",
       org_admin: true,
-      admin: true,
+      admin: true
     )
   end
 
@@ -75,7 +75,7 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true,
+      org_admin: true
     )
   end
 
@@ -87,7 +87,7 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true,
+      org_admin: true
     )
   end
 
@@ -99,7 +99,7 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true,
+      org_admin: true
     )
   end
 
@@ -110,7 +110,7 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true,
+      org_admin: true
     )
   end
 
@@ -124,7 +124,7 @@ describe Decidim::Courses::Permissions do
 
       it_behaves_like(
         "access for roles",
-        org_admin: true,
+        org_admin: true
       )
     end
 
