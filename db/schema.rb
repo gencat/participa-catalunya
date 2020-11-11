@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_14_084122) do
+ActiveRecord::Schema.define(version: 2020_11_11_083318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1275,6 +1275,25 @@ ActiveRecord::Schema.define(version: 2020_10_14_084122) do
     t.index ["decidim_moderation_id", "decidim_user_id"], name: "decidim_reports_moderation_user_unique", unique: true
     t.index ["decidim_moderation_id"], name: "decidim_reports_moderation"
     t.index ["decidim_user_id"], name: "decidim_reports_user"
+  end
+
+  create_table "decidim_resource_banks", force: :cascade do |t|
+    t.string "hashtag"
+    t.string "hero_image"
+    t.string "banner_image"
+    t.boolean "promoted", default: false
+    t.boolean "show_statistics", default: false
+    t.integer "decidim_organization_id"
+    t.jsonb "title", null: false
+    t.jsonb "text", null: false
+    t.string "video"
+    t.string "authorship"
+    t.string "slug", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "published_at"
+    t.index ["decidim_organization_id", "slug"], name: "index_unique_resource_banks_slug_and_organization", unique: true
+    t.index ["decidim_organization_id"], name: "index_decidim_resource_banks_on_decidim_organization_id"
   end
 
   create_table "decidim_resource_links", id: :serial, force: :cascade do |t|
