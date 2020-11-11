@@ -5,7 +5,7 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
   participatory_space.model_class_name = "Decidim::ResourceBank"
 
   participatory_space.participatory_spaces do |organization|
-    Decidim::ResourceBanks.where(organization: organization)
+    Decidim::ResourceBank.where(organization: organization)
   end
 
   participatory_space.permissions_class_name = "Decidim::ResourceBanks::Permissions"

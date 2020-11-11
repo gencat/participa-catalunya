@@ -36,6 +36,69 @@ describe Decidim::Courses::Permissions do
     it_behaves_like "permission is not set"
   end
 
+  context "when the action is for the public part" do
+    context "when reading a course" do
+      let(:action) do
+        { scope: :public, action: :read, subject: :course }
+      end
+      let(:context) { { course: course } }
+
+      context "when the user is an admin" do
+        let(:user) { create :user, :admin }
+
+        it { is_expected.to eq true }
+      end
+
+      context "when the course is published" do
+        let(:user) { create :user, organization: organization }
+
+        it { is_expected.to eq true }
+      end
+
+      context "when the course is not published" do
+        let(:user) { create :user, organization: organization }
+        let(:course) { create :course, :unpublished, organization: organization }
+
+        context "when the user doesn't have access to it" do
+          it { is_expected.to eq false }
+        end
+      end
+    end
+
+    context "when listing courses" do
+      let(:action) do
+        { scope: :public, action: :list, subject: :course }
+      end
+
+      it { is_expected.to eq true }
+    end
+
+    context "when reporting a resource" do
+      let(:action) do
+        { scope: :public, action: :create, subject: :moderation }
+      end
+
+      it { is_expected.to eq true }
+    end
+
+    context "when any other action" do
+      let(:action) do
+        { scope: :public, action: :foo, subject: :bar }
+      end
+
+      it_behaves_like "permission is not set"
+    end
+  end
+
+  context "when no user is given" do
+    let(:user) { nil }
+    let(:action) do
+      { scope: :admin, action: :read, subject: :dummy_resource }
+    end
+
+    it_behaves_like "permission is not set"
+  end
+
   context "when the scope is not public" do
     let(:action) do
       { scope: :foo, action: :read, subject: :dummy_resource }
@@ -52,7 +115,7 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true,
+      org_admin: true
     )
   end
 
@@ -64,7 +127,7 @@ describe Decidim::Courses::Permissions do
     it_behaves_like(
       "access for roles",
       org_admin: true,
-      admin: true,
+      admin: true
     )
   end
 
@@ -75,7 +138,7 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true,
+      org_admin: true
     )
   end
 
@@ -87,7 +150,7 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true,
+      org_admin: true
     )
   end
 
@@ -99,7 +162,7 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true,
+      org_admin: true
     )
   end
 
@@ -110,7 +173,7 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true,
+      org_admin: true
     )
   end
 
@@ -124,7 +187,7 @@ describe Decidim::Courses::Permissions do
 
       it_behaves_like(
         "access for roles",
-        org_admin: true,
+        org_admin: true
       )
     end
 
@@ -149,6 +212,7 @@ describe Decidim::Courses::Permissions do
 
       it_behaves_like "allows any action on subject", :attachment
       it_behaves_like "allows any action on subject", :attachment_collection
+      it_behaves_like "allows any action on subject", :course
     end
   end
 end

@@ -1,0 +1,23 @@
+
+<% add_decidim_meta_tags(title: t("courses.index.title", scope: "decidim")) %>
+
+<%
+edit_link(
+  decidim_admin_courses.courses_path,
+  :read,
+  :course_list
+)
+%>
+
+<%= participatory_space_wrapper do %>
+  <% if promoted_courses.any? %>
+    <section id="highlighted-courses" class="row section">
+      <h1 class="section-heading"><%= t("courses.index.promoted_courses", scope: "layouts.decidim") %></h1>
+      <%= render partial: "promoted_course", collection: promoted_courses, as: :promoted_course %>
+    </section>
+  <% end %>
+
+  <%= render partial: "courses" %>
+<% end %>
+
+<%= javascript_include_tag "decidim/filters" %>

@@ -2,6 +2,8 @@ version: '3'
 services:
   app:
     image: decidim/decidim:0.22.0-test
+    tty: true
+    stdin_open: true
     volumes:
       - .:/code
       - bundle:/usr/local/bundle

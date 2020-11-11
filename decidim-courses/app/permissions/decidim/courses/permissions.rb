@@ -13,9 +13,16 @@ module Decidim
           return permission_action
         end
 
+        if permission_action.scope == :public
+          public_list_courses_action?
+          public_read_course_action?
+          public_report_content_action?
+          return permission_action
+        end
+
         return permission_action unless user
 
-        if !user.admin?
+        unless user.admin?
           disallow!
           return permission_action
         end
@@ -30,6 +37,30 @@ module Decidim
         org_admin_action?
 
         permission_action
+      end
+
+      def public_list_courses_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :course
+
+        allow!
+      end
+
+      def public_read_course_action?
+        return unless permission_action.action == :read &&
+                      [:course, :participatory_space].include?(permission_action.subject) &&
+                      course
+
+        return allow! if course.published?
+
+        toggle_allow(user&.admin?)
+      end
+
+      def public_report_content_action?
+        return unless permission_action.action == :create &&
+                      permission_action.subject == :moderation
+
+        allow!
       end
 
       # All users with a relation to a course and organization admins can enter
@@ -73,11 +104,6 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
-      # Checks if the permission_action is to read in the admin or not.
-      def admin_read_permission_action?
-        permission_action.action == :read
-      end
-
       def user_can_read_current_course?
         return unless read_course_list_permission_action?
         return if permission_action.subject == :course_list
@@ -94,7 +120,7 @@ module Decidim
           :category,
           :component,
           :component_data,
-          :course,
+          :course
         ].include?(permission_action.subject)
 
         allow! if is_allowed

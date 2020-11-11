@@ -23,7 +23,24 @@ es:
       decidim/course:
         one: Formación
         other: Formaciones
+  layouts:
+    decidim:
+      course_navigation:
+        course_menu_item: La formación
   decidim:
+    course:
+      statistics:
+        headline: Actividad
+      show:
+        address: Dirección
+        registration_link: Enlace de registro
+        modality: Modalidad
+        minutes: minutos
+        read_more: Leer más
+        read_less: Leer menos
+        course_date: Fecha de la formación
+        duration: Duración
+        scope: Ámbito
     admin:
       actions:
         new_course: Nueva formación
@@ -82,9 +99,24 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta formación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             visbility: Visibilidad
+      filters:
+        select_a_modality: Selecciona una modalidad
+      index:
+        title: Formaciones
       modality:
         blended: Mixto
         face-to-face: Presencial
         online: Online
     menu:
       courses: Formaciones
+  layouts:
+    decidim:
+      courses:
+        index:
+          promoted_courses: "Formaciones destacadas"
+        order_by_courses:
+          courses:
+            one: "%{count} formación"
+            other: "%{count} formaciones"
+        promoted_course:
+          more_info: "Más información"

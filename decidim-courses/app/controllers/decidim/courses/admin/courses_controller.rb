@@ -24,7 +24,7 @@ module Decidim
           @form = form(CourseForm).from_params(params)
 
           CreateCourse.call(@form) do
-            on(:ok) do |course|
+            on(:ok) do |_course|
               flash[:notice] = I18n.t("courses.create.success", scope: "decidim.admin")
               redirect_to courses_path
             end

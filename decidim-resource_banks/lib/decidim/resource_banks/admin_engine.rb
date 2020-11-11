@@ -2,7 +2,7 @@
 
 module Decidim
   module ResourceBanks
-    # This is the engine that runs on the public interface of `ResourceBank`.
+    # This is the engine that runs on the public interface of `ResourceBanks`.
     class AdminEngine < ::Rails::Engine
       isolate_namespace Decidim::ResourceBanks::Admin
 
