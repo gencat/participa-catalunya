@@ -15,8 +15,6 @@ module Decidim
     include Decidim::Randomable
     include Decidim::Searchable
 
-    MODALITIES = %w(face-to-face online blended).freeze
-
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
