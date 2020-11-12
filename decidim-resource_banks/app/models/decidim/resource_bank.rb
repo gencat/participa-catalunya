@@ -9,7 +9,7 @@ module Decidim
     include Decidim::Scopable
     include Decidim::HasAttachments
     include Decidim::HasAttachmentCollections
-    include Decidim::Resourceable
+    include Decidim::ParticipatorySpaceResourceable
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::Randomable
