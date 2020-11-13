@@ -9,7 +9,7 @@ module Decidim
     include Decidim::Scopable
     include Decidim::HasAttachments
     include Decidim::HasAttachmentCollections
-    include Decidim::Resourceable
+    include Decidim::ParticipatorySpaceResourceable
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::Randomable
@@ -36,8 +36,8 @@ module Decidim
                         B: :description,
                         datetime: :published_at
                       },
-                      index_on_create: ->(course) { course.published? },
-                      index_on_update: ->(course) { course.published? })
+                      index_on_create: ->(_course) { false },
+                      index_on_update: ->(course) { course.visible? })
 
     def to_param
       slug
