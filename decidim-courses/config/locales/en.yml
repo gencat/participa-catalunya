@@ -23,10 +23,6 @@ en:
       decidim/course:
         one: Course
         other: Courses
-  layouts:
-    decidim:
-      course_navigation:
-        course_menu_item: The Course
   decidim:
     course:
       statistics:
@@ -110,6 +106,8 @@ en:
     menu:
       courses: Courses
   layouts:
+    course_navigation:
+      course_menu_item: The Course
     decidim:
       courses:
         index:
