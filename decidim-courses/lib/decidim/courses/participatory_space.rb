@@ -25,7 +25,7 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
 
   participatory_space.context(:admin) do |context|
     context.engine = Decidim::Courses::AdminEngine
-    # context.layout = "layouts/decidim/admin/course"
+    context.layout = "layouts/decidim/admin/course"
   end
 
   participatory_space.register_on_destroy_account do |user|
