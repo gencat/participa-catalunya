@@ -1,11 +1,92 @@
 ---
 es:
+  activemodel:
+    attributes:
+      resource_bank:
+        authorship: Autoría
+        banner_image: Imagen de banner
+        hashtag: Hashtag
+        hero_image: Imagen de portada
+        promoted: Destacado
+        published_at: Publicado el
+        slug: Texto corto de URL
+        text: Descripción
+        title: Título
+        video: Vídeo
+  activerecord:
+    models:
+      decidim/resource_bank:
+        one: Banco de recursos
+        other: Bancos de recursos
   decidim:
     admin:
+      actions:
+        new_resource_bank: Nuevo banco de recusos
+      resource_banks:
+        create:
+          error: Se ha producido un error al crear un nuevo banco de recusos.
+          success: Banco de recusos creado correctamente.
+        edit:
+          update: Actualizar
+        index:
+          not_published: No publicado
+          published: Publicado
+        new:
+          create: Crear
+          title: Nueva banco de recusos
+        update:
+          error: Se ha producido un error al actualizar este banco de recusos.
+          success: La banco de recusos se ha actualizado correctamente.
+      resource_bank_publications:
+        create:
+          error: Se ha producido un error al publicar este banco de recusos.
+          success: Banco de recusos publicado correctamente.
+        destroy:
+          error: Se ha producido un error al despublicar este banco de recusos.
+          success: Banco de recusos despublicado correctamente.
       menu:
-        resource_banks: Banco de recursos
+        resource_banks: Bancos de recursos
+        resource_banks_submenu:
+          attachment_collections: Carpetas
+          attachment_files: Archivos
+          attachments: Adjuntos
+          info: Información
+      models:
+        resource_bank:
+          fields:
+            promoted: Destacado
+            published: Publicado
+            title: Título
+          name: Banco de recusos
+      titles:
+        resource_banks: Bancos de recursos
     components:
       resource_banks:
-        name: Banco de recursos
+        name: Banco de recusos
+    resource_banks:
+      admin:
+        resource_banks:
+          form:
+            filters: Filtros
+            images: Imágenes
+            other: Otro
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta banco de recusos. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            title: Título
+            visbility: Visibilidad
+      index:
+        title: Banco de recusos
     menu:
-      resource_banks: Banco de recursos
+      resource_banks: Bancos de recusos
+  layouts:
+    decidim:
+      resource_bank_navigation:
+        resource_bank_menu_item: El banco de recursos
+      resource_banks:
+        index:
+          promoted_resource_banks: "Bancos de recursos destacados"
+        order_by_resource_banks:
+          resource_banks:
+            one: "%{count} banco de recursos"
+            other: "%{count} bancos de recursos"
+        promoted_resource_bank:
+          more_info: "Más información"

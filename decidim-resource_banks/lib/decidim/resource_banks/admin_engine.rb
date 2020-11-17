@@ -19,8 +19,8 @@ module Decidim
                     decidim_admin_resource_banks.resource_banks_path,
                     icon_name: "globe",
                     position: 3.5,
-                    active: :inclusive
-          # TODO: if: allowed_to?(:enter, :space_area, space_name: :resource_bank)
+                    active: :inclusive,
+                    if: allowed_to?(:enter, :space_area, space_name: :resource_banks)
         end
       end
 

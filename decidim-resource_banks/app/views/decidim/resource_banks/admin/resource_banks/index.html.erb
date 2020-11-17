@@ -1,0 +1,70 @@
+<div class="card with-overflow" id="resource_banks">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("resource_banks", scope: "decidim.admin.titles") %>
+
+      <% if allowed_to? :create, :resource_bank %>
+        <%= link_to t("actions.new_resource_bank", scope: "decidim.admin"),
+                    new_resource_bank_path,
+                    class: "button tiny button--title" %>
+      <% end %>
+    </h2>
+  </div>
+  <%= admin_filter_selector %>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th>
+              <%= sort_link(query, :title, t("models.resource_bank.fields.title", scope: "decidim.admin")) %>
+            </th>
+            <th class="table-list__actions">
+              <%= sort_link(query, :published_at, t("models.resource_bank.fields.published", scope: "decidim.admin")) %>
+            </th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @resource_banks.each do |resource_bank| %>
+            <tr>
+              <td>
+                <% if resource_bank.promoted? %>
+                  <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="<%= t("models.resource_bank.fields.promoted", scope: "decidim.admin") %>">
+                    <%= icon "star", role: "img", "aria-hidden": true %>
+                  </span>
+                <% end %>
+                <% if allowed_to? :update, :resource_bank, resource_bank: resource_bank %>
+                  <%= link_to translated_attribute(resource_bank.title), edit_resource_bank_path(resource_bank) %><br>
+                <% elsif allowed_to? :read, :component, resource_bank: resource_bank %>
+                  <%= link_to translated_attribute(resource_bank.title), components_path(resource_bank) %><br>
+                <% elsif allowed_to? :preview, :resource_bank, resource_bank: resource_bank %>
+                  <%= link_to translated_attribute(resource_bank.title), decidim_resource_banks.resource_bank_path(resource_bank) %><br>
+                <% else %>
+                  <%= translated_attribute(resource_bank.title) %>
+                <% end %>
+              </td>
+              <td class="table-list__state">
+                <% if resource_bank.published? %>
+                  <strong class="text-success"><%= t("resource_banks.index.published", scope: "decidim.admin") %></strong>
+                <% else %>
+                  <strong class="text-alert"><%= t("resource_banks.index.not_published", scope: "decidim.admin") %></strong>
+                <% end %>
+              </td>
+              <td class="table-list__actions">
+                <% if allowed_to? :update, :resource_bank, resource_bank: resource_bank %>
+                  <%= icon_link_to "pencil", edit_resource_bank_path(resource_bank), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                <% end %>
+
+                <% if allowed_to? :preview, :resource_bank, resource_bank: resource_bank %>
+                  <%= icon_link_to "eye", decidim_resource_banks.resource_bank_path(resource_bank), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @resource_banks, theme: "decidim" %>
+    </div>
+  </div>
+</div>

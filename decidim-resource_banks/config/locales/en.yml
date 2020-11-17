@@ -1,11 +1,92 @@
 ---
 en:
+  activemodel:
+    attributes:
+      resource_bank:
+        authorship: Authorship
+        banner_image: Banner image
+        hashtag: Hashtag
+        hero_image: Home image
+        promoted: Highlighted
+        published_at: Published at
+        slug: URL slug
+        text: Description
+        title: Title
+        video: Video
+  activerecord:
+    models:
+      decidim/resource_bank:
+        one: Resource bank
+        other: Resource banks
   decidim:
     admin:
+      actions:
+        new_resource_bank: New resource bank
+      resource_banks:
+        create:
+          error: There was a problem creating a new resource bank.
+          success: Resource bank created successfully.
+        edit:
+          update: Update
+        index:
+          not_published: Not published
+          published: Published
+        new:
+          create: Create
+          title: New resource bank
+        update:
+          error: There was a problem updating this resource bank.
+          success: Resource bank successfully updated.
+      resource_bank_publications:
+        create:
+          error: There was a problem publishing this resource bank.
+          success: Resource bank successfully published.
+        destroy:
+          error: There was a problem unpublishing this resource bank.
+          success: Resource bank successfully unpublished.
       menu:
-        resource_banks: Resource bank
+        resource_banks: Resource banks
+        resource_banks_submenu:
+          attachment_collections: Folders
+          attachment_files: Files
+          attachments: Attachments
+          info: Info
+      models:
+        resource_bank:
+          fields:
+            promoted: Promoted
+            published: Published
+            title: Title
+          name: Resource bank
+      titles:
+        resource_banks: Resource banks
     components:
       resource_banks:
         name: Resource bank
+    resource_banks:
+      admin:
+        resource_banks:
+          form:
+            filters: Filters
+            images: Images
+            other: Other
+            slug_help: 'URL slugs are used to generate the URLs that point to this resource_bank. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            title: Title
+            visbility: Visibility
+      index:
+        title: Resource banks
     menu:
-      resource_banks: Resource bank
+      resource_banks: Resource banks
+  layouts:
+    decidim:
+      resource_bank_navigation:
+        resource_bank_menu_item: The Resource bank
+      resource_banks:
+        index:
+          promoted_resource_banks: "Highlighted resource banks"
+        order_by_resource_banks:
+          resource_banks:
+            one: "%{count} resource bank"
+            other: "%{count} resource banks"
+        promoted_resource_bank:
+          more_info: "More info"

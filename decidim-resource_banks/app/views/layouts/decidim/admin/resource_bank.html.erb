@@ -1,0 +1,24 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav secondary-nav--subnav">
+    <ul>
+      <%= public_page_link decidim_resource_banks.resource_bank_path(current_participatory_space) %>
+      <% if allowed_to? :update, :resource_bank, resource_bank: current_participatory_space %>
+        <li <% if is_active_link?(decidim_admin_resource_banks.edit_resource_bank_path(current_participatory_space)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.resource_banks_submenu"), decidim_admin_resource_banks.edit_resource_bank_path(current_participatory_space) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= link_to translated_attribute(current_participatory_space.title), decidim_resource_banks.resource_bank_path(current_participatory_space), target: "_blank" %>
+    </div>
+  </div>
+
+  <div class="process-content">
+    <%= yield %>
+  </div>
+<% end %>

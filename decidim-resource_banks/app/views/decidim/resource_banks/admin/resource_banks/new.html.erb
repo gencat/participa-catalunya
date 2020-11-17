@@ -1,0 +1,11 @@
+<h2 class="resource_bank-title-summary">
+  <%= t "resource_banks.new.title", scope: "decidim.admin" %>
+</h2>
+
+<%= decidim_form_for(@form, html: { class: "form new_resource_bank resource_bank_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("resource_banks.new.create", scope: "decidim.admin") %>
+  </div>
+<% end %>
