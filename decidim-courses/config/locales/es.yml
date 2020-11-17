@@ -23,10 +23,6 @@ es:
       decidim/course:
         one: Formación
         other: Formaciones
-  layouts:
-    decidim:
-      course_navigation:
-        course_menu_item: La formación
   decidim:
     course:
       statistics:
@@ -111,6 +107,8 @@ es:
       courses: Formaciones
   layouts:
     decidim:
+      course_navigation:
+        course_menu_item: La formación
       courses:
         index:
           promoted_courses: "Formaciones destacadas"
