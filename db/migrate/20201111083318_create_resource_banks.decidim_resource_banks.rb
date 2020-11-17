@@ -13,7 +13,7 @@ class CreateResourceBanks < ActiveRecord::Migration[5.2]
 
       t.jsonb :title, null: false
       t.jsonb :text, null: false
-      t.string :video
+      t.string :video_url
       t.string :authorship
       t.string :slug, null: false
       t.datetime :created_at, null: false

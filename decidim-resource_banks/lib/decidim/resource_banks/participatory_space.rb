@@ -25,7 +25,7 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
 
   participatory_space.context(:admin) do |context|
     context.engine = Decidim::ResourceBanks::AdminEngine
-    # context.layout = "layouts/decidim/admin/resource_bank"
+    context.layout = "layouts/decidim/admin/resource_bank"
   end
 
   participatory_space.register_on_destroy_account do |user|
@@ -44,13 +44,13 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
         text: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        video: Faker::Lorem.word,
+        video_url: Faker::Internet.url,
         promoted: true,
         hero_image: File.new(File.join(seeds_root, "city.jpeg")),
         banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
         published_at: 2.weeks.ago,
         organization: organization,
-        authorship: Decidim::Faker::Localized.sentence(3),
+        authorship: Faker::Name.name,
         created_at: 1.day.from_now,
       }
 

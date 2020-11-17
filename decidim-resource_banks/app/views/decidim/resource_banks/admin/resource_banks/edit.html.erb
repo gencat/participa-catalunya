@@ -1,0 +1,14 @@
+<%= decidim_form_for(@form, html: { class: "form edit_resource_bank resource_bank_form_admin" }) do |f| %>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t("resource_banks.edit.update", scope: "decidim.admin"), class: "button" %>
+
+    <% if allowed_to? :publish, :resource_bank, resource_bank: current_resource_bank %>
+      <% if current_resource_bank.published? %>
+        <%= link_to t("actions.unpublish", scope: "decidim.admin"), resource_bank_publish_path(current_resource_bank), method: :delete, class: "button muted" %>
+      <% else %>
+        <%= link_to t("actions.publish", scope: "decidim.admin"), resource_bank_publish_path(current_resource_bank), method: :post, class: "button hollow" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

@@ -6,7 +6,6 @@ module Decidim
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::HasCategory
-    include Decidim::Scopable
     include Decidim::HasAttachments
     include Decidim::HasAttachmentCollections
     include Decidim::ParticipatorySpaceResourceable
@@ -28,13 +27,12 @@ module Decidim
     validates :slug, presence: true, format: { with: Decidim::ResourceBank.slug_format }
 
     searchable_fields({
-                        scope_id: :decidim_scope_id,
                         participatory_space: :itself,
                         A: :title,
                         B: :description,
                         datetime: :published_at
                       },
-                      index_on_create: ->(bank) { bank.visible? },
+                      index_on_create: ->(_bank) { false },
                       index_on_update: ->(bank) { bank.visible? })
 
     def to_param

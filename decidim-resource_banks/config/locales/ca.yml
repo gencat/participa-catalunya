@@ -1,11 +1,92 @@
 ---
 ca:
+  activemodel:
+    attributes:
+      resource_bank:
+        authorship: Autoria
+        banner_image: Imatge de bàner
+        hashtag: Hashtag
+        hero_image: Imatge de portada
+        promoted: Destacat
+        published_at: Publicat el
+        slug: Nom curt d'URL
+        text: Descripció
+        title: Títol
+        video_url: URL del vídeo
+  activerecord:
+    models:
+      decidim/resource_bank:
+        one: Banc de recursos
+        other: Bancs de recursos
   decidim:
     admin:
+      actions:
+        new_resource_bank: Nou banc de recusos
+      resource_banks:
+        create:
+          error: S'ha produït un error en crear un nou banc de recusos.
+          success: Banc de recusos creat correctament.
+        edit:
+          update: Actualitzar
+        index:
+          not_published: No publicat
+          published: Publicat
+        new:
+          create: Crear
+          title: Nou banc de recusos
+        update:
+          error: S'ha produït un error en actualitzar aquest banc de recusos.
+          success: El banc de recusos s'ha actualitzat correctament.
+      resource_bank_publications:
+        create:
+          error: S'ha produït un error en publicar aquest banc de recusos.
+          success: Banc de recusos publicat correctament.
+        destroy:
+          error: S'ha produït un error en publicar aquest banc de recusos.
+          success: Banc de recusos despublicat correctament.
       menu:
-        resource_banks: Banc de recursos
+        resource_banks: Bancs de recursos
+        resource_banks_submenu:
+          attachment_collections: Carpetes
+          attachment_files: Fitxers
+          attachments: Adjunts
+          info: Informació
+      models:
+        resource_bank:
+          fields:
+            promoted: Destacada
+            published: Publicat
+            title: Títol
+          name: Banc de recusos
+      titles:
+        resource_banks: Bancs de recursos
     components:
       resource_banks:
-        name: Banc de recursos
+        name: Banc de recusos
+    resource_banks:
+      admin:
+        resource_banks:
+          form:
+            filters: Filtres
+            images: Imatges
+            other: Altre
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta banc de recusos. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            title: Títol
+            visbility: Visibilitat
+      index:
+        title: Bancs de recursos
     menu:
-      resource_banks: Banc de recursos
+      resource_banks: Bancs de recursos
+  layouts:
+    decidim:
+      resource_bank_navigation:
+        resource_bank_menu_item: El banc de recursos
+      resource_banks:
+        index:
+          promoted_resource_banks: "Bancs de recursos destacades"
+        order_by_resource_banks:
+          resource_banks:
+            one: "%{count} banc de recursos"
+            other: "%{count} bancs de recursos"
+        promoted_resource_bank:
+          more_info: "Més informació"

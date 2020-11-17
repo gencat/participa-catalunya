@@ -10,7 +10,12 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :resource_banks, param: :slug, except: [:show, :destroy]
+        resources :resource_banks, param: :slug, except: [:show, :destroy] do
+          resource :publish, controller: "resource_bank_publications", only: [:create, :destroy]
+
+          resources :attachment_collections, controller: "resource_bank_attachment_collections"
+          resources :attachments, controller: "resource_bank_attachments"
+        end
       end
 
       initializer "decidim_resource_banks.admin_menu" do
@@ -19,8 +24,8 @@ module Decidim
                     decidim_admin_resource_banks.resource_banks_path,
                     icon_name: "globe",
                     position: 3.5,
-                    active: :inclusive
-          # TODO: if: allowed_to?(:enter, :space_area, space_name: :resource_bank)
+                    active: :inclusive,
+                    if: allowed_to?(:enter, :space_area, space_name: :resource_banks)
         end
       end
 
