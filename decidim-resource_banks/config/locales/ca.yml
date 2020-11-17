@@ -12,7 +12,7 @@ ca:
         slug: Nom curt d'URL
         text: Descripció
         title: Títol
-        video: Vídeo
+        video_url: URL del vídeo
   activerecord:
     models:
       decidim/resource_bank:

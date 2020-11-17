@@ -12,7 +12,7 @@ es:
         slug: Texto corto de URL
         text: Descripción
         title: Título
-        video: Vídeo
+        video_url: URL del vídeo
   activerecord:
     models:
       decidim/resource_bank:

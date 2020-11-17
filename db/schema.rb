@@ -1286,7 +1286,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_083318) do
     t.integer "decidim_organization_id"
     t.jsonb "title", null: false
     t.jsonb "text", null: false
-    t.string "video"
+    t.string "video_url"
     t.string "authorship"
     t.string "slug", null: false
     t.datetime "created_at", null: false

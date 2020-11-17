@@ -46,7 +46,7 @@ module Decidim
             promoted: form.promoted,
             show_statistics: form.show_statistics,
             slug: form.slug,
-            video: form.video,
+            video_url: form.video_url,
             authorship: form.authorship,
             banner_image: form.banner_image,
             hero_image: form.hero_image

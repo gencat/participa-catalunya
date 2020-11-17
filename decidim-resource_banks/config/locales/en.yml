@@ -12,7 +12,7 @@ en:
         slug: URL slug
         text: Description
         title: Title
-        video: Video
+        video_url: Video URL
   activerecord:
     models:
       decidim/resource_bank:

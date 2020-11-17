@@ -20,7 +20,7 @@ module Decidim
         attribute :slug, String
 
         attribute :authorship, String
-        attribute :video, String
+        attribute :video_url, String
 
         attribute :banner_image
         attribute :hero_image
@@ -30,6 +30,7 @@ module Decidim
         validates :slug, presence: true, format: { with: Decidim::ResourceBank.slug_format }
 
         validate :slug_uniqueness
+        validate :video_url_format
 
         validates :title, :text, translatable_presence: true
 
@@ -41,6 +42,14 @@ module Decidim
                   file_content_type: { allow: ["image/jpeg", "image/png"] }
 
         alias organization current_organization
+
+        def video_url
+          return if super.blank?
+
+          return "http://#{super}" unless super.match?(%r{\A(http|https)://}i)
+
+          super
+        end
 
         private
 
@@ -55,6 +64,15 @@ module Decidim
                         .any?
 
           errors.add(:slug, :taken)
+        end
+
+        def video_url_format
+          return if video_url.blank?
+
+          uri = URI.parse(video_url)
+          errors.add :video_url, :invalid if !uri.is_a?(URI::HTTP) || uri.host.nil?
+        rescue URI::InvalidURIError
+          errors.add :video_url, :invalid
         end
       end
     end

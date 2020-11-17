@@ -44,7 +44,7 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
         text: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        video: Faker::Lorem.word,
+        video_url: Faker::Internet.url,
         promoted: true,
         hero_image: File.new(File.join(seeds_root, "city.jpeg")),
         banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
