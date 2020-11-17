@@ -1,0 +1,11 @@
+---
+es:
+  decidim:
+    admin:
+      menu:
+        resource_banks: Banco de recursos
+    components:
+      resource_banks:
+        name: Banco de recursos
+    menu:
+      resource_banks: Banco de recursos

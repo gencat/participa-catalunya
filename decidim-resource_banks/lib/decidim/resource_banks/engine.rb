@@ -10,13 +10,21 @@ module Decidim
       isolate_namespace Decidim::ResourceBanks
 
       routes do
-        # Add engine routes here
-        # resources :resource_bank
-        # root to: "resource_bank#index"
+        resources :resource_banks, only: [:index, :show], param: :slug, path: "resource-banks"
       end
 
       initializer "decidim_resource_banks.assets" do |app|
         app.config.assets.precompile += %w[decidim_resource_banks_manifest.js decidim_resource_banks_manifest.css]
+      end
+
+      initializer "decidim_resource_banks.menu" do
+        Decidim.menu :menu do |menu|
+          menu.item I18n.t("menu.resource_banks", scope: "decidim"),
+                    decidim_resource_banks.resource_banks_path,
+                    position: 3.5,
+                    if: Decidim::ResourceBank.where(organization: current_organization).published.any?,
+                    active: :inclusive
+        end
       end
     end
   end
