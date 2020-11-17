@@ -10,7 +10,9 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :resource_banks, param: :slug, except: [:show, :destroy]
+        resources :resource_banks, param: :slug, except: [:show, :destroy] do
+          resource :publish, controller: "resource_bank_publications", only: [:create, :destroy]
+        end
       end
 
       initializer "decidim_resource_banks.admin_menu" do
