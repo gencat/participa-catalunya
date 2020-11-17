@@ -8,7 +8,7 @@ module Decidim
       class UpdateResourceBank < Rectify::Command
         # Public: Initializes the command.
         #
-        # resource_bank - the Assembly to update
+        # resource_bank - the Resource bank to update
         # form - A form object with the params.
         def initialize(resource_bank, form)
           @resource_bank = resource_bank
