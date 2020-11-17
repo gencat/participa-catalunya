@@ -12,6 +12,9 @@ module Decidim
       routes do
         resources :resource_banks, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "resource_bank_publications", only: [:create, :destroy]
+
+          resources :attachment_collections, controller: "resource_bank_attachment_collections"
+          resources :attachments, controller: "resource_bank_attachments"
         end
       end
 

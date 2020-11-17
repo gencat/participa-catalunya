@@ -7,6 +7,23 @@
           <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.resource_banks_submenu"), decidim_admin_resource_banks.edit_resource_bank_path(current_participatory_space) %>
         </li>
       <% end %>
+      <% if allowed_to?(:read, :attachment_collection, resource_bank: current_participatory_space) || allowed_to?(:read, :attachment, resource_bank: current_participatory_space) %>
+        <li>
+          <span class="secondary-nav__subtitle"><%= t("attachments", scope: "decidim.admin.menu.resource_banks_submenu") %></span>
+          <ul>
+            <% if allowed_to? :read, :attachment_collection, resource_bank: current_participatory_space %>
+              <li <% if is_active_link?(decidim_admin_resource_banks.resource_bank_attachment_collections_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("attachment_collections", scope: "decidim.admin.menu.resource_banks_submenu"), decidim_admin_resource_banks.resource_bank_attachment_collections_path(current_participatory_space) %>
+              </li>
+            <% end %>
+            <% if allowed_to? :read, :attachment, resource_bank: current_participatory_space %>
+              <li <% if is_active_link?(decidim_admin_resource_banks.resource_bank_attachments_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("attachment_files", scope: "decidim.admin.menu.resource_banks_submenu"), decidim_admin_resource_banks.resource_bank_attachments_path(current_participatory_space) %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
     </ul>
   </div>
 <% end %>
