@@ -1,0 +1,21 @@
+
+<% add_decidim_meta_tags(title: t("resource_banks.index.title", scope: "decidim")) %>
+
+<%
+edit_link(
+  decidim_admin_resource_banks.resource_banks_path,
+  :read,
+  :resource_bank_list
+)
+%>
+
+<%= participatory_space_wrapper do %>
+  <% if promoted_resource_banks.any? %>
+    <section id="highlighted-resource_banks" class="row section">
+      <h1 class="section-heading"><%= t("resource_banks.index.promoted_resource_banks", scope: "layouts.decidim") %></h1>
+      <%= render partial: "promoted_resource_bank", collection: promoted_resource_banks, as: :promoted_resource_bank %>
+    </section>
+  <% end %>
+
+  <%= render partial: "resource_banks" %>
+<% end %>
