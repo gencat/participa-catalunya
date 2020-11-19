@@ -11,6 +11,7 @@ gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-courses", path: "./decidim-courses"
 gem "decidim-resource_banks", path: "./decidim-resource_banks"
+gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git"
 
 gem "bootsnap", "~> 1.3"
 
