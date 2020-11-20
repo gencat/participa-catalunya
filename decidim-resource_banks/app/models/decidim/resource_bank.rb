@@ -46,7 +46,7 @@ module Decidim
       Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
     end
 
-    # Scope to return only the promoted courses.
+    # Scope to return only the promoted resource banks.
     #
     # Returns an ActiveRecord::Relation.
     def self.promoted
