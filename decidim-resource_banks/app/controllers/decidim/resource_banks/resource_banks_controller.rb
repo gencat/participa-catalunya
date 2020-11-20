@@ -8,30 +8,59 @@ module Decidim
       participatory_space_layout only: :show
       include FilterResource
 
-      helper Decidim::ResourceHelper
-      helper Decidim::AttachmentsHelper
-      helper Decidim::ResourceReferenceHelper
-      layout "decidim/resource_bank", only: :show
+      helper_method :stats, :resource_banks, :promoted_resource_banks
 
-      helper_method :stats
+      def index
+        enforce_permission_to :list, :resource_bank
 
+        respond_to do |format|
+          format.html do
+            raise ActionController::RoutingError, "Not Found" if published_resource_banks.none?
+
+            render "index"
+          end
+
+          format.js do
+            raise ActionController::RoutingError, "Not Found" if published_resource_banks.none?
+
+            render "index"
+          end
+        end
+      end
+      
       def show
         enforce_permission_to :read, :resource_bank, resource_bank: current_participatory_space
       end
 
       private
 
+      def resource_banks
+        @resource_banks ||= search.results.order(promoted: :desc)
+      end
+
+      alias collection resource_banks
+
+      def search_klass
+        ResourceBankSearch
+      end
+
       def current_participatory_space
         return unless params[:slug]
 
-        @current_participatory_space ||=  Decidim::ResourceBank.where(slug: params[:slug], organization: current_organization).first
+        @current_participatory_space ||= OrganizationResourceBanks.new(current_organization).query.where(slug: params[:slug]).or(
+          OrganizationResourceBanks.new(current_organization).query.where(id: params[:slug])
+        ).first!
       end
 
-      def current_participatory_space_manifest
-        @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:resource_banks)
+      def published_resource_banks
+        @published_resource_banks ||= OrganizationPublishedResourceBanks.new(current_organization, current_user)
       end
 
-      # TODO create ResourceBankStatsPresenter
+      def promoted_resource_banks
+        @promoted_resource_banks ||= published_resource_banks | PromotedResourceBanks.new
+      end
+      
+       # TODO create ResourceBankStatsPresenter
       def stats
         #@stats ||= ResourceBankStatsPresenter.new(resource_bank: current_participatory_space)
       end

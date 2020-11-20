@@ -22,6 +22,8 @@ module Decidim
     mount_uploader :banner_image, Decidim::BannerImageUploader
     mount_uploader :hero_image, Decidim::HeroImageUploader
 
+    alias_attribute :description, :text
+
     scope :order_by_most_recent, -> { order(created_at: :desc) }
 
     validates :slug, uniqueness: { scope: :organization }
@@ -43,6 +45,13 @@ module Decidim
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
       Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+    end
+
+    # Scope to return only the promoted resource banks.
+    #
+    # Returns an ActiveRecord::Relation.
+    def self.promoted
+      where(promoted: true)
     end
   end
 end

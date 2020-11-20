@@ -80,6 +80,10 @@ es:
         authorship: Autoría
     menu:
       resource_banks: Bancos de recusos
+    pages:
+      home:
+        statistics:
+          resource_banks_count: Bancos de recursos
   layouts:
     decidim:
       resource_bank_navigation:

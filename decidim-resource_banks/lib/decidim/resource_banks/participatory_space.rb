@@ -14,8 +14,8 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
 
   participatory_space.register_resource(:resource_bank) do |resource|
     resource.model_class_name = "Decidim::ResourceBank"
-    # resource.card = "decidim/resource_banks/resource_bank"
-    # resource.searchable = true
+    resource.card = "decidim/resource_banks/resource_bank"
+    resource.searchable = true
   end
 
   participatory_space.context(:public) do |context|

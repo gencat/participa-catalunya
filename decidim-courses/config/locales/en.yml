@@ -105,6 +105,10 @@ en:
         online: Online
     menu:
       courses: Courses
+    pages:
+      home:
+        statistics:
+          courses_count: Courses
   layouts:
     decidim:
       course_navigation:
