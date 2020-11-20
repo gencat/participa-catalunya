@@ -125,7 +125,7 @@ describe "ResourceBanks", type: :system do
       end
     end
   end
-  
+
   context 'when going to the resource_bank page' do
     let!(:resource_bank) { base_resource_bank }
 
@@ -143,7 +143,7 @@ describe "ResourceBanks", type: :system do
           within 'main' do
             expect(page).to have_content(translated(resource_bank.title, locale: :en))
             expect(page).to have_content(translated(resource_bank.text, locale: :en))
-            expect(page).to have_content(resource_bank.video_url)
+            expect(page).to have_css("a[href='#{resource_bank.video_url}']")
             expect(page).to have_content(translated(resource_bank.authorship, locale: :en))
           end
         end

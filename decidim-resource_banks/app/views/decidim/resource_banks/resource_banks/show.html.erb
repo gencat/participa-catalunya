@@ -19,18 +19,14 @@
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
-        <div class="lead">
+        <div class="lead"></div>
 
-        </div>
         <%= decidim_sanitize translated_attribute(current_participatory_space.text) %>
-
       </div>
 
       <%= attachments_for current_participatory_space %>
 
       <%= render_hook(:participatory_space_highlighted_elements) %>
-
-
     </div>
 
     <div class="section columns medium-5 mediumlarge-4 large-3">
@@ -43,7 +39,7 @@
         <% if translated_attribute(current_participatory_space.video_url).present? %>
           <div class="definition-data__item video_url">
             <span class="definition-data__title"><%= t("video_url", scope: "decidim.resource_banks.show") %></span>
-            <%= translated_attribute(current_participatory_space.video_url) %>
+            <%= link_to html_truncate(current_participatory_space.video_url.gsub(%r{https?\:\/\/}, ""), length: 30), current_participatory_space.video_url, target: "_blank" %>
           </div>
         <% end %>
 
