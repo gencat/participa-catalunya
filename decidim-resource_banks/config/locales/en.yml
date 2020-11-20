@@ -77,6 +77,10 @@ en:
         title: Resource banks
     menu:
       resource_banks: Resource banks
+    pages:
+      home:
+        statistics:
+          resource_banks_count: Resource banks
   layouts:
     decidim:
       resource_bank_navigation:

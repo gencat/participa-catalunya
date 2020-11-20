@@ -77,6 +77,10 @@ ca:
         title: Bancs de recursos
     menu:
       resource_banks: Bancs de recursos
+    pages:
+      home:
+        statistics:
+          resource_banks_count: Bancs de recursos
   layouts:
     decidim:
       resource_bank_navigation:
