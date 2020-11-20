@@ -105,6 +105,10 @@ en:
         online: Online
     menu:
       courses: Courses
+    pages:
+      home:
+        statistics:
+          courses_count: Courses
   layouts:
     course_navigation:
       course_menu_item: The Course

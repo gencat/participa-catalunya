@@ -105,6 +105,10 @@ es:
         online: Online
     menu:
       courses: Formaciones
+    pages:
+      home:
+        statistics:
+          courses_count: Formaciones
   layouts:
     decidim:
       course_navigation:
