@@ -26,6 +26,12 @@ module Decidim
                     active: :inclusive
         end
       end
+
+      initializer "decidim.stats" do
+        Decidim.stats.register :resource_banks_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
+          Decidim::ResourceBank.where(organization: organization).published.count
+        end
+      end
     end
   end
 end
