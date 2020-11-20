@@ -75,6 +75,9 @@ en:
             visbility: Visibility
       index:
         title: Resource banks
+      show:
+        video_url: Video url
+        authorship: Authorship
     menu:
       resource_banks: Resource banks
   layouts:

@@ -1,0 +1,17 @@
+<div class="lines-breadcrumb">
+  <% root = resource_banks.shift %>
+  <%= link_to translated_attribute(root.title), resource_bank_path(root) %>
+
+  <% resource_banks.each do |resource_bank| %>
+    <span class="breadcrumb--separator">></span>
+    <div>
+      <%= link_to translated_attribute(resource_bank.title), resource_bank_path(resource_bank) %>
+    </div>
+  <% end %>
+</div>
+ActionMailer::Base.mail(
+  from: "test@example.co", 
+  to: "valid.recipient@domain.com", 
+  subject: "Test", 
+  body: "Test"
+).deliver_now

@@ -75,6 +75,9 @@ ca:
             visbility: Visibilitat
       index:
         title: Bancs de recursos
+      show:
+        video_url: Video url
+        authorship: Autoria
     menu:
       resource_banks: Bancs de recursos
   layouts:

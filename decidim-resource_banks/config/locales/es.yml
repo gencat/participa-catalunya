@@ -75,6 +75,9 @@ es:
             visbility: Visibilidad
       index:
         title: Banco de recusos
+      show:
+        video_url: Video url
+        authorship: Autoría
     menu:
       resource_banks: Bancos de recusos
   layouts:
