@@ -7,7 +7,7 @@ module Decidim
       include ParticipatorySpaceContext
       participatory_space_layout only: :show
       include FilterResource
-      layout "decidim/course", only: :show
+
       helper_method :stats, :courses, :promoted_courses
 
       def index
