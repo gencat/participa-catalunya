@@ -25,6 +25,7 @@ module Decidim
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
+    scope :upcoming, -> { published.where(arel_table[:course_date].gt(Time.now.utc)) }
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Course.slug_format }

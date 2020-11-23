@@ -17,6 +17,11 @@ module Decidim
         app.config.assets.precompile += %w(decidim_courses_manifest.js decidim_courses_manifest.css)
       end
 
+      initializer "decidim_courses.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Courses::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Courses::Engine.root}/app/views") # for partials
+      end
+
       initializer "decidim_courses.menu" do
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.courses", scope: "decidim"),
@@ -24,6 +29,13 @@ module Decidim
                     position: 3.5,
                     if: Decidim::Course.where(organization: current_organization).published.any?,
                     active: :inclusive
+        end
+      end
+
+      initializer "decidim_courses.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :upcoming_courses) do |content_block|
+          content_block.cell = "decidim/courses/content_blocks/upcoming_courses"
+          content_block.public_name_key = "decidim.courses.content_blocks.upcoming_courses.name"
         end
       end
 

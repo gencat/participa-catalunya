@@ -95,6 +95,11 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta formación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             visbility: Visibilidad
+      content_blocks:
+        upcoming_courses:
+          name: Próximas formaciones
+          upcoming_courses: Próximas formaciones
+          view_all_courses: Ver todo
       filters:
         select_a_modality: Selecciona una modalidad
       index:
