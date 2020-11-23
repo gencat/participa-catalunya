@@ -13,7 +13,7 @@ FactoryBot.define do
     title { generate_localized_title }
     slug { generate(:course_slug) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    instructors { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    instructors { Decidim::Faker::Localized.localized { generate(:name) } }
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
