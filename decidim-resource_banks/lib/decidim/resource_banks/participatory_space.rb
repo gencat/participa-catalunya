@@ -20,7 +20,7 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
 
   participatory_space.context(:public) do |context|
     context.engine = Decidim::ResourceBanks::Engine
-    # context.layout = "layouts/decidim/resource_bank"
+    context.layout = "layouts/decidim/resource_bank"
   end
 
   participatory_space.context(:admin) do |context|

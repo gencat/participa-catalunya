@@ -20,7 +20,7 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
 
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Courses::Engine
-    # context.layout = "layouts/decidim/course"
+    context.layout = "layouts/decidim/course"
   end
 
   participatory_space.context(:admin) do |context|

@@ -8,7 +8,7 @@ module Decidim
       participatory_space_layout only: :show
       include FilterResource
 
-      helper_method :resource_banks, :promoted_resource_banks
+      helper_method :stats, :resource_banks, :promoted_resource_banks
 
       def index
         enforce_permission_to :list, :resource_bank
@@ -26,6 +26,10 @@ module Decidim
             render "index"
           end
         end
+      end
+      
+      def show
+        enforce_permission_to :read, :resource_bank, resource_bank: current_participatory_space
       end
 
       private
@@ -54,6 +58,11 @@ module Decidim
 
       def promoted_resource_banks
         @promoted_resource_banks ||= published_resource_banks | PromotedResourceBanks.new
+      end
+      
+       # TODO create ResourceBankStatsPresenter
+      def stats
+        #@stats ||= ResourceBankStatsPresenter.new(resource_bank: current_participatory_space)
       end
     end
   end

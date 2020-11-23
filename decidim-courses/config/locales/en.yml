@@ -110,9 +110,9 @@ en:
         statistics:
           courses_count: Courses
   layouts:
-    course_navigation:
-      course_menu_item: The Course
     decidim:
+      course_navigation:
+        course_menu_item: The Course
       courses:
         index:
           promoted_courses: "Highlighted courses"

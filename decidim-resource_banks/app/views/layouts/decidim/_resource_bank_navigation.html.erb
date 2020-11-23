@@ -1,0 +1,10 @@
+<%=
+  extended_navigation_bar([
+    {
+      name: t(".resource_bank_menu_item"),
+      url: decidim_resource_banks.resource_bank_path(participatory_space),
+      active: is_active_link?(decidim_resource_banks.resource_bank_path(participatory_space), :exclusive) ||
+          is_active_link?(decidim_resource_banks.all_metrics_resource_bank_path(participatory_space), :exclusive)
+    }
+  ])
+%>
