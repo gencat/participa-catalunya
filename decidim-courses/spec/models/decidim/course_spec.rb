@@ -28,5 +28,19 @@ module Decidim
 
       it { is_expected.to be_valid }
     end
+
+    describe "scopes" do
+      describe "upcoming" do
+        let!(:past_course) { create(:course, course_date: Time.current - 1.minute) }
+        let!(:future_course) { create(:course, course_date: Time.current + 1.minute) }
+        let!(:future_unpublished) { create(:course, :unpublished, course_date: Time.current + 1.minute) }
+
+        it "returns the future ones" do
+          expect(described_class.upcoming).to include future_course
+          expect(described_class.upcoming).not_to include past_course
+          expect(described_class.upcoming).not_to include future_unpublished
+        end
+      end
+    end
   end
 end
