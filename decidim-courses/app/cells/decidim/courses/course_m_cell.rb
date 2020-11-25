@@ -8,11 +8,6 @@ module Decidim
       include Decidim::ViewHooksHelper
       include ActionView::Helpers::DateHelper
 
-      # Needed for the view hooks
-      def current_participatory_space
-        model
-      end
-
       private
 
       def has_image?

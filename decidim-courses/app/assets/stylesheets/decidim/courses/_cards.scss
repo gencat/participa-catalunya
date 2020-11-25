@@ -1,0 +1,47 @@
+$card-margin-bottom: map-get($grid-column-gutter, medium);
+
+#upcoming-courses{
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+
+    &::before{
+      width: 0; //fixes a flexbox bug in Safari with the clearfix element
+    }
+
+    .columns {
+      margin-bottom: $card-margin-bottom;
+    }
+
+    .card{
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card__text{
+      flex-grow: 1;
+    }
+  }
+}
+
+.card__course-date,
+.card__course-modality,
+.card__course-instructor{
+  margin-bottom: .5rem;
+
+  &.inline-block{
+    display: inline-block;
+
+    &.before-content::before{
+      content: "";
+      margin-left: .5rem;
+      margin-right: .5rem;
+      border-right: $border;
+      height: .7rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

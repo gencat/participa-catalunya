@@ -3,6 +3,7 @@
 Decidim.register_participatory_space(:courses) do |participatory_space|
   participatory_space.icon = "decidim/courses/icon.svg"
   participatory_space.model_class_name = "Decidim::Course"
+  participatory_space.stylesheet = "decidim/courses/courses"
 
   participatory_space.participatory_spaces do |organization|
     Decidim::Course.where(organization: organization)
@@ -35,6 +36,14 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
+
+    Decidim::ContentBlock.create(
+      organization: organization,
+      weight: 32,
+      scope_name: :homepage,
+      manifest_name: :upcoming_courses,
+      published_at: Time.current
+    )
 
     2.times do |n|
       params = {

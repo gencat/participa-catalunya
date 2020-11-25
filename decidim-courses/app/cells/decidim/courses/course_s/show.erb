@@ -1,0 +1,31 @@
+<div class="card card--course">
+  <div class="p-s">
+    <div class="card__header">
+      <%= link_to resource_path, class: "card__link" do %>
+        <span class="card__title">
+          <%= title %>
+        </span>
+      <% end %>
+    </div>
+    <div class="card__text">
+      <% if course_date.present? %>
+        <div class="card__course-date inline-block">
+          <span class="text-medium mt-xs"><%= course_date %></span>
+        </div>
+      <% end %>
+      <div class="card__course-modality inline-block <%= "before-content" if course_date.present? %>">
+        <span class="text-medium mt-xs"><%= modality %></span>
+      </div>
+      <% if instructors.present? %>
+        <div class="card__course-instructor inline-block <%= "before-content" if course_date.present? || modality.present? %>">
+          <span class="text-medium mt-xs"><%= instructors %></span>
+        </div>
+      <% end %>
+      <div class="card__course-description">
+        <% if description.present? %>
+          <%= html_truncate decidim_sanitize(description, strip_tags: true), length: 120 %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

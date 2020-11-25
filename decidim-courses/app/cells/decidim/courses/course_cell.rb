@@ -12,7 +12,17 @@ module Decidim
       private
 
       def card_size
-        "decidim/courses/course_m"
+        case @options[:size]
+        when :s
+          "decidim/courses/course_s"
+        else
+          "decidim/courses/course_m"
+        end
+      end
+
+      # Needed for the view hooks
+      def current_participatory_space
+        model
       end
     end
   end
