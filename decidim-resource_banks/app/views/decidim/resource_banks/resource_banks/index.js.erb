@@ -1,5 +1,8 @@
-var $grid = $('#resource_banks');
+var $resource_banks = $('#resource_banks');
 var $resource_banksCount = $('#resource_banks-count');
 
-$grid.find('.card-grid').html('<%= j(render(resource_banks)).strip.html_safe %>');
+$resource_banks.html('<%= j(render partial: "resource_banks").strip.html_safe %>');
 $resource_banksCount.html('<%= j(render partial: "count").strip.html_safe %>');
+
+var $dropdownMenu = $('.dropdown.menu', $resource_banks);
+$dropdownMenu.foundation();

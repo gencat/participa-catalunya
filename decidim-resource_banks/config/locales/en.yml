@@ -75,6 +75,11 @@ en:
             visbility: Visibility
       index:
         title: Resource banks
+      resource_banks:
+        filters:
+          search: Search
+        resource_banks:
+          no_resource_banks_warning: No resource banks match your search criteria or there isn't any resource bank published.
       show:
         video_url: Video url
         authorship: Authorship
