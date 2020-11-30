@@ -25,7 +25,6 @@ module Decidim::Courses
       end
 
       it "shows the instructors" do
-        puts subject
         expect(subject).to have_content(translated(model.instructors))
       end
     end

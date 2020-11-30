@@ -100,8 +100,22 @@ en:
           name: Upcoming courses
           upcoming_courses: Upcoming courses
           view_all_courses: View all
-      filters:
-        select_a_modality: Select a modality
+      courses:
+        courses:
+          no_courses_warning: No courses match your search criteria or there isn't any course scheduled.
+          upcoming_courses_warning: Currently, there are no scheduled courses, but here you can find all the past courses listed.
+        filters:
+          date: Date
+          modality: Modality
+          past: Past
+          scope: Scope
+          search: Search
+          upcoming: Upcoming
+      courses_helper:
+        filter_modalities_values:
+          all: All
+        filter_scope_values:
+          all: All
       index:
         title: Courses
       modality:

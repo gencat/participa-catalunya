@@ -21,12 +21,6 @@ describe "Courses", type: :system do
     switch_to_host(organization.host)
   end
 
-  context "when there are no courses and directly accessing from URL" do
-    it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_courses.courses_path }
-    end
-  end
-
   context "when there are no courses and accessing from the homepage" do
     it "the menu link is not shown" do
       visit decidim.root_path
@@ -47,12 +41,6 @@ describe "Courses", type: :system do
     before do
       create(:course, :unpublished, organization: organization)
       create(:course, :published)
-    end
-
-    context "and directly accessing from URL" do
-      it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_courses.courses_path }
-      end
     end
 
     context "and accessing from the homepage" do
