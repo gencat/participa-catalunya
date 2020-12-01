@@ -9,7 +9,7 @@ module Decidim
 
       let(:organization) { create(:organization) }
 
-      let!(:unpublished_course) do
+      let!(:unpublished) do
         create(
             :course,
             :unpublished,
@@ -38,16 +38,11 @@ module Decidim
         request.env["decidim.current_organization"] = organization
       end
 
-      describe "published_courses" do
-        context "when there are no published courses" do
-          before do
-            published.unpublish!
-            promoted.unpublish!
-          end
-
-          it "redirects to 404" do
-            expect { get :index }.to raise_error(ActionController::RoutingError)
-          end
+      describe "GET index" do
+        it "Only returns published courses" do
+          get :index
+          expect(subject.helpers.courses).to include(promoted, published)
+          expect(subject.helpers.courses).not_to include(unpublished)
         end
       end
 

@@ -6,25 +6,24 @@ module Decidim
     class CoursesController < Decidim::Courses::ApplicationController
       include ParticipatorySpaceContext
       participatory_space_layout only: :show
+
       include FilterResource
+      include Paginable
 
       helper_method :stats, :courses, :promoted_courses
 
       def index
         enforce_permission_to :list, :course
 
-        respond_to do |format|
-          format.html do
-            raise ActionController::RoutingError, "Not Found" if published_courses.none?
+        return unless search.results.blank? && params.dig("filter", "date") != "past"
 
-            render "index"
-          end
+        @past_courses = search_klass.new(search_params.merge(date: "past"))
 
-          format.js do
-            raise ActionController::RoutingError, "Not Found" if published_courses.none?
-
-            render "index"
-          end
+        if @past_courses.results.present?
+          params[:filter] ||= {}
+          params[:filter][:date] = "past"
+          @forced_past_courses = true
+          @search = @past_courses
         end
       end
 
@@ -35,7 +34,8 @@ module Decidim
       private
 
       def courses
-        @courses ||= search.results.order(promoted: :desc)
+        @courses = search.results.order(promoted: :desc)
+        @courses = paginate(@courses)
       end
 
       alias collection courses
@@ -46,9 +46,19 @@ module Decidim
 
       def default_filter_params
         {
-          scope_id: nil,
-          modality: nil
+          date: "upcoming",
+          search_text: "",
+          modality: default_filter_modality_params,
+          scope_id: default_filter_scope_params
         }
+      end
+
+      def default_filter_modality_params
+        %w(all) + Decidim::Course::MODALITIES
+      end
+
+      def default_filter_scope_params
+        %w(all global) + current_organization.scopes.pluck(:id).map(&:to_s)
       end
 
       def current_participatory_space

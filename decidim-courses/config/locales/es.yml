@@ -100,8 +100,22 @@ es:
           name: Próximas formaciones
           upcoming_courses: Próximas formaciones
           view_all_courses: Ver todo
-      filters:
-        select_a_modality: Selecciona una modalidad
+      courses:
+        courses:
+          no_courses_warning: No hay formaciones que coincidan con tu búsqueda o no hay ninguna formación programada.
+          upcoming_courses_warning: Actualmente no hay formaciones programadas, pero puedes ver las anteriores.
+        filters:
+          date: Fecha
+          modality: Modalidad
+          past: Pasadas
+          scope: Ámbito
+          search: Buscar
+          upcoming: Próximas
+      courses_helper:
+        filter_modalities_values:
+          all: Todas
+        filter_scope_values:
+          all: Todas
       index:
         title: Formaciones
       modality:

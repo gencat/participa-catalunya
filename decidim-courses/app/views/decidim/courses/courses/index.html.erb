@@ -17,7 +17,23 @@ edit_link(
     </section>
   <% end %>
 
-  <%= render partial: "courses" %>
+  <div class="row columns">
+    <div class="title-action">
+      <%= render partial: "index_header" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns mediumlarge-4 large-3">
+      <%= render partial: "filters_small_view" %>
+      <div class="card card--secondary show-for-mediumlarge">
+        <%= render partial: "filters" %>
+      </div>
+    </div>
+    <div id="courses" class="columns mediumlarge-8 large-9">
+      <%= render partial: "courses" %>
+    </div>
+  </div>
 <% end %>
 
 <%= javascript_include_tag "decidim/filters" %>

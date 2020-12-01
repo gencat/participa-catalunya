@@ -1,5 +1,8 @@
-var $grid = $('#courses');
+var $courses = $('#courses');
 var $coursesCount = $('#courses-count');
 
-$grid.find('.card-grid').html('<%= j(render(courses)).strip.html_safe %>');
+$courses.html('<%= j(render partial: "courses").strip.html_safe %>');
 $coursesCount.html('<%= j(render partial: "count").strip.html_safe %>');
+
+var $dropdownMenu = $('.dropdown.menu', $courses);
+$dropdownMenu.foundation();
