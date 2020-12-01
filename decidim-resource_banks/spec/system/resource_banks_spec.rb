@@ -20,12 +20,6 @@ describe "ResourceBanks", type: :system do
     switch_to_host(organization.host)
   end
 
-  context "when there are no resource_banks and directly accessing from URL" do
-    it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_resource_banks.resource_banks_path }
-    end
-  end
-
   context "when there are no resource_banks and accessing from the homepage" do
     it "the menu link is not shown" do
       visit decidim.root_path
@@ -46,12 +40,6 @@ describe "ResourceBanks", type: :system do
     before do
       create(:resource_bank, :unpublished, organization: organization)
       create(:resource_bank, :published)
-    end
-
-    context "and directly accessing from URL" do
-      it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_resource_banks.resource_banks_path }
-      end
     end
 
     context "and accessing from the homepage" do

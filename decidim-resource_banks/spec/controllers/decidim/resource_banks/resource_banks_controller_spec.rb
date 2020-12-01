@@ -9,7 +9,7 @@ module Decidim
 
       let(:organization) { create(:organization) }
 
-      let!(:unpublished_resource_bank) do
+      let!(:unpublished) do
         create(
             :resource_bank,
             :unpublished,
@@ -38,16 +38,11 @@ module Decidim
         request.env["decidim.current_organization"] = organization
       end
 
-      describe "published_resource_banks" do
-        context "when there are no published resource_banks" do
-          before do
-            published.unpublish!
-            promoted.unpublish!
-          end
-
-          it "redirects to 404" do
-            expect { get :index }.to raise_error(ActionController::RoutingError)
-          end
+      describe "GET index" do
+        it "Only returns published resource banks" do
+          get :index
+          expect(subject.helpers.resource_banks).to include(promoted, published)
+          expect(subject.helpers.resource_banks).not_to include(unpublished)
         end
       end
 

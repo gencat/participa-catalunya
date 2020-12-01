@@ -75,6 +75,11 @@ es:
             visbility: Visibilidad
       index:
         title: Banco de recusos
+      resource_banks:
+        filters:
+          search: Buscar
+        resource_banks:
+          no_resource_banks_warning: No hay bancos de recursos que coincidan con tu búsqueda o no hay ningún banco de recursos publicado.
       show:
         video_url: Video url
         authorship: Autoría
