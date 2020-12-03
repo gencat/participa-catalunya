@@ -1,4 +1,11 @@
 GIT
+  remote: git@github.com:gencat/decidim-department-admin.git
+  revision: d66839837163a8045c5c9f9c56fa9d6fe7d810c4
+  specs:
+    decidim-department_admin (0.0.16)
+      decidim-core (>= 0.21.0)
+
+GIT
   remote: https://github.com/CodiTramuntana/decidim-module-term_customizer.git
   revision: c4ed0ffa87bd9977c6b470aa815d5dc2ed9f88a5
   specs:
@@ -815,6 +822,7 @@ DEPENDENCIES
   decidim!
   decidim-consultations!
   decidim-courses!
+  decidim-department_admin!
   decidim-dev!
   decidim-initiatives!
   decidim-resource_banks!
