@@ -6,10 +6,11 @@ module Decidim
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::HasCategory
-    include Decidim::Scopable
+    include Decidim::ScopableParticipatorySpace 
     include Decidim::HasAttachments
     include Decidim::HasAttachmentCollections
     include Decidim::ParticipatorySpaceResourceable
+    include Decidim::HasUploadValidations
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::Randomable
@@ -21,7 +22,10 @@ module Decidim
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
 
+    validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
+
+    validates_upload :banner_image
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
@@ -54,6 +58,11 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def self.promoted
       where(promoted: true)
+    end
+
+    
+    def attachment_context
+      :admin
     end
   end
 end

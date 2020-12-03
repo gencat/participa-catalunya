@@ -9,6 +9,7 @@ module Decidim
     include Decidim::HasAttachments
     include Decidim::HasAttachmentCollections
     include Decidim::ParticipatorySpaceResourceable
+    include Decidim::HasUploadValidations
     include Decidim::Followable
     include Decidim::Traceable
     include Decidim::Loggable
@@ -19,8 +20,11 @@ module Decidim
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
 
-    mount_uploader :banner_image, Decidim::BannerImageUploader
+    validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
+
+    validates_upload :banner_image
+    mount_uploader :banner_image, Decidim::BannerImageUploader
 
     alias_attribute :description, :text
 
@@ -52,6 +56,10 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def self.promoted
       where(promoted: true)
+    end
+    
+    def attachment_context
+      :admin
     end
   end
 end
