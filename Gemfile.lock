@@ -227,13 +227,13 @@ PATH
   remote: decidim-courses
   specs:
     decidim-courses (0.23.0)
-      decidim-core (>= 0.23.0)
+      decidim-core (~> 0.23.1)
 
 PATH
   remote: decidim-resource_banks
   specs:
     decidim-resource_banks (0.23.0)
-      decidim-core (>= 0.23.0)
+      decidim-core (~> 0.23.1)
 
 GEM
   remote: https://rubygems.org/

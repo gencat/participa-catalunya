@@ -4,8 +4,6 @@ $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 require "decidim/courses/version"
 
-DECIDIM_VER = '>= 0.23.0'
-
 Gem::Specification.new do |s|
   s.version = Decidim::Courses.version
   s.authors = ["Víctor"]
@@ -20,7 +18,8 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", DECIDIM_VER
-  s.add_development_dependency "decidim-admin", DECIDIM_VER
-  s.add_development_dependency "decidim-dev", DECIDIM_VER
+  decidim_version = "~> 0.23.1"
+  s.add_dependency "decidim-core", decidim_version
+  s.add_development_dependency "decidim-admin", decidim_version
+  s.add_development_dependency "decidim-dev", decidim_version
 end
