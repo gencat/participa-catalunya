@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.22-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.23-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
@@ -14,6 +14,7 @@ gem "decidim-resource_banks", path: "./decidim-resource_banks"
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git"
 
 gem "bootsnap", "~> 1.3"
+gem "rails", "< 6"
 
 gem "puma", ">= 4.3.5"
 gem "uglifier", "~> 4.1"

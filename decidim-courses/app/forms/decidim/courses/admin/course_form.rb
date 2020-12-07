@@ -8,6 +8,7 @@ module Decidim
       #
       class CourseForm < Form
         include TranslatableAttributes
+        include Decidim::HasUploadValidations
 
         mimic :course
 
@@ -41,12 +42,8 @@ module Decidim
         validates :modality, presence: true, inclusion: { in: ::Decidim::Course::MODALITIES }
         validates :title, :description, translatable_presence: true
 
-        validates :banner_image,
-                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] }
-        validates :hero_image,
-                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :banner_image, passthru: { to: Decidim::Course }
+        validates :hero_image, passthru: { to: Decidim::Course }
 
         alias organization current_organization
 

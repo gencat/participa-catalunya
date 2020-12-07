@@ -46,10 +46,10 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
         end,
         video_url: Faker::Internet.url,
         promoted: true,
-        hero_image: File.new(File.join(seeds_root, "city.jpeg")),
-        banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
-        published_at: 2.weeks.ago,
         organization: organization,
+        hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
+        banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
+        published_at: 2.weeks.ago,
         authorship: Faker::Name.name,
         created_at: 1.day.from_now,
       }
@@ -74,23 +74,23 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(seeds_root, "Exampledocument.pdf")),
+          attached_to: current_bank,
           attachment_collection: attachment_collection,
-          attached_to: current_bank
+          file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
         )
 
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(seeds_root, "city.jpeg")),
-          attached_to: current_bank
+          attached_to: current_bank,
+          file: File.new(File.join(seeds_root, "city.jpeg")) # Keep after attached_to
         )
 
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(seeds_root, "Exampledocument.pdf")),
-          attached_to: current_bank
+          attached_to: current_bank,
+          file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
         )
 
         2.times do
