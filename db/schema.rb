@@ -1601,6 +1601,13 @@ ActiveRecord::Schema.define(version: 2020_12_03_094670) do
     t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
   end
 
+  create_table "department_admin_areas", force: :cascade do |t|
+    t.bigint "decidim_user_id"
+    t.bigint "decidim_area_id"
+    t.index ["decidim_area_id"], name: "index_department_admin_areas_on_decidim_area_id"
+    t.index ["decidim_user_id"], name: "index_department_admin_areas_on_decidim_user_id"
+  end
+
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer "resource_owner_id", null: false
     t.bigint "application_id", null: false
@@ -1691,6 +1698,8 @@ ActiveRecord::Schema.define(version: 2020_12_03_094670) do
   add_foreign_key "decidim_term_customizer_translations", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_users", "decidim_organizations"
   add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
+  add_foreign_key "department_admin_areas", "decidim_areas"
+  add_foreign_key "department_admin_areas", "decidim_users"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "decidim_users", column: "resource_owner_id"
