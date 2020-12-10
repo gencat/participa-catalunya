@@ -9,7 +9,9 @@ class CreateResourceBanks < ActiveRecord::Migration[5.2]
       t.integer :decidim_organization_id,
               foreign_key: true,
               index: { name: "index_decidim_resource_banks_on_decidim_organization_id" }
-
+      t.integer :decidim_area_id,
+                foreign_key: true,
+                index: { name: "index_decidim_resource_banks_on_decidim_area_id" }
       t.jsonb :title, null: false
       t.jsonb :text, null: false
       t.string :video_url

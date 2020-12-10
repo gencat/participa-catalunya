@@ -30,6 +30,21 @@ describe "Explore Resource banks", type: :system do
       expect(page).to have_css(".card--resource_bank", count: 1)
       expect(page).to have_content(translated(resource_banks.first.title))
     end
+
+    it "allows filtering by area" do
+      area = create(:area, organization: organization)
+      resource_bank = resource_banks.first
+      resource_bank.area = area
+      resource_bank.save
+
+      visit decidim_resource_banks.resource_banks_path
+
+      within ".filters" do
+        select translated(area.name), from: "filter[area_id]"
+      end
+
+      expect(page).to have_css(".card--resource_bank", count: 1)
+    end
   end
 
   context "when no resource banks published" do

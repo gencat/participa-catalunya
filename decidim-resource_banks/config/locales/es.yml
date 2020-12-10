@@ -3,8 +3,10 @@ es:
   activemodel:
     attributes:
       resource_bank:
+        area_id: Área
         authorship: Autoría
         banner_image: Imagen de banner
+        decidim_area_id: Área
         hashtag: Hashtag
         hero_image: Imagen de portada
         promoted: Destacado
@@ -70,6 +72,7 @@ es:
             filters: Filtros
             images: Imágenes
             other: Otro
+            select_an_area: Seleccione un Área
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta banco de recusos. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             visbility: Visibilidad
@@ -77,10 +80,13 @@ es:
         title: Banco de recusos
       resource_banks:
         filters:
+          areas: Áreas
           search: Buscar
+          select_an_area: Seleccione un Área
         resource_banks:
           no_resource_banks_warning: No hay bancos de recursos que coincidan con tu búsqueda o no hay ningún banco de recursos publicado.
       show:
+        area: Área
         video_url: Video url
         authorship: Autoría
     menu:

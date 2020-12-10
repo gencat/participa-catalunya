@@ -8,6 +8,7 @@ module Decidim::ResourceBanks
 
     let(:organization) { create :organization }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
+    let(:area) { create :area, organization: organization }
     let(:errors) { double.as_null_object }
 
     let(:form) do
@@ -25,6 +26,7 @@ module Decidim::ResourceBanks
         hero_image: nil,
         banner_image: nil,
         promoted: nil,
+        area: area,
         show_statistics: false,
         authorship: Faker::Name.name,
         video_url: Faker::Internet.url

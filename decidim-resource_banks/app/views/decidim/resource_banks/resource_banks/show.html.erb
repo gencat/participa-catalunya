@@ -43,6 +43,13 @@
           </div>
         <% end %>
 
+        <% if translated_attribute(current_participatory_space.area).present? %>
+          <div class="definition-data__item area">
+            <span class="definition-data__title"><%= t("area", scope: "decidim.course.show") %></span>
+            <%= translated_attribute(current_participatory_space.area.name) %>
+          </div>
+        <% end %>
+
         <% if current_participatory_space.authorship.present? %>
           <div class="definition-data__item authorship">
             <span class="definition-data__title"><%= t("authorship", scope: "decidim.resource_banks.show") %></span>
