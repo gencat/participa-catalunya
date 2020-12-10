@@ -18,6 +18,7 @@ module Decidim
 
         attribute :hashtag, String
         attribute :promoted, Boolean
+        attribute :area_id, Integer
         attribute :scope_id, Integer
         attribute :scopes_enabled, Boolean
         attribute :show_statistics, Boolean
@@ -34,6 +35,7 @@ module Decidim
         attribute :remove_banner_image
         attribute :remove_hero_image
 
+        validates :area, presence: true, if: proc { |object| object.area_id.present? }
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :slug, presence: true, format: { with: Decidim::Course.slug_format }
 
@@ -48,7 +50,12 @@ module Decidim
         alias organization current_organization
 
         def map_model(model)
+          self.area_id = model.decidim_area_id
           self.scope_id = model.decidim_scope_id
+        end
+
+        def area
+          @area ||= current_organization.areas.find_by(id: area_id)
         end
 
         def scope

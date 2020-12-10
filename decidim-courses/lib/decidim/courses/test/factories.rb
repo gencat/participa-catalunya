@@ -38,6 +38,10 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
+    trait :with_area do
+      area { create :area, organization: organization }
+    end
+
     trait :with_scope do
       scopes_enabled { true }
       scope { create :scope, organization: organization }

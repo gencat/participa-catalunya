@@ -3,8 +3,10 @@ ca:
   activemodel:
     attributes:
       course:
+        area_id: Àrea
         banner_image: Imatge de bàner
         course_date: Data de la formació
+        decidim_area_id: Àrea
         decidim_scope_id: Àmbit
         description: Descripció
         duration: Durada
@@ -28,6 +30,7 @@ ca:
       statistics:
         headline: Activitat
       show:
+        area: Àrea
         address: Adreça
         registration_link: Enllaç de registre
         modality: Modalitat
@@ -92,6 +95,7 @@ ca:
             images: Imatges
             other: Altre
             select_a_modality: Selecciona una modalitat
+            select_an_area: Selecciona una Àrea
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta formació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Títol
             visbility: Visibilitat
@@ -105,11 +109,13 @@ ca:
           no_courses_warning: No hi ha formacions que coincideixin amb la teva cerca o no hi ha cap formació programada.
           upcoming_courses_warning: Actualment no hi ha formacions programades, però pots veure les anteriors.
         filters:
+          areas: Àreas
           date: Data
           modality: Modalitat
           past: Passades
           scope: Àmbit
           search: Cerca
+          select_an_area: Selecciona una Àrea
           upcoming: Properes
       courses_helper:
         filter_modalities_values:

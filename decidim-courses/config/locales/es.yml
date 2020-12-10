@@ -3,8 +3,10 @@ es:
   activemodel:
     attributes:
       course:
+        area_id: Área
         banner_image: Imagen de banner
         course_date: Fecha de la formación
+        decidim_area_id: Área
         decidim_scope_id: Ámbito
         description: Descripción
         duration: Duración
@@ -28,6 +30,7 @@ es:
       statistics:
         headline: Actividad
       show:
+        area: Área
         address: Dirección
         registration_link: Enlace de registro
         modality: Modalidad
@@ -92,6 +95,7 @@ es:
             images: Imágenes
             other: Otro
             select_a_modality: Selecciona una modalidad
+            select_an_area: Seleccione un Área
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta formación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             visbility: Visibilidad
@@ -105,11 +109,13 @@ es:
           no_courses_warning: No hay formaciones que coincidan con tu búsqueda o no hay ninguna formación programada.
           upcoming_courses_warning: Actualmente no hay formaciones programadas, pero puedes ver las anteriores.
         filters:
+          areas: Áreas
           date: Fecha
           modality: Modalidad
           past: Pasadas
           scope: Ámbito
           search: Buscar
+          select_an_area: Seleccione un Área
           upcoming: Próximas
       courses_helper:
         filter_modalities_values:
