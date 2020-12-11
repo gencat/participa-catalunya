@@ -31,6 +31,7 @@ module Decidim::Courses
             promoted: my_course.promoted,
             scopes_enabled: my_course.scopes_enabled,
             scope: my_course.scope,
+            area: my_course.area,
             show_statistics: my_course.show_statistics,
             duration: my_course.duration,
             address: my_course.address,

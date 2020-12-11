@@ -11,7 +11,9 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.integer :decidim_organization_id,
                 foreign_key: true,
                 index: { name: "index_decidim_courses_on_decidim_organization_id" }
-
+      t.integer :decidim_area_id,
+                foreign_key: true,
+                index: { name: "index_decidim_courses_on_decidim_area_id" }
       t.jsonb :title, null: false
       t.jsonb :description, null: false
       t.string :slug, null: false
@@ -20,7 +22,9 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.jsonb :instructors
       t.string :modality, null: false
       t.boolean :scopes_enabled, null: false, default: true
-      t.integer :decidim_scope_id
+      t.integer :decidim_scope_id,
+                foreign_key: true,
+                index: { name: "index_decidim_courses_on_decidim_scope_id" }
       t.text :registration_link
       t.text :address
       t.datetime :created_at, null: false

@@ -49,7 +49,8 @@ module Decidim
           date: "upcoming",
           search_text: "",
           modality: default_filter_modality_params,
-          scope_id: default_filter_scope_params
+          scope_id: default_filter_scope_params,
+          area_id: nil
         }
       end
 

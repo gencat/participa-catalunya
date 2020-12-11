@@ -536,6 +536,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_094670) do
     t.boolean "promoted", default: false
     t.boolean "show_statistics", default: false
     t.integer "decidim_organization_id"
+    t.integer "decidim_area_id"
     t.jsonb "title", null: false
     t.jsonb "description", null: false
     t.string "slug", null: false
@@ -550,8 +551,10 @@ ActiveRecord::Schema.define(version: 2020_12_03_094670) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "published_at"
+    t.index ["decidim_area_id"], name: "index_decidim_courses_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_course_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_courses_on_decidim_organization_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_courses_on_decidim_scope_id"
   end
 
   create_table "decidim_debates_debates", id: :serial, force: :cascade do |t|

@@ -6,7 +6,7 @@ module Decidim
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::HasCategory
-    include Decidim::ScopableParticipatorySpace 
+    include Decidim::ScopableParticipatorySpace
     include Decidim::HasAttachments
     include Decidim::HasAttachmentCollections
     include Decidim::ParticipatorySpaceResourceable
@@ -21,6 +21,11 @@ module Decidim
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
+
+    belongs_to :area,
+               foreign_key: "decidim_area_id",
+               class_name: "Decidim::Area",
+               optional: true
 
     validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
@@ -60,7 +65,7 @@ module Decidim
       where(promoted: true)
     end
 
-    
+
     def attachment_context
       :admin
     end

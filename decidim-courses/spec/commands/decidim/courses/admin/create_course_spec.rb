@@ -9,6 +9,7 @@ module Decidim::Courses
     let(:organization) { create :organization }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:scope) { create :scope, organization: organization }
+    let(:area) { create :area, organization: organization }
     let(:errors) { double.as_null_object }
 
     let(:form) do
@@ -29,6 +30,7 @@ module Decidim::Courses
         promoted: nil,
         scopes_enabled: true,
         scope: scope,
+        area: area,
         show_statistics: false,
         duration: 20,
         address: "address",

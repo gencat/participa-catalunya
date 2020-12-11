@@ -67,6 +67,21 @@ describe "Explore Courses", type: :system do
       expect(page).to have_css(".card--course", count: 1)
     end
 
+    it "allows filtering by area" do
+      area = create(:area, organization: organization)
+      course = courses.first
+      course.area = area
+      course.save
+
+      visit decidim_courses.courses_path
+
+      within ".filters" do
+        select translated(area.name), from: "filter[area_id]"
+      end
+
+      expect(page).to have_css(".card--course", count: 1)
+    end
+
     it "allows filtering by modality" do
       course = courses.first
       course.modality = "online"
@@ -89,7 +104,7 @@ describe "Explore Courses", type: :system do
       create_list(:course, 2, organization: organization, course_date: Time.current - 4.days)
     end
 
-    it "only shows the past meetings" do
+    it "only shows the past courses" do
       visit decidim_courses.courses_path
       expect(page).to have_css(".card--course", count: 2)
     end

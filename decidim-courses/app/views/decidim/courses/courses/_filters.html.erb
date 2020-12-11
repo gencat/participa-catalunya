@@ -12,6 +12,13 @@
     </div>
   </div>
 
+  <%= form.areas_select :area_id,
+                        areas_for_select(current_organization),
+                        legend_title: t(".areas"),
+                        label: "",
+                        selected: filter.area_id,
+                        include_blank: t(".select_an_area") %>
+
   <%= form.collection_radio_buttons :date, [["upcoming", t(".upcoming")], ["past", t(".past")]], :first, :last, legend_title: t(".date") %>
 
   <%= form.check_boxes_tree :modality, filter_modalities_values, legend_title: t(".modality") %>

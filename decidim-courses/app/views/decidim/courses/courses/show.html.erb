@@ -43,6 +43,13 @@
           </div>
         <% end %>
 
+        <% if translated_attribute(current_participatory_space.area).present? %>
+          <div class="definition-data__item area">
+            <span class="definition-data__title"><%= t("area", scope: "decidim.course.show") %></span>
+            <%= translated_attribute(current_participatory_space.area.name) %>
+          </div>
+        <% end %>
+
         <% if current_participatory_space.course_date.present? %>
           <div class="definition-data__item course_date">
             <span class="definition-data__title"><%= t("course_date", scope: "decidim.course.show") %></span>

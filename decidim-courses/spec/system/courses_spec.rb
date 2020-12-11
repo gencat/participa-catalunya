@@ -10,6 +10,7 @@ describe "Courses", type: :system do
   let(:base_course) do
     create(
       :course,
+      :with_area,
       :with_scope,
       organization: organization,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
@@ -94,15 +95,14 @@ describe "Courses", type: :system do
       end
 
       it "lists the courses" do
-        within "#courses" do
-          within "#course h3" do
-            expect(page).to have_content("2")
-          end
+        within "#courses-count" do
+          expect(page).to have_content("2")
+        end
 
+        within "#courses" do
           expect(page).to have_content(translated(course.title, locale: :en))
           expect(page).to have_content(translated(promoted_course.title, locale: :en))
           expect(page).to have_selector(".card", count: 2)
-          expect(page).to have_selector(".card.card--stack", count: 1)
 
           expect(page).not_to have_content(translated(unpublished_course.title, locale: :en))
         end
@@ -133,10 +133,11 @@ describe "Courses", type: :system do
           within "main" do
             expect(page).to have_content(translated(course.title, locale: :en))
             expect(page).to have_content(translated(course.description, locale: :en))
-            expect(page).to have_content(translated(course.course_date, locale: :en))
+            expect(page).to have_content(I18n.l(course.course_date, format: :decidim_short))
             expect(page).to have_content(course.duration)
             expect(page).to have_content(translated(course.modality, locale: :en))
             expect(page).to have_content(course.hashtag)
+            expect(page).to have_content(translated(course.area.name, locale: :en))
             expect(page).to have_content(translated(course.scope.name, locale: :en))
           end
         end
