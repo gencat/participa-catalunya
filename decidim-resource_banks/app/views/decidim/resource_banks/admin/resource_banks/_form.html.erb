@@ -44,6 +44,20 @@
     </div>
   </div>
 
+
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".filters") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.areas_select :area_id,
+                            areas_for_select(current_organization),
+                            selected: form.object.area_id,
+                            include_blank: t(".select_an_area") %>
+    </div>
+  </div>
+
   <div class="card-divider">
     <h2 class="card-title"><%= t(".visbility") %></h2>
   </div>

@@ -1329,6 +1329,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_094670) do
     t.boolean "promoted", default: false
     t.boolean "show_statistics", default: false
     t.integer "decidim_organization_id"
+    t.integer "decidim_area_id"
     t.jsonb "title", null: false
     t.jsonb "text", null: false
     t.string "video_url"
@@ -1337,6 +1338,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_094670) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "published_at"
+    t.index ["decidim_area_id"], name: "index_decidim_resource_banks_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_resource_banks_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_resource_banks_on_decidim_organization_id"
   end

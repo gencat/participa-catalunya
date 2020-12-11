@@ -26,6 +26,7 @@ module Decidim::ResourceBanks
             hero_image: nil,
             banner_image: nil,
             promoted: my_resource_bank.promoted,
+            area: my_resource_bank.area,
             show_statistics: my_resource_bank.show_statistics,
             authorship: my_resource_bank.authorship,
             video_url: my_resource_bank.video_url

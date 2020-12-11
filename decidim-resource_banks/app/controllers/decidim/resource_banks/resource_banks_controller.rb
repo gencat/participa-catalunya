@@ -32,6 +32,7 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
+          area_id: nil
         }
       end
 

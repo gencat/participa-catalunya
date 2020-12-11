@@ -3,8 +3,10 @@ en:
   activemodel:
     attributes:
       resource_bank:
+        area_id: Area
         authorship: Authorship
         banner_image: Banner image
+        decidim_area_id: Area
         hashtag: Hashtag
         hero_image: Home image
         promoted: Highlighted
@@ -70,6 +72,7 @@ en:
             filters: Filters
             images: Images
             other: Other
+            select_an_area: Select an Area
             slug_help: 'URL slugs are used to generate the URLs that point to this resource_bank. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
             visbility: Visibility
@@ -77,10 +80,13 @@ en:
         title: Resource banks
       resource_banks:
         filters:
+          areas: Areas
           search: Search
+          select_an_area: Select an Area
         resource_banks:
           no_resource_banks_warning: No resource banks match your search criteria or there isn't any resource bank published.
       show:
+        area: Area
         video_url: Video url
         authorship: Authorship
     menu:

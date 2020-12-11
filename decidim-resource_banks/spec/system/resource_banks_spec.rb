@@ -93,11 +93,11 @@ describe "ResourceBanks", type: :system do
       end
 
       it "lists the resource_banks" do
-        within "#resource_banks" do
-          within "h3" do
-            expect(page).to have_content("2")
-          end
+        within "#resource_banks-count" do
+          expect(page).to have_content("2")
+        end
 
+        within "#resource_banks" do
           expect(page).to have_content(translated(resource_bank.title, locale: :en))
           expect(page).to have_content(translated(promoted_resource_bank.title, locale: :en))
           expect(page).to have_selector(".card", count: 2)

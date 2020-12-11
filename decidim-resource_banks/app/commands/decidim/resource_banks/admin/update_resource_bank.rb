@@ -59,6 +59,7 @@ module Decidim
             title: form.title,
             hashtag: form.hashtag,
             promoted: form.promoted,
+            area: form.area,
             show_statistics: form.show_statistics,
             slug: form.slug,
             video_url: form.video_url,

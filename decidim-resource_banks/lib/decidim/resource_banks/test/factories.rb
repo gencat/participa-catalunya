@@ -33,5 +33,9 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
+
+    trait :with_area do
+      area { create :area, organization: organization }
+    end
   end
 end
