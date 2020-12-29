@@ -29,7 +29,7 @@ module Decidim
             let(:cell) { described_class.new(nil, context: { controller: controller }) }
 
             let!(:past_course) do
-              create(:course, end_date: 1.week.ago, organization: organization)
+              create(:course, start_date: 1.week.ago, organization: organization)
             end
 
             let!(:first_course) do

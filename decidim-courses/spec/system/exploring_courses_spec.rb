@@ -101,7 +101,7 @@ describe "Explore Courses", type: :system do
 
   context "when no upcoming courses scheduled" do
     let!(:courses) do
-      create_list(:course, 2, organization: organization, end_date: Time.current - 4.days)
+      create_list(:course, 2, organization: organization, start_date: Time.current - 4.days)
     end
 
     it "only shows the past courses" do
