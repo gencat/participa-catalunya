@@ -8,16 +8,16 @@
       <% end %>
     </div>
     <div class="card__text">
-      <% if course_date.present? %>
+      <% if start_date.present? %>
         <div class="card__course-date inline-block">
-          <span class="text-medium mt-xs"><%= course_date %></span>
+          <span class="text-medium mt-xs"><%= start_date %></span>
         </div>
       <% end %>
-      <div class="card__course-modality inline-block <%= "before-content" if course_date.present? %>">
+      <div class="card__course-modality inline-block <%= "before-content" if start_date.present? %>">
         <span class="text-medium mt-xs"><%= modality %></span>
       </div>
       <% if instructors.present? %>
-        <div class="card__course-instructor inline-block <%= "before-content" if course_date.present? || modality.present? %>">
+        <div class="card__course-instructor inline-block <%= "before-content" if start_date.present? || modality.present? %>">
           <span class="text-medium mt-xs"><%= instructors %></span>
         </div>
       <% end %>

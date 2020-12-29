@@ -16,7 +16,7 @@ module Decidim
           @upcoming_courses ||= Decidim::Course
                                   .where(organization: current_organization)
                                   .upcoming
-                                  .order(course_date: :asc)
+                                  .order(start_date: :asc)
                                   .limit(limit)
         end
 

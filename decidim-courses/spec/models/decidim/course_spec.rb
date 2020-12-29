@@ -31,9 +31,9 @@ module Decidim
 
     describe "scopes" do
       describe "upcoming" do
-        let!(:past_course) { create(:course, course_date: Time.current - 1.minute) }
-        let!(:future_course) { create(:course, course_date: Time.current + 1.minute) }
-        let!(:future_unpublished) { create(:course, :unpublished, course_date: Time.current + 1.minute) }
+        let!(:past_course) { create(:course, start_date: Time.current - 1.minute) }
+        let!(:future_course) { create(:course, start_date: Time.current + 1.minute) }
+        let!(:future_unpublished) { create(:course, :unpublished, start_date: Time.current + 1.minute) }
 
         it "returns the future ones" do
           expect(described_class.upcoming).to include future_course

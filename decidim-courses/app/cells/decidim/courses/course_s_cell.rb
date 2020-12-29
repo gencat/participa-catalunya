@@ -13,8 +13,8 @@ module Decidim
         translated_attribute model.instructors
       end
 
-      def course_date
-        l(model.course_date, format: :decidim_short) if model.course_date
+      def start_date
+        l(model.start_date, format: :decidim_short) if model.start_date
       end
 
       def modality

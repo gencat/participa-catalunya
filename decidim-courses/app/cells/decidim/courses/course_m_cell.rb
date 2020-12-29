@@ -23,15 +23,15 @@ module Decidim
       end
 
       def statuses
-        [:course_date, :duration, :modality]
+        [:start_date, :duration, :modality]
       end
 
-      def course_date_status
-        l(model.course_date, format: :decidim_short) if model.course_date
+      def start_date_status
+        l(model.start_date, format: :decidim_short) if model.start_date
       end
 
       def duration_status
-        time_ago_in_words(Time.current + model.duration.minutes) if model.duration
+        model.duration if model.duration
       end
 
       def modality_status

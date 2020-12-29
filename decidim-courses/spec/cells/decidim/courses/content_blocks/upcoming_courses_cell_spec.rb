@@ -17,7 +17,7 @@ module Decidim
         end
 
         context "with courses" do
-          let!(:course) { create(:course, course_date: 2.week.from_now, organization: organization) }
+          let!(:course) { create(:course, start_date: 2.week.from_now, organization: organization) }
 
           it "renders the events" do
             expect(html).to have_css(".card", count: 1)
@@ -29,11 +29,11 @@ module Decidim
             let(:cell) { described_class.new(nil, context: { controller: controller }) }
 
             let!(:past_course) do
-              create(:course, course_date: 1.week.ago, organization: organization)
+              create(:course, end_date: 1.week.ago, organization: organization)
             end
 
             let!(:first_course) do
-              create(:course, course_date: course.course_date - 1.day, organization: organization)
+              create(:course, start_date: course.start_date - 1.day, organization: organization)
             end
 
             it { is_expected.not_to include(past_course) }
@@ -48,10 +48,10 @@ module Decidim
 
             context "with upcoming unpublished events" do
               let!(:course) do
-                create(:course, :unpublished, course_date: 1.week.from_now, organization: organization)
+                create(:course, :unpublished, start_date: 1.week.from_now, organization: organization)
               end
               let!(:first_course) do
-                create(:course, :unpublished, course_date: course.course_date + 1.week, organization: organization)
+                create(:course, :unpublished, start_date: course.start_date + 1.week, organization: organization)
               end
 
               it "renders nothing" do

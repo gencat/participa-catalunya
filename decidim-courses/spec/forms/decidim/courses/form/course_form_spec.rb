@@ -32,8 +32,10 @@ module Decidim::Courses::Admin
     let(:slug) { "slug" }
     let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     let(:show_statistics) { true }
-    let(:duration) { 25 }
-    let(:course_date) { 2.days.from_now }
+    let(:duration) { "duration" }
+    let(:start_date) { 2.days.from_now }
+    let(:end_date) { 4.days.from_now}
+    let(:schedule) { "schedule"}
     let(:modality) { Decidim::Course::MODALITIES.sample }
     let(:attributes) do
       {
@@ -54,7 +56,9 @@ module Decidim::Courses::Admin
           "slug" => slug,
           "show_statistics" => show_statistics,
           "duration" => duration,
-          "course_date" => course_date,
+          "start_date" => start_date,
+          "end_date" => end_date,
+          "schedule" => schedule,
           "modality" => modality,
           "address" => "address",
           "registration_link" => Faker::Internet.url

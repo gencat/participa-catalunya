@@ -6,11 +6,11 @@ describe "Homepage courses content blocks", type: :system do
   let(:organization) { create(:organization) }
 
   let!(:past_course) do
-    create(:course, course_date: 1.week.ago, organization: organization)
+    create(:course, start_date: 1.week.ago, organization: organization)
   end
 
   let!(:future_course) do
-    create(:course, course_date: 1.week.from_now, organization: organization)
+    create(:course, start_date: 1.week.from_now, organization: organization)
   end
 
   before do

@@ -62,8 +62,10 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
         address: Faker::Lorem.word,
         scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first,
         created_at: 1.day.from_now,
-        duration: Random.new.rand(100),
-        course_date: 2.days.from_now
+        duration: Faker::Lorem.word,
+        schedule: Faker::Lorem.word,
+        start_date: 2.days.from_now,
+        end_date: 4.days.from_now
       }
 
       course = Decidim.traceability.perform_action!(

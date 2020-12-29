@@ -20,7 +20,7 @@
               <%= sort_link(query, :title, t("models.course.fields.title", scope: "decidim.admin")) %>
             </th>
             <th>
-              <%= sort_link(query, :course_date, t("models.course.fields.course_date", scope: "decidim.admin"), default_order: :desc) %>
+              <%= sort_link(query, :start_date, t("models.course.fields.start_date", scope: "decidim.admin"), default_order: :desc) %>
             </th>
             <th class="table-list__actions">
               <%= sort_link(query, :published_at, t("models.course.fields.published", scope: "decidim.admin")) %>
@@ -48,7 +48,7 @@
                 <% end %>
               </td>
               <td>
-                <%= l(course.course_date, format: :decidim_short) if course.course_date %>
+                <%= l(course.start_date, format: :decidim_short) if course.start_date %>
               </td>
               <td class="table-list__state">
                 <% if course.published? %>
