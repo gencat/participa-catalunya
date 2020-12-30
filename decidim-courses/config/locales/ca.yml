@@ -36,7 +36,6 @@ ca:
         address: Adreça
         registration_link: Enllaç de registre
         modality: Modalitat
-        minutes: minuts
         read_more: Llegir més
         read_less: Llegir menys
         start_date: Data d'inici de la formació
@@ -95,7 +94,7 @@ ca:
         courses:
           form:
             duration: Duració
-            duration_help: Duració de la formació en minuts
+            duration_help: Duració de la formació (p. ex. 1h 45m)
             filters: Filtres
             images: Imatges
             other: Altre

@@ -36,7 +36,6 @@ es:
         address: Dirección
         registration_link: Enlace de registro
         modality: Modalidad
-        minutes: minutos
         read_more: Leer más
         read_less: Leer menos
         schedule: Schedule
@@ -95,7 +94,7 @@ es:
         courses:
           form:
             duration: Duración
-            duration_help: Duración de la formación en minutos
+            duration_help: Duración de la formación (por ejemplo 1h 45m)
             filters: Filtros
             images: Imágenes
             other: Otro

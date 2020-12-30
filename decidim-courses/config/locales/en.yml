@@ -36,7 +36,6 @@ en:
         address: Address
         registration_link: Registration_link
         modality: Modality
-        minutes: minutes
         read_more: Read more
         read_less: Read less
         schedule: Schedule
@@ -95,7 +94,7 @@ en:
         courses:
           form:
             duration: Duration
-            duration_help: Duration of the course in minutes
+            duration_help: Duration of the course (e.g. 1h 45m)
             filters: Filters
             images: Images
             other: Other
