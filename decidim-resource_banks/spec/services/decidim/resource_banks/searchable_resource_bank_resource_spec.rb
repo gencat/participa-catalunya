@@ -10,6 +10,7 @@ module Decidim
             :resource_bank,
             :unpublished,
             organization: organization,
+            scope: scope1,
             title: Decidim::Faker::Localized.name,
             text: description_1,
         )
@@ -19,6 +20,7 @@ module Decidim
         create(
             :resource_bank,
             organization: organization,
+            scope: scope1,
             title: Decidim::Faker::Localized.name,
             text: description_2,
         )

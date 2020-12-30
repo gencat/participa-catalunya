@@ -10,6 +10,7 @@ describe "ResourceBanks", type: :system do
   let(:base_resource_bank) do
     create(
       :resource_bank,
+      :with_scope,
       organization: organization,
       text: { en: "Description", ca: "Descripció", es: "Descripción" },
       show_statistics: show_statistics
@@ -133,6 +134,7 @@ describe "ResourceBanks", type: :system do
             expect(page).to have_content(translated(resource_bank.text, locale: :en))
             expect(page).to have_css("a[href='#{resource_bank.video_url}']")
             expect(page).to have_content(translated(resource_bank.authorship, locale: :en))
+            expect(page).to have_content(translated(resource_bank.scope.name, locale: :en))
           end
         end
 

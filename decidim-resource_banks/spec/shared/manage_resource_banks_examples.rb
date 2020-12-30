@@ -128,4 +128,27 @@ shared_examples "manage resource_banks" do
       end
     end
   end
+
+  context "when the resource bank has a scope" do
+    let(:scope) { create(:scope, organization: organization) }
+
+    before do
+      resource_bank.update!(scopes_enabled: true, scope: scope)
+    end
+
+    it "disables the scope for the resource bank" do
+      click_link translated(resource_bank.title)
+
+      uncheck :resource_bank_scopes_enabled
+
+      expect(page).to have_selector("#resource_bank_scope_id.disabled")
+      expect(page).to have_selector("#resource_bank_scope_id .picker-values div input[disabled]", visible: :all)
+
+      within ".edit_resource_bank" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+    end
+  end
 end

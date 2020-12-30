@@ -51,6 +51,7 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
         banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
         published_at: 2.weeks.ago,
         authorship: Faker::Name.name,
+        scope: n.positive? ? nil : Decidim::Scope.reorder(Arel.sql("RANDOM()")).first,
         created_at: 1.day.from_now,
       }
 

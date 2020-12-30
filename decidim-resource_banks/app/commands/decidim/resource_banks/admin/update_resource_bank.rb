@@ -60,6 +60,8 @@ module Decidim
             hashtag: form.hashtag,
             promoted: form.promoted,
             area: form.area,
+            scope: form.scope,
+            scopes_enabled: form.scopes_enabled,
             show_statistics: form.show_statistics,
             slug: form.slug,
             video_url: form.video_url,

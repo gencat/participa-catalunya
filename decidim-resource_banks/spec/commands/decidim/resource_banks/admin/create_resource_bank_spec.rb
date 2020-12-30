@@ -8,6 +8,7 @@ module Decidim::ResourceBanks
 
     let(:organization) { create :organization }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
+    let(:scope) { create :scope, organization: organization }
     let(:area) { create :area, organization: organization }
     let(:errors) { double.as_null_object }
 
@@ -26,6 +27,8 @@ module Decidim::ResourceBanks
         hero_image: nil,
         banner_image: nil,
         promoted: nil,
+        scopes_enabled: true,
+        scope: scope,
         area: area,
         show_statistics: false,
         authorship: Faker::Name.name,

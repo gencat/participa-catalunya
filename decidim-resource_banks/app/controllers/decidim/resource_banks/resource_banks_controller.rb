@@ -32,8 +32,13 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
+          scope_id: default_filter_scope_params,
           area_id: nil
         }
+      end
+
+      def default_filter_scope_params
+        %w(all global) + current_organization.scopes.pluck(:id).map(&:to_s)
       end
 
       def search_klass
