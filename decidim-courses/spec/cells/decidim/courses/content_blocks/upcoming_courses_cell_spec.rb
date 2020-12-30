@@ -17,7 +17,7 @@ module Decidim
         end
 
         context "with courses" do
-          let!(:course) { create(:course, course_date: 2.week.from_now, organization: organization) }
+          let!(:course) { create(:course, course_date: 2.weeks.from_now, organization: organization) }
 
           it "renders the events" do
             expect(html).to have_css(".card", count: 1)

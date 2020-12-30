@@ -14,10 +14,10 @@ module Decidim
 
         def upcoming_courses
           @upcoming_courses ||= Decidim::Course
-                                  .where(organization: current_organization)
-                                  .upcoming
-                                  .order(course_date: :asc)
-                                  .limit(limit)
+                                .where(organization: current_organization)
+                                .upcoming
+                                .order(course_date: :asc)
+                                .limit(limit)
         end
 
         def courses_path

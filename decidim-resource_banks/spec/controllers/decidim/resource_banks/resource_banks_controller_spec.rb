@@ -11,26 +11,26 @@ module Decidim
 
       let!(:unpublished) do
         create(
-            :resource_bank,
-            :unpublished,
-            organization: organization
+          :resource_bank,
+          :unpublished,
+          organization: organization
         )
       end
 
       let!(:published) do
         create(
-            :resource_bank,
-            :published,
-            organization: organization
+          :resource_bank,
+          :published,
+          organization: organization
         )
       end
 
       let!(:promoted) do
         create(
-            :resource_bank,
-            :published,
-            :promoted,
-            organization: organization
+          :resource_bank,
+          :published,
+          :promoted,
+          organization: organization
         )
       end
 
