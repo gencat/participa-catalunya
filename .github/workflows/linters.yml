@@ -1,4 +1,4 @@
-name: "[CI] Lint / Lint code"
+name: "[CI] Lint code"
 
 on:
   push:
@@ -12,7 +12,7 @@ env:
   RUBY_VERSION: 2.6.6
 
 jobs:
-  test-report:
+  lint:
     runs-on: ubuntu-latest
 
     steps:

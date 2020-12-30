@@ -16,7 +16,7 @@ defaults:
     working-directory: decidim-courses
 
 jobs:
-  test-report:
+  test:
     runs-on: ubuntu-latest
 
     services:

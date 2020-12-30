@@ -16,7 +16,7 @@ defaults:
     working-directory: decidim-resource_banks
 
 jobs:
-  test-report:
+  test:
     runs-on: ubuntu-latest
 
     services:
