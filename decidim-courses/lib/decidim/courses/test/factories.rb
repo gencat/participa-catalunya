@@ -21,7 +21,7 @@ FactoryBot.define do
     hashtag { generate(:hashtag_name) }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
     start_date { 1.week.from_now }
-    end_date { 2.week.from_now}
+    end_date { 2.weeks.from_now }
     schedule { "schedule" }
     duration { "duration" }
     modality { Decidim::Course::MODALITIES.sample }

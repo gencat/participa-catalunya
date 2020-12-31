@@ -31,7 +31,7 @@ module Decidim
       end
 
       def duration_status
-        model.duration if model.duration
+        model.duration
       end
 
       def modality_status

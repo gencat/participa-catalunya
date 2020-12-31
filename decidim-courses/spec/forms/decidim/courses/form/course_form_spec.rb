@@ -34,8 +34,8 @@ module Decidim::Courses::Admin
     let(:show_statistics) { true }
     let(:duration) { "duration" }
     let(:start_date) { 2.days.from_now }
-    let(:end_date) { 4.days.from_now}
-    let(:schedule) { "schedule"}
+    let(:end_date) { 4.days.from_now }
+    let(:schedule) { "schedule" }
     let(:modality) { Decidim::Course::MODALITIES.sample }
     let(:attributes) do
       {
