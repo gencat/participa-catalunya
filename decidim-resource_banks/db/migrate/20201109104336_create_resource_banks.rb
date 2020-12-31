@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateResourceBanks < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_resource_banks do |t|
@@ -7,8 +9,8 @@ class CreateResourceBanks < ActiveRecord::Migration[5.2]
       t.boolean :promoted, default: false
       t.boolean :show_statistics, default: false
       t.integer :decidim_organization_id,
-              foreign_key: true,
-              index: { name: "index_decidim_resource_banks_on_decidim_organization_id" }
+                foreign_key: true,
+                index: { name: "index_decidim_resource_banks_on_decidim_organization_id" }
       t.integer :decidim_area_id,
                 foreign_key: true,
                 index: { name: "index_decidim_resource_banks_on_decidim_area_id" }
@@ -22,8 +24,8 @@ class CreateResourceBanks < ActiveRecord::Migration[5.2]
       t.datetime :published_at
 
       t.index [:decidim_organization_id, :slug],
-        name: "index_unique_resource_banks_slug_and_organization",
-        unique: true
+              name: "index_unique_resource_banks_slug_and_organization",
+              unique: true
     end
   end
 end

@@ -114,21 +114,21 @@ describe "ResourceBanks", type: :system do
     end
   end
 
-  context 'when going to the resource_bank page' do
+  context "when going to the resource_bank page" do
     let!(:resource_bank) { base_resource_bank }
 
-    it_behaves_like 'editable content for admins' do
+    it_behaves_like "editable content for admins" do
       let(:target_path) { decidim_resource_banks.resource_bank_path(resource_bank) }
     end
 
-    context 'when requesting the resource_banks path' do
+    context "when requesting the resource_banks path" do
       before do
         visit decidim_resource_banks.resource_bank_path(resource_bank)
       end
 
-      context 'when requesting the resource_bank path' do
-        it 'shows the details of the given resource_bank' do
-          within 'main' do
+      context "when requesting the resource_bank path" do
+        it "shows the details of the given resource_bank" do
+          within "main" do
             expect(page).to have_content(translated(resource_bank.title, locale: :en))
             expect(page).to have_content(translated(resource_bank.text, locale: :en))
             expect(page).to have_css("a[href='#{resource_bank.video_url}']")
@@ -136,11 +136,11 @@ describe "ResourceBanks", type: :system do
           end
         end
 
-        it_behaves_like 'has attachments' do
+        it_behaves_like "has attachments" do
           let(:attached_to) { resource_bank }
         end
 
-        it_behaves_like 'has attachment collections' do
+        it_behaves_like "has attachment collections" do
           let(:attached_to) { resource_bank }
           let(:collection_for) { resource_bank }
         end

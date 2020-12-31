@@ -11,26 +11,26 @@ module Decidim
 
       let!(:unpublished) do
         create(
-            :course,
-            :unpublished,
-            organization: organization
+          :course,
+          :unpublished,
+          organization: organization
         )
       end
 
       let!(:published) do
         create(
-            :course,
-            :published,
-            organization: organization
+          :course,
+          :published,
+          organization: organization
         )
       end
 
       let!(:promoted) do
         create(
-            :course,
-            :published,
-            :promoted,
-            organization: organization
+          :course,
+          :published,
+          :promoted,
+          organization: organization
         )
       end
 

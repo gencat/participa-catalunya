@@ -10,7 +10,7 @@ module Decidim
 
       private
 
-      def has_image?
+      def has_image? # rubocop:disable Naming/PredicateName
         true
       end
 
