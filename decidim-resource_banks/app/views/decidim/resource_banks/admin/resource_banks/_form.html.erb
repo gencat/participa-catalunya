@@ -51,6 +51,14 @@
 
   <div class="card-section">
     <div class="row column">
+      <%= form.check_box :scopes_enabled %>
+    </div>
+
+    <div class="row column">
+      <%= scopes_picker_field form, :scope_id, root: nil %>
+    </div>
+
+    <div class="row column">
       <%= form.areas_select :area_id,
                             areas_for_select(current_organization),
                             selected: form.object.area_id,
@@ -86,3 +94,5 @@
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag "decidim/resource_banks/admin/resource_banks" %>

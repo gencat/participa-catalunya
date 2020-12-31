@@ -7,10 +7,13 @@ ca:
         authorship: Autoria
         banner_image: Imatge de bàner
         decidim_area_id: Àrea
+        decidim_scope_id: Àmbit
         hashtag: Hashtag
         hero_image: Imatge de portada
         promoted: Destacat
         published_at: Publicat el
+        scope_id: Àmbit
+        scopes_enabled: Àmbits habilitats
         slug: Nom curt d'URL
         text: Descripció
         title: Títol
@@ -81,12 +84,17 @@ ca:
       resource_banks:
         filters:
           areas: Àreas
+          scope: Àmbit
           search: Cerca
           select_an_area: Selecciona una Àrea
         resource_banks:
           no_resource_banks_warning: No hi ha bancs de recursos que coincideixin amb la teva cerca o no hi ha cap banc de recusos publicat.
+      resource_banks_helper:
+        filter_scope_values:
+          all: Totes
       show:
         area: Àrea
+        scope: Àmbit
         video_url: Video url
         authorship: Autoria
     menu:

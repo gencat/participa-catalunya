@@ -22,7 +22,8 @@ module Decidim::ResourceBanks::Admin
           title: resource_bank.title,
           text: resource_bank.text,
           authorship: resource_bank.authorship,
-          slug: resource_bank.slug
+          slug: resource_bank.slug,
+          scopes_enabled: resource_bank.scopes_enabled
         }
       end
 

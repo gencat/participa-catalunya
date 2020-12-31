@@ -7,10 +7,13 @@ es:
         authorship: Autoría
         banner_image: Imagen de banner
         decidim_area_id: Área
+        decidim_scope_id: Ámbito
         hashtag: Hashtag
         hero_image: Imagen de portada
         promoted: Destacado
         published_at: Publicado el
+        scope_id: Ámbito
+        scopes_enabled: Ámbitos habilitados
         slug: Texto corto de URL
         text: Descripción
         title: Título
@@ -81,12 +84,17 @@ es:
       resource_banks:
         filters:
           areas: Áreas
+          scope: Ámbito
           search: Buscar
           select_an_area: Seleccione un Área
         resource_banks:
           no_resource_banks_warning: No hay bancos de recursos que coincidan con tu búsqueda o no hay ningún banco de recursos publicado.
+      resource_banks_helper:
+        filter_scope_values:
+          all: Todas
       show:
         area: Área
+        scope: Ámbito
         video_url: Video url
         authorship: Autoría
     menu:
