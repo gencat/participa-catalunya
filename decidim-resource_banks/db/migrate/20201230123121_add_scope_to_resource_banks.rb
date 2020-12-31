@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddScopeToResourceBanks < ActiveRecord::Migration[5.2]
   def change
     change_table :decidim_resource_banks do |t|
