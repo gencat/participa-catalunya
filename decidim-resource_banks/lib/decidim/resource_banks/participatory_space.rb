@@ -36,7 +36,7 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
-    2.times do |n|
+    2.times do |_n|
       params = {
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),
@@ -51,7 +51,7 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
         banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
         published_at: 2.weeks.ago,
         authorship: Faker::Name.name,
-        created_at: 1.day.from_now,
+        created_at: 1.day.from_now
       }
 
       resource_bank = Decidim.traceability.perform_action!(

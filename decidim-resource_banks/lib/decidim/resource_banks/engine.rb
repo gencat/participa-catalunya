@@ -14,7 +14,7 @@ module Decidim
       end
 
       initializer "decidim_resource_banks.assets" do |app|
-        app.config.assets.precompile += %w[decidim_resource_banks_manifest.js decidim_resource_banks_manifest.css]
+        app.config.assets.precompile += %w(decidim_resource_banks_manifest.js decidim_resource_banks_manifest.css)
       end
 
       initializer "decidim_resource_banks.menu" do
