@@ -61,9 +61,9 @@ module Decidim
         @promoted_resource_banks ||= published_resource_banks | PromotedResourceBanks.new
       end
 
-       # TODO create ResourceBankStatsPresenter
+      # TODO: create ResourceBankStatsPresenter
       def stats
-        #@stats ||= ResourceBankStatsPresenter.new(resource_bank: current_participatory_space)
+        # @stats ||= ResourceBankStatsPresenter.new(resource_bank: current_participatory_space)
       end
     end
   end

@@ -5,10 +5,10 @@ require "spec_helper"
 describe Decidim::ScopesHelper do
   let(:participatory_space) do
     create(
-        :course,
-        organization: organization,
-        scopes_enabled: scopes_enabled,
-        scope: participatory_space_scope
+      :course,
+      organization: organization,
+      scopes_enabled: scopes_enabled,
+      scope: participatory_space_scope
     )
   end
 

@@ -65,7 +65,6 @@ module Decidim
       where(promoted: true)
     end
 
-
     def attachment_context
       :admin
     end
