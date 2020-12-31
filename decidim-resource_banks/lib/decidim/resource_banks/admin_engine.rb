@@ -18,6 +18,10 @@ module Decidim
         end
       end
 
+      initializer "decidim_resource_banks.admin_assets" do |app|
+        app.config.assets.precompile += %w(admin/decidim_resource_banks_manifest.js)
+      end
+
       initializer "decidim_resource_banks.admin_menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.resource_banks", scope: "decidim.admin"),

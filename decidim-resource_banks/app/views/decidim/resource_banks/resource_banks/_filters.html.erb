@@ -19,4 +19,6 @@
                         label: "",
                         selected: filter.area_id,
                         include_blank: t(".select_an_area") %>
+
+  <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
 <% end %>

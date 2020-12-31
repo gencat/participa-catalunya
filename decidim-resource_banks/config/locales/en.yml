@@ -7,10 +7,13 @@ en:
         authorship: Authorship
         banner_image: Banner image
         decidim_area_id: Area
+        decidim_scope_id: Scope
         hashtag: Hashtag
         hero_image: Home image
         promoted: Highlighted
         published_at: Published at
+        scope_id: Scope
+        scopes_enabled: Scopes enabled
         slug: URL slug
         text: Description
         title: Title
@@ -81,12 +84,17 @@ en:
       resource_banks:
         filters:
           areas: Areas
+          scope: Scope
           search: Search
           select_an_area: Select an Area
         resource_banks:
           no_resource_banks_warning: No resource banks match your search criteria or there isn't any resource bank published.
+      resource_banks_helper:
+        filter_scope_values:
+          all: All
       show:
         area: Area
+        scope: Scope
         video_url: Video url
         authorship: Authorship
     menu:

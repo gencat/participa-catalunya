@@ -6,6 +6,8 @@ module Decidim
   module ResourceBanks
     describe ResourceBankSearch do
       let(:organization) { create :organization }
+      let(:scope) { create(:scope, organization: organization) }
+      let(:scope2) { create(:scope, organization: organization) }
       let(:user1) { create(:user, organization: organization) }
 
       describe "results" do
@@ -13,11 +15,13 @@ module Decidim
           described_class.new(
             search_text: search_text,
             current_user: user1,
+            scope_id: scope_id,
             organization: organization
           ).results
         end
 
         let(:search_text) { nil }
+        let(:scope_id) { nil }
 
         context "when the filter includes search_text" do
           let(:search_text) { "dog" }
@@ -39,6 +43,27 @@ module Decidim
 
             it "returns the resource bank with the searched id" do
               expect(subject).to contain_exactly(resource_bank)
+            end
+          end
+        end
+
+        context "when the filter includes scope_id" do
+          let!(:resource_bank) { create(:resource_bank, scope: scope, organization: organization) }
+          let!(:resource_bank2) { create(:resource_bank, scope: scope2, organization: organization) }
+
+          context "when a scope id is being sent" do
+            let(:scope_id) { [scope.id] }
+
+            it "filters resource banks by scope" do
+              expect(subject).to match_array [resource_bank]
+            end
+          end
+
+          context "when multiple ids are sent" do
+            let(:scope_id) { [scope.id, scope2.id] }
+
+            it "filters resource banks by scope" do
+              expect(subject).to match_array [resource_bank, resource_bank2]
             end
           end
         end
