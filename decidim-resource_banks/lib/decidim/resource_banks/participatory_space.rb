@@ -36,7 +36,7 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
-    2.times do |_n|
+    2.times do |n|
       params = {
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),
