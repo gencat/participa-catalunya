@@ -131,6 +131,7 @@ describe "Courses", type: :system do
       context "when requesting the course path" do
         it "shows the details of the given course" do
           within "main" do
+            expect(page).to have_content(translated(course.announcement, locale: :en))
             expect(page).to have_content(translated(course.title, locale: :en))
             expect(page).to have_content(translated(course.description, locale: :en))
             expect(page).to have_content(I18n.l(course.course_date, format: :decidim_short))

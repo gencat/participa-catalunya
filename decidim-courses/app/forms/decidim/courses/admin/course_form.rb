@@ -12,6 +12,7 @@ module Decidim
 
         mimic :course
 
+        translatable_attribute :announcement, String
         translatable_attribute :description, String
         translatable_attribute :instructors, String
         translatable_attribute :title, String

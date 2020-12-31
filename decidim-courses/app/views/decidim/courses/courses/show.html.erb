@@ -16,6 +16,11 @@
 
 <%= participatory_space_floating_help %>
 
+<% if translated_attribute(current_participatory_space.announcement).present? %>
+  <%= render partial: "decidim/shared/announcement",
+             locals: { announcement: current_participatory_space.announcement } %>
+<% end %>
+
 <div class="row column">
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
@@ -89,6 +94,7 @@
   </div>
 
   <% if current_participatory_space.show_statistics? %>
-    <%= render partial: "statistics" %>
+    <%# TODO: create CourseStatsPresenter %>
+    <%#= render partial: "statistics" %>
   <% end %>
 </div>

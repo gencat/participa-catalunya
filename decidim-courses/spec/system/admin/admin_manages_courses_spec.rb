@@ -55,6 +55,34 @@ describe "Admin manages courses", type: :system do
     end
   end
 
+  shared_examples "manage course announcement" do
+    it "can customize an announcement for the course" do
+      click_link translated(course.title)
+
+      fill_in_i18n_editor(
+        :course_announcement,
+        "#course-announcement-tabs",
+        en: "An important announcement",
+        es: "Un aviso muy importante",
+        ca: "Un avís molt important"
+      )
+
+      within ".edit_course" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      visit decidim_admin_courses.courses_path
+
+      within "tr", text: translated(course.title) do
+        click_link "Preview"
+      end
+
+      expect(page).to have_content("An important announcement")
+    end
+  end
+
   context "when managing courses" do
     before do
       switch_to_host(organization.host)
@@ -63,6 +91,7 @@ describe "Admin manages courses", type: :system do
     end
 
     it_behaves_like "manage courses"
+    it_behaves_like "manage course announcement"
     it_behaves_like "creating a course"
 
     describe "listing courses" do

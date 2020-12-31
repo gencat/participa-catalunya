@@ -39,6 +39,7 @@ module Decidim
           @course ||= Decidim.traceability.create(
             Course,
             form.current_user,
+            announcement: form.announcement,
             organization: form.current_organization,
             description: form.description,
             instructors: form.instructors,

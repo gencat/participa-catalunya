@@ -3,6 +3,7 @@ es:
   activemodel:
     attributes:
       course:
+        announcement: Aviso
         area_id: Área
         banner_image: Imagen de banner
         course_date: Fecha de la formación
@@ -89,6 +90,7 @@ es:
       admin:
         courses:
           form:
+            announcement_help: El texto que ingreses aquí se mostrará a la participante justo encima de la información de la formación.
             duration: Duración
             duration_help: Duración de la formación en minutos
             filters: Filtros

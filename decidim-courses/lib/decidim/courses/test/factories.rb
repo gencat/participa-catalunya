@@ -10,6 +10,7 @@ FactoryBot.define do
   end
 
   factory :course, class: "Decidim::Course" do
+    announcement { generate_localized_title }
     title { generate_localized_title }
     slug { generate(:course_slug) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }

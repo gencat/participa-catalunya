@@ -20,6 +20,7 @@ module Decidim::Courses
         invalid?: invalid,
         errors: errors,
 
+        announcement: { en: "title" },
         title: { en: "title" },
         description: { en: "description" },
         instructors: { en: "instructors" },

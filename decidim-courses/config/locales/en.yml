@@ -3,6 +3,7 @@ en:
   activemodel:
     attributes:
       course:
+        announcement: Announcement
         area_id: Area
         banner_image: Banner image
         course_date: Course date
@@ -89,6 +90,7 @@ en:
       admin:
         courses:
           form:
+            announcement_help: The text you enter here will be shown to the user right before the course information.
             duration: Duration
             duration_help: Duration of the course in minutes
             filters: Filters
