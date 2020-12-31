@@ -39,6 +39,7 @@ module Decidim
           @resource_bank ||= Decidim.traceability.create(
             ResourceBank,
             form.current_user,
+            announcement: form.announcement,
             organization: form.current_organization,
             text: form.text,
             title: form.title,
