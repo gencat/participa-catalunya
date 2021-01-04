@@ -50,17 +50,31 @@
           </div>
         <% end %>
 
-        <% if current_participatory_space.course_date.present? %>
-          <div class="definition-data__item course_date">
-            <span class="definition-data__title"><%= t("course_date", scope: "decidim.course.show") %></span>
-            <%= l current_participatory_space.course_date, format: :decidim_short %>
+        <% if current_participatory_space.start_date.present? %>
+          <div class="definition-data__item start_date">
+            <span class="definition-data__title"><%= t("start_date", scope: "decidim.course.show") %></span>
+            <%= l current_participatory_space.start_date, format: :decidim_short %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_space.end_date.present? %>
+          <div class="definition-data__item end_date">
+            <span class="definition-data__title"><%= t("end_date", scope: "decidim.course.show") %></span>
+            <%= l current_participatory_space.end_date, format: :decidim_short %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_space.schedule.present? %>
+          <div class="definition-data__item schedule">
+            <span class="definition-data__title"><%= t("schedule", scope: "decidim.course.show") %></span>
+            <%= current_participatory_space.schedule %>
           </div>
         <% end %>
 
         <% if current_participatory_space.duration.present? %>
           <div class="definition-data__item duration">
             <span class="definition-data__title"><%= t("duration", scope: "decidim.course.show") %></span>
-            <%= "#{current_participatory_space.duration} #{t("minutes", scope: "decidim.course.show")}" %>
+            <%= current_participatory_space.duration %>
           </div>
         <% end %>
 

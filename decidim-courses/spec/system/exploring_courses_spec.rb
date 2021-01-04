@@ -32,7 +32,7 @@ describe "Explore Courses", type: :system do
     end
 
     it "allows filtering by date" do
-      past_course = create(:course, organization: organization, course_date: 1.day.ago)
+      past_course = create(:course, organization: organization, start_date: 1.day.ago)
 
       visit decidim_courses.courses_path
 
@@ -101,7 +101,7 @@ describe "Explore Courses", type: :system do
 
   context "when no upcoming courses scheduled" do
     let!(:courses) do
-      create_list(:course, 2, organization: organization, course_date: Time.current - 4.days)
+      create_list(:course, 2, organization: organization, start_date: Time.current - 4.days)
     end
 
     it "only shows the past courses" do

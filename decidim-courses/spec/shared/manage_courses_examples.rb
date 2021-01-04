@@ -4,7 +4,7 @@ shared_examples "manage courses" do
   describe "updating a course" do
     let(:image3_filename) { "city3.jpeg" }
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
-    let(:course_date) { Time.current + 1.day }
+    let(:start_date) { Time.current + 1.day }
 
     before do
       click_link translated(course.title)

@@ -5,7 +5,8 @@ en:
       course:
         area_id: Area
         banner_image: Banner image
-        course_date: Course date
+        start_date: Course start date
+        end_date: Course end date
         decidim_area_id: Area
         decidim_scope_id: Scope
         description: Description
@@ -16,6 +17,7 @@ en:
         modality: Modality
         promoted: Highlighted
         published_at: Published at
+        schedule: Schedule
         scope_id: Scope
         scopes_enabled: Scopes enabled
         slug: URL slug
@@ -34,10 +36,11 @@ en:
         address: Address
         registration_link: Registration_link
         modality: Modality
-        minutes: minutes
         read_more: Read more
         read_less: Read less
-        course_date: Course date
+        schedule: Schedule
+        start_date: Course start date
+        end_date: Course end date
         duration: Duration
         scope: Scope
     admin:
@@ -75,7 +78,8 @@ en:
       models:
         course:
           fields:
-            course_date: Date
+            start_date: Start date
+            end_date: End date
             promoted: Promoted
             published: Published
             title: Title
@@ -90,7 +94,7 @@ en:
         courses:
           form:
             duration: Duration
-            duration_help: Duration of the course in minutes
+            duration_help: Duration of the course (e.g. 1h 45m)
             filters: Filters
             images: Images
             other: Other

@@ -42,9 +42,9 @@ module Decidim
       # Handle the date filter
       def search_date
         if options[:date] == "upcoming"
-          query.where("course_date >= ? ", Time.current).order(promoted: :desc, course_date: :asc)
+          query.where("start_date >= ? ", Time.current).order(promoted: :desc, start_date: :asc)
         elsif options[:date] == "past"
-          query.where("course_date <= ? ", Time.current).order(promoted: :desc, course_date: :desc)
+          query.where("start_date <= ? ", Time.current).order(promoted: :desc, start_date: :desc)
         end
       end
 
