@@ -120,7 +120,8 @@ module Decidim
           :category,
           :component,
           :component_data,
-          :course
+          :course,
+          :export_space
         ].include?(permission_action.subject)
 
         allow! if is_allowed
