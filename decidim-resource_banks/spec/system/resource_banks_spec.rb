@@ -130,6 +130,7 @@ describe "ResourceBanks", type: :system do
       context "when requesting the resource_bank path" do
         it "shows the details of the given resource_bank" do
           within "main" do
+            expect(page).to have_content(translated(resource_bank.announcement, locale: :en))
             expect(page).to have_content(translated(resource_bank.title, locale: :en))
             expect(page).to have_content(translated(resource_bank.text, locale: :en))
             expect(page).to have_css("a[href='#{resource_bank.video_url}']")

@@ -12,6 +12,7 @@ module Decidim
 
         mimic :resource_bank
 
+        translatable_attribute :announcement, String
         translatable_attribute :text, String
         translatable_attribute :title, String
 

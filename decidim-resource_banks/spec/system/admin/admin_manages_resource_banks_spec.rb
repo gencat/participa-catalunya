@@ -52,6 +52,34 @@ describe "Admin manages resource_banks", type: :system do
     end
   end
 
+  shared_examples "manage resource bank announcement" do
+    it "can customize an announcement for the resource bank" do
+      click_link translated(resource_bank.title)
+
+      fill_in_i18n_editor(
+        :resource_bank_announcement,
+        "#resource_bank-announcement-tabs",
+        en: "An important announcement",
+        es: "Un aviso muy importante",
+        ca: "Un avís molt important"
+      )
+
+      within ".edit_resource_bank" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      visit decidim_admin_resource_banks.resource_banks_path
+
+      within "tr", text: translated(resource_bank.title) do
+        click_link "Preview"
+      end
+
+      expect(page).to have_content("An important announcement")
+    end
+  end
+
   context "when managing resource_banks" do
     before do
       switch_to_host(organization.host)
@@ -60,6 +88,7 @@ describe "Admin manages resource_banks", type: :system do
     end
 
     it_behaves_like "manage resource_banks"
+    it_behaves_like "manage resource bank announcement"
     it_behaves_like "creating a resource_bank"
 
     describe "listing resource_banks" do
