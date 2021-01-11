@@ -47,6 +47,7 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
 
     2.times do |n|
       params = {
+        announcement: Decidim::Faker::Localized.sentence(5),
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),
         hashtag: "##{Faker::Lorem.word}",

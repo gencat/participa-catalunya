@@ -553,6 +553,7 @@ ActiveRecord::Schema.define(version: 2020_12_31_121941) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.text "schedule"
+    t.jsonb "announcement"
     t.index ["decidim_area_id"], name: "index_decidim_courses_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_course_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_courses_on_decidim_organization_id"

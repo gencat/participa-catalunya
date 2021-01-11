@@ -55,6 +55,7 @@ module Decidim
 
         def attributes
           {
+            announcement: form.announcement,
             description: form.description,
             instructors: form.instructors,
             title: form.title,
