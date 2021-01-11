@@ -26,7 +26,11 @@ $card-margin-bottom: map-get($grid-column-gutter, medium);
   }
 }
 
-.card__course-date,
+.card--course .card__icondata ul li:not(:first-child) {
+  justify-content: center;
+}
+
+.card__course-schedule,
 .card__course-modality,
 .card__course-instructor{
   margin-bottom: .5rem;

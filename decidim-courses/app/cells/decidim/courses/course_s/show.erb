@@ -8,24 +8,21 @@
       <% end %>
     </div>
     <div class="card__text">
-      <% if start_date.present? %>
-        <div class="card__course-date inline-block">
-          <span class="text-medium mt-xs"><%= start_date %></span>
+      <% if schedule.present? %>
+        <div class="card__course-schedule inline-block">
+          <%= icon "datetime", class: "primary", role: "img", "aria-hidden": true %>
+          &nbsp;
+          <span class="text-medium mt-xs"><%= schedule %></span>
         </div>
       <% end %>
-      <div class="card__course-modality inline-block <%= "before-content" if start_date.present? %>">
+      <div class="card__course-modality inline-block <%= "before-content" if schedule.present? %>">
         <span class="text-medium mt-xs"><%= modality %></span>
       </div>
       <% if instructors.present? %>
-        <div class="card__course-instructor inline-block <%= "before-content" if start_date.present? || modality.present? %>">
+        <div class="card__course-instructor inline-block <%= "before-content" if schedule.present? || modality.present? %>">
           <span class="text-medium mt-xs"><%= instructors %></span>
         </div>
       <% end %>
-      <div class="card__course-description">
-        <% if description.present? %>
-          <%= html_truncate decidim_sanitize(description, strip_tags: true), length: 120 %>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>
