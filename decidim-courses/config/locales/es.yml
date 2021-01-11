@@ -39,8 +39,8 @@ es:
         read_more: Leer más
         read_less: Leer menos
         schedule: Schedule
-        start_date: Fecha de inicio de la formación
-        end_date: Fecha de finalización de la formación
+        start_date: Fecha de inicio
+        end_date: Fecha de fin
         duration: Duración
         scope: Ámbito
     admin:
