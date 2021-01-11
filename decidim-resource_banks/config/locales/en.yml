@@ -3,6 +3,7 @@ en:
   activemodel:
     attributes:
       resource_bank:
+        announcement: Announcement
         area_id: Area
         authorship: Authorship
         banner_image: Banner image
@@ -72,6 +73,7 @@ en:
       admin:
         resource_banks:
           form:
+            announcement_help: The text you enter here will be shown to the user right before the resource information.
             filters: Filters
             images: Images
             other: Other

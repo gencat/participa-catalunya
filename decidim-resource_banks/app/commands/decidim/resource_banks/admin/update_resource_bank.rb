@@ -55,6 +55,7 @@ module Decidim
 
         def attributes
           {
+            announcement: form.announcement,
             text: form.text,
             title: form.title,
             hashtag: form.hashtag,
