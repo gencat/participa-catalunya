@@ -43,11 +43,19 @@
 
   <div class="card-section">
     <div class="row column">
-      <%= form.datetime_field :course_date %>
+      <%= form.datetime_field :start_date %>
     </div>
 
     <div class="row column">
-      <%= form.number_field :duration %>
+      <%= form.datetime_field :end_date %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :schedule %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :duration %>
       <p class="help-text"><%== t(".duration_help") %></p>
     </div>
   </div>

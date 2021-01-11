@@ -73,11 +73,11 @@ module Decidim
 
         context "when the filter includes date" do
           let!(:course) do
-            create(:course, course_date: 10.days.from_now, organization: organization)
+            create(:course, start_date: 10.days.from_now, organization: organization)
           end
 
           let!(:past_course) do
-            create(:course, course_date: 10.days.ago, organization: organization)
+            create(:course, start_date: 10.days.ago, organization: organization)
           end
 
           context "when upcoming" do

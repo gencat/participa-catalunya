@@ -26,8 +26,10 @@ module Decidim
         attribute :slug, String
 
         attribute :address, String
-        attribute :course_date, Decidim::Attributes::TimeWithZone
-        attribute :duration, Integer
+        attribute :start_date, Decidim::Attributes::TimeWithZone
+        attribute :end_date, Decidim::Attributes::TimeWithZone
+        attribute :schedule, String
+        attribute :duration, String
         attribute :modality, String
         attribute :registration_link, String
 

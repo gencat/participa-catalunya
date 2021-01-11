@@ -540,8 +540,7 @@ ActiveRecord::Schema.define(version: 2020_12_31_091805) do
     t.jsonb "title", null: false
     t.jsonb "description", null: false
     t.string "slug", null: false
-    t.datetime "course_date"
-    t.integer "duration"
+    t.text "duration"
     t.jsonb "instructors"
     t.string "modality", null: false
     t.boolean "scopes_enabled", default: true, null: false
@@ -551,6 +550,9 @@ ActiveRecord::Schema.define(version: 2020_12_31_091805) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "published_at"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.text "schedule"
     t.jsonb "announcement"
     t.index ["decidim_area_id"], name: "index_decidim_courses_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_course_slug_and_organization", unique: true

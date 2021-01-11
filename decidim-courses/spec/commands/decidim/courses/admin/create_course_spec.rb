@@ -33,9 +33,11 @@ module Decidim::Courses
         scope: scope,
         area: area,
         show_statistics: false,
-        duration: 20,
+        duration: "duration",
         address: "address",
-        course_date: 5.days.from_now,
+        start_date: 5.days.from_now,
+        end_date: 10.days.from_now,
+        schedule: "schedule",
         modality: Decidim::Course::MODALITIES.sample,
         registration_link: Faker::Internet.url
       )

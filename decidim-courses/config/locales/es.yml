@@ -6,7 +6,8 @@ es:
         announcement: Aviso
         area_id: Área
         banner_image: Imagen de banner
-        course_date: Fecha de la formación
+        start_date: Fecha de inicio de la formación
+        end_date: Fecha de finalización de la formación
         decidim_area_id: Área
         decidim_scope_id: Ámbito
         description: Descripción
@@ -17,6 +18,7 @@ es:
         modality: Modalidad
         promoted: Destacado
         published_at: Publicado el
+        schedule: Horario
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         slug: Texto corto de URL
@@ -35,10 +37,11 @@ es:
         address: Dirección
         registration_link: Enlace de registro
         modality: Modalidad
-        minutes: minutos
         read_more: Leer más
         read_less: Leer menos
-        course_date: Fecha de la formación
+        schedule: Schedule
+        start_date: Fecha de inicio de la formación
+        end_date: Fecha de finalización de la formación
         duration: Duración
         scope: Ámbito
     admin:
@@ -76,7 +79,8 @@ es:
       models:
         course:
           fields:
-            course_date: Fecha
+            start_date: Fecha de inicio
+            end_date: Fecha de finalización
             promoted: Destacado
             published: Publicado
             title: Título
@@ -92,7 +96,7 @@ es:
           form:
             announcement_help: El texto que ingreses aquí se mostrará a la participante justo encima de la información de la formación.
             duration: Duración
-            duration_help: Duración de la formación en minutos
+            duration_help: Duración de la formación (por ejemplo 1h 45m)
             filters: Filtros
             images: Imágenes
             other: Otro

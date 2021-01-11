@@ -21,8 +21,10 @@ FactoryBot.define do
     published_at { Time.current }
     hashtag { generate(:hashtag_name) }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
-    course_date { 1.week.from_now }
-    duration { 15 }
+    start_date { 1.week.from_now }
+    end_date { 2.weeks.from_now }
+    schedule { "schedule" }
+    duration { "duration" }
     modality { Decidim::Course::MODALITIES.sample }
     registration_link { Faker::Internet.url }
     show_statistics { true }

@@ -38,7 +38,9 @@ module Decidim::Courses
             show_statistics: my_course.show_statistics,
             duration: my_course.duration,
             address: my_course.address,
-            course_date: my_course.course_date,
+            start_date: my_course.start_date,
+            end_date: my_course.end_date,
+            schedule: my_course.schedule,
             modality: my_course.modality,
             registration_link: my_course.registration_link
           }
