@@ -133,14 +133,11 @@ describe "Courses", type: :system do
           within "main" do
             expect(page).to have_content(translated(course.title, locale: :en))
             expect(page).to have_content(translated(course.description, locale: :en))
-            expect(page).to have_content(I18n.l(course.start_date, format: :decidim_short))
-            expect(page).to have_content(I18n.l(course.end_date, format: :decidim_short))
+            expect(page).to have_content(I18n.l(course.start_date, format: "%B"))
+            expect(page).to have_content(I18n.l(course.end_date, format: "%d %B"))
             expect(page).to have_content(course.schedule)
             expect(page).to have_content(course.duration)
-            expect(page).to have_content(translated(course.modality, locale: :en))
             expect(page).to have_content(course.hashtag)
-            expect(page).to have_content(translated(course.area.name, locale: :en))
-            expect(page).to have_content(translated(course.scope.name, locale: :en))
           end
         end
 
