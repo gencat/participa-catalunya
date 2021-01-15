@@ -14,8 +14,7 @@ module Decidim
 
         let(:params) do
           {
-            id: "courses",
-            slug: course.slug
+            course_slug: course.slug
           }
         end
 
