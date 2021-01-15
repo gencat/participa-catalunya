@@ -30,10 +30,15 @@ $card-margin-bottom: map-get($grid-column-gutter, medium);
   justify-content: center;
 }
 
-.card__course-schedule,
+.card__course-date,
 .card__course-modality,
 .card__course-instructor{
   margin-bottom: .5rem;
+
+  .icon {
+    margin-right: 0.25rem;
+    vertical-align: middle;
+  }
 
   &.inline-block{
     display: inline-block;
