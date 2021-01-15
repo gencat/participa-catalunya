@@ -67,7 +67,7 @@
           </div>
         <% end %>
 
-        <% if current_participatory_space.address.present? && current_participatory_space.modality == "face-to-face" %>
+        <% if current_participatory_space.address.present? && current_participatory_space.modality != "online" %>
           <div class="definition-data__item course_address basic_course_attribute">
             <span class="definition-data__title"><%= t("address", scope: "decidim.course.show") %></span>
             <%= current_participatory_space.address %>

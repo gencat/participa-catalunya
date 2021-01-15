@@ -7,11 +7,13 @@ describe "Courses", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { false }
   let(:hashtag) { true }
+  let(:modality) { "online" }
   let(:base_course) do
     create(
       :course,
       :with_area,
       :with_scope,
+      modality: modality,
       organization: organization,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       show_statistics: show_statistics
@@ -139,6 +141,7 @@ describe "Courses", type: :system do
             expect(page).to have_content(course.duration)
             expect(page).to have_content(I18n.t(course.modality, scope: "decidim.courses.modality"))
             expect(page).to have_content(course.hashtag)
+            expect(page).not_to have_content(course.address)
           end
         end
 
@@ -149,6 +152,26 @@ describe "Courses", type: :system do
         it_behaves_like "has attachment collections" do
           let(:attached_to) { course }
           let(:collection_for) { course }
+        end
+      end
+
+      context "when course is blended" do
+        let(:modality) { "blended" }
+
+        it "show the address" do
+          within "main" do
+            expect(page).to have_content(course.address)
+          end
+        end
+      end
+
+      context "when course is face-to-face" do
+        let(:modality) { "face-to-face" }
+
+        it "show the address" do
+          within "main" do
+            expect(page).to have_content(course.address)
+          end
         end
       end
     end
