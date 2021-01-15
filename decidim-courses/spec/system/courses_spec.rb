@@ -137,6 +137,7 @@ describe "Courses", type: :system do
             expect(page).to have_content(I18n.l(course.end_date, format: "%d %B"))
             expect(page).to have_content(course.schedule)
             expect(page).to have_content(course.duration)
+            expect(page).to have_content(I18n.t(course.modality, scope: "decidim.courses.modality"))
             expect(page).to have_content(course.hashtag)
           end
         end
