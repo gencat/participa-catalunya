@@ -39,8 +39,8 @@ en:
         read_more: Read more
         read_less: Read less
         schedule: Schedule
-        start_date: Course start date
-        end_date: Course end date
+        start_date: Start date
+        end_date: End date
         duration: Duration
         scope: Scope
     admin:
