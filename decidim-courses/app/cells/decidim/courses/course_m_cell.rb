@@ -12,8 +12,7 @@ module Decidim
 
       private
 
-      def description
-      end
+      def description; end
 
       def statuses
         []
