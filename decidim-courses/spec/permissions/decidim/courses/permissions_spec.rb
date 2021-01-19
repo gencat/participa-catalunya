@@ -10,6 +10,7 @@ describe Decidim::Courses::Permissions do
   let(:course) { create :course, organization: organization }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:course_admin) { create :course_admin, course: course }
 
   shared_examples "access for role" do |access|
     if access == true
@@ -25,18 +26,27 @@ describe Decidim::Courses::Permissions do
     context "when user is org admin" do
       it_behaves_like "access for role", access[:org_admin]
     end
-  end
 
-  context "when no user is given" do
-    let(:user) { nil }
-    let(:action) do
-      { scope: :admin, action: :read, subject: :dummy_resource }
+    context "when user is a space admin" do
+      let(:user) { course_admin }
+
+      it_behaves_like "access for role", access[:admin]
     end
-
-    it_behaves_like "permission is not set"
   end
 
   context "when the action is for the public part" do
+    context "when reading the admin dashboard" do
+      let(:action) do
+        { scope: :admin, action: :read, subject: :admin_dashboard }
+      end
+
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true
+      )
+    end
+
     context "when reading a course" do
       let(:action) do
         { scope: :public, action: :read, subject: :course }
@@ -61,6 +71,14 @@ describe Decidim::Courses::Permissions do
 
         context "when the user doesn't have access to it" do
           it { is_expected.to eq false }
+        end
+
+        context "when the user has access to it" do
+          before do
+            create :course_user_role, user: user, course: course
+          end
+
+          it { is_expected.to eq true }
         end
       end
     end
@@ -115,7 +133,8 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true
+      org_admin: true,
+      admin: true
     )
   end
 
@@ -138,7 +157,8 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true
+      org_admin: true,
+      admin: true
     )
   end
 
@@ -150,7 +170,8 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true
+      org_admin: true,
+      admin: true
     )
   end
 
@@ -162,7 +183,8 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true
+      org_admin: true,
+      admin: true
     )
   end
 
@@ -173,7 +195,8 @@ describe Decidim::Courses::Permissions do
 
     it_behaves_like(
       "access for roles",
-      org_admin: true
+      org_admin: true,
+      admin: false
     )
   end
 
@@ -187,8 +210,36 @@ describe Decidim::Courses::Permissions do
 
       it_behaves_like(
         "access for roles",
-        org_admin: true
+        org_admin: true,
+        admin: true
       )
+    end
+
+    context "when user is a course admin" do
+      let(:user) { course_admin }
+
+      context "when creating a course" do
+        let(:action) do
+          { scope: :admin, action: :create, subject: :course }
+        end
+
+        it { is_expected.to eq false }
+      end
+
+      shared_examples "allows any action on subject" do |action_subject|
+        context "when action subject is #{action_subject}" do
+          let(:action) do
+            { scope: :admin, action: :foo, subject: action_subject }
+          end
+
+          it { is_expected.to eq true }
+        end
+      end
+
+      it_behaves_like "allows any action on subject", :attachment
+      it_behaves_like "allows any action on subject", :attachment_collection
+      it_behaves_like "allows any action on subject", :course
+      it_behaves_like "allows any action on subject", :course_user_role
     end
 
     context "when user is an org admin" do
@@ -213,6 +264,7 @@ describe Decidim::Courses::Permissions do
       it_behaves_like "allows any action on subject", :attachment
       it_behaves_like "allows any action on subject", :attachment_collection
       it_behaves_like "allows any action on subject", :course
+      it_behaves_like "allows any action on subject", :course_user_role
     end
   end
 end

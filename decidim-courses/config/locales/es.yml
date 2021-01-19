@@ -23,11 +23,18 @@ es:
         scopes_enabled: Ámbitos habilitados
         slug: Texto corto de URL
         title: Título
+      course_user_role:
+        email: Correo electrónico
+        name: Nombre
+        role: Rol de participante
   activerecord:
     models:
       decidim/course:
         one: Formación
         other: Formaciones
+      decidim/course_user_role:
+        one: Rol de participante de la formación
+        other: Roles de participante de la formación
   decidim:
     course:
       statistics:
@@ -69,12 +76,30 @@ es:
         destroy:
           error: Se ha producido un error al despublicar esta formación.
           success: Formación despublicada correctamente.
+      course_user_roles:
+        create:
+          error: Se ha producido un error al añadir una administradora para esta formación.
+          success: Administradora añadida correctamente a esta formación.
+        destroy:
+          success: Administradora eliminada correctamente de esta formación.
+        edit:
+          title: Actualizar administradora de la formación.
+          update: Actualizar
+        index:
+          course_admins_title: Administradoras de la formación
+        new:
+          create: Crear
+          title: Nueva administradora de la formación.
+        update:
+          error: Se ha producido un error al actualizar una administradora para esta formación.
+          success: Administradora actualizada correctamente para esta formación.
       menu:
         courses: Formaciones
         courses_submenu:
           attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Adjuntos
+          course_admins: Administradoras de la formación
           info: Información
       models:
         course:
@@ -85,8 +110,21 @@ es:
             published: Publicado
             title: Título
           name: Formación
+        course_user_role:
+          fields:
+            email: Correo electrónico
+            name: Nombre
+            role: Rol
+          name: Administradora de la formación
+          roles:
+            admin: Administradora
       titles:
         courses: Formaciones
+    admin_log:
+      course_user_role:
+        create: "%{user_name} invitó %{resource_name} a la formación %{space_name}"
+        delete: "%{user_name} eliminó a la participante %{resource_name} de la formación %{space_name}"
+        update: "%{user_name} cambió el rol de %{resource_name} en la formación %{space_name}"
     components:
       courses:
         name: Espacio de formación
@@ -134,6 +172,13 @@ es:
         blended: Mixto
         face-to-face: Presencial
         online: Online
+    events:
+      course:
+        role_assigned:
+          email_intro: Te han asignado el rol de %{role} en la formación "%{resource_title}".
+          email_outro: Recibes esta notificación porque se te ha asignado el rol de %{role} en la formación "%{resource_title}".
+          email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
+          notification_title: Se te ha asignado el rol de %{role} en la formación <a href="%{resource_url}">%{resource_title}</a>.
     menu:
       courses: Formaciones
     pages:
