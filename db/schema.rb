@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_31_121941) do
+ActiveRecord::Schema.define(version: 2021_01_19_095728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -527,6 +527,16 @@ ActiveRecord::Schema.define(version: 2020_12_31_121941) do
     t.jsonb "content", null: false
     t.index ["organization_id"], name: "index_decidim_contextual_help_sections_on_organization_id"
     t.index ["section_id"], name: "index_decidim_contextual_help_sections_on_section_id"
+  end
+
+  create_table "decidim_course_user_roles", force: :cascade do |t|
+    t.integer "decidim_user_id"
+    t.integer "decidim_course_id"
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_course_id", "decidim_user_id", "role"], name: "index_unique_user_and_course_role", unique: true
+    t.index ["decidim_user_id"], name: "index_decidim_course_user_roles_on_decidim_user_id"
   end
 
   create_table "decidim_courses", force: :cascade do |t|
