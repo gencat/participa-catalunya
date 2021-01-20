@@ -3,8 +3,8 @@
 module Decidim
   module Courses
     module Admin
-      # A command with all the business logic when updated a participatory
-      # process admin in the system.
+      # A command with all the business logic when updated a
+      # course admin in the system.
       class UpdateCourseAdmin < NotifyRoleAssignedToCourse
         # Public: Initializes the command.
         #

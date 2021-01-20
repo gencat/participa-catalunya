@@ -24,7 +24,7 @@ module Decidim
       it { is_expected.not_to be_valid }
     end
 
-    context "when the process and user belong to different organizations" do
+    context "when the course and user belong to different organizations" do
       let(:course_organization) { create(:organization) }
       let(:user_organization) { create(:organization) }
 

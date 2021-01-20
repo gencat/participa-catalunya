@@ -21,7 +21,7 @@ module Decidim
 
     private
 
-    # Private: check if the process and the user have the same organization
+    # Private: check if the course and the user have the same organization
     def user_and_course_same_organization
       return if !course || !user
 

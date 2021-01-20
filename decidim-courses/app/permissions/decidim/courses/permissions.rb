@@ -155,7 +155,7 @@ module Decidim
         toggle_allow(user.admin? || can_manage_course?)
       end
 
-      # Process admins can perform everything *inside* that course. They cannot
+      # Course admins can perform everything *inside* that course. They cannot
       # create a course or perform actions on course groups or other
       # courses.
       def course_admin_action?

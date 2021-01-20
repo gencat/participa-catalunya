@@ -3,8 +3,8 @@
 module Decidim
   module Courses
     module Admin
-      # A command with all the business logic when creating a new participatory
-      # process admin in the system.
+      # A command with all the business logic when creating a new
+      # course admin in the system.
       class CreateCourseAdmin < NotifyRoleAssignedToCourse
         # Public: Initializes the command.
         #
