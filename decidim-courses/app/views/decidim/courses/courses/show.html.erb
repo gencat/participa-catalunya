@@ -41,66 +41,43 @@
 
     <div class="section columns medium-5 mediumlarge-4 large-3">
       <div class="card extra definition-data">
-        <% if translated_attribute(current_participatory_space.scope).present? %>
-          <div class="definition-data__item scope">
-            <span class="definition-data__title"><%= t("scope", scope: "decidim.course.show") %></span>
-            <%= translated_attribute(current_participatory_space.scope.name) %>
-          </div>
-        <% end %>
-
-        <% if translated_attribute(current_participatory_space.area).present? %>
-          <div class="definition-data__item area">
-            <span class="definition-data__title"><%= t("area", scope: "decidim.course.show") %></span>
-            <%= translated_attribute(current_participatory_space.area.name) %>
-          </div>
-        <% end %>
-
         <% if current_participatory_space.start_date.present? %>
           <div class="definition-data__item start_date">
-            <span class="definition-data__title"><%= t("start_date", scope: "decidim.course.show") %></span>
-            <%= l current_participatory_space.start_date, format: :decidim_short %>
+            <h1 class="course_start_date"><%= current_participatory_space.start_date.day %></h1>
+            <span><%= l(current_participatory_space.start_date, format: "%B").capitalize %></span>
+            <% if current_participatory_space.schedule.present? %>
+              <h4><%= current_participatory_space.schedule %></h4>
+            <% end %>
           </div>
         <% end %>
 
         <% if current_participatory_space.end_date.present? %>
-          <div class="definition-data__item end_date">
+          <div class="definition-data__item end_date basic_course_attribute">
             <span class="definition-data__title"><%= t("end_date", scope: "decidim.course.show") %></span>
-            <%= l current_participatory_space.end_date, format: :decidim_short %>
-          </div>
-        <% end %>
-
-        <% if current_participatory_space.schedule.present? %>
-          <div class="definition-data__item schedule">
-            <span class="definition-data__title"><%= t("schedule", scope: "decidim.course.show") %></span>
-            <%= current_participatory_space.schedule %>
+            <%= l current_participatory_space.end_date, format: "%d %B" %>
           </div>
         <% end %>
 
         <% if current_participatory_space.duration.present? %>
-          <div class="definition-data__item duration">
+          <div class="definition-data__item duration basic_course_attribute">
             <span class="definition-data__title"><%= t("duration", scope: "decidim.course.show") %></span>
             <%= current_participatory_space.duration %>
           </div>
         <% end %>
 
         <% if current_participatory_space.modality.present? %>
-          <div class="definition-data__item modality">
+          <div class="definition-data__item modality basic_course_attribute">
             <span class="definition-data__title"><%= t("modality", scope: "decidim.course.show") %></span>
-            <%= current_participatory_space.modality %>
+            <%= t(current_participatory_space.modality, scope: "decidim.courses.modality") %>
           </div>
         <% end %>
 
-        <% if current_participatory_space.address.present? %>
-          <div class="definition-data__item course_address">
+        <% if current_participatory_space.address.present? && current_participatory_space.modality != "online" %>
+          <div class="definition-data__item course_address basic_course_attribute">
             <span class="definition-data__title"><%= t("address", scope: "decidim.course.show") %></span>
             <%= current_participatory_space.address %>
           </div>
         <% end %>
-
-        <div class="definition-data__item registration_link">
-          <span class="definition-data__title"><%= t("registration_link", scope: "decidim.course.show") %></span>
-          <%= current_participatory_space.registration_link %>
-        </div>
       </div>
       <%= resource_reference(current_participatory_space) %>
       <%= render partial: "decidim/shared/share_modal" %>
