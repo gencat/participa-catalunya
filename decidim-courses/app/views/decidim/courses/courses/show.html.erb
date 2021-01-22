@@ -25,11 +25,48 @@
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
-        <div class="lead">
-
-        </div>
-        <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
-
+        <% if decidim_sanitize(translated_attribute(current_participatory_space.description)).present? %>
+          <div class="lead">
+            <%= t("presentation", scope: "decidim.course.show")%>
+          </div>
+          <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
+        <% end %>
+        <% if decidim_sanitize(translated_attribute(current_participatory_space.objectives)).present? %>
+          <div class="lead">
+            <%= t("objectives", scope: "decidim.course.show")%>
+          </div>
+          <%= decidim_sanitize translated_attribute(current_participatory_space.objectives) %>
+        <% end %>
+        <% if decidim_sanitize(translated_attribute(current_participatory_space.addressed_to)).present? %>
+          <div class="lead">
+            <%= t("addressed_to", scope: "decidim.course.show")%>
+          </div>
+          <%= decidim_sanitize translated_attribute(current_participatory_space.addressed_to) %>
+        <% end %>
+        <% if decidim_sanitize(translated_attribute(current_participatory_space.programme)).present? %>
+          <div class="lead">
+            <%= t("programme", scope: "decidim.course.show")%>
+          </div>
+          <%= decidim_sanitize translated_attribute(current_participatory_space.programme) %>
+        <% end %>
+        <% if decidim_sanitize(translated_attribute(current_participatory_space.professorship)).present? %>
+          <div class="lead">
+            <%= t("professorship", scope: "decidim.course.show")%>
+          </div>
+          <%= decidim_sanitize translated_attribute(current_participatory_space.professorship) %>
+        <% end %>
+        <% if decidim_sanitize(translated_attribute(current_participatory_space.methodology)).present? %>
+          <div class="lead">
+            <%= t("methodology", scope: "decidim.course.show")%>
+          </div>
+          <%= decidim_sanitize translated_attribute(current_participatory_space.methodology) %>
+        <% end %>
+         <% if decidim_sanitize(translated_attribute(current_participatory_space.seats)).present? %>
+          <div class="lead">
+            <%= t("seats", scope: "decidim.course.show")%>
+          </div>
+          <%= decidim_sanitize translated_attribute(current_participatory_space.seats) %>
+        <% end %>
       </div>
 
       <%= attachments_for current_participatory_space %>

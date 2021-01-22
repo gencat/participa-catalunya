@@ -40,6 +40,13 @@ ca:
       statistics:
         headline: Activitat
       show:
+        presentation: Presentació
+        objectives: Objectius
+        addressed_to: Adreçat a
+        programme: Programa
+        professorship: Professorat
+        methodology: Metodologia
+        seats: Places
         area: Àrea
         address: Adreça
         registration_link: Enllaç de registre

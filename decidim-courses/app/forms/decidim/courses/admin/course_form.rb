@@ -16,6 +16,12 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :instructors, String
         translatable_attribute :title, String
+        translatable_attribute :objectives, String
+        translatable_attribute :addressed_to, String
+        translatable_attribute :programme, String
+        translatable_attribute :professorship, String
+        translatable_attribute :methodology, String
+        translatable_attribute :seats, String
 
         attribute :hashtag, String
         attribute :promoted, Boolean
