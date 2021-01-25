@@ -62,7 +62,22 @@ module Decidim
           end
         end
 
+        # GET /admin/courses/export
+        def export
+          enforce_permission_to :export, :courses
+
+          Decidim::Courses::ExportCoursesJob.perform_later(current_user, params[:format] || default_format)
+
+          flash[:notice] = t("decidim.admin.exports.notice")
+
+          redirect_back(fallback_location: courses_path)
+        end
+
         private
+
+        def default_format
+          "json"
+        end
 
         def collection
           @collection ||= OrganizationCourses.new(current_user.organization).query

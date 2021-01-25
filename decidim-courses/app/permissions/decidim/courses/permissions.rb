@@ -32,6 +32,7 @@ module Decidim
         user_can_read_course_list?
         user_can_read_current_course?
         user_can_create_course?
+        user_can_export_course?
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
@@ -125,6 +126,10 @@ module Decidim
         ].include?(permission_action.subject)
 
         allow! if is_allowed
+      end
+
+      def user_can_export_course?
+        allow! if permission_action.subject == :courses && permission_action.action == :export
       end
 
       # Checks if the permission_action is to read the admin courses list or

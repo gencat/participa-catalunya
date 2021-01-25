@@ -2,7 +2,9 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t("courses", scope: "decidim.admin.titles") %>
-
+      <div class="button--title">
+        <%= render partial: "decidim/courses/admin/exports/dropdown" if allowed_to? :export, :courses %>
+      </div>
       <% if allowed_to? :create, :course %>
         <%= link_to t("actions.new_course", scope: "decidim.admin"),
                     new_course_path,
