@@ -14,6 +14,12 @@ FactoryBot.define do
     title { generate_localized_title }
     slug { generate(:course_slug) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    objectives { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    addressed_to { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    programme { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    professorship { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    methodology { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    seats { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     instructors { Decidim::Faker::Localized.localized { generate(:name) } }
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization

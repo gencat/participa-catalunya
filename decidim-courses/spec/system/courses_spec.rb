@@ -15,7 +15,6 @@ describe "Courses", type: :system do
       :with_scope,
       modality: modality,
       organization: organization,
-      description: { en: "Description", ca: "Descripció", es: "Descripción" },
       show_statistics: show_statistics
     )
   end
@@ -133,9 +132,15 @@ describe "Courses", type: :system do
       context "when requesting the course path" do
         it "shows the details of the given course" do
           within "main" do
-            expect(page).to have_content(translated(course.announcement, locale: :en))
-            expect(page).to have_content(translated(course.title, locale: :en))
-            expect(page).to have_content(translated(course.description, locale: :en))
+            expect(page).to have_i18n_content(course.announcement)
+            expect(page).to have_i18n_content(course.title)
+            expect(page).to have_i18n_content(course.description)
+            expect(page).to have_i18n_content(course.objectives)
+            expect(page).to have_i18n_content(course.addressed_to)
+            expect(page).to have_i18n_content(course.programme)
+            expect(page).to have_i18n_content(course.professorship)
+            expect(page).to have_i18n_content(course.methodology)
+            expect(page).to have_i18n_content(course.seats)
             expect(page).to have_content(I18n.l(course.start_date, format: "%B"))
             expect(page).to have_content(I18n.l(course.end_date, format: "%d %B"))
             expect(page).to have_content(course.schedule)

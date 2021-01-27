@@ -40,6 +40,13 @@ es:
       statistics:
         headline: Actividad
       show:
+        presentation: Presentación
+        objectives: Objetivos
+        addressed_to: Dirigido a
+        programme: Programa
+        professorship: Profesorado
+        methodology: Metodología
+        seats: Plazas
         area: Área
         address: Dirección
         registration_link: Enlace de registro
