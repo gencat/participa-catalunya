@@ -51,6 +51,7 @@ en:
         end_date: End date
         duration: Duration
         scope: Scope
+        view: View
     admin:
       actions:
         new_course: New course

@@ -27,6 +27,27 @@ module Decidim::Courses
       it "shows the instructors" do
         expect(subject).to have_content(translated(model.instructors))
       end
+
+      it "shows the course dates" do
+        within "card__course-date" do
+          expect(subject).to have_content(I18n.l(model.start_date.to_date, format: :decidim_short_with_month_name_short))
+          expect(subject).to have_css(".icon--arrow-thin-right")
+          expect(subject).to have_content(I18n.l(model.end_date.to_date, format: :decidim_short_with_month_name_short))
+        end
+      end
+
+      context "when course does not spans multiple days" do
+        before do
+          model.end_date = model.start_date
+        end
+
+        it "renders only one date" do
+          within ".card__course-date" do
+            expect(subject).to have_content(I18n.l(model.start_date.to_date, format: :decidim_short_with_month_name_short), count: 1)
+            expect(subject).not_to have_css(".icon--arrow-thin-right")
+          end
+        end
+      end
     end
   end
 end

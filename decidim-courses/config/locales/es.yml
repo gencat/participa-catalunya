@@ -51,6 +51,7 @@ es:
         end_date: Fecha de fin
         duration: Duración
         scope: Ámbito
+        view: Ver
     admin:
       actions:
         new_course: Nueva formación

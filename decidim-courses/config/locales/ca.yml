@@ -51,6 +51,7 @@ ca:
         schedule: Horari
         duration: Durada
         scope: Àmbit
+        view: Veure
     admin:
       actions:
         new_course: Nova formació

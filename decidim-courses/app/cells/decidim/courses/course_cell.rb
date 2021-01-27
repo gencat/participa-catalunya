@@ -24,6 +24,10 @@ module Decidim
       def current_participatory_space
         model
       end
+
+      def resource_icon
+        icon "courses", class: "icon--big"
+      end
     end
   end
 end
