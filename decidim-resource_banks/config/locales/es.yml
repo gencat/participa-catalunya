@@ -3,6 +3,7 @@ es:
   activemodel:
     attributes:
       resource_bank:
+        announcement: Aviso
         area_id: Área
         authorship: Autoría
         banner_image: Imagen de banner
@@ -72,6 +73,7 @@ es:
       admin:
         resource_banks:
           form:
+            announcement_help: El texto que ingreses aquí se mostrará a la participante justo encima de la información del recurso.
             filters: Filtros
             images: Imágenes
             other: Otro

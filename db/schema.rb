@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_30_123311) do
+ActiveRecord::Schema.define(version: 2021_01_19_095728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -529,6 +529,16 @@ ActiveRecord::Schema.define(version: 2020_12_30_123311) do
     t.index ["section_id"], name: "index_decidim_contextual_help_sections_on_section_id"
   end
 
+  create_table "decidim_course_user_roles", force: :cascade do |t|
+    t.integer "decidim_user_id"
+    t.integer "decidim_course_id"
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_course_id", "decidim_user_id", "role"], name: "index_unique_user_and_course_role", unique: true
+    t.index ["decidim_user_id"], name: "index_decidim_course_user_roles_on_decidim_user_id"
+  end
+
   create_table "decidim_courses", force: :cascade do |t|
     t.string "hashtag"
     t.string "hero_image"
@@ -553,6 +563,7 @@ ActiveRecord::Schema.define(version: 2020_12_30_123311) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.text "schedule"
+    t.jsonb "announcement"
     t.index ["decidim_area_id"], name: "index_decidim_courses_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_course_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_courses_on_decidim_organization_id"
@@ -1342,6 +1353,7 @@ ActiveRecord::Schema.define(version: 2020_12_30_123311) do
     t.datetime "published_at"
     t.boolean "scopes_enabled", default: true, null: false
     t.integer "decidim_scope_id"
+    t.jsonb "announcement"
     t.index ["decidim_area_id"], name: "index_decidim_resource_banks_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_resource_banks_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_resource_banks_on_decidim_organization_id"

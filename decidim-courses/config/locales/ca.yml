@@ -3,6 +3,7 @@ ca:
   activemodel:
     attributes:
       course:
+        announcement: Avís
         area_id: Àrea
         banner_image: Imatge de bàner
         start_date: Data d'inici de la formació
@@ -22,11 +23,18 @@ ca:
         scopes_enabled: Àmbits habilitats
         slug: Nom curt d'URL
         title: Títol
+      course_user_role:
+        email: Correu electrònic
+        name: Nom
+        role: Rol de participant
   activerecord:
     models:
       decidim/course:
         one: Formació
         other: Formacions
+      decidim/course_user_role:
+        one: Rol d'administració de la formació
+        other: Rol d'administradores de la formació
   decidim:
     course:
       statistics:
@@ -38,8 +46,8 @@ ca:
         modality: Modalitat
         read_more: Llegir més
         read_less: Llegir menys
-        start_date: Data d'inici de la formació
-        end_date: Data de finalització de la formació
+        start_date: Data d'inici
+        end_date: Data de fi
         schedule: Horari
         duration: Durada
         scope: Àmbit
@@ -68,12 +76,30 @@ ca:
         destroy:
           error: S'ha produït un error en publicar aquesta formació.
           success: Formació despublicada correctament.
+      course_user_roles:
+        create:
+          error: S'ha produït un error en afegir una administradora per a aquesta formació.
+          success: L'administradora s'ha afegit correctament a aquesta formació.
+        destroy:
+          success: L'administradora s'ha eliminat correctament d'aquesta formació.
+        edit:
+          title: Actualitza l'administradora de la formació.
+          update: Actualitza
+        index:
+          course_admins_title: Administradores de la formació
+        new:
+          create: Crea
+          title: Nova administradora de la formació.
+        update:
+          error: S'ha produït un error en actualitzar una administradora per a aquesta formació.
+          success: L'administradora s'ha actualitzat correctament per a aquesta formació.
       menu:
         courses: Formacions
         courses_submenu:
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
+          course_admins: Administradores de la formació
           info: Informació
       models:
         course:
@@ -84,8 +110,21 @@ ca:
             published: Publicat
             title: Títol
           name: Formació
+        course_user_role:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            role: Rol
+          name: Administradora de la formació
+          roles:
+            admin: Administradora
       titles:
         courses: Formacions
+    admin_log:
+      course_user_role:
+        create: "%{user_name} ha convidat %{resource_name} a la formació %{space_name}"
+        delete: "%{user_name} ha eliminat la participant %{resource_name} de la formació %{space_name}"
+        update: "%{user_name} ha canviat el rol de %{resource_name} a la formació %{space_name}"
     components:
       courses:
         name: Espai de formació
@@ -93,6 +132,7 @@ ca:
       admin:
         courses:
           form:
+            announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sobre de la informació de la formació.
             duration: Duració
             duration_help: Duració de la formació (p. ex. 1h 45m)
             filters: Filtres
@@ -132,6 +172,13 @@ ca:
         blended: Mixte
         face-to-face: Presencial
         online: Online
+    events:
+      course:
+        role_assigned:
+          email_intro: T'han assignat el rol de %{role} a la formació "%{resource_title}".
+          email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} a la formació "%{resource_title}".
+          email_subject: Se t'ha assignat el rol de %{role} a "%{resource_title}".
+          notification_title: Se t'ha assignat el rol de %{role} a la formació <a href="%{resource_url}">%{resource_title}</a>.
     menu:
       courses: Formacions
     pages:

@@ -32,6 +32,7 @@
         </thead>
         <tbody>
           <% @courses.each do |course| %>
+            <% next unless allowed_to? :list, :course, course: course %>
             <tr>
               <td>
                 <% if course.promoted? %>

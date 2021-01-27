@@ -10,6 +10,7 @@ FactoryBot.define do
   end
 
   factory :course, class: "Decidim::Course" do
+    announcement { generate_localized_title }
     title { generate_localized_title }
     slug { generate(:course_slug) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
@@ -47,6 +48,27 @@ FactoryBot.define do
     trait :with_scope do
       scopes_enabled { true }
       scope { create :scope, organization: organization }
+    end
+  end
+
+  factory :course_user_role, class: "Decidim::CourseUserRole" do
+    user
+    course { create :course, organization: user.organization }
+    role { "admin" }
+  end
+
+  factory :course_admin, parent: :user, class: "Decidim::User" do
+    transient do
+      course { create(:course) }
+    end
+
+    organization { course.organization }
+
+    after(:create) do |user, evaluator|
+      create :course_user_role,
+             user: user,
+             course: evaluator.course,
+             role: :admin
     end
   end
 end

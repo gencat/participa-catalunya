@@ -10,6 +10,7 @@ FactoryBot.define do
   end
 
   factory :resource_bank, class: "Decidim::ResourceBank" do
+    announcement { generate_localized_title }
     title { generate_localized_title }
     slug { generate(:resource_bank_slug) }
     text { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }

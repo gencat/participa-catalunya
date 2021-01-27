@@ -8,7 +8,7 @@ module Decidim
       class UpdateCourse < Rectify::Command
         # Public: Initializes the command.
         #
-        # course - the Assembly to update
+        # course - the Course to update
         # form - A form object with the params.
         def initialize(course, form)
           @course = course
@@ -55,6 +55,7 @@ module Decidim
 
         def attributes
           {
+            announcement: form.announcement,
             description: form.description,
             instructors: form.instructors,
             title: form.title,

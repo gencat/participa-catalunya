@@ -20,6 +20,7 @@ module Decidim::ResourceBanks
         invalid?: invalid,
         errors: errors,
 
+        announcement: { en: "title" },
         title: { en: "title" },
         text: { en: "description" },
         slug: "slug",
