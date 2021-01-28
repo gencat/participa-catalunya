@@ -21,6 +21,10 @@ module Decidim
 
           resources :attachment_collections, controller: "course_attachment_collections"
           resources :attachments, controller: "course_attachments"
+          resource :export, controller: "course_exports", only: :create
+          collection do
+            get :export
+          end
         end
       end
 

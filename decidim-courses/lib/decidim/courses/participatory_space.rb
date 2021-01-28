@@ -29,6 +29,14 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
     context.layout = "layouts/decidim/admin/course"
   end
 
+  participatory_space.exports :courses do |export|
+    export.collection do |course|
+      Decidim::Course.where(id: course.id)
+    end
+
+    export.serializer Decidim::Courses::CourseSerializer
+  end
+
   participatory_space.register_on_destroy_account do |user|
     Decidim::CourseUserRole.where(user: user).destroy_all
   end
