@@ -44,4 +44,25 @@ FactoryBot.define do
       scope { create :scope, organization: organization }
     end
   end
+
+  factory :resource_bank_user_role, class: "Decidim::ResourceBankUserRole" do
+    user
+    resource_bank { create :resource_bank, organization: user.organization }
+    role { "admin" }
+  end
+
+  factory :resource_bank_admin, parent: :user, class: "Decidim::User" do
+    transient do
+      resource_bank { create(:resource_bank) }
+    end
+
+    organization { resource_bank.organization }
+
+    after(:create) do |user, evaluator|
+      create :resource_bank_user_role,
+             user: user,
+             resource_bank: evaluator.resource_bank,
+             role: :admin
+    end
+  end
 end

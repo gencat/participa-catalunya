@@ -29,7 +29,7 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
   end
 
   participatory_space.register_on_destroy_account do |user|
-    # TODO
+    Decidim::ResourceBankUserRole.where(user: user).destroy_all
   end
 
   participatory_space.seeds do
@@ -63,6 +63,29 @@ Decidim.register_participatory_space(:resource_banks) do |participatory_space|
         visibility: "all"
       ) do
         Decidim::ResourceBank.create!(params)
+      end
+
+      # Create users with specific roles
+      Decidim::ResourceBankUserRole::ROLES.each do |role|
+        email = "resource_bank_#{resource_bank.id}_#{role}@example.org"
+
+        user = Decidim::User.find_or_initialize_by(email: email)
+        user.update!(
+          name: Faker::Name.name,
+          nickname: Faker::Twitter.unique.screen_name,
+          password: "decidim123456",
+          password_confirmation: "decidim123456",
+          organization: organization,
+          confirmed_at: Time.current,
+          locale: I18n.default_locale,
+          tos_agreement: true
+        )
+
+        Decidim::ResourceBankUserRole.find_or_create_by!(
+          user: user,
+          resource_bank: resource_bank,
+          role: role
+        )
       end
 
       [resource_bank].each do |current_bank|

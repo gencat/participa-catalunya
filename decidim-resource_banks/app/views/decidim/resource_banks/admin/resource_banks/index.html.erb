@@ -27,6 +27,7 @@
         </thead>
         <tbody>
           <% @resource_banks.each do |resource_bank| %>
+            <% next unless allowed_to? :list, :resource_bank, resource_bank: resource_bank %>
             <tr>
               <td>
                 <% if resource_bank.promoted? %>

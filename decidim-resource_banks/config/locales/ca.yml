@@ -19,11 +19,18 @@ ca:
         text: Descripció
         title: Títol
         video_url: URL del vídeo
+      resource_bank_user_role:
+        email: Correu electrònic
+        name: Nom
+        role: Rol de participant
   activerecord:
     models:
       decidim/resource_bank:
         one: Banc de recursos
         other: Bancs de recursos
+      decidim/resource_bank_user_role:
+        one: Rol d'administració del banc de recursos
+        other: Rol d'administradores del banc de recursos
   decidim:
     admin:
       actions:
@@ -50,12 +57,30 @@ ca:
         destroy:
           error: S'ha produït un error en publicar aquest banc de recusos.
           success: Banc de recusos despublicat correctament.
+      resource_bank_user_roles:
+        create:
+          error: S'ha produït un error en afegir una administradora per aquest banc de recursos.
+          success: L'administradora s'ha afegit correctament aquest banc de recursos.
+        destroy:
+          success: L'administradora s'ha eliminat correctament d'aquest banc de recursos.
+        edit:
+          title: Actualitza l'administradora del banc de recursos.
+          update: Actualitza
+        index:
+          resource_bank_admins_title: Administradores del banc de recursos
+        new:
+          create: Crea
+          title: Nova administradora del banc de recursos.
+        update:
+          error: S'ha produït un error en actualitzar una administradora per aquest banc de recursos.
+          success: L'administradora s'ha actualitzat correctament per aquest banc de recursos.
       menu:
         resource_banks: Bancs de recursos
         resource_banks_submenu:
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
+          resource_bank_admins: Administradores del banc de recursos
           info: Informació
       models:
         resource_bank:
@@ -64,8 +89,21 @@ ca:
             published: Publicat
             title: Títol
           name: Banc de recusos
+        resource_bank_user_role:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            role: Rol
+          name: Administradora del banc de recursos
+          roles:
+            admin: Administradora
       titles:
         resource_banks: Bancs de recursos
+    admin_log:
+      resource_bank_user_role:
+        create: "%{user_name} ha convidat %{resource_name} al banc de recursos %{space_name}"
+        delete: "%{user_name} ha eliminat la participant %{resource_name} del banc de recursos %{space_name}"
+        update: "%{user_name} ha canviat el rol de %{resource_name} al banc de recursos %{space_name}"
     components:
       resource_banks:
         name: Banc de recusos
@@ -99,6 +137,13 @@ ca:
         scope: Àmbit
         video_url: Video url
         authorship: Autoria
+    events:
+      resource_bank:
+        role_assigned:
+          email_intro: T'han assignat el rol de %{role} al banc de recursos "%{resource_title}".
+          email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} al banc de recursos "%{resource_title}".
+          email_subject: Se t'ha assignat el rol de %{role} a "%{resource_title}".
+          notification_title: Se t'ha assignat el rol de %{role} al banc de recursos <a href="%{resource_url}">%{resource_title}</a>.
     menu:
       resource_banks: Bancs de recursos
     pages:
