@@ -214,7 +214,7 @@ describe Decidim::Courses::Permissions do
 
   context "when exporting a course" do
     let(:action) do
-      { scope: :admin, action: :export, subject: :course}
+      { scope: :admin, action: :export, subject: :course }
     end
 
     it_behaves_like(
