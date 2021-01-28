@@ -196,7 +196,7 @@ module Decidim
       end
 
       def user_can_export_course?
-        allow! if permission_action.subject == :courses && permission_action.action == :export
+        allow! if (permission_action.subject == :courses || permission_action.subject == :course) && permission_action.action == :export
       end
 
       # Checks if the permission_action is to read the admin courses list or

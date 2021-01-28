@@ -162,6 +162,18 @@ describe Decidim::Courses::Permissions do
     )
   end
 
+  context "when exporting the courses list" do
+    let(:action) do
+      { scope: :admin, action: :export, subject: :courses }
+    end
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true
+    )
+  end
+
   context "when reading a course" do
     let(:action) do
       { scope: :admin, action: :read, subject: :course }
@@ -197,6 +209,18 @@ describe Decidim::Courses::Permissions do
       "access for roles",
       org_admin: true,
       admin: false
+    )
+  end
+
+  context "when exporting a course" do
+    let(:action) do
+      { scope: :admin, action: :export, subject: :course}
+    end
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true
     )
   end
 
