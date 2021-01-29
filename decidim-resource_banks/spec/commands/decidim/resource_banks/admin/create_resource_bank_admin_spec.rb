@@ -62,7 +62,7 @@ module Decidim::ResourceBanks
         expect(user).not_to be_admin
       end
 
-      it "makes the new admin follow the process" do
+      it "makes the new admin follow the resource bank" do
         subject.call
         user.reload
 
