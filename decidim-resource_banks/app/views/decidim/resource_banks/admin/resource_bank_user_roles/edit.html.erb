@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: resource_bank_user_role_path(@user_role.resource_bank, @user_role), html: { class: "form edit_resource_bank_user_roles" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("resource_bank_user_roles.edit.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+  <%= f.submit t("resource_bank_user_roles.edit.update", scope: "decidim.admin") %>
+  </div>
+<% end %>

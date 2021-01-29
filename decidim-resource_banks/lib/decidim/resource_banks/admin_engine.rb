@@ -13,6 +13,12 @@ module Decidim
         resources :resource_banks, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "resource_bank_publications", only: [:create, :destroy]
 
+          resources :user_roles, controller: "resource_bank_user_roles" do
+            member do
+              post :resend_invitation, to: "resource_bank_user_roles#resend_invitation"
+            end
+          end
+
           resources :attachment_collections, controller: "resource_bank_attachment_collections"
           resources :attachments, controller: "resource_bank_attachments"
         end

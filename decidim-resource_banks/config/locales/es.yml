@@ -19,11 +19,18 @@ es:
         text: Descripción
         title: Título
         video_url: URL del vídeo
+      resource_bank_user_role:
+        email: Correo electrónico
+        name: Nombre
+        role: Rol de participante
   activerecord:
     models:
       decidim/resource_bank:
         one: Banco de recursos
         other: Bancos de recursos
+      decidim/resource_bank_user_role:
+        one: Rol de participante del banco de recursos
+        other: Roles de participante del banco de recursos
   decidim:
     admin:
       actions:
@@ -50,12 +57,30 @@ es:
         destroy:
           error: Se ha producido un error al despublicar este banco de recusos.
           success: Banco de recusos despublicado correctamente.
+      resource_bank_user_roles:
+        create:
+          error: Se ha producido un error al añadir una administradora para este banco de recursos.
+          success: Administradora añadida correctamente a este banco de recursos.
+        destroy:
+          success: Administradora eliminada correctamente de este banco de recursos.
+        edit:
+          title: Actualizar administradora del banco de recursos.
+          update: Actualizar
+        index:
+          resource_bank_admins_title: Administradoras del banco de recursos
+        new:
+          create: Crear
+          title: Nueva administradora del banco de recursos.
+        update:
+          error: Se ha producido un error al actualizar una administradora para este banco de recursos.
+          success: Administradora actualizada correctamente para este banco de recursos.
       menu:
         resource_banks: Bancos de recursos
         resource_banks_submenu:
           attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Adjuntos
+          resource_bank_admins: Administradoras del banco de recursos
           info: Información
       models:
         resource_bank:
@@ -64,8 +89,21 @@ es:
             published: Publicado
             title: Título
           name: Banco de recusos
+        resource_bank_user_role:
+          fields:
+            email: Correo electrónico
+            name: Nombre
+            role: Rol
+          name: Administradora del banco de recursos
+          roles:
+            admin: Administradora
       titles:
         resource_banks: Bancos de recursos
+    admin_log:
+      resource_bank_user_role:
+        create: "%{user_name} invitó %{resource_name} al banco de recursos %{space_name}"
+        delete: "%{user_name} eliminó a la participante %{resource_name} del banco de recursos %{space_name}"
+        update: "%{user_name} cambió el rol de %{resource_name} en el banco de recursos %{space_name}"
     components:
       resource_banks:
         name: Banco de recusos
@@ -99,6 +137,13 @@ es:
         scope: Ámbito
         video_url: Video url
         authorship: Autoría
+    events:
+      resource_bank:
+        role_assigned:
+          email_intro: Te han asignado el rol de %{role} en el banco de recursos "%{resource_title}".
+          email_outro: Recibes esta notificación porque se te ha asignado el rol de %{role} en el banco de recursos "%{resource_title}".
+          email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
+          notification_title: Se te ha asignado el rol de %{role} en el banco de recursos <a href="%{resource_url}">%{resource_title}</a>.
     menu:
       resource_banks: Bancos de recusos
     pages:
