@@ -1,0 +1,15 @@
+oc:
+  decidim:
+    devise:
+      registrations:
+        new:
+          sign_up_as:
+            user_group: Organització/Col·lectiu/Entitat
+  activemodel:
+    attributes:
+      user:
+        user_group_document_number: CIF de l'organització
+  activerecord:
+    attributes:
+      decidim/user:
+        user_group_document_number: CIF de l'organització
