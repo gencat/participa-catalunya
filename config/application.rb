@@ -16,11 +16,9 @@ module ParticipaCatalunya
     # Custom I18n fallbacks
     config.after_initialize do
       I18n.fallbacks = I18n::Locale::Fallbacks.new(
-        {
-          ca: [:ca, :es, :en],
-          es: [:es, :ca, :en],
-          oc: [:oc, :ca, :es, :en]
-        }
+        ca: [:ca, :es, :en],
+        es: [:es, :ca, :en],
+        oc: [:oc, :ca, :es, :en]
       )
     end
     # Settings in config/environments/* take precedence over those specified here.
