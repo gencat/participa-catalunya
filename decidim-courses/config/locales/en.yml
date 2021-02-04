@@ -193,6 +193,8 @@ en:
       courses: Courses
     pages:
       home:
+        feder:
+          description: Description
         statistics:
           courses_count: Courses
   layouts:

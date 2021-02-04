@@ -1,4 +1,9 @@
-en:
+ca:
+  decidim:
+    pages:
+      home:
+        feder:
+          description: Aquest projecte ha estat cofinançat pel Fons Europeu de Desenvolupament Regional de la Unió Europea en el marc del Programa operatiu FEDER de Catalunya 2014-2020
   static:
     footer:
       legal_advice_title: Avís legal

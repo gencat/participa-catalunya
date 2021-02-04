@@ -15,4 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules")
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w(datepicker-locales/foundation-datepicker.oc.js)
-Rails.application.config.assets.precompile += %w(logo_generalitat_gris.png)
+Rails.application.config.assets.precompile += %w(logo_generalitat_gris.png feder.png)
