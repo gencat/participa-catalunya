@@ -1,0 +1,10 @@
+es:
+  decidim:
+    pages:
+      home:
+        feder:
+          description: Este proyecto ha sido cofinanciado por el Fondo Europeo de Desarrollo Regional de la Unión Europea en el marco del Programa Operativo FEDER de Catalunya 2014-2020
+  static:
+    footer:
+      legal_advice_title: Aviso legal
+      legal_advice_text: "De acuerdo con el artículo 17.1 de la ley 19/2014, la @Generalitat de Catalunya permite la reutilización de los contenidos y de los datos siempre que se cite la fuente y la fecha de actualización y no se desnaturalice la información (artículo 8 de la ley 37/2007) y también que no se contradiga con una licencia específica."

@@ -1,0 +1,46 @@
+@import "decidim/application";
+
+$SoftGrey : #efefef;
+$Grey     : #666;
+
+$DarkGrey   : #2c2930;
+$MediumGrey : #828282;
+$LightGrey  : #e8e8e8;
+$colorTextLegalAdvice: #999;
+
+.off-canvas-wrapper{
+    .main-footer {
+        background-color: $SoftGrey !important;
+
+
+    }
+}
+
+.main-footer a {
+  color: $Grey;
+}
+
+.mini-footer {
+  padding: 1rem 0;
+  color: $LightGrey;
+  background-color: $DarkGrey;
+}
+
+.mini-footer a {
+    color: $MediumGrey !important;
+}
+
+.part-logo-footer-gencat{
+    @include breakpoint( 992 down){
+        display: none;
+    }
+}
+
+.part-avis-legal {
+    font-family: 'Open Sans';
+    font-size: 11px;
+    color: $colorTextLegalAdvice !important;
+    @include breakpoint( 768 down){
+        text-align: center;
+    }
+}
