@@ -24,10 +24,10 @@
             <th>
               <%= sort_link(query, :start_date, t("models.course.fields.start_date", scope: "decidim.admin"), default_order: :desc) %>
             </th>
-            <th class="table-list__actions">
+            <th class="table-list__state">
               <%= sort_link(query, :published_at, t("models.course.fields.published", scope: "decidim.admin")) %>
             </th>
-            <th></th>
+            <th class="table-list__actions"></th>
           </tr>
         </thead>
         <tbody>

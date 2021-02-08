@@ -1,5 +1,10 @@
 es:
   decidim:
+    admin:
+      models:
+        course:
+          fields:
+            department: "Departamento/Área"
     pages:
       home:
         feder:

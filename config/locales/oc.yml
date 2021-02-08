@@ -4,6 +4,11 @@ oc:
       home:
         feder:
            description: Aguest projècte a estat cofinançat peth Hons Europèu de Desvolopament Regionau dera Union Europèa n'eth marc deth Programa operatiu FEDER de Catalonha 2014-2020
+    admin:
+      models:
+        course:
+          fields:
+            department: "Departament/Àrea"
   parent_scope:
     themes:
       name: Temes

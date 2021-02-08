@@ -364,6 +364,11 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
+    deface (1.6.1)
+      nokogiri (>= 1.6)
+      polyglot
+      rails (>= 5.2)
+      rainbow (>= 2.1.0)
     delayed_job (4.1.8)
       activesupport (>= 3.0, < 6.1)
     delayed_job_active_record (4.1.4)
@@ -585,6 +590,7 @@ GEM
     pg_search (2.3.5)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    polyglot (0.3.5)
     premailer (1.14.2)
       addressable
       css_parser (>= 1.6.0)
@@ -822,6 +828,7 @@ DEPENDENCIES
   decidim-dev!
   decidim-resource_banks!
   decidim-term_customizer!
+  deface
   delayed_job_active_record
   faker (~> 1.9)
   figaro
