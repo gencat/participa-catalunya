@@ -33,7 +33,7 @@ class MoveSignatureTypeToInitativeType < ActiveRecord::Migration[5.2]
                               :offline
                             end
       type.save!
-    end
+    end if defined?(Decidim::Initiatives)
 
     remove_column :decidim_initiatives_types, :online_signature_enabled
   end
