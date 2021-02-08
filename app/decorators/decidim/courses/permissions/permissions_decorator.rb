@@ -17,11 +17,11 @@ Decidim::Courses::Permissions.class_eval do
 
     # Check permissions set in gem (attachments, categories, ...)
     allowed = Decidim::DepartmentAdmin::Permissions
-                .new(user, permission_action, context)
-                .has_permission?(permission_action)
+              .new(user, permission_action, context)
+              .has_permission?(permission_action)
 
     allowed ||= permission_action.matches?(:admin, :read, :participatory_space) &&
-      context[:current_participatory_space].class.name == "Decidim::Course"
+                context[:current_participatory_space].class.name == "Decidim::Course"
 
     allowed ||= [
       # space
@@ -36,7 +36,7 @@ Decidim::Courses::Permissions.class_eval do
       [:admin, :create, :course_user_role],
       [:admin, :update, :course_user_role],
       [:admin, :invite, :course_user_role],
-      [:admin, :destroy, :course_user_role],
+      [:admin, :destroy, :course_user_role]
     ].any? { |permission| matches_permission?(permission) }
 
     allowed ||= [
@@ -44,7 +44,7 @@ Decidim::Courses::Permissions.class_eval do
       [:admin, :update, :course],
       [:admin, :publish, :course],
       [:admin, :unpublish, :course],
-      [:admin, :export, :course],
+      [:admin, :export, :course]
     ].any? { |permission| matches_permission_and_area?(permission) }
 
     allowed

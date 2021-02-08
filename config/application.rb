@@ -23,7 +23,7 @@ module ParticipaCatalunya
     config.railties_order = [:main_app, ::Decidim::DepartmentAdmin::Engine, :all]
 
     config.to_prepare do
-      Dir.glob(Rails.root.join("app/decorators/**/*_decorator*.rb")) do |decorator|
+      Dir.glob(Rails.root.join("app", "decorators", "**", "*_decorator.rb")) do |decorator|
         require_dependency(decorator)
       end
     end

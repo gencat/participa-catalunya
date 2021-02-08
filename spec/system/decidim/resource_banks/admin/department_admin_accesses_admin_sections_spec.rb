@@ -8,7 +8,6 @@ describe "Department admin accesses resource bank admin sections", type: :system
   let!(:user) { create(:department_admin, :confirmed, organization: organization, area: area) }
   let!(:resource_bank) { create(:resource_bank, organization: organization, area: area) }
 
-
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user

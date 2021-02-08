@@ -14,8 +14,8 @@ Decidim::ResourceBanks::ResourceBanksWithUserRole.class_eval do
 
     if user&.department_admin?
       banks_ids_for_department = ::Decidim::ResourceBank
-                                   .where(decidim_area_id: user.areas.pluck(:id))
-                                   .pluck(:id)
+                                 .where(decidim_area_id: user.areas.pluck(:id))
+                                 .pluck(:id)
 
       ids.concat(banks_ids_for_department)
     end

@@ -84,7 +84,6 @@ module Decidim::Courses
 
           expect(my_course.area).to eq(area)
         end
-
       end
     end
   end

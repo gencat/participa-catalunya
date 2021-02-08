@@ -14,8 +14,8 @@ Decidim::Courses::CoursesWithUserRole.class_eval do
 
     if user&.department_admin?
       course_ids_for_department = ::Decidim::Course
-                                    .where(decidim_area_id: user.areas.pluck(:id))
-                                    .pluck(:id)
+                                  .where(decidim_area_id: user.areas.pluck(:id))
+                                  .pluck(:id)
 
       ids.concat(course_ids_for_department)
     end

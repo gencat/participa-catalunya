@@ -17,11 +17,11 @@ Decidim::ResourceBanks::Permissions.class_eval do
 
     # Check permissions set in gem (attachments, categories, ...)
     allowed = Decidim::DepartmentAdmin::Permissions
-                .new(user, permission_action, context)
-                .has_permission?(permission_action)
+              .new(user, permission_action, context)
+              .has_permission?(permission_action)
 
     allowed ||= permission_action.matches?(:admin, :read, :participatory_space) &&
-      context[:current_participatory_space].class.name == "Decidim::ResourceBank"
+                context[:current_participatory_space].class.name == "Decidim::ResourceBank"
 
     allowed ||= [
       # space
@@ -36,7 +36,7 @@ Decidim::ResourceBanks::Permissions.class_eval do
       [:admin, :create, :resource_bank_user_role],
       [:admin, :update, :resource_bank_user_role],
       [:admin, :invite, :resource_bank_user_role],
-      [:admin, :destroy, :resource_bank_user_role],
+      [:admin, :destroy, :resource_bank_user_role]
     ].any? { |permission| matches_permission?(permission) }
 
     allowed ||= [
@@ -44,7 +44,7 @@ Decidim::ResourceBanks::Permissions.class_eval do
       [:admin, :update, :resource_bank],
       [:admin, :publish, :resource_bank],
       [:admin, :unpublish, :resource_bank],
-      [:admin, :export, :resource_bank],
+      [:admin, :export, :resource_bank]
     ].any? { |permission| matches_permission_and_area?(permission) }
 
     allowed
