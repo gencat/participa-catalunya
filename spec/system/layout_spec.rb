@@ -8,7 +8,7 @@ describe "Layout" do
       :organization,
       name: "Participa-Catalunya",
       default_locale: :ca,
-      available_locales: [:ca, :es],
+      available_locales: [:ca, :es]
     )
   end
 
