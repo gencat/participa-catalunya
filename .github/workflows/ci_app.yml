@@ -1,0 +1,75 @@
+name: "[CI] app"
+
+on:
+  push:
+    branches:
+      - master
+      - release/*
+      - "*-stable"
+  pull_request:
+
+env:
+  RUBY_VERSION: 2.6.6
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+
+    steps:
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+
+      - uses: ruby/setup-ruby@master
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+
+      - name: Recover Ruby dependency cache
+        uses: actions/cache@v1
+        with:
+          path: ./vendor/bundle
+          key: ${{ runner.OS }}-app-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-app-rubydeps-${{ env.cache-name }}-
+            ${{ runner.OS }}-app-rubydeps-
+
+      - name: Set bundle local config vendor/bundle path
+        run: bundle config set --local path 'vendor/bundle'
+
+      - name: Install Ruby deps
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          retry_on: error
+          command: bundle install --jobs 4 --retry 3
+
+      - name: Generate test_app
+        run: |
+          RAILS_ENV=test bundle exec rails db:create
+          RAILS_ENV=test bundle exec rails db:migrate
+          RAILS_ENV=test bundle exec rails assets:precompile
+
+      - name: Run RSpec
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          retry_on: error
+          command: CI=1 RAILS_ENV=test bundle exec rspec --backtrace
