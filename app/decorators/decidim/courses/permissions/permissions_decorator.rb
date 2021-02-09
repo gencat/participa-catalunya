@@ -44,6 +44,7 @@ Decidim::Courses::Permissions.class_eval do
       [:admin, :update, :course],
       [:admin, :publish, :course],
       [:admin, :unpublish, :course],
+      [:admin, :export, :course],
     ].any? { |permission| matches_permission_and_area?(permission) }
 
     allowed
