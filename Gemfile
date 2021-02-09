@@ -20,6 +20,7 @@ gem "rails", "< 6"
 gem "puma", ">= 4.3.5"
 gem "uglifier", "~> 4.1"
 
+gem "deface"
 gem "faker", "~> 1.9"
 gem "figaro"
 gem "whenever"

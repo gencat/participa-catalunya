@@ -1,5 +1,13 @@
 en:
   decidim:
+    admin:
+      models:
+        course:
+          fields:
+            department: "Department/Area"
+        resource_bank:
+          fields:
+            department: "Department/Area"
     pages:
       home:
         feder:
