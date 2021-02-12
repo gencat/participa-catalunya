@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from decidim_courses (originally 20210212100430)
 class CreateCourseRegistrationTypes < ActiveRecord::Migration[5.2]
   def change

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCourseRegistrationTypes < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_courses_course_registration_types do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from decidim_courses (originally 20210212095914)
 class CreateCourseRegistrations < ActiveRecord::Migration[5.2]
   def change
@@ -13,6 +15,6 @@ class CreateCourseRegistrations < ActiveRecord::Migration[5.2]
     add_index :decidim_courses_course_registrations,
               [:decidim_user_id, :decidim_course_id],
               unique: true,
-              name: "decidim_courses_registrations_user_course_unique"  
+              name: "decidim_courses_registrations_user_course_unique"
   end
 end

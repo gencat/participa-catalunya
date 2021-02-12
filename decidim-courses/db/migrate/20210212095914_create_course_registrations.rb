@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCourseRegistrations < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_courses_course_registrations do |t|
@@ -12,6 +14,6 @@ class CreateCourseRegistrations < ActiveRecord::Migration[5.2]
     add_index :decidim_courses_course_registrations,
               [:decidim_user_id, :decidim_course_id],
               unique: true,
-              name: "decidim_courses_registrations_user_course_unique"  
+              name: "decidim_courses_registrations_user_course_unique"
   end
 end
