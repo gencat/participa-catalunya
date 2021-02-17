@@ -714,19 +714,6 @@ ActiveRecord::Schema.define(version: 2021_02_12_101511) do
     t.index ["decidim_scope_id"], name: "index_decidim_courses_on_decidim_scope_id"
   end
 
-  create_table "decidim_courses_course_registration_types", force: :cascade do |t|
-    t.bigint "decidim_course_id"
-    t.jsonb "title", null: false
-    t.jsonb "description", null: false
-    t.decimal "price", precision: 8, scale: 2, default: "0.0", null: false
-    t.integer "weight", default: 0, null: false
-    t.datetime "published_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_course_id"], name: "idx_registration_types_on_decidim_course_id"
-    t.index ["published_at"], name: "index_decidim_courses_course_registration_types_on_published_at"
-  end
-
   create_table "decidim_courses_course_registrations", force: :cascade do |t|
     t.bigint "decidim_user_id", null: false
     t.bigint "decidim_course_id", null: false
@@ -737,6 +724,19 @@ ActiveRecord::Schema.define(version: 2021_02_12_101511) do
     t.index ["decidim_course_id"], name: "index_courses_registrations_on_decidim_course"
     t.index ["decidim_user_id", "decidim_course_id"], name: "decidim_courses_registrations_user_course_unique", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_courses_registrations_on_decidim_user_id"
+  end
+
+  create_table "decidim_courses_registration_types", force: :cascade do |t|
+    t.bigint "decidim_course_id"
+    t.jsonb "title", null: false
+    t.jsonb "description", null: false
+    t.decimal "price", precision: 8, scale: 2, default: "0.0", null: false
+    t.integer "weight", default: 0, null: false
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_course_id"], name: "idx_registration_types_on_decidim_course_id"
+    t.index ["published_at"], name: "index_decidim_courses_registration_types_on_published_at"
   end
 
   create_table "decidim_debates_debates", id: :serial, force: :cascade do |t|

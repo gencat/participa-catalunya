@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-# This migration comes from decidim_courses (originally 20210212100430)
-class CreateCourseRegistrationTypes < ActiveRecord::Migration[5.2]
+class CreateRegistrationTypes < ActiveRecord::Migration[5.2]
   def change
-    create_table :decidim_courses_course_registration_types do |t|
+    create_table :decidim_courses_registration_types do |t|
       t.references :decidim_course, index: { name: "idx_registration_types_on_decidim_course_id" }
       t.jsonb :title, null: false
       t.jsonb :description, null: false
