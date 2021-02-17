@@ -19,6 +19,19 @@ module Decidim
             end
           end
 
+          resources :registration_types, controller: "registration_types" do
+            resource :publish, controller: "registration_type_publications", only: [:create, :destroy]
+          end
+
+          resources :course_registrations, only: :index do
+            member do
+              post :confirm
+            end
+            collection do
+              get :export
+            end
+          end
+
           resources :attachment_collections, controller: "course_attachment_collections"
           resources :attachments, controller: "course_attachments"
           resource :export, controller: "course_exports", only: :create

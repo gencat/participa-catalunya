@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: course_registration_type_path(@registration_type.course, @registration_type), html: { class: "form edit_registration_type" }) do |f| %>
+  <%= render partial: "form", object: f, locals: { title: t("course_registration_types.edit.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+  <%= f.submit t("course_registration_types.edit.update", scope: "decidim.admin") %>
+  </div>
+<% end %>

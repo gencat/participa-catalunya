@@ -27,6 +27,16 @@ module Decidim
                class_name: "Decidim::Area",
                optional: true
 
+    has_many :course_registrations,
+             foreign_key: "decidim_course_id",
+             class_name: "Decidim::Courses::CourseRegistration",
+             dependent: :destroy
+
+    has_many :registration_types,
+             foreign_key: "decidim_course_id",
+             class_name: "Decidim::Courses::RegistrationType",
+             dependent: :destroy
+
     validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
 
@@ -67,6 +77,24 @@ module Decidim
 
     def attachment_context
       :admin
+    end
+
+    def has_registration_for?(user)
+      course_registrations.where(user: user).any?
+    end
+
+    def has_registration_for_user_and_registration_type?(user, registration_type)
+      course_registrations.where(user: user, registration_type: registration_type).any?
+    end
+
+    def has_available_slots?
+      return true if available_slots.zero?
+
+      available_slots > course_registrations.count
+    end
+
+    def remaining_slots
+      available_slots - course_registrations.count
     end
   end
 end

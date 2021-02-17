@@ -68,6 +68,8 @@ ca:
           success: Formació creada correctament.
         edit:
           update: Actualitzar
+        exports:
+          registrations: Inscripcions
         index:
           not_published: No publicat
           published: Publicat
@@ -84,6 +86,32 @@ ca:
         destroy:
           error: S'ha produït un error en publicar aquesta formació.
           success: Formació despublicada correctament.
+      course_registration:
+        confirm:
+          error: S'ha produït un error en confirmar la inscripció a aquesta formació.
+          success: La inscripció a la formació s'ha confirmat correctament.
+      course_registration_type_publications:
+        create:
+          error: S'ha produït un error en publicar aquest tipus d'inscripció.
+          success: El tipus d'inscripció s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en despublicar aquest tipus d'inscripció.
+          success: El tipus d'inscripció s'ha despublicat correctament.
+      course_registration_types:
+        create:
+          error: S'ha produït un error en afegir un tipus d'inscripció per a aquesta formació.
+          success: El tipus d'inscripció s'ha afegit correctament a aquesta formació.
+        destroy:
+          success: El tipus d'inscripció s'ha eliminat correctament d'aquesta formació.
+        edit:
+          title: Actualitzar el tipus d'inscripció.
+          update: Actualitzar
+        new:
+          create: Crear
+          title: Nou tipus tipus d'inscripció
+        update:
+          error: S'ha produït un error en actualitzar un tipus d'inscripció per a aquesta formació.
+          success: El tipus d'inscripció s'ha actualitzat correctament per a aquesta formació.
       course_user_roles:
         create:
           error: S'ha produït un error en afegir una administradora per a aquesta formació.
@@ -109,6 +137,9 @@ ca:
           attachments: Adjunts
           course_admins: Administradores de la formació
           info: Informació
+          registration_types: Tipus d'inscripcions
+          registrations: Inscripcions
+          user_registrations: Inscripcions de participants
       models:
         course:
           fields:
@@ -118,6 +149,13 @@ ca:
             published: Publicat
             title: Títol
           name: Formació
+        course_registration_type:
+          fields:
+            price: Preu
+            registrations_count: Nombre d'inscripcions
+            title: Títol
+            weight: Pes
+          name: Tipus d'inscripció
         course_user_role:
           fields:
             email: Correu electrònic
@@ -129,6 +167,9 @@ ca:
       titles:
         courses: Formacions
     admin_log:
+      courses:
+        course_registration:
+          confirm: "%{user_name} ha confirmat una inscripció a la formació %{resource_name}"
       course_user_role:
         create: "%{user_name} ha convidat %{resource_name} a la formació %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} de la formació %{space_name}"
@@ -138,6 +179,9 @@ ca:
         name: Espai de formació
     courses:
       admin:
+        course_registrations:
+          index:
+            registrations: Inscripcions
         courses:
           form:
             announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sobre de la informació de la formació.
@@ -151,11 +195,23 @@ ca:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta formació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Títol
             visbility: Visibilitat
+        registration_types:
+          index:
+            title: Tipus d'inscripcions
       content_blocks:
         upcoming_courses:
           name: Properes formacions
           upcoming_courses: Properes formacions
           view_all_courses: Veure-ho tot
+      course_registration_mailer:
+        confirmation:
+          confirmed_html: La teva inscripció a la formació <a href="%{url}">%{title}</a> ha estat confirmada.
+          details_1: 'La teva inscripció a la formació és de tipus %{registration_type} amb un cost de %{price}'
+          details_2: Trobareu les dades de la formació al fitxer adjunt.
+        pending_validation:
+          confirmation_pending: Rebràs la confirmació en breu
+          details: 'La teva inscripció a la formació és de tipus %{registration_type} amb un cost de %{price}'
+          pending_html: La teva inscripció a la formació <a href="%{url}">%{title}</a> està pendent de confirmació.
       courses:
         courses:
           no_courses_warning: No hi ha formacions que coincideixin amb la teva cerca o no hi ha cap formació programada.
@@ -176,10 +232,26 @@ ca:
           all: Totes
       index:
         title: Formacions
+      mailer:
+        course_registration_mailer:
+          confirmation:
+            subject: S'ha confirmat la teva inscripció a la formació
+          pending_validation:
+            subject: La teva inscripció a la formació està pendent de confirmació
       modality:
         blended: Mixte
         face-to-face: Presencial
         online: Online
+      models:
+        course_registration:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            registration_type: Tipus d'inscripció
+            state: Estat
+            states:
+              confirmed: Confirmat
+              pending: Pendents
     events:
       course:
         role_assigned:
@@ -187,6 +259,9 @@ ca:
           email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} a la formació "%{resource_title}".
           email_subject: Se t'ha assignat el rol de %{role} a "%{resource_title}".
           notification_title: Se t'ha assignat el rol de %{role} a la formació <a href="%{resource_url}">%{resource_title}</a>.
+      courses:
+        course_registration_confirmed:
+          notification_title: S'ha confirmat la teva inscripció a la formació <a href="%{resource_url}">%{resource_title}</a>.
     menu:
       courses: Formacions
     pages:

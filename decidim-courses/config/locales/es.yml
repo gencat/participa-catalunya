@@ -68,6 +68,8 @@ es:
           success: Formación creada correctamente.
         edit:
           update: Actualizar
+        exports:
+          registrations: Inscripciones
         index:
           not_published: No publicado
           published: Publicado
@@ -84,6 +86,32 @@ es:
         destroy:
           error: Se ha producido un error al despublicar esta formación.
           success: Formación despublicada correctamente.
+      course_registration:
+        confirm:
+          error: Se ha producido un error al confirmar la inscripción a esta formación.
+          success: La inscripción a la formación se ha confirmado correctamente.
+      course_registration_type_publications:
+        create:
+          error: Se ha producido un error al publicar este tipo de inscripción.
+          success: Tipo de inscripción publicado correctamente.
+        destroy:
+          error: Se ha producido un error al despublicar este tipo de inscripción.
+          success: Tipo de inscripción despublicado correctamente.
+      course_registration_types:
+        create:
+          error: Se ha producido un error al añadir un tipo de inscripción para esta formación.
+          success: Tipo de inscripción añadido correctamente a esta formación.
+        destroy:
+          success: Tipo de inscripción eliminado correctamente de esta formación.
+        edit:
+          title: Actualizar el tipo de inscripción.
+          update: Actualizar
+        new:
+          create: Crear
+          title: Nuevo tipo de inscripción
+        update:
+          error: Se ha producido un error al actualizar un tipo de inscripción para esta formación.
+          success: Tipo de inscripción actualizado correctamente para esta formación.
       course_user_roles:
         create:
           error: Se ha producido un error al añadir una administradora para esta formación.
@@ -109,6 +137,9 @@ es:
           attachments: Adjuntos
           course_admins: Administradoras de la formación
           info: Información
+          registration_types: Tipos de inscripción
+          registrations: Inscripciones
+          user_registrations: Inscripciones de participantes
       models:
         course:
           fields:
@@ -118,6 +149,13 @@ es:
             published: Publicado
             title: Título
           name: Formación
+        course_registration_type:
+          fields:
+            price: Precio
+            registrations_count: Número de inscripciones
+            title: Título
+            weight: Peso
+          name: Tipo de inscripción
         course_user_role:
           fields:
             email: Correo electrónico
@@ -129,6 +167,9 @@ es:
       titles:
         courses: Formaciones
     admin_log:
+      courses:
+        course_registration:
+          confirm: "%{user_name} ha confirmado una inscripción a la formación %{resource_name}"
       course_user_role:
         create: "%{user_name} invitó %{resource_name} a la formación %{space_name}"
         delete: "%{user_name} eliminó a la participante %{resource_name} de la formación %{space_name}"
@@ -138,6 +179,9 @@ es:
         name: Espacio de formación
     courses:
       admin:
+        course_registrations:
+          index:
+            registrations: Inscripciones
         courses:
           form:
             announcement_help: El texto que ingreses aquí se mostrará a la participante justo encima de la información de la formación.
@@ -151,11 +195,23 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta formación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             visbility: Visibilidad
+        registration_types:
+          index:
+            title: Tipos de inscripción
       content_blocks:
         upcoming_courses:
           name: Próximas formaciones
           upcoming_courses: Próximas formaciones
           view_all_courses: Ver todo
+      course_registration_mailer:
+        confirmation:
+          confirmed_html: Tu inscripción a la formación <a href="%{url}">%{title}</a> ha sido confirmada.
+          details_1: 'Tu inscripción a la formación es de tipo %{registration_type} con un coste de %{price}.'
+          details_2: Encontrará los detalles de la formación en el archivo adjunto.
+        pending_validation:
+          confirmation_pending: Recibirás la confirmación en breve
+          details: 'Tu inscripción a la formación es de tipo %{registration_type} con un coste de %{price}.'
+          pending_html: Tu inscripción a la formación <a href="%{url}">%{title}</a> está pendiente de confirmación.
       courses:
         courses:
           no_courses_warning: No hay formaciones que coincidan con tu búsqueda o no hay ninguna formación programada.
@@ -176,10 +232,26 @@ es:
           all: Todas
       index:
         title: Formaciones
+      mailer:
+        course_registration_mailer:
+          confirmation:
+            subject: Tu inscripción a la formación ha sido confirmada
+          pending_validation:
+            subject: Tu inscripción en la formación está pendiente de confirmación
       modality:
         blended: Mixto
         face-to-face: Presencial
         online: Online
+      models:
+        course_registration:
+          fields:
+            email: Correo electrónico
+            name: Nombre
+            registration_type: Tipo de inscripción
+            state: Estado
+            states:
+              confirmed: Confirmado
+              pending: Pendiente
     events:
       course:
         role_assigned:
@@ -187,6 +259,9 @@ es:
           email_outro: Recibes esta notificación porque se te ha asignado el rol de %{role} en la formación "%{resource_title}".
           email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
           notification_title: Se te ha asignado el rol de %{role} en la formación <a href="%{resource_url}">%{resource_title}</a>.
+      courses:
+        course_registration_confirmed:
+          notification_title: Se ha confirmado tu inscripción en la formación <a href="%{resource_url}">%{resource_title}</a>.
     menu:
       courses: Formaciones
     pages:

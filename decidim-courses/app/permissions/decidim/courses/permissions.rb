@@ -32,6 +32,9 @@ module Decidim
         user_can_read_course_list?
         user_can_list_course_list?
         user_can_read_current_course?
+        user_can_read_course_registrations?
+        user_can_export_course_registrations?
+        user_can_confirm_course_registration?
         user_can_create_course?
         user_can_export_course?
 
@@ -130,6 +133,29 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
+      # Only organization admins can read a course registrations
+      def user_can_read_course_registrations?
+        return unless permission_action.action == :read_course_registrations &&
+          permission_action.subject == :course
+
+        toggle_allow(user.admin?)
+      end
+
+      # Only organization admins can export a course registrations
+      def user_can_export_course_registrations?
+        return unless permission_action.action == :export_course_registrations &&
+          permission_action.subject == :course
+
+        toggle_allow(user.admin?)
+      end
+
+      def user_can_confirm_course_registration?
+        return unless permission_action.action == :confirm &&
+          permission_action.subject == :course_registration
+
+        toggle_allow(user.admin?)
+      end
+
       # Everyone can read the course list
       def user_can_read_course_list?
         return unless read_course_list_permission_action?
@@ -172,7 +198,9 @@ module Decidim
           :component,
           :component_data,
           :course,
-          :course_user_role
+          :course_user_role,
+          :course_registration,
+          :registration_type
         ].include?(permission_action.subject)
 
         allow! if is_allowed
@@ -189,7 +217,11 @@ module Decidim
           :component_data,
           :course,
           :export_space,
-          :course_user_role
+          :course_user_role,
+          :course_registration,
+          :registration_type,
+          :read_course_registrations,
+          :export_course_registrations
         ].include?(permission_action.subject)
 
         allow! if is_allowed

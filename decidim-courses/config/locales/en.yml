@@ -68,6 +68,8 @@ en:
           success: Course created successfully.
         edit:
           update: Update
+        exports:
+          registrations: Registrations
         index:
           not_published: Not published
           published: Published
@@ -84,6 +86,32 @@ en:
         destroy:
           error: There was a problem unpublishing this course.
           success: Course successfully unpublished.
+      course_registration:
+        confirm:
+          error: There was a problem confirming this course registration.
+          success: Course registration successfully confirmed.
+      course_registration_type_publications:
+        create:
+          error: There was a problem publishing this registration type.
+          success: Registration type successfully published.
+        destroy:
+          error: There was a problem unpublishing this registration type.
+          success: Registration type successfully unpublished.
+      course_registration_types:
+        create:
+          error: There was a problem adding a registration type for this course.
+          success: Course registration type successfully added.
+        destroy:
+          success: Course registration type successfully removed.
+        edit:
+          title: Update registration type.
+          update: Update
+        new:
+          create: Create
+          title: New registration type
+        update:
+          error: There was a problem updating a registration type for this course.
+          success: Course registration type successfully updated.
       course_user_roles:
         create:
           error: There was a problem adding an admin for this course.
@@ -109,6 +137,9 @@ en:
           attachments: Attachments
           course_admins: Course admins
           info: Info
+          registration_types: Registration Types
+          registrations: Registrations
+          user_registrations: User Registrations
       models:
         course:
           fields:
@@ -118,6 +149,13 @@ en:
             published: Published
             title: Title
           name: Course
+        course_registration_type:
+          fields:
+            price: Price
+            registrations_count: Registrations count
+            title: Title
+            weight: Weight
+          name: Registration type
         course_user_role:
           fields:
             email: Email
@@ -129,6 +167,9 @@ en:
       titles:
         courses: Courses
     admin_log:
+      courses:
+        course_registration:
+          confirm: "%{user_name} confirmed a registration in %{resource_name} course"
       course_user_role:
         create: "%{user_name} invited %{resource_name} to the %{space_name} course"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} course"
@@ -138,6 +179,9 @@ en:
         name: Training space
     courses:
       admin:
+        course_registrations:
+          index:
+            registrations: Registrations
         courses:
           form:
             announcement_help: The text you enter here will be shown to the user right before the course information.
@@ -153,11 +197,23 @@ en:
             visbility: Visibility
         exports:
           courses: Courses
+        registration_types:
+          index:
+            title: Registration types
       content_blocks:
         upcoming_courses:
           name: Upcoming courses
           upcoming_courses: Upcoming courses
           view_all_courses: View all
+      course_registration_mailer:
+        confirmation:
+          confirmed_html: Your registration for the course <a href="%{url}">%{title}</a> has been confirmed.
+          details_1: 'You are registered to the course with %{registration_type} type with a cost of %{price}.'
+          details_2: You will find the conference's details in the attachment.
+        pending_validation:
+          confirmation_pending: You will receive the confirmation shortly
+          details: 'You have registered to the course with %{registration_type} type with a cost of %{price}.'
+          pending_html: Your registration for the course <a href="%{url}">%{title}</a> is pending confirmation.
       courses:
         courses:
           no_courses_warning: No courses match your search criteria or there isn't any course scheduled.
@@ -178,10 +234,26 @@ en:
           all: All
       index:
         title: Courses
+      mailer:
+        course_registration_mailer:
+          confirmation:
+            subject: Your course's registration has been confirmed
+          pending_validation:
+            subject: Your course's registration is pending confirmation
       modality:
         blended: Blended
         face-to-face: Face to face
         online: Online
+      models:
+        course_registration:
+          fields:
+            email: Email
+            name: Name
+            registration_type: Registration type
+            state: Status
+            states:
+              confirmed: Confirmed
+              pending: Pending
     events:
       course:
         role_assigned:
@@ -189,6 +261,9 @@ en:
           email_outro: You have received this notification because you are %{role} of the "%{resource_title}" course.
           email_subject: You have been assigned as %{role} for "%{resource_title}".
           notification_title: You have been assigned as %{role} for course <a href="%{resource_url}">%{resource_title}</a>.
+      courses:
+        course_registration_confirmed:
+          notification_title: Your registration for the course <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
     menu:
       courses: Courses
     pages:
