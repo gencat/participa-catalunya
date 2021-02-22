@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe "ResourceBank admin accesses admin sections", type: :system do
-  include_context "when resource_bank admin administrating a resource_bank"
+describe "Resource admin accesses admin sections", type: :system do
+  include_context "when resource admin administrating a resource"
 
   before do
     switch_to_host(organization.host)
@@ -19,7 +19,7 @@ describe "ResourceBank admin accesses admin sections", type: :system do
       expect(page).to have_content("Attachments")
       expect(page).to have_content("Folders")
       expect(page).to have_content("Files")
-      expect(page).to have_content("Resource bank admins")
+      expect(page).to have_content("Resource admins")
     end
   end
 end

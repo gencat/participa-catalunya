@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "manage resource_bank admins examples" do
+shared_examples "manage resource admins examples" do
   let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
 
   let!(:resource_bank_admin) do
@@ -14,16 +14,16 @@ shared_examples "manage resource_bank admins examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_resource_banks.edit_resource_bank_path(resource_bank)
-    click_link "Resource bank admins"
+    click_link "Resource admins"
   end
 
-  it "shows resource_bank admin list" do
+  it "shows resource admin list" do
     within "#resource_bank_admins table" do
       expect(page).to have_content(resource_bank_admin.email)
     end
   end
 
-  it "creates a new resource_bank admin" do
+  it "creates a new resource admin" do
     find(".card-title a.new").click
 
     within ".new_resource_bank_user_role" do
@@ -47,7 +47,7 @@ shared_examples "manage resource_bank admins examples" do
       visit current_path
     end
 
-    it "updates a resource_bank admin" do
+    it "updates a resource admin" do
       within "#resource_bank_admins" do
         within find("#resource_bank_admins tr", text: other_user.email) do
           click_link "Edit"
@@ -67,7 +67,7 @@ shared_examples "manage resource_bank admins examples" do
       end
     end
 
-    it "deletes a resource_bank_user_role" do
+    it "deletes a resource user_role" do
       within find("#resource_bank_admins tr", text: other_user.email) do
         accept_confirm { click_link "Delete" }
       end

@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe "Admin manages resource_banks", type: :system do
-  include_context "when admin administrating a resource_bank"
+describe "Admin manages resources", type: :system do
+  include_context "when admin administrating a resource"
 
   let(:model_name) { resource_bank.class.model_name }
 
-  shared_examples "creating a resource_bank" do
+  shared_examples "creating a resource" do
     let(:image1_filename) { "city.jpeg" }
     let(:image1_path) { Decidim::Dev.asset(image1_filename) }
 
@@ -15,17 +15,17 @@ describe "Admin manages resource_banks", type: :system do
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
-      click_link "New resource bank"
+      click_link "New resource"
     end
 
-    it "creates a new resource_bank" do
+    it "creates a new resource" do
       within ".new_resource_bank" do
         fill_in_i18n(
           :resource_bank_title,
           "#resource_bank-title-tabs",
-          en: "My resource_bank",
-          es: "Mi proceso participativo",
-          ca: "El meu procés participatiu"
+          en: "My resource",
+          es: "Mi recurso",
+          ca: "El meu recurs"
         )
         fill_in_i18n_editor(
           :resource_bank_text,
@@ -47,13 +47,13 @@ describe "Admin manages resource_banks", type: :system do
 
       within ".container" do
         expect(page).to have_current_path decidim_admin_resource_banks.resource_banks_path
-        expect(page).to have_content("My resource_bank")
+        expect(page).to have_content("My resource")
       end
     end
   end
 
-  shared_examples "manage resource bank announcement" do
-    it "can customize an announcement for the resource bank" do
+  shared_examples "manage resource announcement" do
+    it "can customize an announcement for the resource" do
       click_link translated(resource_bank.title)
 
       fill_in_i18n_editor(
@@ -80,18 +80,18 @@ describe "Admin manages resource_banks", type: :system do
     end
   end
 
-  context "when managing resource_banks" do
+  context "when managing resources" do
     before do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin_resource_banks.resource_banks_path
     end
 
-    it_behaves_like "manage resource_banks"
-    it_behaves_like "manage resource bank announcement"
-    it_behaves_like "creating a resource_bank"
+    it_behaves_like "manage resource"
+    it_behaves_like "manage resource announcement"
+    it_behaves_like "creating a resource"
 
-    describe "listing resource_banks" do
+    describe "listing resources" do
       it_behaves_like "filtering collection by published/unpublished"
     end
   end

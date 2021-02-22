@@ -70,7 +70,7 @@ describe "Explore Resource banks", type: :system do
     it "shows the correct warning" do
       visit decidim_resource_banks.resource_banks_path
       within ".callout" do
-        expect(page).to have_content("any resource bank published")
+        expect(page).to have_content("any published resource")
       end
     end
   end
