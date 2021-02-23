@@ -26,87 +26,87 @@ ca:
   activerecord:
     models:
       decidim/resource_bank:
-        one: Banc de recursos
-        other: Bancs de recursos
+        one: Recurs
+        other: Recursos
       decidim/resource_bank_user_role:
-        one: Rol d'administració del banc de recursos
-        other: Rol d'administradores del banc de recursos
+        one: Rol d'administració del recurs
+        other: Rols d'administració del recurs
   decidim:
     admin:
       actions:
-        new_resource_bank: Nou banc de recusos
+        new_resource_bank: Nou recurs
       resource_banks:
         create:
-          error: S'ha produït un error en crear un nou banc de recusos.
-          success: Banc de recusos creat correctament.
+          error: S'ha produït un error al crear un nou recurs.
+          success: Recurs creat correctament.
         edit:
-          update: Actualitzar
+          update: Actualitza
         index:
           not_published: No publicat
           published: Publicat
         new:
-          create: Crear
-          title: Nou banc de recusos
+          create: Crea
+          title: Nou recurs
         update:
-          error: S'ha produït un error en actualitzar aquest banc de recusos.
-          success: El banc de recusos s'ha actualitzat correctament.
+          error: S'ha produït un error al actualitzar aquest recurs.
+          success: El recurs s'ha actualitzat correctament.
       resource_bank_publications:
         create:
-          error: S'ha produït un error en publicar aquest banc de recusos.
-          success: Banc de recusos publicat correctament.
+          error: S'ha produït un error al publicar aquest recurs.
+          success: Recurs publicat correctament.
         destroy:
-          error: S'ha produït un error en publicar aquest banc de recusos.
-          success: Banc de recusos despublicat correctament.
+          error: S'ha produït un error al publicar aquest recurs.
+          success: Recurs despublicat correctament.
       resource_bank_user_roles:
         create:
-          error: S'ha produït un error en afegir una administradora per aquest banc de recursos.
-          success: L'administradora s'ha afegit correctament aquest banc de recursos.
+          error: S'ha produït un error a l'afegir una administradora per aquest recurs.
+          success: L'administradora s'ha afegit correctament a aquest recurs.
         destroy:
-          success: L'administradora s'ha eliminat correctament d'aquest banc de recursos.
+          success: L'administradora s'ha eliminat correctament d'aquest recurs.
         edit:
-          title: Actualitza l'administradora del banc de recursos.
+          title: Actualitza l'administradora del recurs.
           update: Actualitza
         index:
-          resource_bank_admins_title: Administradores del banc de recursos
+          resource_bank_admins_title: Administradores del recurs
         new:
           create: Crea
-          title: Nova administradora del banc de recursos.
+          title: Nova administradora del recurs.
         update:
-          error: S'ha produït un error en actualitzar una administradora per aquest banc de recursos.
-          success: L'administradora s'ha actualitzat correctament per aquest banc de recursos.
+          error: S'ha produït un error a l'actualitzar una administradora per aquest recurs.
+          success: L'administradora s'ha actualitzat correctament per aquest recurs.
       menu:
-        resource_banks: Bancs de recursos
+        resource_banks: Recursos
         resource_banks_submenu:
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
-          resource_bank_admins: Administradores del banc de recursos
+          resource_bank_admins: Administradores del recurs
           info: Informació
       models:
         resource_bank:
           fields:
-            promoted: Destacada
+            promoted: Destacat
             published: Publicat
             title: Títol
-          name: Banc de recusos
+          name: Recursos
         resource_bank_user_role:
           fields:
             email: Correu electrònic
             name: Nom
             role: Rol
-          name: Administradora del banc de recursos
+          name: Administradora del recurs
           roles:
             admin: Administradora
       titles:
-        resource_banks: Bancs de recursos
+        resource_banks: Recurs
     admin_log:
       resource_bank_user_role:
-        create: "%{user_name} ha convidat %{resource_name} al banc de recursos %{space_name}"
-        delete: "%{user_name} ha eliminat la participant %{resource_name} del banc de recursos %{space_name}"
-        update: "%{user_name} ha canviat el rol de %{resource_name} al banc de recursos %{space_name}"
+        create: "%{user_name} ha convidat %{resource_name} al recurs %{space_name}"
+        delete: "%{user_name} ha eliminat la participant %{resource_name} del recurs %{space_name}"
+        update: "%{user_name} ha canviat el rol de %{resource_name} al recurs %{space_name}"
     components:
       resource_banks:
-        name: Banc de recusos
+        name: Recursos
     resource_banks:
       admin:
         resource_banks:
@@ -116,11 +116,11 @@ ca:
             images: Imatges
             other: Altre
             select_an_area: Selecciona una Àrea
-            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta banc de recusos. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest recurs. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Títol
             visbility: Visibilitat
       index:
-        title: Bancs de recursos
+        title: Recursos
       resource_banks:
         filters:
           areas: Àreas
@@ -128,7 +128,7 @@ ca:
           search: Cerca
           select_an_area: Selecciona una Àrea
         resource_banks:
-          no_resource_banks_warning: No hi ha bancs de recursos que coincideixin amb la teva cerca o no hi ha cap banc de recusos publicat.
+          no_resource_banks_warning: No hi ha recursos que coincideixin amb la teva cerca o no hi ha cap recurs publicat.
       resource_banks_helper:
         filter_scope_values:
           all: Totes
@@ -140,26 +140,26 @@ ca:
     events:
       resource_bank:
         role_assigned:
-          email_intro: T'han assignat el rol de %{role} al banc de recursos "%{resource_title}".
-          email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} al banc de recursos "%{resource_title}".
+          email_intro: T'han assignat el rol de %{role} al recurs "%{resource_title}".
+          email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} al recurs "%{resource_title}".
           email_subject: Se t'ha assignat el rol de %{role} a "%{resource_title}".
-          notification_title: Se t'ha assignat el rol de %{role} al banc de recursos <a href="%{resource_url}">%{resource_title}</a>.
+          notification_title: Se t'ha assignat el rol de %{role} al recurs <a href="%{resource_url}">%{resource_title}</a>.
     menu:
-      resource_banks: Bancs de recursos
+      resource_banks: Recursos
     pages:
       home:
         statistics:
-          resource_banks_count: Bancs de recursos
+          resource_banks_count: Recursos
   layouts:
     decidim:
       resource_bank_navigation:
-        resource_bank_menu_item: El banc de recursos
+        resource_bank_menu_item: Els recursos
       resource_banks:
         index:
-          promoted_resource_banks: "Bancs de recursos destacades"
+          promoted_resource_banks: "Recursos destacats"
         order_by_resource_banks:
           resource_banks:
-            one: "%{count} banc de recursos"
-            other: "%{count} bancs de recursos"
+            one: "%{count} recursos"
+            other: "%{count} recursos"
         promoted_resource_bank:
           more_info: "Més informació"

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-shared_examples "manage resource_banks" do
-  describe "updating a resource_bank" do
+shared_examples "manage resource" do
+  describe "updating a resource" do
     let(:image3_filename) { "city3.jpeg" }
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
@@ -9,7 +9,7 @@ shared_examples "manage resource_banks" do
       click_link translated(resource_bank.title)
     end
 
-    it "updates a resource_bank" do
+    it "updates a resource" do
       fill_in_i18n(
         :resource_bank_title,
         "#resource_bank-title-tabs",
@@ -33,12 +33,12 @@ shared_examples "manage resource_banks" do
     end
   end
 
-  describe "updating a resource_bank without images" do
+  describe "updating a resource without images" do
     before do
       click_link translated(resource_bank.title)
     end
 
-    it "update a resource_bank without images does not delete them" do
+    it "update a resource without images does not delete them" do
       click_submenu_link "Info"
       click_button "Update"
 
@@ -83,14 +83,14 @@ shared_examples "manage resource_banks" do
   #   end
   # end
 
-  describe "publishing a resource_bank" do
+  describe "publishing a resource" do
     let!(:resource_bank) { create(:resource_bank, :unpublished, organization: organization) }
 
     before do
       click_link translated(resource_bank.title)
     end
 
-    it "publishes the resource_bank" do
+    it "publishes the resource" do
       click_link "Publish"
       expect(page).to have_content("successfully published")
       expect(page).to have_content("Unpublish")
@@ -101,14 +101,14 @@ shared_examples "manage resource_banks" do
     end
   end
 
-  describe "unpublishing a resource_bank" do
+  describe "unpublishing a resource" do
     let!(:resource_bank) { create(:resource_bank, organization: organization) }
 
     before do
       click_link translated(resource_bank.title)
     end
 
-    it "unpublishes the resource_bank" do
+    it "unpublishes the resource" do
       click_link "Unpublish"
       expect(page).to have_content("successfully unpublished")
       expect(page).to have_content("Publish")
@@ -129,14 +129,14 @@ shared_examples "manage resource_banks" do
     end
   end
 
-  context "when the resource bank has a scope" do
+  context "when the resource has a scope" do
     let(:scope) { create(:scope, organization: organization) }
 
     before do
       resource_bank.update!(scopes_enabled: true, scope: scope)
     end
 
-    it "disables the scope for the resource bank" do
+    it "disables the scope for the resource" do
       click_link translated(resource_bank.title)
 
       uncheck :resource_bank_scopes_enabled

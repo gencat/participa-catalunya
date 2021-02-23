@@ -26,19 +26,19 @@ es:
   activerecord:
     models:
       decidim/resource_bank:
-        one: Banco de recursos
-        other: Bancos de recursos
+        one: Recurso
+        other: Recursos
       decidim/resource_bank_user_role:
-        one: Rol de participante del banco de recursos
-        other: Roles de participante del banco de recursos
+        one: Rol de participante del recurso
+        other: Roles de participante del recurso
   decidim:
     admin:
       actions:
-        new_resource_bank: Nuevo banco de recusos
+        new_resource_bank: Nuevo recuso
       resource_banks:
         create:
-          error: Se ha producido un error al crear un nuevo banco de recusos.
-          success: Banco de recusos creado correctamente.
+          error: Se ha producido un error al crear un nuevo recuso.
+          success: Recuso creado correctamente.
         edit:
           update: Actualizar
         index:
@@ -46,41 +46,41 @@ es:
           published: Publicado
         new:
           create: Crear
-          title: Nueva banco de recusos
+          title: Nuevo recurso
         update:
-          error: Se ha producido un error al actualizar este banco de recusos.
-          success: La banco de recusos se ha actualizado correctamente.
+          error: Se ha producido un error al actualizar este recurso.
+          success: El recurso se ha actualizado correctamente.
       resource_bank_publications:
         create:
-          error: Se ha producido un error al publicar este banco de recusos.
-          success: Banco de recusos publicado correctamente.
+          error: Se ha producido un error al publicar este recurso.
+          success: Recurso publicado correctamente.
         destroy:
-          error: Se ha producido un error al despublicar este banco de recusos.
-          success: Banco de recusos despublicado correctamente.
+          error: Se ha producido un error al despublicar este recurso.
+          success: Recurso despublicado correctamente.
       resource_bank_user_roles:
         create:
-          error: Se ha producido un error al añadir una administradora para este banco de recursos.
-          success: Administradora añadida correctamente a este banco de recursos.
+          error: Se ha producido un error al añadir una administradora para este recurso.
+          success: Administradora añadida correctamente a este recurso.
         destroy:
-          success: Administradora eliminada correctamente de este banco de recursos.
+          success: Administradora eliminada correctamente de este recurso.
         edit:
-          title: Actualizar administradora del banco de recursos.
+          title: Actualizar administradora del recurso.
           update: Actualizar
         index:
-          resource_bank_admins_title: Administradoras del banco de recursos
+          resource_bank_admins_title: Administradoras del recurso
         new:
           create: Crear
-          title: Nueva administradora del banco de recursos.
+          title: Nueva administradora del recurso.
         update:
-          error: Se ha producido un error al actualizar una administradora para este banco de recursos.
-          success: Administradora actualizada correctamente para este banco de recursos.
+          error: Se ha producido un error al actualizar una administradora para este recurso.
+          success: Administradora actualizada correctamente para este recurso.
       menu:
-        resource_banks: Bancos de recursos
+        resource_banks: Recursos
         resource_banks_submenu:
           attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Adjuntos
-          resource_bank_admins: Administradoras del banco de recursos
+          resource_bank_admins: Administradoras del recurso
           info: Información
       models:
         resource_bank:
@@ -88,25 +88,25 @@ es:
             promoted: Destacado
             published: Publicado
             title: Título
-          name: Banco de recusos
+          name: Recurso
         resource_bank_user_role:
           fields:
             email: Correo electrónico
             name: Nombre
             role: Rol
-          name: Administradora del banco de recursos
+          name: Administradora del recurso
           roles:
             admin: Administradora
       titles:
-        resource_banks: Bancos de recursos
+        resource_banks: Recursos
     admin_log:
       resource_bank_user_role:
-        create: "%{user_name} invitó %{resource_name} al banco de recursos %{space_name}"
-        delete: "%{user_name} eliminó a la participante %{resource_name} del banco de recursos %{space_name}"
-        update: "%{user_name} cambió el rol de %{resource_name} en el banco de recursos %{space_name}"
+        create: "%{user_name} invitó %{resource_name} al recurso %{space_name}"
+        delete: "%{user_name} eliminó a la participante %{resource_name} del recurso %{space_name}"
+        update: "%{user_name} cambió el rol de %{resource_name} en el recurso %{space_name}"
     components:
       resource_banks:
-        name: Banco de recusos
+        name: Recursos
     resource_banks:
       admin:
         resource_banks:
@@ -116,11 +116,11 @@ es:
             images: Imágenes
             other: Otro
             select_an_area: Seleccione un Área
-            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta banco de recusos. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este recurso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             visbility: Visibilidad
       index:
-        title: Banco de recusos
+        title: Recurso
       resource_banks:
         filters:
           areas: Áreas
@@ -128,7 +128,7 @@ es:
           search: Buscar
           select_an_area: Seleccione un Área
         resource_banks:
-          no_resource_banks_warning: No hay bancos de recursos que coincidan con tu búsqueda o no hay ningún banco de recursos publicado.
+          no_resource_banks_warning: No hay recursos que coincidan con tu búsqueda o no hay ningún recurso publicado.
       resource_banks_helper:
         filter_scope_values:
           all: Todas
@@ -140,26 +140,26 @@ es:
     events:
       resource_bank:
         role_assigned:
-          email_intro: Te han asignado el rol de %{role} en el banco de recursos "%{resource_title}".
-          email_outro: Recibes esta notificación porque se te ha asignado el rol de %{role} en el banco de recursos "%{resource_title}".
+          email_intro: Te han asignado el rol de %{role} en el recurso "%{resource_title}".
+          email_outro: Recibes esta notificación porque se te ha asignado el rol de %{role} en el recurso "%{resource_title}".
           email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
-          notification_title: Se te ha asignado el rol de %{role} en el banco de recursos <a href="%{resource_url}">%{resource_title}</a>.
+          notification_title: Se te ha asignado el rol de %{role} en el recurso <a href="%{resource_url}">%{resource_title}</a>.
     menu:
-      resource_banks: Bancos de recusos
+      resource_banks: Recursos
     pages:
       home:
         statistics:
-          resource_banks_count: Bancos de recursos
+          resource_banks_count: Recursos
   layouts:
     decidim:
       resource_bank_navigation:
-        resource_bank_menu_item: El banco de recursos
+        resource_bank_menu_item: El recurso
       resource_banks:
         index:
-          promoted_resource_banks: "Bancos de recursos destacados"
+          promoted_resource_banks: "Recursos destacados"
         order_by_resource_banks:
           resource_banks:
-            one: "%{count} banco de recursos"
-            other: "%{count} bancos de recursos"
+            one: "%{count} recurso"
+            other: "%{count} recursos"
         promoted_resource_bank:
           more_info: "Más información"
