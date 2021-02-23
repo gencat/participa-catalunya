@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddRegistrationConfigToCourses < ActiveRecord::Migration[5.2]
   def change
     change_table :decidim_courses, bulk: true do |t|
