@@ -75,7 +75,7 @@ es:
           error: Se ha producido un error al actualizar una administradora para este recurso.
           success: Administradora actualizada correctamente para este recurso.
       menu:
-        resource_banks: Recurso
+        resource_banks: Recursos
         resource_banks_submenu:
           attachment_collections: Carpetas
           attachment_files: Archivos
@@ -88,7 +88,7 @@ es:
             promoted: Destacado
             published: Publicado
             title: Título
-          name: Recursos
+          name: Recurso
         resource_bank_user_role:
           fields:
             email: Correo electrónico
@@ -98,7 +98,7 @@ es:
           roles:
             admin: Administradora
       titles:
-        resource_banks: Recurso
+        resource_banks: Recursos
     admin_log:
       resource_bank_user_role:
         create: "%{user_name} invitó %{resource_name} al recurso %{space_name}"
@@ -106,7 +106,7 @@ es:
         update: "%{user_name} cambió el rol de %{resource_name} en el recurso %{space_name}"
     components:
       resource_banks:
-        name: Recurso
+        name: Recursos
     resource_banks:
       admin:
         resource_banks:
