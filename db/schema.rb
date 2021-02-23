@@ -722,6 +722,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_101511) do
     t.integer "decidim_course_registration_type_id"
     t.datetime "confirmed_at"
     t.index ["decidim_course_id"], name: "index_courses_registrations_on_decidim_course"
+    t.index ["decidim_course_registration_type_id"], name: "idx_courses_registrations_on_registration_type_id"
     t.index ["decidim_user_id", "decidim_course_id"], name: "decidim_courses_registrations_user_course_unique", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_courses_registrations_on_decidim_user_id"
   end
