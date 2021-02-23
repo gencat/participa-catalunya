@@ -731,7 +731,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_101511) do
     t.bigint "decidim_course_id"
     t.jsonb "title", null: false
     t.jsonb "description", null: false
-    t.decimal "price", precision: 8, scale: 2, default: "0.0", null: false
+    t.decimal "price", precision: 8, scale: 2, default: "0.0"
     t.integer "weight", default: 0, null: false
     t.datetime "published_at"
     t.datetime "created_at", null: false
