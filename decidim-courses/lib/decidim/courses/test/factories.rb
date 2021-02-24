@@ -110,4 +110,21 @@ FactoryBot.define do
       confirmed_at { nil }
     end
   end
+
+  factory :course_invite, class: "Decidim::Courses::CourseInvite" do
+    course
+    user
+    sent_at { Time.current - 1.day }
+    accepted_at { nil }
+    rejected_at { nil }
+    registration_type factory: :course_registration_type
+
+    trait :accepted do
+      accepted_at { Time.current }
+    end
+
+    trait :rejected do
+      rejected_at { Time.current }
+    end
+  end
 end

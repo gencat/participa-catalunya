@@ -38,6 +38,11 @@
                 <%= aria_selected_link_to t("user_registrations", scope: "decidim.admin.menu.courses_submenu"), decidim_admin_courses.course_course_registrations_path(current_participatory_space) %>
               </li>
             <% end %>
+            <% if allowed_to? :read, :course_invite, course: current_participatory_space %>
+              <li <% if is_active_link?(decidim_admin_courses.course_course_invites_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("course_invites", scope: "decidim.admin.menu.courses_submenu"), decidim_admin_courses.course_course_invites_path(current_participatory_space) %>
+              </li>
+            <% end %>
           </ul>
         </li>
       <% end %>

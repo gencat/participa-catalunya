@@ -12,7 +12,8 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
   participatory_space.permissions_class_name = "Decidim::Courses::Permissions"
 
   participatory_space.data_portable_entities = [
-    "Decidim::Courses::CourseRegistration"
+    "Decidim::Courses::CourseRegistration",
+    "Decidim::Courses::CourseInvite"
   ]
 
   # participatory_space.query_type = "Decidim::Courses::CourseType"

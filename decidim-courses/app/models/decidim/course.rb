@@ -27,6 +27,11 @@ module Decidim
                class_name: "Decidim::Area",
                optional: true
 
+    has_many :course_invites,
+             foreign_key: "decidim_course_id",
+             class_name: "Decidim::Courses::CourseInvite",
+             dependent: :destroy
+
     has_many :course_registrations,
              foreign_key: "decidim_course_id",
              class_name: "Decidim::Courses::CourseRegistration",

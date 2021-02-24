@@ -22,7 +22,7 @@ module Decidim
           resources :registration_types, controller: "registration_types" do
             resource :publish, controller: "registration_type_publications", only: [:create, :destroy]
           end
-
+          resources :course_invites, only: [:index, :new, :create]
           resources :course_registrations, only: :index do
             member do
               post :confirm

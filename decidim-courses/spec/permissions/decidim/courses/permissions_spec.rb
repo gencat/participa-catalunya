@@ -264,6 +264,7 @@ describe Decidim::Courses::Permissions do
       it_behaves_like "allows any action on subject", :attachment_collection
       it_behaves_like "allows any action on subject", :course
       it_behaves_like "allows any action on subject", :course_user_role
+      it_behaves_like "allows any action on subject", :registration_type
     end
 
     context "when user is an org admin" do
@@ -289,6 +290,7 @@ describe Decidim::Courses::Permissions do
       it_behaves_like "allows any action on subject", :attachment_collection
       it_behaves_like "allows any action on subject", :course
       it_behaves_like "allows any action on subject", :course_user_role
+      it_behaves_like "allows any action on subject", :registration_type
     end
   end
 end

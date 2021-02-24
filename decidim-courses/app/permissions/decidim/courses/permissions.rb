@@ -199,6 +199,7 @@ module Decidim
           :component_data,
           :course,
           :course_user_role,
+          :course_invite,
           :course_registration,
           :registration_type
         ].include?(permission_action.subject)
@@ -218,6 +219,7 @@ module Decidim
           :course,
           :export_space,
           :course_user_role,
+          :course_invite,
           :course_registration,
           :registration_type,
           :read_course_registrations,

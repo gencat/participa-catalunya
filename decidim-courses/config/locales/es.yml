@@ -27,6 +27,12 @@ es:
         email: Correo electrónico
         name: Nombre
         role: Rol de participante
+    errors:
+      models:
+        course_registration_invite:
+          attributes:
+            email:
+              already_invited: Este correo electrónico ya ha sido invitado
   activerecord:
     models:
       decidim/course:
@@ -136,6 +142,7 @@ es:
           attachment_files: Archivos
           attachments: Adjuntos
           course_admins: Administradoras de la formación
+          course_invites: Invita
           info: Información
           registration_types: Tipos de inscripción
           registrations: Inscripciones
@@ -179,6 +186,30 @@ es:
         name: Espacio de formación
     courses:
       admin:
+        course_invites:
+          create:
+            error: Se ha producido un error al invitar a esta participante a unirse a la formación.
+            success: Participante invitada correctamente a unirse a la formación.
+          form:
+            attendee_type: Tipo de asistente
+            existing_user: Participante existente
+            invite_explanation: La participante será invitada a unirse a la formación y también a la organización.
+            non_user: Participante no existente
+            select_user: Seleccionar participante
+          index:
+            filter:
+              accepted: Aceptada
+              all: Todas
+              rejected: Rechazada
+              sent: Enviada
+            filter_by: Filtrar por
+            invite_attendee: Invitar participante
+            invites: Invita
+            search: Buscar
+          new:
+            explanation: La participante será invitada a unirse a una formación. Si su correo electrónico no está registrado, también será invitada a unirse a la organización.
+            invite: Invitar
+            new_invite: Invitar participante
         course_registrations:
           index:
             registrations: Inscripciones
@@ -195,6 +226,11 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta formación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             visbility: Visibilidad
+        invite_join_course_mailer:
+          invite:
+            decline: Rechazar invitación a '%{course_title}'
+            invited_you_to_join_a_course: "%{invited_by} te ha invitado a unirte a una formación en %{application}. Puedes declinar o aceptar a través de los siguientes enlaces."
+            registration: Inscripción para '%{course_title}'
         registration_types:
           index:
             title: Tipos de inscripción
@@ -238,11 +274,25 @@ es:
             subject: Tu inscripción a la formación ha sido confirmada
           pending_validation:
             subject: Tu inscripción en la formación está pendiente de confirmación
+        invite_join_course_mailer:
+          invite:
+            subject: Invitación para unirse a una formación
       modality:
         blended: Mixto
         face-to-face: Presencial
         online: Online
       models:
+        course_invite:
+          fields:
+            email: Correo electrónico
+            name: Nombre
+            registration_type: Tipo de inscripción
+            sent_at: Enviado a
+            status: Estado
+          status:
+            accepted: Aceptada (%{at})
+            rejected: Rechazada (%{at})
+            sent: Enviado
         course_registration:
           fields:
             email: Correo electrónico
@@ -262,6 +312,13 @@ es:
       courses:
         course_registration_confirmed:
           notification_title: Se ha confirmado tu inscripción en la formación <a href="%{resource_url}">%{resource_title}</a>.
+        course_registration_validation_pending:
+          notification_title: Tu inscripción en la formación <a href="%{resource_url}">%{resource_title}</a> está pendiente de confirmación.
+        course_registrations_over_percentage:
+          email_intro: Las plazas ocupadas para la formación "%{resource_title}" superan el %{percentage}%.
+          email_outro: Recibes esta notificación porque eres administrador del espacio participativo de la formación.
+          email_subject: Las plazas ocupadas para la formación "%{resource_title}" son más del %{percentage}%
+          notification_title: Las plazas ocupadas para la formación <a href="%{resource_path}">%{resource_title}</a> son más del %{percentage}%.
     menu:
       courses: Formaciones
     pages:
