@@ -136,7 +136,7 @@ module Decidim
       # Only organization admins can read a course registrations
       def user_can_read_course_registrations?
         return unless permission_action.action == :read_course_registrations &&
-          permission_action.subject == :course
+                      permission_action.subject == :course
 
         toggle_allow(user.admin?)
       end
@@ -144,14 +144,14 @@ module Decidim
       # Only organization admins can export a course registrations
       def user_can_export_course_registrations?
         return unless permission_action.action == :export_course_registrations &&
-          permission_action.subject == :course
+                      permission_action.subject == :course
 
         toggle_allow(user.admin?)
       end
 
       def user_can_confirm_course_registration?
         return unless permission_action.action == :confirm &&
-          permission_action.subject == :course_registration
+                      permission_action.subject == :course_registration
 
         toggle_allow(user.admin?)
       end

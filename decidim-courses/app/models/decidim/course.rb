@@ -79,15 +79,15 @@ module Decidim
       :admin
     end
 
-    def has_registration_for?(user)
+    def has_registration_for?(user) # rubocop:disable Naming/PredicateName
       course_registrations.where(user: user).any?
     end
 
-    def has_registration_for_user_and_registration_type?(user, registration_type)
+    def has_registration_for_user_and_registration_type?(user, registration_type) # rubocop:disable Naming/PredicateName
       course_registrations.where(user: user, registration_type: registration_type).any?
     end
 
-    def has_available_slots?
+    def has_available_slots? # rubocop:disable Naming/PredicateName
       return true if available_slots.zero?
 
       available_slots > course_registrations.count
