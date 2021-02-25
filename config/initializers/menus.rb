@@ -1,36 +1,36 @@
+# frozen_string_literal: true
 
 Rails.application.config.to_prepare do
-
   # Main public Menu
   Decidim::MenuRegistry.find(:menu).configurations.clear
   Decidim.menu :menu do |menu|
     menu.item I18n.t("menu.home", scope: "decidim"),
-                    decidim.root_path,
-                    position: 1,
-                    active: :exclusive
+              decidim.root_path,
+              position: 1,
+              active: :exclusive
 
     menu.item I18n.t("menu.assemblies", scope: "decidim"),
-                    decidim_assemblies.assemblies_path,
-                    position: 2.2,
-                    if: Decidim::Assemblies::OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
-                    active: :inclusive
+              decidim_assemblies.assemblies_path,
+              position: 2.2,
+              if: Decidim::Assemblies::OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
+              active: :inclusive
 
     menu.item I18n.t("menu.courses", scope: "decidim"),
-                    decidim_courses.courses_path,
-                    position: 2.25,
-                    if: Decidim::Course.where(organization: current_organization).published.any?,
-                    active: :inclusive
+              decidim_courses.courses_path,
+              position: 2.25,
+              if: Decidim::Course.where(organization: current_organization).published.any?,
+              active: :inclusive
 
     menu.item I18n.t("menu.resource_banks", scope: "decidim"),
-                    decidim_resource_banks.resource_banks_path,
-                    position: 2.3,
-                    if: Decidim::ResourceBank.where(organization: current_organization).published.any?,
-                    active: :inclusive
+              decidim_resource_banks.resource_banks_path,
+              position: 2.3,
+              if: Decidim::ResourceBank.where(organization: current_organization).published.any?,
+              active: :inclusive
 
     menu.item I18n.t("menu.help", scope: "decidim"),
-                    decidim.pages_path,
-                    position: 7,
-                    active: :inclusive
+              decidim.pages_path,
+              position: 7,
+              active: :inclusive
   end
 
   # Main public Menu
