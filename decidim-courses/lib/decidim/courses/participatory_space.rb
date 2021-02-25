@@ -11,6 +11,11 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
 
   participatory_space.permissions_class_name = "Decidim::Courses::Permissions"
 
+  participatory_space.data_portable_entities = [
+    "Decidim::Courses::CourseRegistration",
+    "Decidim::Courses::CourseInvite"
+  ]
+
   # participatory_space.query_type = "Decidim::Courses::CourseType"
 
   participatory_space.register_resource(:course) do |resource|
@@ -39,6 +44,7 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
 
   participatory_space.register_on_destroy_account do |user|
     Decidim::CourseUserRole.where(user: user).destroy_all
+    Decidim::Courses::CourseRegistration.where(user: user).destroy_all
   end
 
   participatory_space.seeds do
@@ -156,6 +162,17 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
           attached_to: current_course,
           file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
         )
+
+        5.times do
+          Decidim::Courses::RegistrationType.create!(
+            title: Decidim::Faker::Localized.sentence(2),
+            description: Decidim::Faker::Localized.sentence(5),
+            weight: Faker::Number.between(1, 10),
+            price: Faker::Number.between(1, 300),
+            published_at: 2.weeks.ago,
+            course: course
+          )
+        end
 
         2.times do
           Decidim::Category.create!(

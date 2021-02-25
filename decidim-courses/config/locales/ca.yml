@@ -27,6 +27,12 @@ ca:
         email: Correu electrònic
         name: Nom
         role: Rol de participant
+    errors:
+      models:
+        course_registration_invite:
+          attributes:
+            email:
+              already_invited: Aquest correu electrònic ja ha estat convidat
   activerecord:
     models:
       decidim/course:
@@ -68,6 +74,8 @@ ca:
           success: Formació creada correctament.
         edit:
           update: Actualitzar
+        exports:
+          registrations: Inscripcions
         index:
           not_published: No publicat
           published: Publicat
@@ -84,6 +92,32 @@ ca:
         destroy:
           error: S'ha produït un error en publicar aquesta formació.
           success: Formació despublicada correctament.
+      course_registration:
+        confirm:
+          error: S'ha produït un error en confirmar la inscripció a aquesta formació.
+          success: La inscripció a la formació s'ha confirmat correctament.
+      course_registration_type_publications:
+        create:
+          error: S'ha produït un error en publicar aquest tipus d'inscripció.
+          success: El tipus d'inscripció s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en despublicar aquest tipus d'inscripció.
+          success: El tipus d'inscripció s'ha despublicat correctament.
+      course_registration_types:
+        create:
+          error: S'ha produït un error en afegir un tipus d'inscripció per a aquesta formació.
+          success: El tipus d'inscripció s'ha afegit correctament a aquesta formació.
+        destroy:
+          success: El tipus d'inscripció s'ha eliminat correctament d'aquesta formació.
+        edit:
+          title: Actualitzar el tipus d'inscripció.
+          update: Actualitzar
+        new:
+          create: Crear
+          title: Nou tipus tipus d'inscripció
+        update:
+          error: S'ha produït un error en actualitzar un tipus d'inscripció per a aquesta formació.
+          success: El tipus d'inscripció s'ha actualitzat correctament per a aquesta formació.
       course_user_roles:
         create:
           error: S'ha produït un error en afegir una administradora per a aquesta formació.
@@ -108,7 +142,11 @@ ca:
           attachment_files: Fitxers
           attachments: Adjunts
           course_admins: Administradores de la formació
+          course_invites: Convida
           info: Informació
+          registration_types: Tipus d'inscripcions
+          registrations: Inscripcions
+          user_registrations: Inscripcions de participants
       models:
         course:
           fields:
@@ -118,6 +156,13 @@ ca:
             published: Publicat
             title: Títol
           name: Formació
+        course_registration_type:
+          fields:
+            price: Preu
+            registrations_count: Nombre d'inscripcions
+            title: Títol
+            weight: Pes
+          name: Tipus d'inscripció
         course_user_role:
           fields:
             email: Correu electrònic
@@ -129,6 +174,9 @@ ca:
       titles:
         courses: Formacions
     admin_log:
+      courses:
+        course_registration:
+          confirm: "%{user_name} ha confirmat una inscripció a la formació %{resource_name}"
       course_user_role:
         create: "%{user_name} ha convidat %{resource_name} a la formació %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} de la formació %{space_name}"
@@ -138,6 +186,33 @@ ca:
         name: Espai de formació
     courses:
       admin:
+        course_invites:
+          create:
+            error: S'ha produït un error en convidar la participant a unir-se a la formació.
+            success: Participant convidada correctament a unir-se a la formació.
+          form:
+            attendee_type: Tipus d'assistent
+            existing_user: Participant existent
+            invite_explanation: La participant serà convidada a unir-se a la formació i també a l'organització.
+            non_user: Participant no existent
+            select_user: Seleccionar participant
+          index:
+            filter:
+              accepted: Acceptada
+              all: Totes
+              rejected: Rebutjada
+              sent: Enviada
+            filter_by: Filtrar per
+            invite_attendee: Convidar participant
+            invites: Convida
+            search: Cercar
+          new:
+            explanation: La participant serà convidada a unir-se a una formació. Si el correu electrònic no està registrat, també se la convidarà a unir-se a l'organització.
+            invite: Convidar
+            new_invite: Convidar participant
+        course_registrations:
+          index:
+            registrations: Inscripcions
         courses:
           form:
             announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sobre de la informació de la formació.
@@ -151,11 +226,28 @@ ca:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta formació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Títol
             visbility: Visibilitat
+        invite_join_course_mailer:
+          invite:
+            decline: Rebutjar la invitació a '%{course_title}'
+            invited_you_to_join_a_course: "%{invited_by} t'ha convidat a unir-te a una formació a l'%{application}. Pots rebutjar o acceptar a través dels enllaços a continuació."
+            registration: Inscripció a '%{course_title}'
+        registration_types:
+          index:
+            title: Tipus d'inscripcions
       content_blocks:
         upcoming_courses:
           name: Properes formacions
           upcoming_courses: Properes formacions
           view_all_courses: Veure-ho tot
+      course_registration_mailer:
+        confirmation:
+          confirmed_html: La teva inscripció a la formació <a href="%{url}">%{title}</a> ha estat confirmada.
+          details_1: 'La teva inscripció a la formació és de tipus %{registration_type} amb un cost de %{price}'
+          details_2: Trobareu les dades de la formació al fitxer adjunt.
+        pending_validation:
+          confirmation_pending: Rebràs la confirmació en breu
+          details: 'La teva inscripció a la formació és de tipus %{registration_type} amb un cost de %{price}'
+          pending_html: La teva inscripció a la formació <a href="%{url}">%{title}</a> està pendent de confirmació.
       courses:
         courses:
           no_courses_warning: No hi ha formacions que coincideixin amb la teva cerca o no hi ha cap formació programada.
@@ -176,10 +268,40 @@ ca:
           all: Totes
       index:
         title: Formacions
+      mailer:
+        course_registration_mailer:
+          confirmation:
+            subject: S'ha confirmat la teva inscripció a la formació
+          pending_validation:
+            subject: La teva inscripció a la formació està pendent de confirmació
+        invite_join_course_mailer:
+          invite:
+            subject: Invitació per a unir-se a una formació
       modality:
         blended: Mixte
         face-to-face: Presencial
         online: Online
+      models:
+        course_invite:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            registration_type: Tipus de registre
+            sent_at: Enviat a
+            status: Estat
+          status:
+            accepted: Acceptat (%{at})
+            rejected: Rebutjat (%{at})
+            sent: Enviat
+        course_registration:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            registration_type: Tipus d'inscripció
+            state: Estat
+            states:
+              confirmed: Confirmat
+              pending: Pendents
     events:
       course:
         role_assigned:
@@ -187,6 +309,16 @@ ca:
           email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} a la formació "%{resource_title}".
           email_subject: Se t'ha assignat el rol de %{role} a "%{resource_title}".
           notification_title: Se t'ha assignat el rol de %{role} a la formació <a href="%{resource_url}">%{resource_title}</a>.
+      courses:
+        course_registration_confirmed:
+          notification_title: S'ha confirmat la teva inscripció a la formació <a href="%{resource_url}">%{resource_title}</a>.
+        course_registration_validation_pending:
+          notification_title: La teva inscripció a la formació <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
+        course_registrations_over_percentage:
+          email_intro: Les places ocupades per a la formació "%{resource_title}" superen el %{percentage}%.
+          email_outro: Has rebut aquesta notificació perquè ets administradora de l'espai participatiu de la formació.
+          email_subject: Les places ocupades per a la formació "%{resource_title}" superen el %{percentage}%
+          notification_title: Les places ocupades per a la formació <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
     menu:
       courses: Formacions
     pages:
