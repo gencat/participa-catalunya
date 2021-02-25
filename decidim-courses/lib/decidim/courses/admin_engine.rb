@@ -37,7 +37,7 @@ module Decidim
           menu.item I18n.t("menu.courses", scope: "decidim.admin"),
                     decidim_admin_courses.courses_path,
                     icon_name: "book",
-                    position: 3.5,
+                    position: 2.25,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :courses)
         end
