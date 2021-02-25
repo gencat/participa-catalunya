@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/core/test/shared_examples/has_contextual_help"
 
-describe "ResourceBanks", type: :system do
+describe "Resources", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { false }
   let(:hashtag) { true }
@@ -21,23 +21,23 @@ describe "ResourceBanks", type: :system do
     switch_to_host(organization.host)
   end
 
-  context "when there are no resource_banks and accessing from the homepage" do
+  context "when there are no resources and accessing from the homepage" do
     it "the menu link is not shown" do
       visit decidim.root_path
 
       within ".main-nav" do
-        expect(page).to have_no_content("Resource banks")
+        expect(page).to have_no_content("Resources")
       end
     end
   end
 
-  context "when the resource_bank does not exist" do
+  context "when the resource does not exist" do
     it_behaves_like "a 404 page" do
       let(:target_path) { decidim_resource_banks.resource_bank_path(99_999_999) }
     end
   end
 
-  context "when there are some resource_banks and all are unpublished" do
+  context "when there are some resources and all are unpublished" do
     before do
       create(:resource_bank, :unpublished, organization: organization)
       create(:resource_bank, :published)
@@ -48,13 +48,13 @@ describe "ResourceBanks", type: :system do
         visit decidim.root_path
 
         within ".main-nav" do
-          expect(page).to have_no_content("Resource banks")
+          expect(page).to have_no_content("Resources")
         end
       end
     end
   end
 
-  context "when there are some published resource_banks" do
+  context "when there are some published resources" do
     let!(:resource_bank) { base_resource_bank }
     let!(:promoted_resource_bank) { create(:resource_bank, :promoted, organization: organization) }
     let!(:unpublished_resource_bank) { create(:resource_bank, :unpublished, organization: organization) }
@@ -68,7 +68,7 @@ describe "ResourceBanks", type: :system do
       let(:manifest_name) { :resource_banks }
     end
 
-    context "and requesting the resource_banks path" do
+    context "and requesting the resources path" do
       before do
         visit decidim_resource_banks.resource_banks_path
       end
@@ -78,22 +78,22 @@ describe "ResourceBanks", type: :system do
           visit decidim.root_path
 
           within ".main-nav" do
-            expect(page).to have_content("Resource banks")
-            click_link "Resource banks"
+            expect(page).to have_content("Resources")
+            click_link "Resources"
           end
 
           expect(page).to have_current_path decidim_resource_banks.resource_banks_path
         end
       end
 
-      it "lists all the highlighted resource_banks" do
+      it "lists all the highlighted resources" do
         within "#highlighted-resource_banks" do
           expect(page).to have_content(translated(promoted_resource_bank.title, locale: :en))
           expect(page).to have_selector(".card--full", count: 1)
         end
       end
 
-      it "lists the resource_banks" do
+      it "lists the resources" do
         within "#resource_banks-count" do
           expect(page).to have_content("2")
         end
@@ -107,7 +107,7 @@ describe "ResourceBanks", type: :system do
         end
       end
 
-      it "links to the individual resource_bank page" do
+      it "links to the individual resource page" do
         first(".card__link", text: translated(resource_bank.title, locale: :en)).click
 
         expect(page).to have_current_path decidim_resource_banks.resource_bank_path(resource_bank)
@@ -115,20 +115,20 @@ describe "ResourceBanks", type: :system do
     end
   end
 
-  context "when going to the resource_bank page" do
+  context "when going to the resource page" do
     let!(:resource_bank) { base_resource_bank }
 
     it_behaves_like "editable content for admins" do
       let(:target_path) { decidim_resource_banks.resource_bank_path(resource_bank) }
     end
 
-    context "when requesting the resource_banks path" do
+    context "when requesting the resources path" do
       before do
         visit decidim_resource_banks.resource_bank_path(resource_bank)
       end
 
-      context "when requesting the resource_bank path" do
-        it "shows the details of the given resource_bank" do
+      context "when requesting the resource path" do
+        it "shows the details of the given resource" do
           within "main" do
             expect(page).to have_content(translated(resource_bank.announcement, locale: :en))
             expect(page).to have_content(translated(resource_bank.title, locale: :en))

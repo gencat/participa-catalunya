@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe "Admin manages resource_bank attachment collections examples", type: :system do
-  include_context "when admin administrating a resource_bank"
+describe "Admin manages resource attachment collections examples", type: :system do
+  include_context "when admin administrating a resource"
 
   let(:collection_for) { resource_bank }
 

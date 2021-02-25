@@ -33,7 +33,7 @@ module Decidim
           menu.item I18n.t("menu.resource_banks", scope: "decidim.admin"),
                     decidim_admin_resource_banks.resource_banks_path,
                     icon_name: "globe",
-                    position: 3.5,
+                    position: 2.75,
                     active: :inclusive,
                     if: allowed_to?(:enter, :space_area, space_name: :resource_banks)
         end

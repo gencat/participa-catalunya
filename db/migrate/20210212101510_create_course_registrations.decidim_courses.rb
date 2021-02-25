@@ -16,5 +16,9 @@ class CreateCourseRegistrations < ActiveRecord::Migration[5.2]
               [:decidim_user_id, :decidim_course_id],
               unique: true,
               name: "decidim_courses_registrations_user_course_unique"
+
+    add_index :decidim_courses_course_registrations,
+              :decidim_course_registration_type_id,
+              name: "idx_courses_registrations_on_registration_type_id"
   end
 end

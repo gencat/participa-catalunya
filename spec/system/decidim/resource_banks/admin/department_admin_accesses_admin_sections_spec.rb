@@ -22,7 +22,7 @@ describe "Department admin accesses resource bank admin sections", type: :system
       expect(page).to have_content("Attachments")
       expect(page).to have_content("Folders")
       expect(page).to have_content("Files")
-      expect(page).to have_content("Resource bank admins")
+      expect(page).to have_content("Resource admins")
     end
   end
 end

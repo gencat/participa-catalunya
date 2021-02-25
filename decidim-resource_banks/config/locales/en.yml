@@ -26,19 +26,19 @@ en:
   activerecord:
     models:
       decidim/resource_bank:
-        one: Resource bank
-        other: Resource banks
+        one: Resource
+        other: Resources
       decidim/resource_bank_user_role:
-        one: Resource bank user role
-        other: Resource bank user roles
+        one: Resource user role
+        other: Resource user roles
   decidim:
     admin:
       actions:
-        new_resource_bank: New resource bank
+        new_resource_bank: New resource
       resource_banks:
         create:
-          error: There was a problem creating a new resource bank.
-          success: Resource bank created successfully.
+          error: There was a problem creating a new resource.
+          success: Resource created successfully.
         edit:
           update: Update
         index:
@@ -46,41 +46,41 @@ en:
           published: Published
         new:
           create: Create
-          title: New resource bank
+          title: New resource
         update:
-          error: There was a problem updating this resource bank.
-          success: Resource bank successfully updated.
+          error: There was a problem updating this resource.
+          success: Resource successfully updated.
       resource_bank_publications:
         create:
-          error: There was a problem publishing this resource bank.
-          success: Resource bank successfully published.
+          error: There was a problem publishing this resource.
+          success: Resource successfully published.
         destroy:
-          error: There was a problem unpublishing this resource bank.
-          success: Resource bank successfully unpublished.
+          error: There was a problem unpublishing this resource.
+          success: Resource successfully unpublished.
       resource_bank_user_roles:
         create:
-          error: There was a problem adding an admin for this resource bank.
-          success: Admin successfully added to this resource bank.
+          error: There was a problem adding an admin for this resource.
+          success: Admin successfully added to this resource.
         destroy:
-          success: Admin successfully removed from this resource bank.
+          success: Admin successfully removed from this resource.
         edit:
-          title: Update resource bank admin.
+          title: Update resource admin.
           update: Update
         index:
-          resource_bank_admins_title: Resource bank admins
+          resource_bank_admins_title: Resource admins
         new:
           create: Create
           title: New resource bank admin.
         update:
-          error: There was a problem updating an admin for this resource bank.
-          success: Admin updated successfully for this resource bank.
+          error: There was a problem updating an admin for this resource.
+          success: Admin updated successfully for this resource.
       menu:
-        resource_banks: Resource banks
+        resource_banks: Resources
         resource_banks_submenu:
           attachment_collections: Folders
           attachment_files: Files
           attachments: Attachments
-          resource_bank_admins: Resource bank admins
+          resource_bank_admins: Resource admins
           info: Info
       models:
         resource_bank:
@@ -88,25 +88,25 @@ en:
             promoted: Promoted
             published: Published
             title: Title
-          name: Resource bank
+          name: Resource
         resource_bank_user_role:
           fields:
             email: Email
             name: Name
             role: Role
-          name: Resource bank admin
+          name: Resource admin
           roles:
             admin: Administrator
       titles:
-        resource_banks: Resource banks
+        resource_banks: Resources
     admin_log:
       resource_bank_user_role:
-        create: "%{user_name} invited %{resource_name} to the %{space_name} resource bank"
-        delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} resource bank"
-        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} resource bank"
+        create: "%{user_name} invited %{resource_name} to the %{space_name} resource"
+        delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} resource"
+        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} resource"
     components:
       resource_banks:
-        name: Resource bank
+        name: Resource
     resource_banks:
       admin:
         resource_banks:
@@ -116,11 +116,11 @@ en:
             images: Images
             other: Other
             select_an_area: Select an Area
-            slug_help: 'URL slugs are used to generate the URLs that point to this resource_bank. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL slugs are used to generate the URLs that point to this resource. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
             visbility: Visibility
       index:
-        title: Resource banks
+        title: Resources
       resource_banks:
         filters:
           areas: Areas
@@ -128,7 +128,7 @@ en:
           search: Search
           select_an_area: Select an Area
         resource_banks:
-          no_resource_banks_warning: No resource banks match your search criteria or there isn't any resource bank published.
+          no_resource_banks_warning: No resources match your search criteria or there isn't any published resource.
       resource_banks_helper:
         filter_scope_values:
           all: All
@@ -140,26 +140,26 @@ en:
     events:
       resource_bank:
         role_assigned:
-          email_intro: You have been assigned as %{role} for resource bank "%{resource_title}".
-          email_outro: You have received this notification because you are %{role} of the "%{resource_title}" resource bank.
+          email_intro: You have been assigned as %{role} for resource "%{resource_title}".
+          email_outro: You have received this notification because you are %{role} of the "%{resource_title}" resource.
           email_subject: You have been assigned as %{role} for "%{resource_title}".
-          notification_title: You have been assigned as %{role} for resource bank <a href="%{resource_url}">%{resource_title}</a>.
+          notification_title: You have been assigned as %{role} for resource <a href="%{resource_url}">%{resource_title}</a>.
     menu:
-      resource_banks: Resource banks
+      resource_banks: Resources
     pages:
       home:
         statistics:
-          resource_banks_count: Resource banks
+          resource_banks_count: Resources
   layouts:
     decidim:
       resource_bank_navigation:
-        resource_bank_menu_item: The Resource bank
+        resource_bank_menu_item: The Resource
       resource_banks:
         index:
-          promoted_resource_banks: "Highlighted resource banks"
+          promoted_resource_banks: "Highlighted resources"
         order_by_resource_banks:
           resource_banks:
-            one: "%{count} resource bank"
-            other: "%{count} resource banks"
+            one: "%{count} resource"
+            other: "%{count} resources"
         promoted_resource_bank:
           more_info: "More info"
