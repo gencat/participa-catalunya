@@ -156,7 +156,16 @@ es:
           name: Próximas formaciones
           upcoming_courses: Próximas formaciones
           view_all_courses: Ver todo
+      course:
+        registration_confirm:
+          confirm: Confirmar
+          cancel: Cancelar
+        show:
+          going: Asistiré
+          registration: Inscripción
       courses:
+        show:
+          register: Inscripción
         courses:
           no_courses_warning: No hay formaciones que coincidan con tu búsqueda o no hay ninguna formación programada.
           upcoming_courses_warning: Actualmente no hay formaciones programadas, pero puedes ver las anteriores.
@@ -174,6 +183,12 @@ es:
           all: Todas
         filter_scope_values:
           all: Todas
+      registration_types:
+        index:
+          title: Título
+          register: Inscripción
+          login_as: Iniciar sessión como
+          choose_an_option: Elige una opción
       index:
         title: Formaciones
       modality:

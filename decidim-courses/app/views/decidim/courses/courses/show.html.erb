@@ -115,7 +115,24 @@
             <%= current_participatory_space.address %>
           </div>
         <% end %>
+
+        <% if current_participatory_space.registration_link.present? && !current_participatory_space.registrations_enabled %>
+          <div class="definition-data__item course_address basic_course_attribute">
+            <span class="definition-data__title"><%= t("registration_link", scope: "decidim.course.show") %></span>
+            <%= current_participatory_space.registration_link %>
+          </div>
+        <% end %>
       </div>
+
+
+      <% if current_participatory_space.registrations_enabled? %>
+        <div class="column">
+          <div class="column">
+            <%= link_to t(".register"), decidim_courses.course_registration_types_path(current_participatory_space), class:"button button--sc light expanded" %>
+          </div>
+        </div>
+      <% end %>
+
       <%= resource_reference(current_participatory_space) %>
       <%= render partial: "decidim/shared/share_modal" %>
     </div>

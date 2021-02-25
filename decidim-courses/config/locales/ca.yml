@@ -156,7 +156,16 @@ ca:
           name: Properes formacions
           upcoming_courses: Properes formacions
           view_all_courses: Veure-ho tot
+      course:
+        registration_confirm:
+          confirm: Confirmar
+          cancel: Cancel·lar
+        show:
+          going: Assistiré
+          registration: Inscripció
       courses:
+        show:
+          register: Inscripció
         courses:
           no_courses_warning: No hi ha formacions que coincideixin amb la teva cerca o no hi ha cap formació programada.
           upcoming_courses_warning: Actualment no hi ha formacions programades, però pots veure les anteriors.
@@ -174,6 +183,12 @@ ca:
           all: Totes
         filter_scope_values:
           all: Totes
+      registration_types:
+        index:
+          title: Títol
+          register: Inscripció
+          login_as: Iniciar sessió com a
+          choose_an_option: Tria una opció
       index:
         title: Formacions
       modality:

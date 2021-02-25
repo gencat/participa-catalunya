@@ -3,8 +3,7 @@
     {
       name: t(".course_menu_item"),
       url: decidim_courses.course_path(participatory_space),
-      active: is_active_link?(decidim_courses.course_path(participatory_space), :exclusive) ||
-              is_active_link?(decidim_courses.all_metrics_course_path(participatory_space), :exclusive)
+      active: is_active_link?(decidim_courses.course_path(participatory_space), :exclusive)
     }
   ])
 %>

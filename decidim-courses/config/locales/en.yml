@@ -158,7 +158,16 @@ en:
           name: Upcoming courses
           upcoming_courses: Upcoming courses
           view_all_courses: View all
+      course:
+        registration_confirm:
+          confirm: Confirm
+          cancel: Cancel
+        show:
+          going: Going
+          registration: Registration
       courses:
+        show:
+          register: Register
         courses:
           no_courses_warning: No courses match your search criteria or there isn't any course scheduled.
           upcoming_courses_warning: Currently, there are no scheduled courses, but here you can find all the past courses listed.
@@ -176,6 +185,12 @@ en:
           all: All
         filter_scope_values:
           all: All
+      registration_types:
+        index:
+          title: Title
+          register: Register
+          login_as: Login as
+          choose_an_option: Choose an option
       index:
         title: Courses
       modality:
