@@ -140,6 +140,10 @@ es:
       admin:
         courses:
           form:
+            available_slots_help: Déjalo en 0 si las plazas disponibles son ilimitadas.
+            registrations_count:
+              one: Ha habido 1 inscripción.
+              other: Ha habido %{count} inscripciones.
             announcement_help: El texto que ingreses aquí se mostrará a la participante justo encima de la información de la formación.
             duration: Duración
             duration_help: Duración de la formación (por ejemplo 1h 45m)

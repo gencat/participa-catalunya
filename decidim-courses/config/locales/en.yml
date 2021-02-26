@@ -140,6 +140,10 @@ en:
       admin:
         courses:
           form:
+            registrations_count:
+              one: There has been 1 registration.
+              other: There has been %{count} registrations.
+            available_slots_help: Leave it to 0 if you have unlimited slots available.
             announcement_help: The text you enter here will be shown to the user right before the course information.
             duration: Duration
             duration_help: Duration of the course (e.g. 1h 45m)

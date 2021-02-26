@@ -140,6 +140,10 @@ ca:
       admin:
         courses:
           form:
+            available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades.
+            registrations_count:
+              one: Hi ha hagut 1 inscripció.
+              other: Hi ha hagut %{count} inscripcions.
             announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sobre de la informació de la formació.
             duration: Duració
             duration_help: Duració de la formació (p. ex. 1h 45m)
