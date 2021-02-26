@@ -213,6 +213,9 @@ es:
         course_registrations:
           index:
             registrations: Inscripciones
+          confirm:
+            error: There was a problem confirming this conference registration.
+            success: Conference registration successfully confirmed.
         courses:
           form:
             available_slots_help: Déjalo en 0 si las plazas disponibles son ilimitadas.
@@ -244,6 +247,10 @@ es:
           upcoming_courses: Próximas formaciones
           view_all_courses: Ver todo
       course:
+        course_registrations:
+          create:
+            invalid: Se ha producido un error al inscribirte a esta jornada.
+            success: Te has inscrito a la jornada correctamente.
         registration_confirm:
           confirm: Confirmar
           cancel: Cancelar
@@ -283,7 +290,7 @@ es:
         index:
           title: Título
           register: Inscripción
-          login_as: Iniciar sessión como
+          login_as: Has iniciado sesión como %{name} <%{email}>
           choose_an_option: Elige una opción
       index:
         title: Formaciones

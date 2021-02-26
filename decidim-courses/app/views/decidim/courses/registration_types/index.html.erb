@@ -1,6 +1,6 @@
 <% add_decidim_meta_tags(title: t("registration_types.index.title", scope: "decidim.courses")) %>
 
-<%#
+<%
 edit_link(
   decidim_admin_courses.course_registration_types_path(current_participatory_space.slug),
   :update,
@@ -8,6 +8,7 @@ edit_link(
   course: current_participatory_space
 )
 %>
+
 <div class="row">
   <div class="columns mediumlarge-12">
     <section class="section">

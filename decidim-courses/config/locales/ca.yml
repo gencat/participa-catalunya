@@ -213,6 +213,12 @@ ca:
         course_registrations:
           index:
             registrations: Inscripcions
+          confirm:
+            error: There was a problem confirming this conference registration.
+            success: Conference registration successfully confirmed.
+          create:
+            invalid: S'ha produït un error en inscriure't a aquesta jornada.
+            success: T'has inscrit a la jornada correctament.
         courses:
           form:
             available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades.
@@ -283,7 +289,7 @@ ca:
         index:
           title: Títol
           register: Inscripció
-          login_as: Iniciar sessió com a
+          login_as: Has iniciat la sessió com a %{name} <%{email}>
           choose_an_option: Tria una opció
       index:
         title: Formacions

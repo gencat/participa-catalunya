@@ -213,6 +213,9 @@ en:
         course_registrations:
           index:
             registrations: Registrations
+          confirm:
+            error: There was a problem confirming this conference registration.
+            success: Conference registration successfully confirmed.
         courses:
           form:
             registrations_count:
@@ -285,7 +288,7 @@ en:
         index:
           title: Title
           register: Register
-          login_as: Login as
+          login_as: You are logged in as %{name} <%{email}>
           choose_an_option: Choose an option
       index:
         title: Courses
