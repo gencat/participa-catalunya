@@ -42,7 +42,6 @@ module Decidim
         user_can_export_course_registrations?
         user_can_confirm_course_registration?
         user_can_create_course?
-        user_can_read_course_registrations?
         user_can_export_course?
 
         # org admins and space admins can do everything in the admin section
@@ -156,13 +155,6 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
-      def user_can_confirm_course_registration?
-        return unless permission_action.action == :confirm &&
-                      permission_action.subject == :course_registration
-
-        toggle_allow(user.admin?)
-      end
-
       # Everyone can read the course list
       def user_can_read_course_list?
         return unless read_course_list_permission_action?
@@ -187,13 +179,6 @@ module Decidim
 
       def allowed_list_of_courses?
         CoursesWithUserRole.for(user).uniq.member?(course)
-      end
-         
-      def user_can_read_course_registrations?
-        return unless permission_action.action == :read_course_registrations &&
-                      permission_action.subject == :course
-
-        toggle_allow(user.admin?)
       end
 
       def user_can_confirm_course_registration?

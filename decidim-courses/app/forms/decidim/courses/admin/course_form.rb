@@ -23,7 +23,7 @@ module Decidim
         translatable_attribute :methodology, String
         translatable_attribute :seats, String
         translatable_attribute :registration_terms, String
- 
+
         attribute :registrations_enabled, Boolean
         attribute :available_slots, Integer
         attribute :hashtag, String
