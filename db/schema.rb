@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_02_22_224717) do
-=======
-ActiveRecord::Schema.define(version: 2021_02_23_112251) do
->>>>>>> 7e9dbc7d61a776373b0755c785927781d19fd11a
-=======
 ActiveRecord::Schema.define(version: 2021_02_24_210609) do
->>>>>>> 3f375feab94dd643aea7d6197731ca2c12f637fc
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -716,48 +708,29 @@ ActiveRecord::Schema.define(version: 2021_02_24_210609) do
     t.jsonb "professorship"
     t.jsonb "methodology"
     t.jsonb "seats"
-<<<<<<< HEAD
-    t.boolean "registrations_enabled"
-=======
     t.boolean "registrations_enabled", default: false, null: false
     t.integer "available_slots", default: 0, null: false
     t.jsonb "registration_terms"
->>>>>>> 7e9dbc7d61a776373b0755c785927781d19fd11a
     t.index ["decidim_area_id"], name: "index_decidim_courses_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_course_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_courses_on_decidim_organization_id"
     t.index ["decidim_scope_id"], name: "index_decidim_courses_on_decidim_scope_id"
   end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  create_table "decidim_courses_course_invites", force: :cascade do |t|
-    t.bigint "decidim_user_id", null: false
-    t.bigint "decidim_course_id", null: false
-=======
   create_table "decidim_courses_course_invites", force: :cascade do |t|
     t.bigint "decidim_user_id", null: false
     t.bigint "decidim_course_id", null: false
     t.bigint "decidim_course_registration_type_id"
->>>>>>> 3f375feab94dd643aea7d6197731ca2c12f637fc
     t.datetime "sent_at"
     t.datetime "accepted_at"
     t.datetime "rejected_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_course_id"], name: "idx_decidim_courses_invites_on_course_id"
-<<<<<<< HEAD
-    t.index ["decidim_user_id"], name: "index_decidim_courses_course_invites_on_decidim_user_id"
-  end
-
-=======
->>>>>>> 7e9dbc7d61a776373b0755c785927781d19fd11a
-=======
     t.index ["decidim_course_registration_type_id"], name: "idx_course_invite_to_registration_type_id"
     t.index ["decidim_user_id"], name: "index_decidim_courses_course_invites_on_decidim_user_id"
   end
 
->>>>>>> 3f375feab94dd643aea7d6197731ca2c12f637fc
   create_table "decidim_courses_course_registrations", force: :cascade do |t|
     t.bigint "decidim_user_id", null: false
     t.bigint "decidim_course_id", null: false
@@ -766,10 +739,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_210609) do
     t.integer "decidim_course_registration_type_id"
     t.datetime "confirmed_at"
     t.index ["decidim_course_id"], name: "index_courses_registrations_on_decidim_course"
-<<<<<<< HEAD
-=======
     t.index ["decidim_course_registration_type_id"], name: "idx_courses_registrations_on_registration_type_id"
->>>>>>> 7e9dbc7d61a776373b0755c785927781d19fd11a
     t.index ["decidim_user_id", "decidim_course_id"], name: "decidim_courses_registrations_user_course_unique", unique: true
     t.index ["decidim_user_id"], name: "index_decidim_courses_registrations_on_decidim_user_id"
   end
@@ -778,11 +748,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_210609) do
     t.bigint "decidim_course_id"
     t.jsonb "title", null: false
     t.jsonb "description", null: false
-<<<<<<< HEAD
-    t.decimal "price", precision: 8, scale: 2, default: "0.0", null: false
-=======
     t.decimal "price", precision: 8, scale: 2, default: "0.0"
->>>>>>> 7e9dbc7d61a776373b0755c785927781d19fd11a
     t.integer "weight", default: 0, null: false
     t.datetime "published_at"
     t.datetime "created_at", null: false
