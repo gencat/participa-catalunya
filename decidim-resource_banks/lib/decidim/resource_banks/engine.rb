@@ -21,7 +21,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.resource_banks", scope: "decidim"),
                     decidim_resource_banks.resource_banks_path,
-                    position: 3.5,
+                    position: 2.3,
                     if: Decidim::ResourceBank.where(organization: current_organization).published.any?,
                     active: :inclusive
         end

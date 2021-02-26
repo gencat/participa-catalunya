@@ -35,7 +35,7 @@ module Decidim
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.courses", scope: "decidim"),
                     decidim_courses.courses_path,
-                    position: 3.5,
+                    position: 2.25,
                     if: Decidim::Course.where(organization: current_organization).published.any?,
                     active: :inclusive
         end
