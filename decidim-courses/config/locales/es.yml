@@ -213,9 +213,9 @@ es:
         course_registrations:
           index:
             registrations: Inscripciones
-          confirm:
-            error: There was a problem confirming this conference registration.
-            success: Conference registration successfully confirmed.
+          create:
+            invalid: Se ha producido un error al inscribirte a este curso.
+            success: Te has inscrito a el curso correctamente.
         courses:
           form:
             available_slots_help: Déjalo en 0 si las plazas disponibles son ilimitadas.
@@ -241,6 +241,22 @@ es:
         registration_types:
           index:
             title: Tipos de inscripción
+      course_registrations:
+        create:
+          invalid: Se ha producido un error al inscribirte a este curso.
+          success: Te has inscrito a la curso correctamente.
+        decline_invitation:
+          invalid: Se ha producido un error al declinar la invitación.
+          success: Has declinado la invitación correctamente.
+        destroy:
+          invalid: Se ha producido un error al abandonar este curso.
+          success: Has abandonado la curso correctamente.
+      shared:
+        course_user_login:
+          already_account: '¿Ya tienes una cuenta en decidim?'
+          new_user: '¿Eres nuevo?'
+          sign_in: Inicia sesión para inscribirte en el curso
+          sign_up: Crea una cuenta de participante para inscribirte en el curso
       content_blocks:
         upcoming_courses:
           name: Próximas formaciones
@@ -249,8 +265,8 @@ es:
       course:
         course_registrations:
           create:
-            invalid: Se ha producido un error al inscribirte a esta jornada.
-            success: Te has inscrito a la jornada correctamente.
+            invalid: Se ha producido un error al inscribirte a este curso.
+            success: Te has inscrito a el curso correctamente.
         registration_confirm:
           confirm: Confirmar
           cancel: Cancelar

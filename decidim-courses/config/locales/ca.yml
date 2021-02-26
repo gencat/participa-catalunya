@@ -213,12 +213,9 @@ ca:
         course_registrations:
           index:
             registrations: Inscripcions
-          confirm:
-            error: There was a problem confirming this conference registration.
-            success: Conference registration successfully confirmed.
           create:
-            invalid: S'ha produït un error en inscriure't a aquesta jornada.
-            success: T'has inscrit a la jornada correctament.
+            invalid: S'ha produït un error en inscriure't a aquest curs.
+            success: T'has inscrit a el curs correctament.
         courses:
           form:
             available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades.
@@ -244,6 +241,22 @@ ca:
         registration_types:
           index:
             title: Tipus d'inscripcions
+      course_registrations:
+        create:
+          invalid: S'ha produït un error en inscriure't a aquest curs.
+          success: T'has inscrit a el curs correctament.
+        decline_invitation:
+          invalid: S'ha produït un error en rebutjar la invitació.
+          success: Has rebutjat la invitació correctament.
+        destroy:
+          invalid: S'ha produït un error en abandonar aquest curs.
+          success: Has abandonat el curs correctament.
+      shared:
+        course_user_login:
+          already_account: Ja tens un compte a Decidim?
+          new_user: Nou usuari?
+          sign_in: Inicia sessió per inscriure't a el curs
+          sign_up: Crea un compte de participant per inscriure't a el curs
       content_blocks:
         upcoming_courses:
           name: Properes formacions

@@ -23,7 +23,9 @@ module Decidim::Courses::Admin
           description: course.description,
           modality: course.modality,
           slug: course.slug,
-          scopes_enabled: course.scopes_enabled
+          scopes_enabled: course.scopes_enabled,
+          registrations_enabled: course.registrations_enabled,
+          available_slots: course.available_slots
         }
       end
 

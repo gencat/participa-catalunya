@@ -15,7 +15,7 @@
     <% if allowed? %>
       <%= button_to i18n_join_text, "#",
           class: button_classes,
-          disabled: course.has_registration_for?(current_user),
+          disabled: !course.has_available_slots? || course.has_registration_for?(current_user),
           style: "margin-bottom: 0;",
           onclick: "event.preventDefault()",
           data: { open: current_user.present? ? "course-registration-confirm-#{model.id}" : "loginModal" } %>

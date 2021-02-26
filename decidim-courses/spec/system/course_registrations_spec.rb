@@ -22,7 +22,7 @@ describe "Course registrations", type: :system do
   end
   let(:registration_types_count) { 5 }
   let!(:registration_types) do
-    create_list(:registration_type, registration_types_count, course: course)
+    create_list(:course_registration_type, registration_types_count, course: course)
   end
   let(:registration_type) { registration_types.first }
 
@@ -50,7 +50,7 @@ describe "Course registrations", type: :system do
     it "the registration button is not visible" do
       visit_course
 
-      within ".hero__container" do
+      within ".section.columns" do
         expect(page).not_to have_button("REGISTER")
       end
     end
@@ -70,7 +70,7 @@ describe "Course registrations", type: :system do
         expect(page).to have_css(".course-registration", count: registration_types_count)
 
         within ".wrapper" do
-          expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE", count: 5)
+          expect(page).to have_css("button[disabled]", count: 5)
         end
       end
     end

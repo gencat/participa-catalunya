@@ -213,9 +213,9 @@ en:
         course_registrations:
           index:
             registrations: Registrations
-          confirm:
-            error: There was a problem confirming this conference registration.
-            success: Conference registration successfully confirmed.
+          create:
+            invalid: There was a problem joining this course.
+            success: You have successfully joined the course.
         courses:
           form:
             registrations_count:
@@ -243,6 +243,22 @@ en:
         registration_types:
           index:
             title: Registration types
+      course_registrations:
+        create:
+          invalid: There was a problem joining this course.
+          success: You have successfully joined the course.
+        decline_invitation:
+          invalid: There was a problem declining the invitation.
+          success: You have successfully declined the invitation.
+        destroy:
+          invalid: There was a problem leaving this course.
+          success: You have successfully left the course.
+      shared:
+        course_user_login:
+          already_account: Do you already have an account in decidim?
+          new_user: New user?
+          sign_in: Login to register for the course
+          sign_up: Create an account in decidim to register for the course
       content_blocks:
         upcoming_courses:
           name: Upcoming courses
@@ -253,7 +269,7 @@ en:
           confirm: Confirm
           cancel: Cancel
         show:
-          going: Going
+          going: Attending
           registration: Registration
       course_registration_mailer:
         confirmation:
