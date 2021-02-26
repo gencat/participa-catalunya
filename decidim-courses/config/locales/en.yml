@@ -27,6 +27,12 @@ en:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        course_registration_invite:
+          attributes:
+            email:
+              already_invited: This email has already been invited
   activerecord:
     models:
       decidim/course:
@@ -68,6 +74,8 @@ en:
           success: Course created successfully.
         edit:
           update: Update
+        exports:
+          registrations: Registrations
         index:
           not_published: Not published
           published: Published
@@ -84,6 +92,32 @@ en:
         destroy:
           error: There was a problem unpublishing this course.
           success: Course successfully unpublished.
+      course_registration:
+        confirm:
+          error: There was a problem confirming this course registration.
+          success: Course registration successfully confirmed.
+      course_registration_type_publications:
+        create:
+          error: There was a problem publishing this registration type.
+          success: Registration type successfully published.
+        destroy:
+          error: There was a problem unpublishing this registration type.
+          success: Registration type successfully unpublished.
+      course_registration_types:
+        create:
+          error: There was a problem adding a registration type for this course.
+          success: Course registration type successfully added.
+        destroy:
+          success: Course registration type successfully removed.
+        edit:
+          title: Update registration type.
+          update: Update
+        new:
+          create: Create
+          title: New registration type
+        update:
+          error: There was a problem updating a registration type for this course.
+          success: Course registration type successfully updated.
       course_user_roles:
         create:
           error: There was a problem adding an admin for this course.
@@ -108,7 +142,11 @@ en:
           attachment_files: Files
           attachments: Attachments
           course_admins: Course admins
+          course_invites: Invites
           info: Info
+          registration_types: Registration Types
+          registrations: Registrations
+          user_registrations: User Registrations
       models:
         course:
           fields:
@@ -118,6 +156,13 @@ en:
             published: Published
             title: Title
           name: Course
+        course_registration_type:
+          fields:
+            price: Price
+            registrations_count: Registrations count
+            title: Title
+            weight: Weight
+          name: Registration type
         course_user_role:
           fields:
             email: Email
@@ -129,6 +174,9 @@ en:
       titles:
         courses: Courses
     admin_log:
+      courses:
+        course_registration:
+          confirm: "%{user_name} confirmed a registration in %{resource_name} course"
       course_user_role:
         create: "%{user_name} invited %{resource_name} to the %{space_name} course"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} course"
@@ -138,6 +186,33 @@ en:
         name: Training space
     courses:
       admin:
+        course_invites:
+          create:
+            error: There was a problem inviting the participant to join the course.
+            success: Participant successfully invited to join the course.
+          form:
+            attendee_type: Attendee type
+            existing_user: Existing participant
+            invite_explanation: The participant will be invited to join the course and to the organization as well.
+            non_user: Non existing participant
+            select_user: Select participant
+          index:
+            filter:
+              accepted: Accepted
+              all: All
+              rejected: Rejected
+              sent: Sent
+            filter_by: Filter by
+            invite_attendee: Invite participant
+            invites: Invites
+            search: Search
+          new:
+            explanation: The participant will be invited to join a course. If her email is not registered she will be invited to the organization as well.
+            invite: Invite
+            new_invite: Invite participant
+        course_registrations:
+          index:
+            registrations: Registrations
         courses:
           form:
             registrations_count:
@@ -157,6 +232,14 @@ en:
             visbility: Visibility
         exports:
           courses: Courses
+        invite_join_course_mailer:
+          invite:
+            decline: Decline invitation '%{course_title}'
+            invited_you_to_join_a_course: "%{invited_by} has invited you to join a course at %{application}. You can decline or accept it through the links below."
+            registration: Registration for '%{course_title}'
+        registration_types:
+          index:
+            title: Registration types
       content_blocks:
         upcoming_courses:
           name: Upcoming courses
@@ -169,6 +252,15 @@ en:
         show:
           going: Going
           registration: Registration
+      course_registration_mailer:
+        confirmation:
+          confirmed_html: Your registration for the course <a href="%{url}">%{title}</a> has been confirmed.
+          details_1: 'You are registered to the course with %{registration_type} type with a cost of %{price}.'
+          details_2: You will find the course's details in the attachment.
+        pending_validation:
+          confirmation_pending: You will receive the confirmation shortly
+          details: 'You have registered to the course with %{registration_type} type with a cost of %{price}.'
+          pending_html: Your registration for the course <a href="%{url}">%{title}</a> is pending confirmation.
       courses:
         show:
           register: Register
@@ -197,10 +289,40 @@ en:
           choose_an_option: Choose an option
       index:
         title: Courses
+      mailer:
+        course_registration_mailer:
+          confirmation:
+            subject: Your course's registration has been confirmed
+          pending_validation:
+            subject: Your course's registration is pending confirmation
+        invite_join_course_mailer:
+          invite:
+            subject: Invitation to join a course
       modality:
         blended: Blended
         face-to-face: Face to face
         online: Online
+      models:
+        course_invite:
+          fields:
+            email: Email
+            name: Name
+            registration_type: Registration type
+            sent_at: Sent at
+            status: Status
+          status:
+            accepted: Accepted (%{at})
+            rejected: Rejected (%{at})
+            sent: Sent
+        course_registration:
+          fields:
+            email: Email
+            name: Name
+            registration_type: Registration type
+            state: Status
+            states:
+              confirmed: Confirmed
+              pending: Pending
     events:
       course:
         role_assigned:
@@ -208,6 +330,16 @@ en:
           email_outro: You have received this notification because you are %{role} of the "%{resource_title}" course.
           email_subject: You have been assigned as %{role} for "%{resource_title}".
           notification_title: You have been assigned as %{role} for course <a href="%{resource_url}">%{resource_title}</a>.
+      courses:
+        course_registration_confirmed:
+          notification_title: Your registration for the course <a href="%{resource_url}">%{resource_title}</a> has been confirmed.
+        course_registration_validation_pending:
+          notification_title: Your registration for the course <a href="%{resource_url}">%{resource_title}</a> is pending to be confirmed.
+        course_registrations_over_percentage:
+          email_intro: The "%{resource_title}" course occupied slots are over %{percentage}%.
+          email_outro: You have received this notification because you are an admin of the course's participatory space.
+          email_subject: The "%{resource_title}" course occupied slots are over %{percentage}%
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> course occupied slots are over %{percentage}%.
     menu:
       courses: Courses
     pages:

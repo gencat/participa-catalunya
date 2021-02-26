@@ -77,4 +77,54 @@ FactoryBot.define do
              role: :admin
     end
   end
+
+  factory :course_registration_type, class: "Decidim::Courses::RegistrationType" do
+    course
+
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    published_at { Time.current }
+    price { Faker::Number.between(1, 300) }
+    weight { Faker::Number.between(1, 10) }
+
+    trait :unpublished do
+      published_at { nil }
+    end
+
+    trait :published do
+      published_at { Time.current }
+    end
+  end
+
+  factory :course_registration, class: "Decidim::Courses::CourseRegistration" do
+    course
+    user
+    registration_type factory: :course_registration_type
+    confirmed_at { Time.current }
+
+    trait :confirmed do
+      confirmed_at { Time.current }
+    end
+
+    trait :unconfirmed do
+      confirmed_at { nil }
+    end
+  end
+
+  factory :course_invite, class: "Decidim::Courses::CourseInvite" do
+    course
+    user
+    sent_at { Time.current - 1.day }
+    accepted_at { nil }
+    rejected_at { nil }
+    registration_type factory: :course_registration_type
+
+    trait :accepted do
+      accepted_at { Time.current }
+    end
+
+    trait :rejected do
+      rejected_at { Time.current }
+    end
+  end
 end

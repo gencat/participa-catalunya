@@ -3,10 +3,10 @@
 module Decidim
   module Courses
     module Admin
-      # Controller that allows managing course speakers.
+      # Controller that allows managing course registration types.
       #
       class RegistrationTypesController < Decidim::Courses::Admin::ApplicationController
-        include Concerns::ConferenceAdmin
+        include Concerns::CourseAdmin
         include Decidim::ApplicationHelper
         include Decidim::Paginable
 
@@ -27,7 +27,7 @@ module Decidim
 
           CreateRegistrationType.call(@form, current_user, current_course) do
             on(:ok) do
-              flash[:notice] = I18n.t("registration_types.create.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("course_registration_types.create.success", scope: "decidim.admin")
               redirect_to course_registration_types_path(current_course)
             end
 
@@ -51,12 +51,12 @@ module Decidim
 
           UpdateRegistrationType.call(@form, @registration_type) do
             on(:ok) do
-              flash[:notice] = I18n.t("registration_types.update.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("course_registration_types.update.success", scope: "decidim.admin")
               redirect_to course_registration_types_path(current_course)
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("registration_types.update.error", scope: "decidim.admin")
+              flash.now[:alert] = I18n.t("course_registration_types.update.error", scope: "decidim.admin")
               render :edit
             end
           end
@@ -68,7 +68,7 @@ module Decidim
 
           DestroyRegistrationType.call(@registration_type, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("registration_types.destroy.success", scope: "decidim.admin")
+              flash[:notice] = I18n.t("course_registration_types.destroy.success", scope: "decidim.admin")
               redirect_to course_registration_types_path(current_course)
             end
           end

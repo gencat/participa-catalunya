@@ -11,10 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_02_22_224717) do
 =======
 ActiveRecord::Schema.define(version: 2021_02_23_112251) do
 >>>>>>> 7e9dbc7d61a776373b0755c785927781d19fd11a
+=======
+ActiveRecord::Schema.define(version: 2021_02_24_210609) do
+>>>>>>> 3f375feab94dd643aea7d6197731ca2c12f637fc
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -726,20 +730,34 @@ ActiveRecord::Schema.define(version: 2021_02_23_112251) do
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   create_table "decidim_courses_course_invites", force: :cascade do |t|
     t.bigint "decidim_user_id", null: false
     t.bigint "decidim_course_id", null: false
+=======
+  create_table "decidim_courses_course_invites", force: :cascade do |t|
+    t.bigint "decidim_user_id", null: false
+    t.bigint "decidim_course_id", null: false
+    t.bigint "decidim_course_registration_type_id"
+>>>>>>> 3f375feab94dd643aea7d6197731ca2c12f637fc
     t.datetime "sent_at"
     t.datetime "accepted_at"
     t.datetime "rejected_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["decidim_course_id"], name: "idx_decidim_courses_invites_on_course_id"
+<<<<<<< HEAD
     t.index ["decidim_user_id"], name: "index_decidim_courses_course_invites_on_decidim_user_id"
   end
 
 =======
 >>>>>>> 7e9dbc7d61a776373b0755c785927781d19fd11a
+=======
+    t.index ["decidim_course_registration_type_id"], name: "idx_course_invite_to_registration_type_id"
+    t.index ["decidim_user_id"], name: "index_decidim_courses_course_invites_on_decidim_user_id"
+  end
+
+>>>>>>> 3f375feab94dd643aea7d6197731ca2c12f637fc
   create_table "decidim_courses_course_registrations", force: :cascade do |t|
     t.bigint "decidim_user_id", null: false
     t.bigint "decidim_course_id", null: false

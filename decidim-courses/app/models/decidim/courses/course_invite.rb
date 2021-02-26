@@ -15,7 +15,7 @@ module Decidim
       validates :user, uniqueness: { scope: :course }
 
       def self.export_serializer
-        Decidim::Courses::DataPortabilityConferenceInviteSerializer
+        Decidim::Courses::DataPortabilityCourseInviteSerializer
       end
 
       def self.log_presenter_class_for(_log)

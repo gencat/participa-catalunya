@@ -19,11 +19,15 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Courses::DataPortabilityConferenceRegistrationSerializer
+        Decidim::Courses::DataPortabilityCourseRegistrationSerializer
       end
 
       def confirmed?
         confirmed_at.present?
+      end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Courses::AdminLog::CourseRegistrationPresenter
       end
     end
   end

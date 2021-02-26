@@ -27,6 +27,7 @@ module Decidim
           accept_invitation
           send_email_pending_validation
           send_notification_pending_validation
+          notify_admin_over_percentage
         end
         broadcast(:ok)
       end
@@ -44,7 +45,7 @@ module Decidim
       end
 
       def can_join_course?
-        course.registrations_enabled?
+        course.registrations_enabled? && course.has_available_slots?
       end
 
       def send_email_pending_validation
@@ -62,6 +63,29 @@ module Decidim
 
       def participatory_space_admins
         @course.admins
+      end
+
+      def notify_admin_over_percentage
+        return send_notification_over(0.5) if occupied_slots_over?(0.5)
+        return send_notification_over(0.8) if occupied_slots_over?(0.8)
+
+        send_notification_over(1.0) if occupied_slots_over?(1.0)
+      end
+
+      def send_notification_over(percentage)
+        Decidim::EventsManager.publish(
+          event: "decidim.events.courses.course_registrations_over_percentage",
+          event_class: Decidim::Courses::CourseRegistrationsOverPercentageEvent,
+          resource: @course,
+          followers: participatory_space_admins,
+          extra: {
+            percentage: percentage
+          }
+        )
+      end
+
+      def occupied_slots_over?(percentage)
+        @course.remaining_slots == (@course.available_slots * (1 - percentage)).round
       end
     end
   end

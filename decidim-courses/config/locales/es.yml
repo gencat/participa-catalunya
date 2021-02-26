@@ -27,6 +27,12 @@ es:
         email: Correo electrónico
         name: Nombre
         role: Rol de participante
+    errors:
+      models:
+        course_registration_invite:
+          attributes:
+            email:
+              already_invited: Este correo electrónico ya ha sido invitado
   activerecord:
     models:
       decidim/course:
@@ -68,6 +74,8 @@ es:
           success: Formación creada correctamente.
         edit:
           update: Actualizar
+        exports:
+          registrations: Inscripciones
         index:
           not_published: No publicado
           published: Publicado
@@ -84,6 +92,32 @@ es:
         destroy:
           error: Se ha producido un error al despublicar esta formación.
           success: Formación despublicada correctamente.
+      course_registration:
+        confirm:
+          error: Se ha producido un error al confirmar la inscripción a esta formación.
+          success: La inscripción a la formación se ha confirmado correctamente.
+      course_registration_type_publications:
+        create:
+          error: Se ha producido un error al publicar este tipo de inscripción.
+          success: Tipo de inscripción publicado correctamente.
+        destroy:
+          error: Se ha producido un error al despublicar este tipo de inscripción.
+          success: Tipo de inscripción despublicado correctamente.
+      course_registration_types:
+        create:
+          error: Se ha producido un error al añadir un tipo de inscripción para esta formación.
+          success: Tipo de inscripción añadido correctamente a esta formación.
+        destroy:
+          success: Tipo de inscripción eliminado correctamente de esta formación.
+        edit:
+          title: Actualizar el tipo de inscripción.
+          update: Actualizar
+        new:
+          create: Crear
+          title: Nuevo tipo de inscripción
+        update:
+          error: Se ha producido un error al actualizar un tipo de inscripción para esta formación.
+          success: Tipo de inscripción actualizado correctamente para esta formación.
       course_user_roles:
         create:
           error: Se ha producido un error al añadir una administradora para esta formación.
@@ -108,7 +142,11 @@ es:
           attachment_files: Archivos
           attachments: Adjuntos
           course_admins: Administradoras de la formación
+          course_invites: Invita
           info: Información
+          registration_types: Tipos de inscripción
+          registrations: Inscripciones
+          user_registrations: Inscripciones de participantes
       models:
         course:
           fields:
@@ -118,6 +156,13 @@ es:
             published: Publicado
             title: Título
           name: Formación
+        course_registration_type:
+          fields:
+            price: Precio
+            registrations_count: Número de inscripciones
+            title: Título
+            weight: Peso
+          name: Tipo de inscripción
         course_user_role:
           fields:
             email: Correo electrónico
@@ -129,6 +174,9 @@ es:
       titles:
         courses: Formaciones
     admin_log:
+      courses:
+        course_registration:
+          confirm: "%{user_name} ha confirmado una inscripción a la formación %{resource_name}"
       course_user_role:
         create: "%{user_name} invitó %{resource_name} a la formación %{space_name}"
         delete: "%{user_name} eliminó a la participante %{resource_name} de la formación %{space_name}"
@@ -138,6 +186,33 @@ es:
         name: Espacio de formación
     courses:
       admin:
+        course_invites:
+          create:
+            error: Se ha producido un error al invitar a esta participante a unirse a la formación.
+            success: Participante invitada correctamente a unirse a la formación.
+          form:
+            attendee_type: Tipo de asistente
+            existing_user: Participante existente
+            invite_explanation: La participante será invitada a unirse a la formación y también a la organización.
+            non_user: Participante no existente
+            select_user: Seleccionar participante
+          index:
+            filter:
+              accepted: Aceptada
+              all: Todas
+              rejected: Rechazada
+              sent: Enviada
+            filter_by: Filtrar por
+            invite_attendee: Invitar participante
+            invites: Invita
+            search: Buscar
+          new:
+            explanation: La participante será invitada a unirse a una formación. Si su correo electrónico no está registrado, también será invitada a unirse a la organización.
+            invite: Invitar
+            new_invite: Invitar participante
+        course_registrations:
+          index:
+            registrations: Inscripciones
         courses:
           form:
             available_slots_help: Déjalo en 0 si las plazas disponibles son ilimitadas.
@@ -155,6 +230,14 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta formación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             visbility: Visibilidad
+        invite_join_course_mailer:
+          invite:
+            decline: Rechazar invitación a '%{course_title}'
+            invited_you_to_join_a_course: "%{invited_by} te ha invitado a unirte a una formación en %{application}. Puedes declinar o aceptar a través de los siguientes enlaces."
+            registration: Inscripción para '%{course_title}'
+        registration_types:
+          index:
+            title: Tipos de inscripción
       content_blocks:
         upcoming_courses:
           name: Próximas formaciones
@@ -167,6 +250,15 @@ es:
         show:
           going: Asistiré
           registration: Inscripción
+      course_registration_mailer:
+        confirmation:
+          confirmed_html: Tu inscripción a la formación <a href="%{url}">%{title}</a> ha sido confirmada.
+          details_1: 'Tu inscripción a la formación es de tipo %{registration_type} con un coste de %{price}.'
+          details_2: Encontrará los detalles de la formación en el archivo adjunto.
+        pending_validation:
+          confirmation_pending: Recibirás la confirmación en breve
+          details: 'Tu inscripción a la formación es de tipo %{registration_type} con un coste de %{price}.'
+          pending_html: Tu inscripción a la formación <a href="%{url}">%{title}</a> está pendiente de confirmación.
       courses:
         show:
           register: Inscripción
@@ -195,10 +287,40 @@ es:
           choose_an_option: Elige una opción
       index:
         title: Formaciones
+      mailer:
+        course_registration_mailer:
+          confirmation:
+            subject: Tu inscripción a la formación ha sido confirmada
+          pending_validation:
+            subject: Tu inscripción en la formación está pendiente de confirmación
+        invite_join_course_mailer:
+          invite:
+            subject: Invitación para unirse a una formación
       modality:
         blended: Mixto
         face-to-face: Presencial
         online: Online
+      models:
+        course_invite:
+          fields:
+            email: Correo electrónico
+            name: Nombre
+            registration_type: Tipo de inscripción
+            sent_at: Enviado a
+            status: Estado
+          status:
+            accepted: Aceptada (%{at})
+            rejected: Rechazada (%{at})
+            sent: Enviado
+        course_registration:
+          fields:
+            email: Correo electrónico
+            name: Nombre
+            registration_type: Tipo de inscripción
+            state: Estado
+            states:
+              confirmed: Confirmado
+              pending: Pendiente
     events:
       course:
         role_assigned:
@@ -206,6 +328,16 @@ es:
           email_outro: Recibes esta notificación porque se te ha asignado el rol de %{role} en la formación "%{resource_title}".
           email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
           notification_title: Se te ha asignado el rol de %{role} en la formación <a href="%{resource_url}">%{resource_title}</a>.
+      courses:
+        course_registration_confirmed:
+          notification_title: Se ha confirmado tu inscripción en la formación <a href="%{resource_url}">%{resource_title}</a>.
+        course_registration_validation_pending:
+          notification_title: Tu inscripción en la formación <a href="%{resource_url}">%{resource_title}</a> está pendiente de confirmación.
+        course_registrations_over_percentage:
+          email_intro: Las plazas ocupadas para la formación "%{resource_title}" superan el %{percentage}%.
+          email_outro: Recibes esta notificación porque eres administrador del espacio participativo de la formación.
+          email_subject: Las plazas ocupadas para la formación "%{resource_title}" son más del %{percentage}%
+          notification_title: Las plazas ocupadas para la formación <a href="%{resource_path}">%{resource_title}</a> son más del %{percentage}%.
     menu:
       courses: Formaciones
     pages:

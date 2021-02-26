@@ -19,6 +19,9 @@ describe "Course admin accesses admin sections", type: :system do
       expect(page).to have_content("Attachments")
       expect(page).to have_content("Folders")
       expect(page).to have_content("Files")
+      expect(page).to have_content("Registrations")
+      expect(page).to have_content("Registration Types")
+      expect(page).to have_content("User Registrations")
       expect(page).to have_content("Course admins")
     end
   end
