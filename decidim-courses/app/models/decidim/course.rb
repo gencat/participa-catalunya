@@ -42,7 +42,10 @@ module Decidim
              class_name: "Decidim::Courses::RegistrationType",
              dependent: :destroy
 
+    validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
+
+    validates_upload :banner_image
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
     scope :order_by_most_recent, -> { order(created_at: :desc) }
