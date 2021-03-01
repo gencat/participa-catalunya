@@ -183,17 +183,6 @@ Decidim.register_participatory_space(:courses) do |participatory_space|
             participatory_space: current_course
           )
         end
-
-        5.times do
-          Decidim::Courses::RegistrationType.create!(
-            title: Decidim::Faker::Localized.sentence(2),
-            description: Decidim::Faker::Localized.sentence(5),
-            weight: Faker::Number.between(1, 10),
-            price: Faker::Number.between(1, 300),
-            published_at: 2.weeks.ago,
-            course: course
-          )
-        end
       end
     end
   end
