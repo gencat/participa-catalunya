@@ -59,6 +59,9 @@ module Decidim::Courses
             start_date: my_course.start_date,
             end_date: my_course.end_date,
             schedule: my_course.schedule,
+            registrations_enabled: my_course.registrations_enabled,
+            available_slots: my_course.available_slots,
+            registration_terms: my_course.registration_terms,
             modality: my_course.modality,
             registration_link: my_course.registration_link
           }

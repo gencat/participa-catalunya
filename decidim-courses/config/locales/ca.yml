@@ -213,8 +213,15 @@ ca:
         course_registrations:
           index:
             registrations: Inscripcions
+          create:
+            invalid: S'ha produït un error en inscriure't a aquest curs.
+            success: T'has inscrit a el curs correctament.
         courses:
           form:
+            available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades.
+            registrations_count:
+              one: Hi ha hagut 1 inscripció.
+              other: Hi ha hagut %{count} inscripcions.
             announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sobre de la informació de la formació.
             duration: Duració
             duration_help: Duració de la formació (p. ex. 1h 45m)
@@ -234,11 +241,34 @@ ca:
         registration_types:
           index:
             title: Tipus d'inscripcions
+      course_registrations:
+        create:
+          invalid: S'ha produït un error en inscriure't a aquest curs.
+          success: T'has inscrit a el curs correctament.
+        decline_invitation:
+          invalid: S'ha produït un error en rebutjar la invitació.
+          success: Has rebutjat la invitació correctament.
+        destroy:
+          invalid: S'ha produït un error en abandonar aquest curs.
+          success: Has abandonat el curs correctament.
+      shared:
+        course_user_login:
+          already_account: Ja tens un compte a Decidim?
+          new_user: Nou usuari?
+          sign_in: Inicia sessió per inscriure't a el curs
+          sign_up: Crea un compte de participant per inscriure't a el curs
       content_blocks:
         upcoming_courses:
           name: Properes formacions
           upcoming_courses: Properes formacions
           view_all_courses: Veure-ho tot
+      course:
+        registration_confirm:
+          confirm: Confirmar
+          cancel: Cancel·lar
+        show:
+          going: Assistiré
+          registration: Inscripció
       course_registration_mailer:
         confirmation:
           confirmed_html: La teva inscripció a la formació <a href="%{url}">%{title}</a> ha estat confirmada.
@@ -249,6 +279,8 @@ ca:
           details: 'La teva inscripció a la formació és de tipus %{registration_type} amb un cost de %{price}'
           pending_html: La teva inscripció a la formació <a href="%{url}">%{title}</a> està pendent de confirmació.
       courses:
+        show:
+          register: Inscripció
         courses:
           no_courses_warning: No hi ha formacions que coincideixin amb la teva cerca o no hi ha cap formació programada.
           upcoming_courses_warning: Actualment no hi ha formacions programades, però pots veure les anteriors.
@@ -266,6 +298,12 @@ ca:
           all: Totes
         filter_scope_values:
           all: Totes
+      registration_types:
+        index:
+          title: Títol
+          register: Inscripció
+          login_as: Has iniciat la sessió com a %{name} <%{email}>
+          choose_an_option: Tria una opció
       index:
         title: Formacions
       mailer:

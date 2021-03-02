@@ -38,6 +38,9 @@ module Decidim::Courses
           start_date: 5.days.from_now,
           end_date: 10.days.from_now,
           schedule: "schedule",
+          registrations_enabled: true,
+          available_slots: 0,
+          registration_terms: { en: "registration_terms" },
           modality: Decidim::Course::MODALITIES.sample,
           registration_link: Faker::Internet.url
         )

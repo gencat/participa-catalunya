@@ -1,0 +1,24 @@
+<% if course.registrations_enabled? %>
+  <% if course.has_registration_for_user_and_registration_type?(current_user, model) %>
+    <% if allowed? %>
+      <%= button_to course_registration_type_course_registration_path(course, model),
+          method: :delete,
+          class: "#{button_classes} secondary light",
+          style: "margin-bottom: 0;",
+          data: { disable: true } do %>
+        <%= icon("check", class: "icon--small") %>
+        <%= t("going", scope: "decidim.courses.course.show") %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= render :registration_confirm %>
+    <% if allowed? %>
+      <%= button_to i18n_join_text, "#",
+          class: button_classes,
+          disabled: !course.has_available_slots? || course.has_registration_for?(current_user),
+          style: "margin-bottom: 0;",
+          onclick: "event.preventDefault()",
+          data: { open: current_user.present? ? "course-registration-confirm-#{model.id}" : "loginModal" } %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -213,8 +213,15 @@ en:
         course_registrations:
           index:
             registrations: Registrations
+          create:
+            invalid: There was a problem joining this course.
+            success: You have successfully joined the course.
         courses:
           form:
+            registrations_count:
+              one: There has been 1 registration.
+              other: There has been %{count} registrations.
+            available_slots_help: Leave it to 0 if you have unlimited slots available.
             announcement_help: The text you enter here will be shown to the user right before the course information.
             duration: Duration
             duration_help: Duration of the course (e.g. 1h 45m)
@@ -236,11 +243,34 @@ en:
         registration_types:
           index:
             title: Registration types
+      course_registrations:
+        create:
+          invalid: There was a problem joining this course.
+          success: You have successfully joined the course.
+        decline_invitation:
+          invalid: There was a problem declining the invitation.
+          success: You have successfully declined the invitation.
+        destroy:
+          invalid: There was a problem leaving this course.
+          success: You have successfully left the course.
+      shared:
+        course_user_login:
+          already_account: Do you already have an account in decidim?
+          new_user: New user?
+          sign_in: Login to register for the course
+          sign_up: Create an account in decidim to register for the course
       content_blocks:
         upcoming_courses:
           name: Upcoming courses
           upcoming_courses: Upcoming courses
           view_all_courses: View all
+      course:
+        registration_confirm:
+          confirm: Confirm
+          cancel: Cancel
+        show:
+          going: Attending
+          registration: Registration
       course_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the course <a href="%{url}">%{title}</a> has been confirmed.
@@ -251,6 +281,8 @@ en:
           details: 'You have registered to the course with %{registration_type} type with a cost of %{price}.'
           pending_html: Your registration for the course <a href="%{url}">%{title}</a> is pending confirmation.
       courses:
+        show:
+          register: Register
         courses:
           no_courses_warning: No courses match your search criteria or there isn't any course scheduled.
           upcoming_courses_warning: Currently, there are no scheduled courses, but here you can find all the past courses listed.
@@ -268,6 +300,12 @@ en:
           all: All
         filter_scope_values:
           all: All
+      registration_types:
+        index:
+          title: Title
+          register: Register
+          login_as: You are logged in as %{name} <%{email}>
+          choose_an_option: Choose an option
       index:
         title: Courses
       mailer:

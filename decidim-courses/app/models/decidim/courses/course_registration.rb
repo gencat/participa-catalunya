@@ -2,7 +2,7 @@
 
 module Decidim
   module Courses
-    # The data store for a Registration in the Decidim::Courses component.
+    # The data store for a Registration in the Decidim::Courses space.
     class CourseRegistration < ApplicationRecord
       include Decidim::DataPortability
 

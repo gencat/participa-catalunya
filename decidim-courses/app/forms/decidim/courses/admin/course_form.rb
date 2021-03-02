@@ -22,7 +22,10 @@ module Decidim
         translatable_attribute :professorship, String
         translatable_attribute :methodology, String
         translatable_attribute :seats, String
+        translatable_attribute :registration_terms, String
 
+        attribute :registrations_enabled, Boolean
+        attribute :available_slots, Integer
         attribute :hashtag, String
         attribute :promoted, Boolean
         attribute :area_id, Integer

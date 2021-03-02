@@ -35,6 +35,7 @@ describe "Admin manages courses", type: :system do
           ca: "Descripció més llarga"
         )
 
+        fill_in :course_available_slots, with: 0
         fill_in :course_slug, with: "slug"
         fill_in :course_hashtag, with: "#hashtag"
         attach_file :course_hero_image, image1_path

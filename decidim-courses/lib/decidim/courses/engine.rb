@@ -10,7 +10,16 @@ module Decidim
       isolate_namespace Decidim::Courses
 
       routes do
-        resources :courses, only: [:index, :show], param: :slug, path: "courses"
+        resources :courses, only: [:index, :show], param: :slug, path: "courses" do
+          resources :registration_types, only: :index, path: "registration" do
+            resource :course_registration, only: [:create, :destroy] do
+              collection do
+                get :create
+                get :decline_invitation
+              end
+            end
+          end
+        end
       end
 
       initializer "decidim_courses.assets" do |app|

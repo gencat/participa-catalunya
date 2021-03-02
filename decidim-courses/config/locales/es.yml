@@ -213,8 +213,15 @@ es:
         course_registrations:
           index:
             registrations: Inscripciones
+          create:
+            invalid: Se ha producido un error al inscribirte a este curso.
+            success: Te has inscrito a el curso correctamente.
         courses:
           form:
+            available_slots_help: Déjalo en 0 si las plazas disponibles son ilimitadas.
+            registrations_count:
+              one: Ha habido 1 inscripción.
+              other: Ha habido %{count} inscripciones.
             announcement_help: El texto que ingreses aquí se mostrará a la participante justo encima de la información de la formación.
             duration: Duración
             duration_help: Duración de la formación (por ejemplo 1h 45m)
@@ -234,11 +241,38 @@ es:
         registration_types:
           index:
             title: Tipos de inscripción
+      course_registrations:
+        create:
+          invalid: Se ha producido un error al inscribirte a este curso.
+          success: Te has inscrito a la curso correctamente.
+        decline_invitation:
+          invalid: Se ha producido un error al declinar la invitación.
+          success: Has declinado la invitación correctamente.
+        destroy:
+          invalid: Se ha producido un error al abandonar este curso.
+          success: Has abandonado la curso correctamente.
+      shared:
+        course_user_login:
+          already_account: '¿Ya tienes una cuenta en decidim?'
+          new_user: '¿Eres nuevo?'
+          sign_in: Inicia sesión para inscribirte en el curso
+          sign_up: Crea una cuenta de participante para inscribirte en el curso
       content_blocks:
         upcoming_courses:
           name: Próximas formaciones
           upcoming_courses: Próximas formaciones
           view_all_courses: Ver todo
+      course:
+        course_registrations:
+          create:
+            invalid: Se ha producido un error al inscribirte a este curso.
+            success: Te has inscrito a el curso correctamente.
+        registration_confirm:
+          confirm: Confirmar
+          cancel: Cancelar
+        show:
+          going: Asistiré
+          registration: Inscripción
       course_registration_mailer:
         confirmation:
           confirmed_html: Tu inscripción a la formación <a href="%{url}">%{title}</a> ha sido confirmada.
@@ -249,6 +283,8 @@ es:
           details: 'Tu inscripción a la formación es de tipo %{registration_type} con un coste de %{price}.'
           pending_html: Tu inscripción a la formación <a href="%{url}">%{title}</a> está pendiente de confirmación.
       courses:
+        show:
+          register: Inscripción
         courses:
           no_courses_warning: No hay formaciones que coincidan con tu búsqueda o no hay ninguna formación programada.
           upcoming_courses_warning: Actualmente no hay formaciones programadas, pero puedes ver las anteriores.
@@ -266,6 +302,12 @@ es:
           all: Todas
         filter_scope_values:
           all: Todas
+      registration_types:
+        index:
+          title: Título
+          register: Inscripción
+          login_as: Has iniciado sesión como %{name} <%{email}>
+          choose_an_option: Elige una opción
       index:
         title: Formaciones
       mailer:

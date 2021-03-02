@@ -16,7 +16,13 @@ module Decidim
         if permission_action.scope == :public
           public_list_courses_action?
           public_read_course_action?
+          public_list_registration_types_action?
           public_report_content_action?
+
+          can_join_course?
+          can_leave_course?
+          can_decline_invitation?
+
           return permission_action
         end
 
@@ -149,13 +155,6 @@ module Decidim
         toggle_allow(user.admin?)
       end
 
-      def user_can_confirm_course_registration?
-        return unless permission_action.action == :confirm &&
-                      permission_action.subject == :course_registration
-
-        toggle_allow(user.admin?)
-      end
-
       # Everyone can read the course list
       def user_can_read_course_list?
         return unless read_course_list_permission_action?
@@ -171,8 +170,22 @@ module Decidim
         toggle_allow(user.admin? || allowed_list_of_courses?)
       end
 
+      def public_list_registration_types_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :registration_types
+
+        allow!
+      end
+
       def allowed_list_of_courses?
         CoursesWithUserRole.for(user).uniq.member?(course)
+      end
+
+      def user_can_confirm_course_registration?
+        return unless permission_action.action == :confirm &&
+                      permission_action.subject == :course_registration
+
+        toggle_allow(user.admin?)
       end
 
       def user_can_read_current_course?
@@ -227,6 +240,34 @@ module Decidim
         ].include?(permission_action.subject)
 
         allow! if is_allowed
+      end
+
+      def can_join_course?
+        return unless course.presence
+        return unless course.registrations_enabled? &&
+                      permission_action.action == :join &&
+                      permission_action.subject == :course
+
+        allow!
+      end
+
+      def can_leave_course?
+        return unless course.presence
+        return unless course.registrations_enabled? &&
+                      permission_action.action == :leave &&
+                      permission_action.subject == :course
+
+        allow!
+      end
+
+      def can_decline_invitation?
+        return unless course.presence
+        return unless course.registrations_enabled? &&
+                      course.course_invites.where(user: user).exists? &&
+                      permission_action.action == :decline_invitation &&
+                      permission_action.subject == :course
+
+        allow!
       end
 
       def user_can_export_course?

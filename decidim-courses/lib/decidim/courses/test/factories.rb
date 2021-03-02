@@ -32,6 +32,8 @@ FactoryBot.define do
     schedule { "schedule" }
     duration { "duration" }
     modality { Decidim::Course::MODALITIES.sample }
+    available_slots { 0 }
+    registrations_enabled { true }
     registration_link { Faker::Internet.url }
     show_statistics { true }
 
