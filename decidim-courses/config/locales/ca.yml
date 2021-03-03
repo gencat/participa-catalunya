@@ -23,6 +23,13 @@ ca:
         scopes_enabled: Àmbits habilitats
         slug: Nom curt d'URL
         title: Títol
+        presentation: Presentació
+        objectives: Objectius
+        addressed_to: Adreçat a
+        programme: Programa
+        professorship: Professorat
+        methodology: Metodologia
+        seats: Places
       course_user_role:
         email: Correu electrònic
         name: Nom
@@ -304,6 +311,7 @@ ca:
           register: Inscripció
           login_as: Has iniciat la sessió com a %{name} <%{email}>
           choose_an_option: Tria una opció
+          no_registrations: Sense insripcions
       index:
         title: Formacions
       mailer:
