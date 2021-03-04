@@ -23,6 +23,13 @@ es:
         scopes_enabled: Ámbitos habilitados
         slug: Texto corto de URL
         title: Título
+        presentation: Presentación
+        objectives: Objetivos
+        addressed_to: Dirigido a
+        programme: Programa
+        professorship: Profesorado
+        methodology: Metodología
+        seats: Plazas
       course_user_role:
         email: Correo electrónico
         name: Nombre
@@ -308,6 +315,7 @@ es:
           register: Inscripción
           login_as: Has iniciado sesión como %{name} <%{email}>
           choose_an_option: Elige una opción
+          no_registrations: No hay inscripciones
       index:
         title: Formaciones
       mailer:

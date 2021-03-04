@@ -23,6 +23,13 @@ en:
         scopes_enabled: Scopes enabled
         slug: URL slug
         title: Title
+        presentation: Presentation
+        objectives: Objectives
+        addressed_to: Addressed to
+        programme: Programme
+        professorship: Professorship
+        methodology: Methodology
+        seats: Seats
       course_user_role:
         email: Email
         name: Name
@@ -306,6 +313,7 @@ en:
           register: Register
           login_as: You are logged in as %{name} <%{email}>
           choose_an_option: Choose an option
+          no_registrations: No registrations
       index:
         title: Courses
       mailer:
