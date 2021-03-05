@@ -28,6 +28,13 @@ en:
         available_slots: Available_slots
         registration_terms: Registration terms
         address: Address
+        presentation: Presentation
+        objectives: Objectives
+        addressed_to: Addressed to
+        programme: Programme
+        professorship: Professorship
+        methodology: Methodology
+        seats: Seats
       course_user_role:
         email: Email
         name: Name
@@ -233,6 +240,7 @@ en:
             filters: Filters
             images: Images
             other: Other
+            schedule_help: "Explanation with the schedule in which the course will be held, for example: Tuesday and Thursday from 15:00 to 16:00"
             select_a_modality: Select a modality
             select_an_area: Select an Area
             slug_help: 'URL slugs are used to generate the URLs that point to this course. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -311,6 +319,7 @@ en:
           register: Register
           login_as: You are logged in as %{name} <%{email}>
           choose_an_option: Choose an option
+          no_registrations: No registrations
       index:
         title: Courses
       mailer:

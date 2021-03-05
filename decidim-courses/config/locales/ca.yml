@@ -28,6 +28,13 @@ ca:
         available_slots: Places disponibles
         registration_terms: Térmes d'inscripció
         address: Direcció
+        presentation: Presentació
+        objectives: Objectius
+        addressed_to: Adreçat a
+        programme: Programa
+        professorship: Professorat
+        methodology: Metodologia
+        seats: Places
       course_user_role:
         email: Correu electrònic
         name: Nom
@@ -233,6 +240,7 @@ ca:
             filters: Filtres
             images: Imatges
             other: Altre
+            schedule_help: "Explicació amb els horaris en els quals es farà el curs, per exemple: Dimarts i dijous de 15:00 a 16:00"
             select_a_modality: Selecciona una modalitat
             select_an_area: Selecciona una Àrea
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta formació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -309,6 +317,7 @@ ca:
           register: Inscripció
           login_as: Has iniciat la sessió com a %{name} <%{email}>
           choose_an_option: Tria una opció
+          no_registrations: Sense insripcions
       index:
         title: Formacions
       mailer:
