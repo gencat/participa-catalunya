@@ -28,7 +28,7 @@ Rails.application.config.to_prepare do
               active: :inclusive
 
     menu.item I18n.t("menu.conferences", scope: "decidim"),
-              decidim_resource_banks.resource_banks_path,
+              decidim_conferences.conferences_path,
               position: 2.35,
               if: Decidim::Conference.where(organization: current_organization).published.any?,
               active: :inclusive
