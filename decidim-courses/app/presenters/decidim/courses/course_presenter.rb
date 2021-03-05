@@ -11,6 +11,7 @@ module Decidim
 
       def hero_image_url
         return unless course.hero_image.file
+
         uri = URI(course.hero_image.file.file)
         return uri unless uri.scheme
 
@@ -19,6 +20,7 @@ module Decidim
 
       def banner_image_url
         return unless course.banner_image.file
+
         uri = URI(course.banner_image.file.file)
         return uri unless uri.scheme
 
