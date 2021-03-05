@@ -235,6 +235,7 @@ en:
             filters: Filters
             images: Images
             other: Other
+            schedule_help: "Explanation with the schedule in which the course will be held, for example: Tuesday and Thursday from 15:00 to 16:00"
             select_a_modality: Select a modality
             select_an_area: Select an Area
             slug_help: 'URL slugs are used to generate the URLs that point to this course. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
