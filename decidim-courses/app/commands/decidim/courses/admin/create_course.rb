@@ -62,7 +62,7 @@ module Decidim
             end_date: form.end_date,
             schedule: form.schedule,
             registrations_enabled: form.registrations_enabled,
-            available_slots: form.available_slots,
+            available_slots: form.available_slots || 0,
             registration_terms: form.registration_terms,
             duration: form.duration,
             modality: form.modality,

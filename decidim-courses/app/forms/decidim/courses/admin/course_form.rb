@@ -47,6 +47,9 @@ module Decidim
         attribute :remove_banner_image
         attribute :remove_hero_image
 
+        validates :registration_terms, translatable_presence: true, if: ->(form) { form.registrations_enabled? }
+        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? }
+
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :slug, presence: true, format: { with: Decidim::Course.slug_format }
@@ -58,6 +61,7 @@ module Decidim
 
         validates :banner_image, passthru: { to: Decidim::Course }
         validates :hero_image, passthru: { to: Decidim::Course }
+        validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.positive? }
 
         alias organization current_organization
 
@@ -87,6 +91,13 @@ module Decidim
 
         def organization_courses
           OrganizationCourses.new(current_organization).query
+        end
+
+        def available_slots_greater_than_or_equal_to_registrations_count
+          course = OrganizationCourses.new(current_organization).query.find_by(slug: slug)
+          return true if course.blank?
+
+          errors.add(:available_slots, :invalid) if available_slots < course.course_registrations.count
         end
 
         def slug_uniqueness
