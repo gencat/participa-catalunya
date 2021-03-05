@@ -23,6 +23,11 @@ en:
         scopes_enabled: Scopes enabled
         slug: URL slug
         title: Title
+        registration_link: Registration_link
+        registrations_enabled: Registrations enabled
+        available_slots: Available_slots
+        registration_terms: Registration terms
+        address: Address
       course_user_role:
         email: Email
         name: Name

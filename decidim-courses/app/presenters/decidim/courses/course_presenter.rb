@@ -10,15 +10,17 @@ module Decidim
       delegate :url, to: :banner_image, prefix: true
 
       def hero_image_url
+        return unless course.hero_image.file
         uri = URI(course.hero_image.file.file)
-        return uri unless uri.scheme.nil?
+        return uri unless uri.scheme
 
         URI.join(decidim.root_url(host: course.organization.host), course.hero_image_url).to_s
       end
 
       def banner_image_url
+        return unless course.banner_image.file
         uri = URI(course.banner_image.file.file)
-        return uri unless uri.scheme.nil?
+        return uri unless uri.scheme
 
         URI.join(decidim.root_url(host: course.organization.host), course.banner_image_url).to_s
       end

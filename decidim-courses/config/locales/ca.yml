@@ -23,6 +23,11 @@ ca:
         scopes_enabled: Àmbits habilitats
         slug: Nom curt d'URL
         title: Títol
+        registration_link: Enllaç d'inscripció
+        registrations_enabled: Inscripcions habilitades
+        available_slots: Places disponibles
+        registration_terms: Térmes d'inscripció
+        address: Direcció
       course_user_role:
         email: Correu electrònic
         name: Nom

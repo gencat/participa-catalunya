@@ -23,6 +23,11 @@ es:
         scopes_enabled: Ámbitos habilitados
         slug: Texto corto de URL
         title: Título
+        registration_link: Enlace de inscripción
+        registrations_enabled: Inscripciones habilitadas
+        available_slots: Plazas disponibles
+        registration_terms: Términos de inscripción
+        address: Dirección
       course_user_role:
         email: Correo electrónico
         name: Nombre
