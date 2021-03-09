@@ -116,6 +116,13 @@
           </div>
         <% end %>
 
+        <% if current_participatory_space.area.present? %>
+          <div class="definition-data__item modality basic_course_attribute">
+            <span class="definition-data__title"><%= t("author", scope: "decidim.course.show") %></span>
+            <%= translated_attribute(current_participatory_space.area.name) %>
+          </div>
+        <% end %>
+
         <% if current_participatory_space.registration_link.present? && !current_participatory_space.registrations_enabled %>
           <div class="definition-data__item course_address basic_course_attribute">
             <span class="definition-data__title"><%= t("registration_link", scope: "decidim.course.show") %></span>

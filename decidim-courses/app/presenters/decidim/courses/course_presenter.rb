@@ -13,7 +13,7 @@ module Decidim
         return unless course.hero_image.file
 
         uri = URI(course.hero_image.file.file)
-        return uri unless uri.scheme
+        return uri unless uri.scheme.nil?
 
         URI.join(decidim.root_url(host: course.organization.host), course.hero_image_url).to_s
       end
@@ -22,7 +22,7 @@ module Decidim
         return unless course.banner_image.file
 
         uri = URI(course.banner_image.file.file)
-        return uri unless uri.scheme
+        return uri unless uri.scheme.nil?
 
         URI.join(decidim.root_url(host: course.organization.host), course.banner_image_url).to_s
       end
