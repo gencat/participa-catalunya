@@ -29,6 +29,13 @@ module Decidim::Courses::Admin
         ca: "Instructors"
       }
     end
+    let(:registration_terms) do
+      {
+        en: "Registrations terms",
+        es: "Términos de registro",
+        ca: "Termes de registre"
+      }
+    end
     let(:slug) { "slug" }
     let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     let(:show_statistics) { true }
@@ -61,6 +68,11 @@ module Decidim::Courses::Admin
           "schedule" => schedule,
           "modality" => modality,
           "address" => "address",
+          "registrations_enabled" =>  true,
+          "available_slots" => 0,
+          "registration_terms_en" => registration_terms[:en],
+          "registration_terms_es" => registration_terms[:es],
+          "registration_terms_ca" => registration_terms[:ca],
           "registration_link" => Faker::Internet.url
         }
       }
@@ -100,6 +112,15 @@ module Decidim::Courses::Admin
       let(:attachment) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
 
       it { is_expected.not_to be_valid }
+    end
+
+    context "when registration_terms is missing" do
+      let(:registration_terms) do
+      {
+        ca: "Registration terms"
+       }
+     end
+      it { is_expected.to be_invalid }
     end
 
     context "when default language in title is missing" do

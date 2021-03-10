@@ -25,7 +25,7 @@ describe "Admin manages courses", type: :system do
           "#course-title-tabs",
           en: "My course",
           es: "Mi curso",
-          ca: "El curs"
+          ca: "El meu curs"
         )
         fill_in_i18n_editor(
           :course_description,
