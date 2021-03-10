@@ -68,7 +68,7 @@ module Decidim::Courses::Admin
           "schedule" => schedule,
           "modality" => modality,
           "address" => "address",
-          "registrations_enabled" =>  true,
+          "registrations_enabled" => true,
           "available_slots" => 0,
           "registration_terms_en" => registration_terms[:en],
           "registration_terms_es" => registration_terms[:es],
@@ -116,10 +116,11 @@ module Decidim::Courses::Admin
 
     context "when registration_terms is missing" do
       let(:registration_terms) do
-      {
-        ca: "Registration terms"
-       }
-     end
+        {
+          ca: "Registration terms"
+        }
+      end
+
       it { is_expected.to be_invalid }
     end
 
