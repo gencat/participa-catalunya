@@ -29,6 +29,8 @@ jobs:
         with:
           path: ./vendor/bundle
           key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
 
       - name: Set bundle local config configvendor/bundle path
         run: bundle config set --local path 'vendor/bundle'

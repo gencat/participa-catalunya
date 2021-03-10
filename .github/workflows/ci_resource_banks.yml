@@ -45,6 +45,8 @@ jobs:
         with:
           path: ./decidim-resource_banks/vendor/bundle
           key: ${{ runner.OS }}-resource_banks-rubydeps-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-resource_banks-rubydeps-${{ env.cache-name }}-
 
       - name: Set bundle local config configvendor/bundle path
         run: |
