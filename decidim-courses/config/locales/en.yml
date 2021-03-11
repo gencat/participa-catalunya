@@ -23,6 +23,11 @@ en:
         scopes_enabled: Scopes enabled
         slug: URL slug
         title: Title
+        registration_link: Registration_link
+        registrations_enabled: Registrations enabled
+        available_slots: Available_slots
+        registration_terms: Registration terms
+        address: Address
         presentation: Presentation
         objectives: Objectives
         addressed_to: Addressed to
@@ -30,6 +35,7 @@ en:
         professorship: Professorship
         methodology: Methodology
         seats: Seats
+        show_statistics: Show statistics
       course_user_role:
         email: Email
         name: Name
@@ -61,6 +67,7 @@ en:
         methodology: Methodology
         seats: Seats
         area: Area
+        author: Author
         address: Address
         registration_link: Registration_link
         modality: Modality

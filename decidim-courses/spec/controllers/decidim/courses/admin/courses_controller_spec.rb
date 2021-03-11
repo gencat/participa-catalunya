@@ -25,7 +25,8 @@ module Decidim::Courses::Admin
           slug: course.slug,
           scopes_enabled: course.scopes_enabled,
           registrations_enabled: course.registrations_enabled,
-          available_slots: course.available_slots
+          available_slots: course.available_slots,
+          registration_terms: course.registration_terms
         }
       end
 

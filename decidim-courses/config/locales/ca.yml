@@ -23,6 +23,11 @@ ca:
         scopes_enabled: Àmbits habilitats
         slug: Nom curt d'URL
         title: Títol
+        registration_link: Enllaç d'inscripció
+        registrations_enabled: Inscripcions habilitades
+        available_slots: Places disponibles
+        registration_terms: Térmes d'inscripció
+        address: Direcció
         presentation: Presentació
         objectives: Objectius
         addressed_to: Adreçat a
@@ -30,6 +35,7 @@ ca:
         professorship: Professorat
         methodology: Metodologia
         seats: Places
+        show_statistics: Mostrar estadístiques
       course_user_role:
         email: Correu electrònic
         name: Nom
@@ -61,6 +67,7 @@ ca:
         methodology: Metodologia
         seats: Places
         area: Àrea
+        author: Autor
         address: Adreça
         registration_link: Enllaç de registre
         modality: Modalitat
@@ -293,7 +300,7 @@ ca:
           no_courses_warning: No hi ha formacions que coincideixin amb la teva cerca o no hi ha cap formació programada.
           upcoming_courses_warning: Actualment no hi ha formacions programades, però pots veure les anteriors.
         filters:
-          areas: Àreas
+          areas: Àrees
           date: Data
           modality: Modalitat
           past: Passades

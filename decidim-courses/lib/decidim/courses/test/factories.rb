@@ -32,8 +32,9 @@ FactoryBot.define do
     schedule { "schedule" }
     duration { "duration" }
     modality { Decidim::Course::MODALITIES.sample }
-    available_slots { 0 }
     registrations_enabled { true }
+    registration_terms { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    available_slots { 0 }
     registration_link { Faker::Internet.url }
     show_statistics { true }
 

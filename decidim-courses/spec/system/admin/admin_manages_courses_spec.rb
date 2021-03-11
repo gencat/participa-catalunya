@@ -24,8 +24,8 @@ describe "Admin manages courses", type: :system do
           :course_title,
           "#course-title-tabs",
           en: "My course",
-          es: "Mi proceso participativo",
-          ca: "El meu procés participatiu"
+          es: "Mi curso",
+          ca: "El meu curs"
         )
         fill_in_i18n_editor(
           :course_description,
@@ -35,7 +35,15 @@ describe "Admin manages courses", type: :system do
           ca: "Descripció més llarga"
         )
 
+        find(:css, "#course_registrations_enabled").set(true)
         fill_in :course_available_slots, with: 0
+        fill_in_i18n_editor(
+          :course_registration_terms,
+          "#course-registration_terms-tabs",
+          en: "Registrations terms",
+          es: "Términos de registro",
+          ca: "Termes de registre"
+        )
         fill_in :course_slug, with: "slug"
         fill_in :course_hashtag, with: "#hashtag"
         attach_file :course_hero_image, image1_path
