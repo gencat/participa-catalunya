@@ -2,6 +2,11 @@
 ca:
   activemodel:
     attributes:
+      course_registration_type:
+        registrations_count: Places
+        title: Títol
+        weight: Pes
+        name: Tipus d'inscripció
       course:
         announcement: Avís
         area_id: Àrea

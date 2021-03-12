@@ -80,6 +80,12 @@ module Decidim
       where(promoted: true)
     end
 
+    def closed?
+      return false if end_date.blank?
+
+      end_date < Date.current
+    end
+
     def attachment_context
       :admin
     end

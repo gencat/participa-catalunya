@@ -2,6 +2,11 @@
 en:
   activemodel:
     attributes:
+      course_registration_type:
+        registrations_count: Registrations count
+        title: Title
+        weight: Weight
+        name: Registration type
       course:
         announcement: Announcement
         area_id: Area
