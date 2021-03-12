@@ -10,7 +10,7 @@ module Decidim
       delegate :url, to: :banner_image, prefix: true
 
       def hero_image_url
-        return unless course.hero_image.try(:file)
+        return if course.hero_image.file.blank?
 
         uri = URI(course.hero_image.file.file)
         return uri unless uri.scheme.nil?
@@ -19,7 +19,7 @@ module Decidim
       end
 
       def banner_image_url
-        return unless course.banner_image.file.present?
+        return if course.banner_image.file.blank?
 
         uri = URI(course.banner_image.file.file)
         return uri unless uri.scheme.nil?
