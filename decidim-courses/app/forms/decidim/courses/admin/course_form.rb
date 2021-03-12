@@ -25,7 +25,7 @@ module Decidim
         translatable_attribute :registration_terms, String
 
         attribute :registrations_enabled, Boolean
-        attribute :available_slots, Integer
+        attribute :available_slots, Integer, default: 0
         attribute :hashtag, String
         attribute :promoted, Boolean
         attribute :area_id, Integer
@@ -61,7 +61,7 @@ module Decidim
 
         validates :banner_image, passthru: { to: Decidim::Course }
         validates :hero_image, passthru: { to: Decidim::Course }
-        validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.positive? }
+        validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.try(:positive?) }
 
         alias organization current_organization
 

@@ -2,6 +2,11 @@
 es:
   activemodel:
     attributes:
+      course_registration_type:
+        registrations_count: Plazas
+        title: Título
+        weight: Peso
+        name: Tipo de inscripción
       course:
         announcement: Aviso
         area_id: Área
