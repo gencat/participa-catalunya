@@ -29,8 +29,8 @@ describe "Homepage customizations", type: :system do
     end
 
     within ".main-footer" do
-        expect(page).to have_content("Descarrega els fitxers de dades obertes")
-        expect(page).to have_content("D'acord amb l’article 17.1 de la Llei 19/2014, la ©Generalitat de Catalunya permet")
+      expect(page).to have_content("Descarrega els fitxers de dades obertes")
+      expect(page).to have_content("D'acord amb l’article 17.1 de la Llei 19/2014, la ©Generalitat de Catalunya permet")
     end
   end
 end
