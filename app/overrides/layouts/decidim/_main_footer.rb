@@ -25,11 +25,6 @@ gencat_text = <<~GENCAT
   </div>
   <div class="row"><br /></div>
 GENCAT
-# Deface::Override.new(:virtual_path => "layouts/decidim/_main_footer",
-#                      :name => "gencat_footer",
-#                      :insert_bottom => "div.main-footer",
-#                      :text => gencat_text,
-#                      original: "4acba79b4f172ee3abaeb8a2f5385440646a50a8")
 Deface::Override.new(virtual_path: "layouts/decidim/_main_footer",
                      name: "gencat_footer2",
                      insert_after: "div.main-footer",
