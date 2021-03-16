@@ -22,8 +22,6 @@ module Decidim
           )
         end
 
-        scopes_values.prepend(TreePoint.new("global", t("decidim.scopes.global")))
-
         TreeNode.new(
           TreePoint.new("", t("decidim.resource_banks.resource_banks_helper.filter_scope_values.all")),
           scopes_values
