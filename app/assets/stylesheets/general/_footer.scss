@@ -30,6 +30,19 @@ $colorTextLegalAdvice: #999;
     color: $MediumGrey !important;
 }
 
+.off-canvas-wrapper .main-footer {
+  background-color: #d3d3d3 !important;
+}
+
+.main-footer a {
+  color: #020202;
+  font-weight: bold;
+}
+
+section.footer__subhero.extended.subhero.home-section {
+  background-color: $white;
+}
+
 .part-logo-footer-gencat{
     @include breakpoint( 992 down){
         display: none;
