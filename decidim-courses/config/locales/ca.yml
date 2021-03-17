@@ -8,7 +8,6 @@ ca:
         weight: Pes
         name: Tipus d'inscripció
         description: Descripció
-        price: Preu
       course:
         announcement: Avís
         area_id: Àrea

@@ -7,7 +7,6 @@ es:
         title: Título
         weight: Peso
         description: Descripción
-        price: Precio
         name: Tipo de inscripción
       course:
         announcement: Aviso

@@ -8,7 +8,6 @@ en:
         weight: Weight
         name: Registration type
         description: Description
-        price: Price
       course:
         announcement: Announcement
         area_id: Area
