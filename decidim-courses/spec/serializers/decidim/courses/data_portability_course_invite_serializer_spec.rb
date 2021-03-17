@@ -34,7 +34,6 @@ module Decidim::Courses
         expect(serialized_registration_type).to be_a(Hash)
 
         expect(serialized_registration_type).to include(title: resource.registration_type.title)
-        expect(serialized_registration_type).to include(price: resource.registration_type.price)
       end
 
       it "includes the course" do

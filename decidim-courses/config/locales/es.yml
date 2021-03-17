@@ -6,6 +6,8 @@ es:
         registrations_count: Plazas
         title: Título
         weight: Peso
+        description: Descripción
+        price: Precio
         name: Tipo de inscripción
       course:
         announcement: Aviso

@@ -25,9 +25,6 @@ module Decidim::Courses
         expect(subject.serialize[:registration_type]).to(
           include(title: course_registration.registration_type.title)
         )
-        expect(subject.serialize[:registration_type]).to(
-          include(price: course_registration.registration_type.price)
-        )
       end
     end
   end

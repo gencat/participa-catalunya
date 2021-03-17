@@ -14,7 +14,6 @@
         <thead>
           <tr>
             <th><%= t("models.course_registration_type.fields.title", scope: "decidim.admin") %></th>
-            <th><%= t("models.course_registration_type.fields.price", scope: "decidim.admin") %></th>
             <th><%= t("models.course_registration_type.fields.weight", scope: "decidim.admin") %></th>
             <th><%= t("models.course_registration_type.fields.registrations_count", scope: "decidim.admin") %></th>
             <th class="actions"></th>
@@ -25,9 +24,6 @@
             <tr>
               <td>
                 <%= translated_attribute(registration_type.title) %>
-              </td>
-              <td>
-                <%= registration_type.price %>
               </td>
               <td>
                 <%= registration_type.weight %>

@@ -19,7 +19,6 @@ module Decidim
           {
             title: :i18n,
             description: :i18n,
-            price: :integer
           }
         end
 

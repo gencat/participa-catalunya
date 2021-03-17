@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_074811) do
+ActiveRecord::Schema.define(version: 2021_03_17_081828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -748,7 +748,6 @@ ActiveRecord::Schema.define(version: 2021_03_12_074811) do
     t.bigint "decidim_course_id"
     t.jsonb "title", null: false
     t.jsonb "description", null: false
-    t.decimal "price", precision: 8, scale: 2, default: "0.0"
     t.integer "weight", default: 0, null: false
     t.datetime "published_at"
     t.datetime "created_at", null: false

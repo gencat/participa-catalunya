@@ -34,7 +34,6 @@ module Decidim
               "title" => title,
               "weight" => weight,
               "description" => description,
-              "price" => price
             }
           }
         end
@@ -57,18 +56,6 @@ module Decidim
 
         context "when description is missing" do
           let(:description) { nil }
-
-          it { is_expected.to be_invalid }
-        end
-
-        context "when price is missing" do
-          let(:price) { nil }
-
-          it { is_expected.to be_valid }
-        end
-
-        context "when price is not number" do
-          let(:price) { "blabla" }
 
           it { is_expected.to be_invalid }
         end
