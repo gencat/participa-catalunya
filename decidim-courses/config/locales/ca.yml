@@ -293,11 +293,11 @@ ca:
       course_registration_mailer:
         confirmation:
           confirmed_html: La teva inscripció a la formació <a href="%{url}">%{title}</a> ha estat confirmada.
-          details_1: 'La teva inscripció a la formació és de tipus %{registration_type} amb un cost de %{price}'
+          details_1: 'La teva inscripció a la formació és de tipus %{registration_type}.'
           details_2: Trobareu les dades de la formació al fitxer adjunt.
         pending_validation:
           confirmation_pending: Rebràs la confirmació en breu
-          details: 'La teva inscripció a la formació és de tipus %{registration_type} amb un cost de %{price}'
+          details: 'La teva inscripció a la formació és de tipus %{registration_type}.'
           pending_html: La teva inscripció a la formació <a href="%{url}">%{title}</a> està pendent de confirmació.
       courses:
         show:
