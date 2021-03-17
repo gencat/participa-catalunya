@@ -33,7 +33,7 @@ module Decidim
             "course_registration_type" => {
               "title" => title,
               "weight" => weight,
-              "description" => description,
+              "description" => description
             }
           }
         end
