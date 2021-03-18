@@ -1,0 +1,16 @@
+
+<!-- insert_after "#resource_banks table tbody td:first"
+     original "71b1c359a02429aa4626aa36f9f9665e6413f6cc" -->
+<td>
+  <% if(resource_bank.area != nil) %>
+    <%= translated_attribute(resource_bank.area.name)%>
+  <% end %>
+</td>
+<td>
+  <% if(resource_bank.area != nil) %>
+    <%= resource_bank.area.users.map(&:name).join(", ") %>
+  <% end %>
+</td>
+<td>
+  <%= resource_bank.users.map(&:name).join(", ") %>
+</td>

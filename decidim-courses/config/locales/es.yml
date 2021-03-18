@@ -388,6 +388,14 @@ es:
       home:
         statistics:
           courses_count: Formaciones
+  department_admin:
+    admin:
+      models:
+        courses:
+          fields:
+            course_roles: Roles formaciones
+            department: Organización
+            department_roles: Roles Organización
   layouts:
     decidim:
       course_navigation:

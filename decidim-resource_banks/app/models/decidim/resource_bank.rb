@@ -26,6 +26,12 @@ module Decidim
                class_name: "Decidim::Area",
                optional: true
 
+    has_and_belongs_to_many :users,
+                            join_table: :decidim_resource_bank_user_roles,
+                            foreign_key: :decidim_resource_bank_id,
+                            association_foreign_key: :decidim_user_id,
+                            validate: false
+
     validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
 

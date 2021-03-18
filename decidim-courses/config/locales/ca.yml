@@ -384,6 +384,14 @@ ca:
       home:
         statistics:
           courses_count: Formacions
+  department_admin:
+    admin:
+      models:
+        courses:
+          fields:
+            course_roles: Rols formacions
+            department: Organització
+            department_roles: Rols Organització
   layouts:
     decidim:
       course_navigation:

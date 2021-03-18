@@ -1,6 +1,0 @@
-
-<!-- insert_after "#resource_banks table thead th:first"
-     original "71b1c359a02429aa4626aa36f9f9665e6413f6cc" -->
-<th>
-  <%= sort_link(query, :area_name, t("models.course.fields.department", scope: "decidim.admin")) %>
-</th>
