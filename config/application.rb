@@ -22,7 +22,6 @@ module ParticipaCatalunya
 
     config.autoload_paths += %W(#{config.root}/lib)
 
-
     config.to_prepare do
       Dir.glob(Rails.root.join("app", "decorators", "**", "*_decorator.rb")) do |decorator|
         require_dependency(decorator)
