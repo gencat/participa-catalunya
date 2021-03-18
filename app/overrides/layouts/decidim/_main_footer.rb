@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Deface::Override.new(virtual_path: "layouts/decidim/_main_footer",
                      name: "remote_logo",
                      remove: "div.main-footer a.main-footer__badge",
