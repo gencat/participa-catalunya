@@ -10,6 +10,8 @@ Bundler.require(*Rails.groups)
 
 module ParticipaCatalunya
   class Application < Rails::Application
+    config.railties_order = [:main_app, ::Decidim::DepartmentAdmin::Engine, :all]
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
@@ -20,7 +22,6 @@ module ParticipaCatalunya
 
     config.autoload_paths += %W(#{config.root}/lib)
 
-    config.railties_order = [:main_app, ::Decidim::DepartmentAdmin::Engine, :all]
 
     config.to_prepare do
       Dir.glob(Rails.root.join("app", "decorators", "**", "*_decorator.rb")) do |decorator|

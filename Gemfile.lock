@@ -223,13 +223,13 @@ GIT
 PATH
   remote: decidim-courses
   specs:
-    decidim-courses (0.23.0)
+    decidim-courses (0.0.2)
       decidim-core (~> 0.23.1)
 
 PATH
   remote: decidim-resource_banks
   specs:
-    decidim-resource_banks (0.23.0)
+    decidim-resource_banks (0.0.2)
       decidim-core (~> 0.23.1)
 
 GEM
@@ -846,7 +846,7 @@ DEPENDENCIES
   wicked_pdf
 
 RUBY VERSION
-   ruby 2.6.6p146
+   ruby 2.7.2p137
 
 BUNDLED WITH
    2.1.4
