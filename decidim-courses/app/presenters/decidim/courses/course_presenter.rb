@@ -12,17 +12,11 @@ module Decidim
       def hero_image_url
         return if course.hero_image.file.blank?
 
-        uri = URI(course.hero_image.file.file)
-        return uri unless uri.scheme.nil?
-
         URI.join(decidim.root_url(host: course.organization.host), course.hero_image_url).to_s
       end
 
       def banner_image_url
         return if course.banner_image.file.blank?
-
-        uri = URI(course.banner_image.file.file)
-        return uri unless uri.scheme.nil?
 
         URI.join(decidim.root_url(host: course.organization.host), course.banner_image_url).to_s
       end

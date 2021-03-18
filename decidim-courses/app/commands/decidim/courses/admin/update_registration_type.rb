@@ -49,7 +49,6 @@ module Decidim
             form.attributes.slice(
               :title,
               :description,
-              :price,
               :weight
             ),
             log_info

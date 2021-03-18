@@ -14,11 +14,9 @@ module Decidim
         translatable_attribute :description, String
 
         attribute :weight, Integer
-        attribute :price, Decimal
 
         validates :title, :description, :weight, presence: true
         validates :weight, numericality: { greater_than_or_equal_to: 0 }
-        validates :price, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.price.present? }
       end
     end
   end

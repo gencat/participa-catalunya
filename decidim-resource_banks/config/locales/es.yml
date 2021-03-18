@@ -19,6 +19,7 @@ es:
         text: Descripción
         title: Título
         video_url: URL del vídeo
+        show_statistics: Mostrar estadísticas
       resource_bank_user_role:
         email: Correo electrónico
         name: Nombre

@@ -6,6 +6,7 @@ es:
         registrations_count: Plazas
         title: Título
         weight: Peso
+        description: Descripción
         name: Tipo de inscripción
       course:
         announcement: Aviso
@@ -296,11 +297,11 @@ es:
       course_registration_mailer:
         confirmation:
           confirmed_html: Tu inscripción a la formación <a href="%{url}">%{title}</a> ha sido confirmada.
-          details_1: 'Tu inscripción a la formación es de tipo %{registration_type} con un coste de %{price}.'
+          details_1: 'Tu inscripción a la formación es de tipo %{registration_type}.'
           details_2: Encontrará los detalles de la formación en el archivo adjunto.
         pending_validation:
           confirmation_pending: Recibirás la confirmación en breve
-          details: 'Tu inscripción a la formación es de tipo %{registration_type} con un coste de %{price}.'
+          details: 'Tu inscripción a la formación es de tipo %{registration_type}.'
           pending_html: Tu inscripción a la formación <a href="%{url}">%{title}</a> está pendiente de confirmación.
       courses:
         show:

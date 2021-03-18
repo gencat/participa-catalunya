@@ -19,6 +19,7 @@ ca:
         text: Descripció
         title: Títol
         video_url: URL del vídeo
+        show_statistics: Mostrar estadístiques
       resource_bank_user_role:
         email: Correu electrònic
         name: Nom
