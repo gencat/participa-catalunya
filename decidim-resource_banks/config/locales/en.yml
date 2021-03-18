@@ -19,6 +19,7 @@ en:
         text: Description
         title: Title
         video_url: Video URL
+        show_statistics: Show statistics
       resource_bank_user_role:
         email: Email
         name: Name

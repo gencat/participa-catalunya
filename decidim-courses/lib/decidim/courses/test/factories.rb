@@ -87,7 +87,6 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     published_at { Time.current }
-    price { Faker::Number.between(1, 300) }
     weight { Faker::Number.between(1, 10) }
 
     trait :unpublished do

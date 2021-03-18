@@ -12,8 +12,7 @@ module Decidim
             email: resource.user.email
           },
           registration_type: {
-            title: resource.registration_type.title,
-            price: resource.registration_type.price
+            title: resource.registration_type.title
           },
           course: {
             title: resource.course.title,
