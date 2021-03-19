@@ -282,6 +282,9 @@ ca:
           name: Properes formacions
           upcoming_courses: Properes formacions
           view_all_courses: Veure-ho tot
+          organizer: Organitza
+          modality: Format
+          date: Data
       course:
         registration_confirm:
           confirm: Confirmar

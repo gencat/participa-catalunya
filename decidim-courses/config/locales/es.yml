@@ -282,6 +282,9 @@ es:
           name: Próximas formaciones
           upcoming_courses: Próximas formaciones
           view_all_courses: Ver todo
+          organizer: Organiza
+          modality: Formato
+          date: Fecha
       course:
         course_registrations:
           create:

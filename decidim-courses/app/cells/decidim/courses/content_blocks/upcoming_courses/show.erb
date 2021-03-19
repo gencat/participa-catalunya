@@ -1,10 +1,10 @@
 <section  class="wrapper-home home-section">
   <div id="upcoming-courses" class="row">
     <h3 class="section-heading"><%= t("decidim.courses.content_blocks.upcoming_courses.upcoming_courses") %></h3>
-    <% upcoming_courses.in_groups_of(2, false) do |courses| %>
+    <% upcoming_courses.in_groups_of(4, false) do |courses| %>
       <div class="row">
         <% courses.each do |course| %>
-        <div class="columns medium-6">
+        <div class="columns medium-3 course__columns">
           <%= card_for course, size: :s %>
         </div>
         <% end %>

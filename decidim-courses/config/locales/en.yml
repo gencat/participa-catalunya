@@ -284,6 +284,9 @@ en:
           name: Upcoming courses
           upcoming_courses: Upcoming courses
           view_all_courses: View all
+          organizer: Organizer
+          modality: Modality
+          date: Date
       course:
         registration_confirm:
           confirm: Confirm
