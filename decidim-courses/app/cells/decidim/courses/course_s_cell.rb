@@ -6,7 +6,7 @@ module Decidim
     # for an given instance of a Course
     class CourseSCell < CourseMCell
       def title
-        truncate(strip_tags(translated_attribute(model.description)), length: 40)
+        truncate(strip_tags(translated_attribute(model.title)), length: 40)
       end
 
       def description
@@ -26,7 +26,7 @@ module Decidim
       end
 
       def i18n_scope
-          "decidim.courses.content_blocks.upcoming_courses"
+        "decidim.courses.content_blocks.upcoming_courses"
       end
     end
   end

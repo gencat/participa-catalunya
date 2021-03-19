@@ -17,22 +17,20 @@ module Decidim::Courses
       end
 
       it "shows the title" do
-        expect(subject).to have_content(translated(model.title))
+        expect(subject).to have_content(translated(model.title)[0..39])
       end
 
       it "shows the course modality" do
         expect(subject).to have_content(t(model.modality, scope: "decidim.courses.modality"))
       end
 
-      it "shows the instructors" do
-        expect(subject).to have_content(translated(model.instructors))
+      it "shows the schedule" do
+        expect(subject).to have_content(translated(model.schedule))
       end
 
       it "shows the course dates" do
         within "card__course-date" do
           expect(subject).to have_content(I18n.l(model.start_date.to_date, format: :decidim_short_with_month_name_short))
-          expect(subject).to have_css(".icon--arrow-thin-right")
-          expect(subject).to have_content(I18n.l(model.end_date.to_date, format: :decidim_short_with_month_name_short))
         end
       end
 
