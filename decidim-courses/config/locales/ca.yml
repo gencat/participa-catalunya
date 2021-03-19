@@ -7,6 +7,7 @@ ca:
         title: Títol
         weight: Pes
         name: Tipus d'inscripció
+        description: Descripció
       course:
         announcement: Avís
         area_id: Àrea
@@ -294,11 +295,11 @@ ca:
       course_registration_mailer:
         confirmation:
           confirmed_html: La teva inscripció a la formació <a href="%{url}">%{title}</a> ha estat confirmada.
-          details_1: 'La teva inscripció a la formació és de tipus %{registration_type} amb un cost de %{price}'
+          details_1: 'La teva inscripció a la formació és de tipus %{registration_type}.'
           details_2: Trobareu les dades de la formació al fitxer adjunt.
         pending_validation:
           confirmation_pending: Rebràs la confirmació en breu
-          details: 'La teva inscripció a la formació és de tipus %{registration_type} amb un cost de %{price}'
+          details: 'La teva inscripció a la formació és de tipus %{registration_type}.'
           pending_html: La teva inscripció a la formació <a href="%{url}">%{title}</a> està pendent de confirmació.
       courses:
         show:
@@ -386,6 +387,14 @@ ca:
       home:
         statistics:
           courses_count: Formacions
+  department_admin:
+    admin:
+      models:
+        courses:
+          fields:
+            course_roles: Rols formacions
+            department: Organització
+            department_roles: Rols Organització
   layouts:
     decidim:
       course_navigation:

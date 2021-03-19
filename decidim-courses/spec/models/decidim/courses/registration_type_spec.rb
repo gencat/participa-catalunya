@@ -14,9 +14,9 @@ module Decidim
 
       describe ".default_scope" do
         it "returns registration types ordered by weight asc" do
-          registration_type1 = create(:course_registration_type, price: 300.00, weight: 2, title: { en: "Registration type 1" })
-          registration_type2 = create(:course_registration_type, price: 200.00, weight: 1, title: { en: "Registration type 2" })
-          registration_type3 = create(:course_registration_type, price: 245.00, weight: 3, title: { en: "Registration type 3" })
+          registration_type1 = create(:course_registration_type, weight: 2, title: { en: "Registration type 1" })
+          registration_type2 = create(:course_registration_type, weight: 1, title: { en: "Registration type 2" })
+          registration_type3 = create(:course_registration_type, weight: 3, title: { en: "Registration type 3" })
 
           expected_result = [
             registration_type2,

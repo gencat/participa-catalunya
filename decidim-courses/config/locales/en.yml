@@ -7,6 +7,7 @@ en:
         title: Title
         weight: Weight
         name: Registration type
+        description: Description
       course:
         announcement: Announcement
         area_id: Area
@@ -296,11 +297,11 @@ en:
       course_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the course <a href="%{url}">%{title}</a> has been confirmed.
-          details_1: 'You are registered to the course with %{registration_type} type with a cost of %{price}.'
+          details_1: 'You are registered to the course with %{registration_type} type.'
           details_2: You will find the course's details in the attachment.
         pending_validation:
           confirmation_pending: You will receive the confirmation shortly
-          details: 'You have registered to the course with %{registration_type} type with a cost of %{price}.'
+          details: 'You have registered to the course with %{registration_type} type.'
           pending_html: Your registration for the course <a href="%{url}">%{title}</a> is pending confirmation.
       courses:
         show:
@@ -390,6 +391,14 @@ en:
           description: Description
         statistics:
           courses_count: Courses
+  department_admin:
+    admin:
+      models:
+        courses:
+          fields:
+            course_roles: Courses roles
+            department: Organizations
+            department_roles: Organization roles
   layouts:
     decidim:
       course_navigation:

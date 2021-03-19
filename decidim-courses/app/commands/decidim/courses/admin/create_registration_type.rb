@@ -50,7 +50,6 @@ module Decidim
             form.attributes.slice(
               :title,
               :description,
-              :price,
               :weight
             ).merge(
               course: course
