@@ -57,7 +57,6 @@ module Decidim
           {
             announcement: form.announcement,
             description: form.description,
-            instructors: form.instructors,
             title: form.title,
             objectives: form.objectives,
             addressed_to: form.addressed_to,

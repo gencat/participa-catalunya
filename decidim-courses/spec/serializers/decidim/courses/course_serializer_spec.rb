@@ -31,7 +31,6 @@ module Decidim::Courses
         expect(serialized).to include(address: resource.address)
         expect(serialized).to include(schedule: resource.schedule)
         expect(serialized).to include(registration_link: resource.registration_link)
-        expect(serialized).to include(instructors: resource.instructors)
         expect(serialized).to include(modality: resource.modality)
       end
 

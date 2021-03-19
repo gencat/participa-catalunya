@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_074811) do
+ActiveRecord::Schema.define(version: 2021_03_19_144227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -170,6 +170,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_074811) do
     t.string "youtube_handler"
     t.string "github_handler"
     t.bigint "decidim_assemblies_type_id"
+    t.integer "weight", default: 1, null: false
     t.index ["decidim_area_id"], name: "index_decidim_assemblies_on_decidim_area_id"
     t.index ["decidim_assemblies_type_id"], name: "index_decidim_assemblies_on_decidim_assemblies_type_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_assembly_slug_and_organization", unique: true
@@ -689,7 +690,6 @@ ActiveRecord::Schema.define(version: 2021_03_12_074811) do
     t.jsonb "description", null: false
     t.string "slug", null: false
     t.text "duration"
-    t.jsonb "instructors"
     t.string "modality", null: false
     t.boolean "scopes_enabled", default: true, null: false
     t.integer "decidim_scope_id"
@@ -748,7 +748,6 @@ ActiveRecord::Schema.define(version: 2021_03_12_074811) do
     t.bigint "decidim_course_id"
     t.jsonb "title", null: false
     t.jsonb "description", null: false
-    t.decimal "price", precision: 8, scale: 2, default: "0.0"
     t.integer "weight", default: 0, null: false
     t.datetime "published_at"
     t.datetime "created_at", null: false
@@ -1370,6 +1369,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_074811) do
     t.bigint "decidim_area_id"
     t.bigint "decidim_scope_type_id"
     t.boolean "show_metrics", default: true
+    t.integer "weight", default: 1, null: false
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"

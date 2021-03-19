@@ -28,7 +28,6 @@ module Decidim
           show_statistics: course.show_statistics,
           scopes_enabled: course.scopes_enabled,
           modality: course.modality,
-          instructors: course.instructors,
           registration_link: course.registration_link,
           address: course.address,
           schedule: course.schedule,

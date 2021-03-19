@@ -22,13 +22,6 @@ module Decidim::Courses::Admin
         ca: "Descripció"
       }
     end
-    let(:instructors) do
-      {
-        en: "Instructors",
-        es: "Instructores",
-        ca: "Instructors"
-      }
-    end
     let(:registration_terms) do
       {
         en: "Registrations terms",
@@ -53,9 +46,6 @@ module Decidim::Courses::Admin
           "description_en" => description[:en],
           "description_es" => description[:es],
           "description_ca" => description[:ca],
-          "instructors_en" => instructors[:en],
-          "instructors_es" => instructors[:es],
-          "instructors_ca" => instructors[:ca],
           "hashtag" => "hashtag",
           "hero_image" => attachment,
           "banner_image" => attachment,

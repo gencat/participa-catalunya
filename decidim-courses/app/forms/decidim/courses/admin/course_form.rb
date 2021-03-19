@@ -14,7 +14,6 @@ module Decidim
 
         translatable_attribute :announcement, String
         translatable_attribute :description, String
-        translatable_attribute :instructors, String
         translatable_attribute :title, String
         translatable_attribute :objectives, String
         translatable_attribute :addressed_to, String

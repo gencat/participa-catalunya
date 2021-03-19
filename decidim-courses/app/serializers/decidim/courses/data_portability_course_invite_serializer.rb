@@ -22,7 +22,6 @@ module Decidim
             title: resource.course.title,
             description: resource.course.description,
             modality: resource.course.modality,
-            instructors: resource.course.instructors,
             address: resource.course.address,
             schedule: resource.course.schedule,
             start_date: resource.course.start_date,
