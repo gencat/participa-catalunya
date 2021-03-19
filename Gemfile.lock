@@ -215,21 +215,21 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-department-admin.git
-  revision: 033146a22471e452e11c859c525046060d9dceff
+  revision: 3de9657d63bae3138a738b94f86a873d936e6e15
   specs:
-    decidim-department_admin (0.0.17)
-      decidim-core (>= 0.22.0)
+    decidim-department_admin (0.1.0)
+      decidim-core (< 0.24)
 
 PATH
   remote: decidim-courses
   specs:
-    decidim-courses (0.23.0)
+    decidim-courses (0.0.2)
       decidim-core (~> 0.23.1)
 
 PATH
   remote: decidim-resource_banks
   specs:
-    decidim-resource_banks (0.23.0)
+    decidim-resource_banks (0.0.2)
       decidim-core (~> 0.23.1)
 
 GEM
@@ -383,7 +383,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.9.2)
+    devise-i18n (1.9.3)
       devise (>= 4.7.1)
     devise_invitable (1.7.5)
       actionmailer (>= 4.1.0)
@@ -448,7 +448,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.12.5)
+    graphql (1.12.6)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
@@ -548,7 +548,7 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.7)
     nobspw (0.6.2)
-    nokogiri (1.11.1)
+    nokogiri (1.11.2)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     oauth (0.5.5)
@@ -563,10 +563,10 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
-    omniauth-google-oauth2 (0.8.1)
+    omniauth-google-oauth2 (0.8.2)
       jwt (>= 2.0)
       oauth2 (~> 1.1)
-      omniauth (>= 1.1.1)
+      omniauth (~> 1.1)
       omniauth-oauth2 (>= 1.6)
     omniauth-oauth (1.2.0)
       oauth
@@ -846,7 +846,7 @@ DEPENDENCIES
   wicked_pdf
 
 RUBY VERSION
-   ruby 2.6.6p146
+   ruby 2.7.2p137
 
 BUNDLED WITH
    2.1.4

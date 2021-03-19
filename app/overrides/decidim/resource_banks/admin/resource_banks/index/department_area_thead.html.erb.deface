@@ -1,0 +1,12 @@
+
+<!-- insert_after "#resource_banks table thead th:first"
+     original "71b1c359a02429aa4626aa36f9f9665e6413f6cc" -->
+<th>
+  <%= sort_link(query, :area_name, t("models.resource_bank.fields.department", scope: "department_admin.admin")) %>
+</th>
+<th>
+  <%= t("models.resource_bank.fields.department_roles", scope: "department_admin.admin") %>
+</th>
+<th>
+  <%= t("models.resource_bank.fields.resource_bank_roles", scope: "department_admin.admin") %>
+</th>

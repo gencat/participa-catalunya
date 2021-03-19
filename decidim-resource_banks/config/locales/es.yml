@@ -86,6 +86,7 @@ es:
       models:
         resource_bank:
           fields:
+            created: Creado
             promoted: Destacado
             published: Publicado
             title: Título
@@ -151,6 +152,14 @@ es:
       home:
         statistics:
           resource_banks_count: Recursos
+  department_admin:
+    admin:
+      models:
+        resource_bank:
+          fields:
+            department: Organización
+            department_roles: Roles Organización
+            resource_bank_roles: Roles Recursos
   layouts:
     decidim:
       resource_bank_navigation:

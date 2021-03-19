@@ -22,6 +22,9 @@
             <th class="table-list__state">
               <%= sort_link(query, :published_at, t("models.resource_bank.fields.published", scope: "decidim.admin")) %>
             </th>
+            <th class="table-list__state">
+              <%= sort_link(query, :created_at, t("models.resource_bank.fields.created", scope: "decidim.admin")) %>
+            </th>
             <th class="table-list__actions"></th>
           </tr>
         </thead>
@@ -51,6 +54,9 @@
                 <% else %>
                   <strong class="text-alert"><%= t("resource_banks.index.not_published", scope: "decidim.admin") %></strong>
                 <% end %>
+              </td>
+              <td class="table-list__state">
+                <%= l(resource_bank.created_at, format: :short) %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :resource_bank, resource_bank: resource_bank %>

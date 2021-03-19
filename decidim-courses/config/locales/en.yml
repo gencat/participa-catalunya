@@ -389,6 +389,14 @@ en:
           description: Description
         statistics:
           courses_count: Courses
+  department_admin:
+    admin:
+      models:
+        courses:
+          fields:
+            course_roles: Courses roles
+            department: Organizations
+            department_roles: Organization roles
   layouts:
     decidim:
       course_navigation:
