@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_080249) do
+ActiveRecord::Schema.define(version: 2021_03_22_153748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -707,7 +707,6 @@ ActiveRecord::Schema.define(version: 2021_03_22_080249) do
     t.jsonb "programme"
     t.jsonb "professorship"
     t.jsonb "methodology"
-    t.jsonb "seats"
     t.boolean "registrations_enabled", default: false, null: false
     t.integer "available_slots", default: 0, null: false
     t.jsonb "registration_terms"
