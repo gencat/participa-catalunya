@@ -44,7 +44,6 @@ module Decidim::Courses
         expect(serialized_course).to include(title: resource.course.title)
         expect(serialized_course).to include(description: resource.course.description)
         expect(serialized_course).to include(modality: resource.course.modality)
-        expect(serialized_course).to include(instructors: resource.course.instructors)
         expect(serialized_course).to include(address: resource.course.address)
         expect(serialized_course).to include(schedule: resource.course.schedule)
         expect(serialized_course).to include(start_date: resource.course.start_date)

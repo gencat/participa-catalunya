@@ -41,10 +41,6 @@ module Decidim::Courses
         )
 
         expect(subject.serialize[:course]).to(
-          include(instructors: resource.course.instructors)
-        )
-
-        expect(subject.serialize[:course]).to(
           include(address: resource.course.address)
         )
         expect(subject.serialize[:course]).to(

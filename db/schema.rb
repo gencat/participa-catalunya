@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_17_081828) do
+ActiveRecord::Schema.define(version: 2021_03_19_144227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -690,7 +690,6 @@ ActiveRecord::Schema.define(version: 2021_03_17_081828) do
     t.jsonb "description", null: false
     t.string "slug", null: false
     t.text "duration"
-    t.jsonb "instructors"
     t.string "modality", null: false
     t.boolean "scopes_enabled", default: true, null: false
     t.integer "decidim_scope_id"
