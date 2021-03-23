@@ -28,3 +28,22 @@ user.save!
 6. Fill the rest of the form and submit it.
 
 You're good to go!
+
+### Run tests
+
+Create a dummy app in your application (if not present):
+
+```bash
+bundle exec rake test_app
+cd spec/decidim_dummy_app/
+bundle exec rails decidim_courses:install:migrations
+bundle exec rails decidim_resource_banks:install:migrations
+RAILS_ENV=test bundle exec rails db:migrate
+cd ../..
+```
+
+And run tests:
+
+```bash
+bundle exec rspec spec
+```
