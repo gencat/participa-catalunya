@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CodiTramuntana/decidim
-  revision: a87f90eb9e47e5be8f945e3c20bef2f4b80a3ce3
+  revision: fba0c66238aa46cc28b3bb43778f4a870a7072f8
   branch: release/0.23-stable
   specs:
     decidim (0.23.4)
