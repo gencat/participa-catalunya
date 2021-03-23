@@ -35,3 +35,5 @@
 
 # Ignore public uploads
 public/uploads
+
+spec/decidim_dummy_app/

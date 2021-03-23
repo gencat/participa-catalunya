@@ -140,7 +140,6 @@ describe "Courses", type: :system do
             expect(page).to have_i18n_content(course.programme)
             expect(page).to have_i18n_content(course.professorship)
             expect(page).to have_i18n_content(course.methodology)
-            expect(page).to have_i18n_content(course.seats)
             expect(page).to have_content(I18n.l(course.start_date, format: "%B"))
             expect(page).to have_content(I18n.l(course.end_date, format: "%d %B"))
             expect(page).to have_content(course.schedule)

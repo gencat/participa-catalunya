@@ -61,11 +61,12 @@
           </div>
           <%= decidim_sanitize translated_attribute(current_participatory_space.methodology) %>
         <% end %>
-         <% if decidim_sanitize(translated_attribute(current_participatory_space.seats)).present? %>
+         <% if current_participatory_space.registrations_enabled? %>
           <div class="lead">
             <%= t("seats", scope: "decidim.course.show")%>
           </div>
-          <%= decidim_sanitize translated_attribute(current_participatory_space.seats) %>
+          <div><%= t("available_seats", scope: "decidim.course.show", count: current_participatory_space.available_slots)%></div>
+          <div><%= t("total_seats", scope: "decidim.course.show", count: (current_participatory_space.available_slots - current_participatory_space.course_registrations.count))%></div>
         <% end %>
       </div>
 

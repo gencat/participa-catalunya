@@ -22,7 +22,6 @@ module Decidim::Courses
           programme: { en: "programme" },
           professorship: { en: "professorship" },
           methodology: { en: "methodology" },
-          seats: { en: "seats" },
           slug: "slug",
           hashtag: "hashtag",
           hero_image: nil,

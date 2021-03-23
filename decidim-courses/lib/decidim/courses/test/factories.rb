@@ -19,7 +19,6 @@ FactoryBot.define do
     programme { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     professorship { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     methodology { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    seats { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization

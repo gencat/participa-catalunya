@@ -39,7 +39,6 @@ es:
         programme: Programa
         professorship: Profesorado
         methodology: Metodología
-        seats: Plazas
         show_statistics: Mostrar estadísticas
       course_user_role:
         email: Correo electrónico
@@ -70,7 +69,9 @@ es:
         programme: Programa
         professorship: Profesorado
         methodology: Metodología
+        available_seats: "%{count} plazas disponibles"
         seats: Plazas
+        total_seats: "%{count} plazas totales"
         area: Área
         author: Autor
         address: Dirección
