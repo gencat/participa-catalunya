@@ -65,8 +65,8 @@
           <div class="lead">
             <%= t("seats", scope: "decidim.course.show")%>
           </div>
-          <%= current_participatory_space.available_slots - current_participatory_space.course_registrations.count %> /
-          <%= current_participatory_space.available_slots %>
+          <div><%= t("available_seats", scope: "decidim.course.show", count: current_participatory_space.available_slots)%></div>
+          <div><%= t("total_seats", scope: "decidim.course.show", count: (current_participatory_space.available_slots - current_participatory_space.course_registrations.count))%></div>
         <% end %>
       </div>
 

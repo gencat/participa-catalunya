@@ -69,7 +69,9 @@ ca:
         programme: Programa
         professorship: Professorat
         methodology: Metodologia
+        available_seats: "%{count} places disponibles"
         seats: Places
+        total_seats: "%{count} places totals"
         area: Àrea
         author: Autor
         address: Adreça

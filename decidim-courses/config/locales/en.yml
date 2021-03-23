@@ -69,7 +69,9 @@ en:
         programme: Programme
         professorship: Professorship
         methodology: Methodology
+        available_seats: "%{count} available seats"
         seats: Seats
+        total_seats: "%{count} total seats"
         area: Area
         author: Author
         address: Address
