@@ -5,18 +5,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 $black: #4A4A4A;
+$black-font: #666;
 $blue_pc: #2A6EBB;
+$blue_light_pc: #e9f1f7;
 $grey_input_pc: #E2E2E2; 
 $grey_hero_pc: #EAEAEA;
 $grey_border_pc: #E1E1E1;
 
 // BODY
-body{
-  font-family: "Open Sans", "Source Sans Pro", Helvetica, Roboto, Arial, sans-serif; 
+body {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  color: $black-font;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
-  font-family: "Open Sans", "Source Sans Pro", Helvetica, Roboto, Arial, sans-serif; 
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  color: $black-font;
+}
+
+.section {
+  p {
+    font-size: 0.813em;
+    line-height: 1.45;
+  }
 }
 
 // HEADER
@@ -54,14 +65,20 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
 
 // HEADER SEARCH FORM
 .topbar__search {
-  input{
+  input {
     background: $grey_input_pc;
     color: $black;
+    border-radius: 0;
+
     &::placeholder{
       color: $black;
     }
   }
   
+  button {
+    border-radius: 0;
+  }
+
   button > svg {
     width: 1.315em;
     height: 1.315em;
@@ -132,13 +149,17 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
   background: $blue_pc;
 }
 
+.process-nav__link {
+  text-transform: none;
+}
+
 .main-nav__link--active a, .main-nav__link a:hover{
   background: rgba($white, 0.35);
   box-shadow: none;
+  text-decoration: none;
 }
 .main-nav__link a{
   color: $white;
-  font-weight: 600;
 }
 
 .home-section:nth-of-type(2n + 1){
@@ -147,13 +168,17 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
 
 .main-nav{
   .main-nav__link{
-    border-right: 2px solid rgba($white, 0.35);
+    border-right: 2px solid $white;
     &:last-child{
       border-right: 2px solid rgba($white, 0.0);
     }
   }
 }
 
+// HOME
+.home-pam__title {
+  text-transform: none;
+}
 
 // OTHERS
 // BUTTONS
@@ -182,6 +207,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
   background-color: $blue_pc;
 }
 
+.button--sc {
+  text-transform: none;
+}
+
 // LINKS
 a, a:focus, a:hover, .card__link, .card__link:hover, .author-data .author__name{
   color: $blue_pc;
@@ -206,19 +235,47 @@ a, a:focus, a:hover, .card__link, .card__link:hover, .author-data .author__name{
 }
 
 // HEADINGS
-.section-heading{
+.section-heading {
   font-size: 1.5em;
   color: $blue_pc;
   font-weight: bold;
+  text-transform: none;
+
+  &::before {
+    background-color: $blue_pc;
+  }
 }
+
 .heading5, .author-data--big .author__name, .card__title{
   font-size: 1.125em;
   font-weight: 600;
 }
 
+// ALERTS
+.callout.secondary {
+  background-color: $blue_light_pc;
+  border-left: 8px solid $blue_pc;
+}
+
 // CARDS
 .card-grid .card, .card-grid .chart-tooltip, .card-grid .conference-registration, .card-grid .conference-speaker .speaker-bio, .conference-speaker .card-grid .speaker-bio, .card-grid .add-message, .card-grid .comment-thread{
   border-color: $grey_border_pc;
+}
+
+.definition-data__title {
+  text-transform: none;
+}
+
+.card__text .card__text--status {
+  text-transform: none;
+}
+
+.card-data__item.creation_date_status strong {
+  text-transform: none;
+}
+
+.card__icondata ul li:not(:first-child) strong {
+  text-transform: none;
 }
 
 // ICONS
@@ -229,6 +286,10 @@ a, a:focus, a:hover, .card__link, .card__link:hover, .author-data .author__name{
 // EXTRA
 .process-stats__data::after{
   border-color: $blue_pc;
+}
+
+.process-stats__title {
+  text-transform: none;
 }
 
 .collapsible-list .collapsible-list__see-more, .collapsible-list .collapsible-list__see-more:hover,
@@ -274,6 +335,18 @@ a, a:focus, a:hover, .card__link, .card__link:hover, .author-data .author__name{
 
 #profile-tabs.tabs .tabs-title a{
   color: $blue_pc;
+}
+
+.lead {
+  color: $blue_pc;
+}
+
+.phase-current {
+  text-transform: none;
+}
+
+.text-uppercase {
+  text-transform: none;
 }
 
 // MOBILE
