@@ -39,7 +39,6 @@ ca:
         programme: Programa
         professorship: Professorat
         methodology: Metodologia
-        seats: Places
         show_statistics: Mostrar estadístiques
       course_user_role:
         email: Correu electrònic

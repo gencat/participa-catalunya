@@ -48,7 +48,6 @@ module Decidim
             programme: form.programme,
             professorship: form.professorship,
             methodology: form.methodology,
-            seats: form.seats,
             hashtag: form.hashtag,
             promoted: form.promoted,
             area: form.area,

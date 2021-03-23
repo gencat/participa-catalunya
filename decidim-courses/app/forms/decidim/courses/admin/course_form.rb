@@ -20,7 +20,6 @@ module Decidim
         translatable_attribute :programme, String
         translatable_attribute :professorship, String
         translatable_attribute :methodology, String
-        translatable_attribute :seats, String
         translatable_attribute :registration_terms, String
 
         attribute :registrations_enabled, Boolean
