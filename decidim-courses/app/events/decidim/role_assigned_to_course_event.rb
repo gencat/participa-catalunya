@@ -10,7 +10,7 @@ module Decidim
     end
 
     def i18n_role
-      I18n.t(extra["role"], "decidim.admin.models.course_user_role.roles", default: extra["role"])
+      I18n.t(extra["role"], scope: "decidim.admin.models.course_user_role.roles", default: extra["role"])
     end
 
     def i18n_options

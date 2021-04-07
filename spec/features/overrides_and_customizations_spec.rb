@@ -13,6 +13,10 @@ describe "Overrides and customizations" do
     # nor in the public main menu
     # nor in the admin menu
 
+    # ACTION ->
+    # Get rid of translations added by https://github.com/decidim/decidim/pull/7653
+    # These translations are in the files config/locales/??-conferences.yml
+
     expect(Decidim.version).to be < "0.24"
   end
 end
