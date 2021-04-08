@@ -40,6 +40,11 @@ es:
         professorship: Profesorado
         methodology: Metodología
         show_statistics: Mostrar estadísticas
+      course_registration_invite:
+        email: Email
+        name: Nombre
+        registration_type_id: Tipo de registro
+        user_id: Usuario
       course_user_role:
         email: Correo electrónico
         name: Nombre

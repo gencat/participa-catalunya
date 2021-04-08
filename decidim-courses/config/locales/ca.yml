@@ -40,6 +40,11 @@ ca:
         professorship: Professorat
         methodology: Metodologia
         show_statistics: Mostrar estadístiques
+      course_registration_invite:
+        email: Email
+        name: Nom
+        registration_type_id: Tipus de registre
+        user_id: Usuari
       course_user_role:
         email: Correu electrònic
         name: Nom
