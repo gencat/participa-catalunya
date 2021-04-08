@@ -35,6 +35,7 @@ es:
       conference_registration_type:
         description: Descripción
         price: Precio
+        title: Título
         weight: Peso
       conference_speaker:
         affiliation: Afiliación

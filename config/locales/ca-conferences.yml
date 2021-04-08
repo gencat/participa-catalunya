@@ -35,6 +35,7 @@ ca:
       conference_registration_type:
         description: Descripció
         price: Preu
+        title: Títol
         weight: Pes
       conference_speaker:
         affiliation: Afiliació

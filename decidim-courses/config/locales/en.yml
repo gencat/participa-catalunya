@@ -40,6 +40,11 @@ en:
         professorship: Professorship
         methodology: Methodology
         show_statistics: Show statistics
+      course_registration_invite:
+        email: Email
+        name: Name
+        registration_type_id: Registration type
+        user_id: User
       course_user_role:
         email: Email
         name: Name
