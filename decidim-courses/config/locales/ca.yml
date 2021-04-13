@@ -40,6 +40,8 @@ ca:
         professorship: Professorat
         methodology: Metodologia
         show_statistics: Mostrar estadístiques
+      courses_setting:
+        decidim_scope_id: Àmbit
       course_registration_invite:
         email: Email
         name: Nom
@@ -95,7 +97,7 @@ ca:
         new_course: Nova formació
       courses:
         create:
-          error: S'ha produït un error en crear una nova formació.
+          error: S'ha produït un error al crear una nova formació.
           success: Formació creada correctament.
         edit:
           update: Actualitzar
@@ -108,25 +110,29 @@ ca:
           create: Crear
           title: Nova formació
         update:
-          error: S'ha produït un error en actualitzar aquesta formació.
+          error: S'ha produït un error al actualitzar aquesta formació.
           success: La formació s'ha actualitzat correctament.
+      courses_settings:
+        update:
+          error: S'ha produït un error a l'actualitzar la configuració de l'espai Formacions
+          success: La configuració s'ha desat correctament
       course_publications:
         create:
-          error: S'ha produït un error en publicar aquesta formació.
+          error: S'ha produït un error al publicar aquesta formació.
           success: Formació publicada correctament.
         destroy:
-          error: S'ha produït un error en publicar aquesta formació.
+          error: S'ha produït un error al publicar aquesta formació.
           success: Formació despublicada correctament.
       course_registration:
         confirm:
-          error: S'ha produït un error en confirmar la inscripció a aquesta formació.
+          error: S'ha produït un error al confirmar la inscripció a aquesta formació.
           success: La inscripció a la formació s'ha confirmat correctament.
       course_registration_type_publications:
         create:
-          error: S'ha produït un error en publicar aquest tipus d'inscripció.
+          error: S'ha produït un error al publicar aquest tipus d'inscripció.
           success: El tipus d'inscripció s'ha publicat correctament.
         destroy:
-          error: S'ha produït un error en despublicar aquest tipus d'inscripció.
+          error: S'ha produït un error al despublicar aquest tipus d'inscripció.
           success: El tipus d'inscripció s'ha despublicat correctament.
       course_registration_types:
         create:
@@ -162,6 +168,7 @@ ca:
           success: L'administradora s'ha actualitzat correctament per a aquesta formació.
       menu:
         courses: Formacions
+        courses_settings: Configuració
         courses_submenu:
           attachment_collections: Carpetes
           attachment_files: Fitxers
@@ -202,6 +209,8 @@ ca:
       courses:
         course_registration:
           confirm: "%{user_name} ha confirmat una inscripció a la formació %{resource_name}"
+      courses_setting:
+        update: "%{user_name} ha canviat la configuració de l'espai Formacions"
       course_user_role:
         create: "%{user_name} ha convidat %{resource_name} a la formació %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} de la formació %{space_name}"
@@ -259,6 +268,13 @@ ca:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta formació. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Títol
             visbility: Visibilitat
+        courses_settings:
+          edit:
+            update: Actualitza
+          form:
+            title: Configuració de les formacions
+        exports:
+          courses: Formacions
         invite_join_course_mailer:
           invite:
             decline: Rebutjar la invitació a '%{course_title}'

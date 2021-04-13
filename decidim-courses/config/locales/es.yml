@@ -40,6 +40,8 @@ es:
         professorship: Profesorado
         methodology: Metodología
         show_statistics: Mostrar estadísticas
+      courses_setting:
+        decidim_scope_id: Ámbito
       course_registration_invite:
         email: Email
         name: Nombre
@@ -110,6 +112,10 @@ es:
         update:
           error: Se ha producido un error al actualizar esta formación.
           success: La formación se ha actualizado correctamente.
+      courses_settings:
+        update:
+          error: Se ha producido un error al actualizar la configuración del espacio Formaciones.
+          success: La configuración se ha guardado correctamente
       course_publications:
         create:
           error: Se ha producido un error al publicar esta formación.
@@ -162,6 +168,7 @@ es:
           success: Administradora actualizada correctamente para esta formación.
       menu:
         courses: Formaciones
+        courses_settings: Configuración
         courses_submenu:
           attachment_collections: Carpetas
           attachment_files: Archivos
@@ -202,6 +209,8 @@ es:
       courses:
         course_registration:
           confirm: "%{user_name} ha confirmado una inscripción a la formación %{resource_name}"
+      courses_setting:
+        update: "%{user_name} ha canviado la configuración del espacio Formaciones"
       course_user_role:
         create: "%{user_name} invitó %{resource_name} a la formación %{space_name}"
         delete: "%{user_name} eliminó a la participante %{resource_name} de la formación %{space_name}"
@@ -259,6 +268,13 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta formación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             visbility: Visibilidad
+        courses_settings:
+          edit:
+            update: Actualizar
+          form:
+            title: Configuración de las formaciones
+        exports:
+          courses: Formaciones
         invite_join_course_mailer:
           invite:
             decline: Rechazar invitación a '%{course_title}'

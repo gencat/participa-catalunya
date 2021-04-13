@@ -234,6 +234,7 @@ module Decidim
           :course_user_role,
           :course_invite,
           :course_registration,
+          :courses_settings,
           :registration_type,
           :read_course_registrations,
           :export_course_registrations
