@@ -19,7 +19,7 @@ module Decidim
             scope_id: scope.id,
             slug: "random-slug",
             title: Decidim::Faker::Localized.sentence,
-            description: Decidim::Faker::Localized.sentence,
+            description: Decidim::Faker::Localized.sentence
           }
         end
         let(:scope) { create(:scope, organization: organization) }
@@ -38,11 +38,13 @@ module Decidim
 
             context "and the setted scope is in the same scope hierarchy" do
               let(:settings_scope) { scope }
+
               it { is_expected.to be_valid }
             end
 
             context "and the setted scope is in a different scope hierarchy" do
               let(:settings_scope) { create(:scope, organization: organization) }
+
               it { is_expected.to be_invalid }
             end
           end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDecidimCoursesSettings < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_courses_settings do |t|

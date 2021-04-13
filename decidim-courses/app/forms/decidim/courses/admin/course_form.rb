@@ -115,9 +115,7 @@ module Decidim
         def scope_in_courses_setting_scope_tree
           return unless courses_setting_scope
 
-          unless courses_setting_scope.ancestor_of?(scope)
-            errors.add(:scope, :invalid)
-          end
+          errors.add(:scope, :invalid) unless courses_setting_scope.ancestor_of?(scope)
         end
       end
     end
