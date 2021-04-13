@@ -7,6 +7,7 @@ en:
         title: Title
         weight: Weight
         name: Registration type
+        description: Description
       course:
         announcement: Announcement
         area_id: Area
@@ -19,7 +20,6 @@ en:
         duration: Duration
         hashtag: Hashtag
         hero_image: Home image
-        instructors: Instructors
         modality: Modality
         promoted: Highlighted
         published_at: Published at
@@ -39,8 +39,12 @@ en:
         programme: Programme
         professorship: Professorship
         methodology: Methodology
-        seats: Seats
         show_statistics: Show statistics
+      course_registration_invite:
+        email: Email
+        name: Name
+        registration_type_id: Registration type
+        user_id: User
       course_user_role:
         email: Email
         name: Name
@@ -70,7 +74,9 @@ en:
         programme: Programme
         professorship: Professorship
         methodology: Methodology
+        available_seats: "%{count} available seats"
         seats: Seats
+        total_seats: "%{count} total seats"
         area: Area
         author: Author
         address: Address
@@ -283,7 +289,10 @@ en:
         upcoming_courses:
           name: Upcoming courses
           upcoming_courses: Upcoming courses
-          view_all_courses: View all
+          view_all_courses: View all courses
+          organizer: Organizer
+          modality: Modality
+          date: Date
       course:
         registration_confirm:
           confirm: Confirm
@@ -294,11 +303,11 @@ en:
       course_registration_mailer:
         confirmation:
           confirmed_html: Your registration for the course <a href="%{url}">%{title}</a> has been confirmed.
-          details_1: 'You are registered to the course with %{registration_type} type with a cost of %{price}.'
+          details_1: 'You are registered to the course with %{registration_type} type.'
           details_2: You will find the course's details in the attachment.
         pending_validation:
           confirmation_pending: You will receive the confirmation shortly
-          details: 'You have registered to the course with %{registration_type} type with a cost of %{price}.'
+          details: 'You have registered to the course with %{registration_type} type.'
           pending_html: Your registration for the course <a href="%{url}">%{title}</a> is pending confirmation.
       courses:
         show:
@@ -388,6 +397,14 @@ en:
           description: Description
         statistics:
           courses_count: Courses
+  department_admin:
+    admin:
+      models:
+        courses:
+          fields:
+            course_roles: Courses roles
+            department: Organizations
+            department_roles: Organization roles
   layouts:
     decidim:
       course_navigation:

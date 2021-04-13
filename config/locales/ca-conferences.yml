@@ -1,0 +1,48 @@
+ca:
+  activemodel:
+    attributes:
+      organization:
+        admin_terms_of_use_body: Cos dels termes d'ús del panell d'administració
+      conference:
+        available_slots: Places disponibles
+        end_date: Data de fi
+        location: Localització
+        main_logo: Logo principal
+        objectives: Objectius
+        registration_terms: Termes de registre
+        registrations_enabled: Registre habilitat
+        sign_date: Data de la signatura
+        signature: Signatura
+        signature_name: Nom a la signatura
+        start_date: Data d'inici
+        title: Títol
+      conference_media_link:
+        date: Data
+        link: Enllaç
+        title: Títol
+        weight: Pes
+      conference_partner:
+        link: Enllaç
+        logo: Logo
+        name: Nom
+        partner_type: Tipus de col·laborador
+        weight: Pes
+      conference_registration_invite:
+        email: Email
+        name: Nom
+        registration_type_id: Tipus de registre
+        user_id: Usuari
+      conference_registration_type:
+        description: Descripció
+        price: Preu
+        title: Títol
+        weight: Pes
+      conference_speaker:
+        affiliation: Afiliació
+        avatar: Avatar
+        conference_meeting_ids: Trobades relacionades
+        personal_url: URL personal
+        position: Posició
+        short_bio: Biografia curta
+        twitter_handle: Nom d'usuari a Twitter
+        user_id: Usuari

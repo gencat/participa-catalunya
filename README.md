@@ -28,3 +28,21 @@ user.save!
 6. Fill the rest of the form and submit it.
 
 You're good to go!
+
+### Run tests
+
+Use the `test` environment for the current application:
+
+```bash
+bundle exec rails decidim_courses:install:migrations
+bundle exec rails decidim_resource_banks:install:migrations
+RAILS_ENV=test bundle exec rails db:migrate
+```
+
+And run tests:
+
+```bash
+bundle exec rspec spec
+```
+
+TODO: Use a test_app instead of reusing the current application as `db/schema.rb` gets modified every time a migration is run for the test environment. And this modifications should not go into version control.

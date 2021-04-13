@@ -19,8 +19,6 @@ FactoryBot.define do
     programme { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     professorship { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     methodology { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    seats { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    instructors { Decidim::Faker::Localized.localized { generate(:name) } }
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
@@ -87,7 +85,6 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     published_at { Time.current }
-    price { Faker::Number.between(1, 300) }
     weight { Faker::Number.between(1, 10) }
 
     trait :unpublished do

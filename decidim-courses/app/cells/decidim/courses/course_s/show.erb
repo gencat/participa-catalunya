@@ -1,25 +1,28 @@
 <div class="card card--course">
   <div class="p-s">
-    <div class="card__header">
+    <div class="card__header card__course-header">
       <%= link_to resource_path, class: "card__link" do %>
-        <span class="card__title">
+        <span class="card__title" title="<%= translated_attribute(model.title) %>">
           <%= title %>
         </span>
       <% end %>
     </div>
-    <div class="card__text">
-      <div class="card__course-date inline-block">
-        <%= icon "datetime", class: "primary v-middle", role: "img", "aria-hidden": true %>
-        <span class="text-medium mt-xs"><%= course_date %></span>
+    <div class="card__course-description block">
+      <span class="text-medium mt-xs"><%= description %></span>
+    </div>
+    <% if organizer.present? %>
+      <div class="card__course-organizer block before-content">
+        <strong><%= t("organizer", scope: i18n_scope) %>:</strong>
+        <span class="text-medium mt-xs"><%= organizer %></span>
       </div>
-      <div class="card__course-modality inline-block before-content">
-        <span class="text-medium mt-xs"><%= modality %></span>
-      </div>
-      <% if instructors.present? %>
-        <div class="card__course-instructor inline-block before-content">
-          <span class="text-medium mt-xs"><%= instructors %></span>
-        </div>
-      <% end %>
+    <% end %>
+    <div class="card__course-modality block before-content">
+      <strong><%= t("modality", scope: i18n_scope) %>:</strong>
+      <span class="text-medium mt-xs"><%= modality %></span>
+    </div>
+    <div class="card__course-date block">
+      <strong><%= t("date", scope: i18n_scope) %>:</strong>
+      <span class="text-medium mt-xs"><%= course_date %> <%= schedule %></span>
     </div>
   </div>
 </div>

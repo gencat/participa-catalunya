@@ -6,6 +6,7 @@ es:
         registrations_count: Plazas
         title: Título
         weight: Peso
+        description: Descripción
         name: Tipo de inscripción
       course:
         announcement: Aviso
@@ -19,7 +20,6 @@ es:
         duration: Duración
         hashtag: Hashtag
         hero_image: Imagen de portada
-        instructors: Instructores
         modality: Modalidad
         promoted: Destacado
         published_at: Publicado el
@@ -39,8 +39,12 @@ es:
         programme: Programa
         professorship: Profesorado
         methodology: Metodología
-        seats: Plazas
         show_statistics: Mostrar estadísticas
+      course_registration_invite:
+        email: Email
+        name: Nombre
+        registration_type_id: Tipo de registro
+        user_id: Usuario
       course_user_role:
         email: Correo electrónico
         name: Nombre
@@ -70,7 +74,9 @@ es:
         programme: Programa
         professorship: Profesorado
         methodology: Metodología
+        available_seats: "%{count} plazas disponibles"
         seats: Plazas
+        total_seats: "%{count} plazas totales"
         area: Área
         author: Autor
         address: Dirección
@@ -281,7 +287,10 @@ es:
         upcoming_courses:
           name: Próximas formaciones
           upcoming_courses: Próximas formaciones
-          view_all_courses: Ver todo
+          view_all_courses: Ver todos los cursos
+          organizer: Organiza
+          modality: Formato
+          date: Fecha
       course:
         course_registrations:
           create:
@@ -296,11 +305,11 @@ es:
       course_registration_mailer:
         confirmation:
           confirmed_html: Tu inscripción a la formación <a href="%{url}">%{title}</a> ha sido confirmada.
-          details_1: 'Tu inscripción a la formación es de tipo %{registration_type} con un coste de %{price}.'
+          details_1: 'Tu inscripción a la formación es de tipo %{registration_type}.'
           details_2: Encontrará los detalles de la formación en el archivo adjunto.
         pending_validation:
           confirmation_pending: Recibirás la confirmación en breve
-          details: 'Tu inscripción a la formación es de tipo %{registration_type} con un coste de %{price}.'
+          details: 'Tu inscripción a la formación es de tipo %{registration_type}.'
           pending_html: Tu inscripción a la formación <a href="%{url}">%{title}</a> está pendiente de confirmación.
       courses:
         show:
@@ -388,6 +397,14 @@ es:
       home:
         statistics:
           courses_count: Formaciones
+  department_admin:
+    admin:
+      models:
+        courses:
+          fields:
+            course_roles: Roles formaciones
+            department: Organización
+            department_roles: Roles Organización
   layouts:
     decidim:
       course_navigation:

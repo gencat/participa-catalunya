@@ -1,0 +1,48 @@
+es:
+  activemodel:
+    attributes:
+      organization:
+        admin_terms_of_use_body: Cuerpo de los terminos de uso del panel de administración
+      conference:
+        available_slots: Plazas disponibles
+        end_date: Fecha de fin
+        location: Localización
+        main_logo: Logo principal
+        objectives: Objetivos
+        registration_terms: Terminos de registro
+        registrations_enabled: Registro habilitado
+        sign_date: Fecha de la firma
+        signature: Firma
+        signature_name: Nombre de la firma
+        start_date: Fecha de inicio
+        title: Título
+      conference_media_link:
+        date: Fecha
+        link: Enlace
+        title: Título
+        weight: Peso
+      conference_partner:
+        link: Enlace
+        logo: Logo
+        name: Nombre
+        partner_type: Tipo de colaborador
+        weight: Peso
+      conference_registration_invite:
+        email: Email
+        name: Nombre
+        registration_type_id: Tipo de registro
+        user_id: Usuario
+      conference_registration_type:
+        description: Descripción
+        price: Precio
+        title: Título
+        weight: Peso
+      conference_speaker:
+        affiliation: Afiliación
+        avatar: Avatar
+        conference_meeting_ids: Encuentros relacionados
+        personal_url: URL personal
+        position: Posición
+        short_bio: Biografia corta
+        twitter_handle: Nombre de usuario en Twitter
+        user_id: Usuario

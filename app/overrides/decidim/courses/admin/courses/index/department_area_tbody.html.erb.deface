@@ -2,7 +2,15 @@
 <!-- insert_after "#courses table tbody td:first"
      original "71b1c359a02429aa4626aa36f9f9665e6413f6cc" -->
 <td>
-  <% unless course.area.nil? %>
+  <% if course.area %>
     <%= translated_attribute(course.area.name)%>
   <% end %>
+</td>
+<td>
+  <% if course.area %>
+    <%= course.area.users.map(&:name).join(", ") %>
+  <% end %>
+</td>
+<td>
+  <%= course.users.map(&:name).join(", ") %>
 </td>

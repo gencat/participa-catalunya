@@ -19,7 +19,6 @@ module Decidim::Courses
         attributes: {
           title: { en: "title" },
           weight: 1,
-          price: 300,
           description: { en: "registration type description" }
         }
       )

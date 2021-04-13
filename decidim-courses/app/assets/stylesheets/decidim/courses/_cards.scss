@@ -32,9 +32,7 @@ $card-margin-bottom: map-get($grid-column-gutter, medium);
 
 .card__course-date,
 .card__course-modality,
-.card__course-instructor{
-  margin-bottom: .5rem;
-
+.card__course-organizer{
   .icon {
     margin-right: 0.25rem;
     vertical-align: middle;
@@ -50,7 +48,26 @@ $card-margin-bottom: map-get($grid-column-gutter, medium);
       border-right: $border;
       height: .7rem;
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: bottom;
     }
   }
+}
+
+.card__course-header{
+  height: 48px;
+}
+
+.card__course-description{
+  margin-bottom: 0.5rem;
+  height: 67px;
+}
+
+.course__columns{
+  padding-right: 0rem;
+  padding-left: 0.4rem;
+  margin-bottom: 1rem !important;
+}
+
+.course__columns:nth-child(1n+4){
+  padding-left: 0.9375rem;
 }

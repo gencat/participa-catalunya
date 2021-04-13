@@ -19,6 +19,10 @@ $colorTextLegalAdvice: #999;
 .main-footer a {
   color: $Grey;
 }
+.main-footer a:hover, .mini-footer a:hover {
+    color: $MediumGrey;
+    text-decoration: underline;
+}
 
 .mini-footer {
   padding: 1rem 0;
