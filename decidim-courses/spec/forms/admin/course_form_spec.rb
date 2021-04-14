@@ -16,7 +16,7 @@ module Decidim
         let(:params) do
           {
             modality: ::Decidim::Course::MODALITIES.first,
-            scope_id: scope.id,
+            scope_id: scope&.id,
             slug: "random-slug",
             title: Decidim::Faker::Localized.sentence,
             description: Decidim::Faker::Localized.sentence
@@ -32,8 +32,18 @@ module Decidim
           end
 
           context "when CoursesSetting.scope HAS been set" do
+            let(:settings_scope) { create(:scope, organization: organization) }
+
             before do
               Decidim::CoursesSetting.create!(organization: organization, scope: settings_scope)
+            end
+
+            context "and NO scope (global) has been set" do
+              before do
+                params.delete(:scope_id)
+              end
+
+              it { is_expected.to be_invalid }
             end
 
             context "and the setted scope is in the same scope hierarchy" do
@@ -43,8 +53,6 @@ module Decidim
             end
 
             context "and the setted scope is in a different scope hierarchy" do
-              let(:settings_scope) { create(:scope, organization: organization) }
-
               it { is_expected.to be_invalid }
             end
           end

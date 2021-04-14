@@ -386,6 +386,8 @@ en:
             states:
               confirmed: Confirmed
               pending: Pending
+      scope_id:
+        courses_setting_scope_error: The scope should belong to the hierarchy of %{root_scope}
     events:
       course:
         role_assigned:

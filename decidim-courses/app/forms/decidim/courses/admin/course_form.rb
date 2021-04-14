@@ -60,7 +60,7 @@ module Decidim
         validates :banner_image, passthru: { to: Decidim::Course }
         validates :hero_image, passthru: { to: Decidim::Course }
         validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.try(:positive?) }
-        validate :scope_in_courses_setting_scope_tree, if: ->(form) { form.scope_id.present? }
+        validate :scope_in_courses_setting_scope_tree
 
         alias organization current_organization
 
@@ -115,7 +115,10 @@ module Decidim
         def scope_in_courses_setting_scope_tree
           return unless courses_setting_scope
 
-          errors.add(:scope, :invalid) unless courses_setting_scope.ancestor_of?(scope)
+          if scope_id.blank? || !courses_setting_scope.ancestor_of?(scope)
+            msg= I18n.t("scope_id.courses_setting_scope_error", scope: "decidim.courses", root_scope: translated_attribute(courses_setting_scope.name))
+            errors.add(:scope_id, :invalid, message: msg)
+          end
         end
       end
     end

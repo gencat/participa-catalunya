@@ -386,6 +386,8 @@ ca:
             states:
               confirmed: Confirmat
               pending: Pendents
+      scope_id:
+        courses_setting_scope_error: L'Àmbit ha de formar part de la jerarquia d'àmbits de %{root_scope}
     events:
       course:
         role_assigned:

@@ -390,6 +390,8 @@ es:
             states:
               confirmed: Confirmado
               pending: Pendiente
+      scope_id:
+        courses_setting_scope_error: El Ámbito ha de formar parte de la jerarquía de ámbitos de %{root_scope}
     events:
       course:
         role_assigned:
