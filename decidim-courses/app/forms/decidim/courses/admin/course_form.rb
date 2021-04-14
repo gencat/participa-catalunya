@@ -116,7 +116,7 @@ module Decidim
           return unless courses_setting_scope
 
           if scope_id.blank? || !courses_setting_scope.ancestor_of?(scope)
-            msg= I18n.t("scope_id.courses_setting_scope_error", scope: "decidim.courses", root_scope: translated_attribute(courses_setting_scope.name))
+            msg = I18n.t("scope_id.courses_setting_scope_error", scope: "decidim.courses", root_scope: translated_attribute(courses_setting_scope.name))
             errors.add(:scope_id, :invalid, message: msg)
           end
         end
