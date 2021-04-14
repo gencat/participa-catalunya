@@ -41,7 +41,6 @@ describe "Explore Resource banks", type: :system do
 
       within ".filters .scope_id_check_boxes_tree_filter" do
         uncheck "All"
-        uncheck "Global scope"
         check scope.name[I18n.locale.to_s]
       end
 
