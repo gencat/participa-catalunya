@@ -29,7 +29,7 @@ module Decidim
               )
             end
 
-            # alias_method :current_participatory_space, :current_course
+            alias_method :current_participatory_space, :current_course
 
             def organization_courses
               @organization_courses ||= OrganizationCourses.new(current_organization).query
