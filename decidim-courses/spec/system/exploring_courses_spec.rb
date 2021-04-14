@@ -51,17 +51,20 @@ describe "Explore Courses", type: :system do
     end
 
     it "allows filtering by scope" do
-      scope = create(:scope, organization: organization)
+      scope1 = create(:scope, organization: organization)
+      courses.each do |course|
+        course.update(scope: scope1)
+      end
+      scope2 = create(:scope, organization: organization)
       course = courses.first
-      course.scope = scope
+      course.scope = scope2
       course.save
 
       visit decidim_courses.courses_path
 
       within ".filters .scope_id_check_boxes_tree_filter" do
         uncheck "All"
-        uncheck "Global scope"
-        check scope.name[I18n.locale.to_s]
+        check scope2.name[I18n.locale.to_s]
       end
 
       expect(page).to have_css(".card--course", count: 1)
