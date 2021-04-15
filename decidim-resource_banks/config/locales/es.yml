@@ -24,6 +24,8 @@ es:
         email: Correo electrónico
         name: Nombre
         role: Rol de participante
+      resource_banks_setting:
+        decidim_scope_id: 'Ámbito'
   activerecord:
     models:
       decidim/resource_bank:
@@ -75,6 +77,10 @@ es:
         update:
           error: Se ha producido un error al actualizar una administradora para este recurso.
           success: Administradora actualizada correctamente para este recurso.
+      resources_settings:
+        update:
+          error: Se ha producido un error al actualizar la configuración del espacio Recursos.
+          success: La configuración se ha guardado correctamente.
       menu:
         resource_banks: Recursos
         resource_banks_submenu:
@@ -83,6 +89,7 @@ es:
           attachments: Adjuntos
           resource_bank_admins: Administradoras del recurso
           info: Información
+        resource_banks_settings: Configuración
       models:
         resource_bank:
           fields:
@@ -106,6 +113,8 @@ es:
         create: "%{user_name} invitó %{resource_name} al recurso %{space_name}"
         delete: "%{user_name} eliminó a la participante %{resource_name} del recurso %{space_name}"
         update: "%{user_name} cambió el rol de %{resource_name} en el recurso %{space_name}"
+      resource_banks_setting:
+        update: "%{user_name} ha cambiado la configuración del espacio Recursos"
     components:
       resource_banks:
         name: Recursos
@@ -121,6 +130,11 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este recurso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Título
             visbility: Visibilidad
+        resource_banks_settings:
+          edit:
+            update: Actualiza
+          form:
+            title: Configuración de los recursos
       index:
         title: Recurso
       resource_banks:
@@ -134,6 +148,8 @@ es:
       resource_banks_helper:
         filter_scope_values:
           all: Todas
+      scope_id:
+        resources_settings_scope_error: El Ámbito debe formar parte de la jerarquía de ámbitos de %{root_scope}
       show:
         area: Área
         scope: Ámbito

@@ -24,6 +24,8 @@ ca:
         email: Correu electrònic
         name: Nom
         role: Rol de participant
+      resource_banks_setting:
+        decidim_scope_id: 'Àmbit'
   activerecord:
     models:
       decidim/resource_bank:
@@ -75,6 +77,10 @@ ca:
         update:
           error: S'ha produït un error a l'actualitzar una administradora per aquest recurs.
           success: L'administradora s'ha actualitzat correctament per aquest recurs.
+      resources_settings:
+        update:
+          error: S'ha produït un error a l'actualitzar la configuració de l'espai Recurs.
+          success: La configuració s'ha desat correctament.
       menu:
         resource_banks: Recursos
         resource_banks_submenu:
@@ -83,6 +89,7 @@ ca:
           attachments: Adjunts
           resource_bank_admins: Administradores del recurs
           info: Informació
+        resource_banks_settings: Configuració
       models:
         resource_bank:
           fields:
@@ -106,6 +113,8 @@ ca:
         create: "%{user_name} ha convidat %{resource_name} al recurs %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} del recurs %{space_name}"
         update: "%{user_name} ha canviat el rol de %{resource_name} al recurs %{space_name}"
+      resource_banks_setting:
+        update: "%{user_name} ha canviat la configuració de l'espai Recurs"
     components:
       resource_banks:
         name: Recursos
@@ -121,6 +130,11 @@ ca:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest recurs. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Títol
             visbility: Visibilitat
+        resource_banks_settings:
+          edit:
+            update: Actualitza
+          form:
+            title: Configuració de les recurs
       index:
         title: Recursos
       resource_banks:
@@ -134,6 +148,8 @@ ca:
       resource_banks_helper:
         filter_scope_values:
           all: Totes
+      scope_id:
+        resources_settings_scope_error: L'Àmbit ha de formar part de la jerarquia d'àmbits de %{root_scope}
       show:
         area: Àrea
         scope: Àmbit
