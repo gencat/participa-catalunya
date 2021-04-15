@@ -272,6 +272,7 @@ en:
           edit:
             update: Update
           form:
+            scope_settings_help: Select a scope to delimit the scopes that are assigned to Courses.
             title: Courses settings
         exports:
           courses: Courses

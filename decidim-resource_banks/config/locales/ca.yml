@@ -79,7 +79,7 @@ ca:
           success: L'administradora s'ha actualitzat correctament per aquest recurs.
       resources_settings:
         update:
-          error: S'ha produït un error a l'actualitzar la configuració de l'espai Recurs.
+          error: S'ha produït un error a l'actualitzar la configuració de l'espai Recursos.
           success: La configuració s'ha desat correctament.
       menu:
         resource_banks: Recursos
@@ -107,14 +107,14 @@ ca:
           roles:
             admin: Administradora
       titles:
-        resource_banks: Recurs
+        resource_banks: Recursos
     admin_log:
       resource_bank_user_role:
         create: "%{user_name} ha convidat %{resource_name} al recurs %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} del recurs %{space_name}"
         update: "%{user_name} ha canviat el rol de %{resource_name} al recurs %{space_name}"
       resource_banks_setting:
-        update: "%{user_name} ha canviat la configuració de l'espai Recurs"
+        update: "%{user_name} ha canviat la configuració de l'espai Recursos"
     components:
       resource_banks:
         name: Recursos
@@ -134,7 +134,8 @@ ca:
           edit:
             update: Actualitza
           form:
-            title: Configuració de les recurs
+            scope_settings_help: Selecciona un àmbit per delimitar els àmbits que s'assignen al Banc de recursos.
+            title: Configuració de les recursos
       index:
         title: Recursos
       resource_banks:

@@ -134,6 +134,7 @@ es:
           edit:
             update: Actualiza
           form:
+            scope_settings_help: Selecciona un ámbito para delimitar los ámbitos que se asignan al Banco de recursos.
             title: Configuración de los recursos
       index:
         title: Recurso

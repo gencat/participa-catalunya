@@ -272,6 +272,7 @@ es:
           edit:
             update: Actualizar
           form:
+            scope_settings_help: Selecciona un ámbito para delimitar los ámbitos que se asignan a Formaciones.
             title: Configuración de las formaciones
         exports:
           courses: Formaciones
