@@ -15,7 +15,6 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:params) do
           {
-            modality: ::Decidim::ResourceBank::MODALITIES.first,
             scope_id: scope&.id,
             slug: "random-slug",
             title: Decidim::Faker::Localized.sentence,
