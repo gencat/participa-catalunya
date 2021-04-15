@@ -12,6 +12,9 @@ module Decidim
       routes do
         resources :resource_banks, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "resource_bank_publications", only: [:create, :destroy]
+          collection do
+            resource :settings, controller: "resource_banks_settings", only: [:edit, :update]
+          end
 
           resources :user_roles, controller: "resource_bank_user_roles" do
             member do

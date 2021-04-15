@@ -6,6 +6,11 @@
           <%= aria_selected_link_to I18n.t("menu.resource_banks", scope: "decidim.admin"), decidim_admin_resource_banks.resource_banks_path %>
         </li>
       <% end %>
+      <% if allowed_to?(:manage, :resource_banks_settings) %>
+        <li <% if is_active_link?(decidim_admin_resource_banks.edit_settings_path) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to I18n.t("menu.resource_banks_settings", scope: "decidim.admin"), decidim_admin_resource_banks.edit_settings_path %>
+        </li>
+      <% end %>
     </ul>
   </div>
 <% end %>
