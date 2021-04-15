@@ -18,6 +18,7 @@ module Decidim
             scope_id: scope&.id,
             slug: "random-slug",
             title: Decidim::Faker::Localized.sentence,
+            text: Decidim::Faker::Localized.sentence,
             description: Decidim::Faker::Localized.sentence
           }
         end
