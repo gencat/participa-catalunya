@@ -272,7 +272,7 @@ ca:
           edit:
             update: Actualitza
           form:
-            scope_settings_help: Selecciona un àmbit per delimitar els àmbits que s'assignen a Formaciones.
+            scope_settings_help: Selecciona un àmbit per delimitar els àmbits que s'assignen a Formacions.
             title: Configuració de les formacions
         exports:
           courses: Formacions
