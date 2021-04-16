@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_153748) do
+ActiveRecord::Schema.define(version: 2021_04_15_062627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -753,6 +753,13 @@ ActiveRecord::Schema.define(version: 2021_03_22_153748) do
     t.datetime "updated_at", null: false
     t.index ["decidim_course_id"], name: "idx_registration_types_on_decidim_course_id"
     t.index ["published_at"], name: "index_decidim_courses_registration_types_on_published_at"
+  end
+
+  create_table "decidim_courses_settings", force: :cascade do |t|
+    t.bigint "decidim_scope_id"
+    t.bigint "decidim_organization_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_courses_settings_on_decidim_organization_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_courses_settings_on_decidim_scope_id"
   end
 
   create_table "decidim_debates_debates", id: :serial, force: :cascade do |t|
@@ -1578,6 +1585,13 @@ ActiveRecord::Schema.define(version: 2021_03_22_153748) do
     t.index ["resource_type", "resource_id"], name: "index_decidim_resource_permissions_on_r_type_and_r_id", unique: true
   end
 
+  create_table "decidim_resources_settings", force: :cascade do |t|
+    t.bigint "decidim_scope_id"
+    t.bigint "decidim_organization_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_resources_settings_on_decidim_organization_id"
+    t.index ["decidim_scope_id"], name: "index_decidim_resources_settings_on_decidim_scope_id"
+  end
+
   create_table "decidim_scope_types", id: :serial, force: :cascade do |t|
     t.integer "decidim_organization_id"
     t.jsonb "name", null: false
@@ -1917,11 +1931,15 @@ ActiveRecord::Schema.define(version: 2021_03_22_153748) do
   add_foreign_key "decidim_consultations_responses", "decidim_consultations_questions", column: "decidim_consultations_questions_id"
   add_foreign_key "decidim_consultations_responses", "decidim_consultations_response_groups"
   add_foreign_key "decidim_consultations_votes", "decidim_consultations_responses"
+  add_foreign_key "decidim_courses_settings", "decidim_organizations"
+  add_foreign_key "decidim_courses_settings", "decidim_scopes"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
   add_foreign_key "decidim_participatory_processes", "decidim_organizations"
   add_foreign_key "decidim_participatory_processes", "decidim_scope_types"
+  add_foreign_key "decidim_resources_settings", "decidim_organizations"
+  add_foreign_key "decidim_resources_settings", "decidim_scopes"
   add_foreign_key "decidim_scope_types", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_organizations"
   add_foreign_key "decidim_scopes", "decidim_scope_types", column: "scope_type_id"

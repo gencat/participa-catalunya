@@ -60,7 +60,7 @@
     </div>
 
     <div class="row column">
-      <%= scopes_picker_field form, :scope_id, root: nil %>
+      <%= scopes_picker_field form, :scope_id, root: Decidim::ResourcesSetting.find_by(organization: current_organization)&.scope %>
     </div>
 
     <div class="row column">

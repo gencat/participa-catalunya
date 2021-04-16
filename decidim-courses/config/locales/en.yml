@@ -40,6 +40,8 @@ en:
         professorship: Professorship
         methodology: Methodology
         show_statistics: Show statistics
+      courses_setting:
+        decidim_scope_id: Scope
       course_registration_invite:
         email: Email
         name: Name
@@ -110,6 +112,10 @@ en:
         update:
           error: There was a problem updating this course.
           success: Course successfully updated.
+      courses_settings:
+        update:
+          error: There was a problem while updating the settings
+          success: The settings have been successfully updated
       course_publications:
         create:
           error: There was a problem publishing this course.
@@ -162,6 +168,7 @@ en:
           success: Admin updated successfully for this course.
       menu:
         courses: Courses
+        courses_settings: Settings
         courses_submenu:
           attachment_collections: Folders
           attachment_files: Files
@@ -202,6 +209,8 @@ en:
       courses:
         course_registration:
           confirm: "%{user_name} confirmed a registration in %{resource_name} course"
+      courses_setting:
+        update: "%{user_name} has changed Courses space settings"
       course_user_role:
         create: "%{user_name} invited %{resource_name} to the %{space_name} course"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} course"
@@ -259,6 +268,12 @@ en:
             slug_help: 'URL slugs are used to generate the URLs that point to this course. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
             visbility: Visibility
+        courses_settings:
+          edit:
+            update: Update
+          form:
+            scope_settings_help: Select a scope to delimit the scopes that are assigned to Courses.
+            title: Courses settings
         exports:
           courses: Courses
         invite_join_course_mailer:
@@ -372,6 +387,8 @@ en:
             states:
               confirmed: Confirmed
               pending: Pending
+      scope_id:
+        courses_setting_scope_error: The scope should belong to the hierarchy of %{root_scope}
     events:
       course:
         role_assigned:

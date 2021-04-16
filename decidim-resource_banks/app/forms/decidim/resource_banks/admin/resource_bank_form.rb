@@ -44,6 +44,8 @@ module Decidim
         validates :banner_image, passthru: { to: Decidim::ResourceBank }
         validates :hero_image, passthru: { to: Decidim::ResourceBank }
 
+        validate :scope_in_resource_setting_scope_tree
+
         alias organization current_organization
 
         def map_model(model)
@@ -57,6 +59,10 @@ module Decidim
 
         def scope
           @scope ||= current_organization.scopes.find_by(id: scope_id)
+        end
+
+        def resources_settings_scope
+          @resources_settings_scope ||= Decidim::ResourcesSetting.find_by(organization: current_organization)&.scope
         end
 
         def video_url
@@ -89,6 +95,15 @@ module Decidim
           errors.add :video_url, :invalid if !uri.is_a?(URI::HTTP) || uri.host.nil?
         rescue URI::InvalidURIError
           errors.add :video_url, :invalid
+        end
+
+        def scope_in_resource_setting_scope_tree
+          return unless resources_settings_scope
+
+          if scope_id.blank? || !resources_settings_scope.ancestor_of?(scope)
+            msg = I18n.t("scope_id.resources_settings_scope_error", scope: "decidim.resources_banks", root_scope: translated_attribute(resources_settings_scope.name))
+            errors.add(:scope_id, :invalid, message: msg)
+          end
         end
       end
     end

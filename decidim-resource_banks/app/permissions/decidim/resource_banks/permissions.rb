@@ -187,7 +187,9 @@ module Decidim
           :component,
           :component_data,
           :resource_bank,
-          :resource_bank_user_role
+          :resource_bank_user_role,
+          :resource_banks_settings,
+          :resources_settings
         ].include?(permission_action.subject)
 
         allow! if is_allowed

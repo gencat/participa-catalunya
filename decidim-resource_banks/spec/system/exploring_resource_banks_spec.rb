@@ -32,17 +32,20 @@ describe "Explore Resource banks", type: :system do
     end
 
     it "allows filtering by scope" do
-      scope = create(:scope, organization: organization)
+      scope1 = create(:scope, organization: organization)
+      resource_banks.each do |resource_bank|
+        resource_bank.update(scope: scope1)
+      end
+      scope2 = create(:scope, organization: organization)
       resource_bank = resource_banks.first
-      resource_bank.scope = scope
+      resource_bank.scope = scope2
       resource_bank.save
 
       visit decidim_resource_banks.resource_banks_path
 
       within ".filters .scope_id_check_boxes_tree_filter" do
         uncheck "All"
-        uncheck "Global scope"
-        check scope.name[I18n.locale.to_s]
+        check scope2.name[I18n.locale.to_s]
       end
 
       expect(page).to have_css(".card--resource_bank", count: 1)
