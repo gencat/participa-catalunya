@@ -15,17 +15,11 @@ module Decidim
       def filter_scopes_values
         root_scope = Decidim::ResourcesSetting.find_by(organization: current_organization)&.scope
         scopes_values = if root_scope
-                          [TreeNode.new(
-                            TreePoint.new(root_scope.id.to_s, translated_attribute(root_scope.name, current_organization)),
-                            scope_children_to_tree(root_scope)
-                          )]
+                          scope_children_to_tree(root_scope)
                         else
                           main_scopes = current_organization.scopes.top_level
                           main_scopes.includes(:scope_type, :children).flat_map do |scope|
-                            TreeNode.new(
-                              TreePoint.new(scope.id.to_s, translated_attribute(scope.name, current_organization)),
-                              scope_children_to_tree(scope)
-                            )
+                            scope_children_to_tree(scope)
                           end
                         end
 
