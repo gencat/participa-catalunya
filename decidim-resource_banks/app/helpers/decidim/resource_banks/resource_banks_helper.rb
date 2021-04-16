@@ -19,7 +19,10 @@ module Decidim
                         else
                           main_scopes = current_organization.scopes.top_level
                           main_scopes.includes(:scope_type, :children).flat_map do |scope|
-                            scope_children_to_tree(scope)
+                            TreeNode.new(
+                              TreePoint.new(scope.id.to_s, translated_attribute(scope.name, current_organization)),
+                              scope_children_to_tree(scope)
+                            )
                           end
                         end
 
