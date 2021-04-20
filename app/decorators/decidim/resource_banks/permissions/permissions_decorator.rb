@@ -13,7 +13,8 @@ Decidim::ResourceBanks::Permissions.class_eval do
   end
 
   def department_admin_has_permission?
-    return unless permission_action.scope == :admin && user&.department_admin?
+    department_admin_permission = permission_action.scope == :admin || permission_action.matches?(:public, :read, :admin_dashboard)
+    return unless department_admin_permission && user&.department_admin?
 
     # Check permissions set in gem (attachments, categories, ...)
     allowed = Decidim::DepartmentAdmin::Permissions
