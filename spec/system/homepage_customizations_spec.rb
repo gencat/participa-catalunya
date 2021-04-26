@@ -31,7 +31,5 @@ describe "Homepage customizations", type: :system do
     within "section.footer__subhero.extended.subhero.home-section" do
       expect(page).to have_content("Aquest projecte ha estat cofinançat pel Fons Europeu de Desenvolupament Regional de la Unió Europea")
     end
-
-    expect(page).to have_content("D'acord amb l’article 17.1 de la Llei 19/2014, la ©Generalitat de Catalunya permet")
   end
 end
