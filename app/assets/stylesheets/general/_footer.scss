@@ -40,17 +40,11 @@ $colorTextLegalAdvice: #999;
 
 .main-footer a {
   color: #020202;
-  font-weight: bold;
 }
 
 section.footer__subhero.extended.subhero.home-section {
   background-color: $white;
-}
-
-.part-logo-footer-gencat{
-    @include breakpoint( 992 down){
-        display: none;
-    }
+  padding-bottom: 0;
 }
 
 .part-avis-legal {
@@ -60,4 +54,17 @@ section.footer__subhero.extended.subhero.home-section {
     @include breakpoint( 768 down){
         text-align: center;
     }
+}
+
+.footer-nav li {
+  padding: 0 1.7rem;
+}
+
+.main-footer__badge {
+  @include breakpoint(992 down) {
+    display: none;
+  }
+
+  margin-top: 15px;
+  margin-left: 20%;
 }
