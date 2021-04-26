@@ -47,14 +47,6 @@ section.footer__subhero.extended.subhero.home-section {
   padding-bottom: 0;
 }
 
-.part-logo-footer-gencat {
-  @include breakpoint( 992 down) {
-    display: none;
-  }
-
-  margin-top: 15px;
-}
-
 .part-avis-legal {
     font-family: 'Open Sans';
     font-size: 11px;
@@ -66,4 +58,13 @@ section.footer__subhero.extended.subhero.home-section {
 
 .footer-nav li {
   padding: 0 1.7rem;
+}
+
+.main-footer__badge {
+  @include breakpoint(992 down) {
+    display: none;
+  }
+
+  margin-top: 15px;
+  margin-left: 20%;
 }
