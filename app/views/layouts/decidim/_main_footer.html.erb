@@ -1,0 +1,53 @@
+<%# Override view due to its complexity changing elements %>
+<section class="footer__subhero extended subhero home-section">
+  <div class="row">
+    <div class="columns small-12 large-9">
+      <div class="row">
+        <div class="small-10 medium-12 columns small-centered large-uncentered m-bottom">
+          <%= t("decidim.pages.home.feder.description") %>
+        </div>
+      </div>
+    </div>
+    <div class="columns small-12 large-3 end">
+      <div class="row">
+        <div class="small-8 medium-6 large-12 columns small-centered ">
+          <%= link_to "http://www.accio.gencat.cat/ca/accio/agencia/feder/", target: "_blank", class: "part-logo-footer-feder" do %>
+            <%= image_tag "feder.png", alt: "FEDER" %>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</section>
+
+<div class="main-footer">
+  <div class="row">
+    <div class="medium-4 large-3 column part-logo-footer-gencat">
+      <a rel="license" class="cc-badge"
+        href="http://www.gencat.cat" target="_blank">
+        <%= image_tag("logo_generalitat_gris.png") %>
+      </a>
+    </div>
+    <div class="medium-8 large-6 column">
+      <nav class="main__footer__nav">
+        <ul class="footer-nav">
+          <% if current_organization.static_pages.any? %>
+            <% current_organization.static_page_topics.where(show_in_footer: true).each do |page_topic| %>
+              <% if page_topic.pages.any? %>
+                <li><%= link_to translated_attribute(page_topic.title), decidim.page_path(page_topic.pages.first) %></li>
+              <% end %>
+            <% end %>
+
+            <% current_organization.static_pages.where(show_in_footer: true).each do |page| %>
+              <li><%= link_to translated_attribute(page.title), decidim.page_path(page) %></li>
+              <li><a href="http://web.gencat.cat/<%= I18n.locale %>/menu-ajuda/ajuda/avis_legal/" target="_blank">
+                <%= t("static.footer.legal_advice_title") %></a>
+              </li>
+            <% end %>
+          <% end %>
+          <li><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
+        </ul>
+      </nav>
+    </div>
+    <%= render partial: "layouts/decidim/social_media_links" %>
+  </div>
+</div>
