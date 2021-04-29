@@ -39,7 +39,7 @@ group :development do
   gem "web-console", "~> 3.5"
 end
 
-group :production do
+group :production, :preprod do
   gem "daemons"
   gem "delayed_job_active_record"
 end
