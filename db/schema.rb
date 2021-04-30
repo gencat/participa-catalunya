@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_062627) do
+ActiveRecord::Schema.define(version: 2021_04_30_092746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -470,6 +470,8 @@ ActiveRecord::Schema.define(version: 2021_04_15_062627) do
     t.string "main_logo"
     t.date "sign_date"
     t.datetime "diploma_sent_at"
+    t.bigint "decidim_area_id"
+    t.index ["decidim_area_id"], name: "index_decidim_conferences_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_conference_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_conferences_on_decidim_organization_id"
     t.index ["decidim_scope_id"], name: "index_decidim_conferences_on_decidim_scope_id"
