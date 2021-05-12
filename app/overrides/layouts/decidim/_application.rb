@@ -9,8 +9,9 @@ google_analytics_noscript = <<~GANS
   </noscript>
   <!--End Google Tag Manager (noscript) -->
 GANS
-Deface::Override.new(virtual_path: +"layouts/decidim/_application",
+
+Deface::Override.new(virtual_path: +"layouts/decidim/_impersonation_warning",
                      name: "google_analytics_noscript",
-                     insert_top: "body",
+                     insert_before: "erb[silent]:contains('if current_user_impersonated?')",
                      text: google_analytics_noscript,
-                     original: "c370667fe6a59cfd5bf006e0c97323920df4ba1d")
+                     original: "2ef954f4ee9fd121b63cecdc94ed946f399c35bf")
