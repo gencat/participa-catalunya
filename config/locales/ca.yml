@@ -12,6 +12,11 @@ ca:
       home:
         feder:
           description: Aquest projecte ha estat cofinançat pel Fons Europeu de Desenvolupament Regional de la Unió Europea en el marc del Programa operatiu FEDER de Catalunya 2014-2020
+  participacatalunya:
+    menu:
+      open_data_page: Dades obertes
+    open_data_page:
+      description: TODO tradueix-me
   static:
     footer:
       legal_advice_title: Avís legal
