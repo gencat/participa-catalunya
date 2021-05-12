@@ -3,7 +3,5 @@
 class OpenDataController < Decidim::ApplicationController
   layout "layouts/decidim/application"
 
-  def show
-  end
-
+  def show; end
 end
