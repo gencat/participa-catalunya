@@ -16,6 +16,8 @@ gem "decidim-department_admin", "0.2.0", git: "https://github.com/gencat/decidim
 
 gem "bootsnap", "~> 1.3"
 gem "rails", "< 6"
+# remove the forcing of the execjs version when upgrading to rails 6
+gem "execjs", "2.7.0"
 
 gem "puma", ">= 4.3.5"
 gem "uglifier", "~> 4.1"

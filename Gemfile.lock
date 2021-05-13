@@ -414,7 +414,7 @@ GEM
     erubi (1.10.0)
     etherpad-lite (0.3.0)
       rest-client (>= 1.6)
-    execjs (2.8.0)
+    execjs (2.7.0)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
     factory_bot_rails (4.11.1)
@@ -833,6 +833,7 @@ DEPENDENCIES
   decidim-term_customizer!
   deface
   delayed_job_active_record
+  execjs (= 2.7.0)
   faker (~> 1.9)
   figaro
   letter_opener_web (~> 1.3)
