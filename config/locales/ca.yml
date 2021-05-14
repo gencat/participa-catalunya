@@ -14,8 +14,8 @@ ca:
           description: Aquest projecte ha estat cofinançat pel Fons Europeu de Desenvolupament Regional de la Unió Europea en el marc del Programa operatiu FEDER de Catalunya 2014-2020
   participacatalunya:
     menu:
-      decidims_search_page: Cercador de Decidims
-    decidims_search_page:
+      decidims_finder_page: Cercador de Decidims
+    decidims_finder_page:
       description: TODO tradueix-me
   static:
     footer:
