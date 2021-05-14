@@ -14,8 +14,8 @@ es:
           description: Este proyecto ha sido cofinanciado por el Fondo Europeo de Desarrollo Regional de la Unión Europea en el marco del Programa Operativo FEDER de Catalunya 2014-2020
   participacatalunya:
     menu:
-      open_data_page: Datos abiertos
-    open_data_page:
+      decidims_search_page: Buscador de Decidims
+    decidims_search_page:
       description: TODO traduceme
   static:
     footer:
