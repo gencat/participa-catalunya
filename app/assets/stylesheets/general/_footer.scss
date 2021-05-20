@@ -62,7 +62,7 @@ section.footer__subhero.extended.subhero.home-section {
 
 .main-footer__badge {
   @include breakpoint(992 down) {
-    display: none;
+    margin-left: 0;
   }
 
   margin-top: 15px;
@@ -71,6 +71,10 @@ section.footer__subhero.extended.subhero.home-section {
 
 .main-footer {
   .medium-8.large-6.large-offset-3.column {
+    @include breakpoint(992 down) {
+      width: 100%;
+    }
+
     width: 58%;
   }
 }
