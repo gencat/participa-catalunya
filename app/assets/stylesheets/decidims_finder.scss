@@ -1,0 +1,150 @@
+span.ais-hierarchical-menu--count {
+  color: #333;
+  font-size: smaller;
+}
+
+a.ais-hierarchical-menu--link {
+  text-decoration: none;
+}
+
+a.ais-hierarchical-menu--link:hover:before {
+  content: '> ';
+  color: #333;
+  font-size: smaller;
+  font-weight: bold;
+}
+
+span.ais-hierarchical-menu--count:before {
+  content: '(';
+}
+
+span.ais-hierarchical-menu--count:after {
+  content: ')';
+}
+
+.ais-hierarchical-menu--list.ais-hierarchical-menu--list__lvl1,
+.ais-hierarchical-menu--list.ais-hierarchical-menu--list__lvl2 {
+  margin-left: 0.5em;
+}
+
+#hits {
+  width: 100%;
+}
+
+a.ais-clear-all--link {
+  font-size: 0.9em;
+  position: relative;
+  top: -15px;
+}
+
+.card__icondata ul li:nth-child(odd),
+.card__block ul li:nth-child(odd) {
+  color: var(--primary);
+  flex: 0;
+}
+
+.ais-pagination>li>a,
+.ais-pagination>li>a:hover,
+.ais-pagination>li>span {
+  text-decoration: none;
+  font-size: 1.250em;
+}
+
+.ais-pagination li a,
+.ais-pagination li span {
+  width: 35px;
+  display: inline-block;
+}
+
+.column.pagination {
+  width: 100%;
+  text-align: center;
+}
+
+#pagination {
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #f4f4f4;
+  display: inline-block;
+}
+
+.ais-pagination>li {
+  display: inline-block;
+  height: 35px;
+  width: 35px;
+}
+
+.ais-pagination>li a,
+.ais-pagination>li span {
+  font-weight: bold;
+}
+
+ul.ais-pagination {
+  margin: 0 1.25em;
+}
+
+li.ais-pagination--item.ais-pagination--item__last.hidden-xs.ais-pagination--item__disabled,
+li.ais-pagination--item.ais-pagination--item__first.hidden-xs.ais-pagination--item__disabled {
+  display: none;
+}
+
+.ais-pagination--item__active {
+  background-color: #eee;
+}
+
+.ais-pagination--item__active a {
+  color: #333333;
+  text-decoration: none !important;
+}
+
+.ais-pagination li.ais-pagination--item__next a,
+.ais-pagination li.ais-pagination--item__previous a,
+.ais-pagination li.ais-pagination--item__first a,
+.ais-pagination li.ais-pagination--item__last a,
+.ais-pagination li.ais-pagination--item__next span,
+.ais-pagination li.ais-pagination--item__previous span,
+.ais-pagination li.ais-pagination--item__first span,
+.ais-pagination li.ais-pagination--item__last span {
+  color: transparent;
+  padding: 0;
+  display: block;
+  width: 30px;
+  height: 35px;
+  content: '';
+}
+
+.ais-pagination li.ais-pagination--item__next a {
+  background: url(image_path("next.png")) no-repeat center center;
+}
+
+.ais-pagination li.ais-pagination--item__previous a {
+  background: url(image_path("previous.png")) no-repeat center center;
+}
+
+.ais-pagination li.ais-pagination--item__first a {
+  background: url(image_path("first.png")) no-repeat center center;
+}
+
+.ais-pagination li.ais-pagination--item__last a {
+  background: url(image_path("last.png")) no-repeat center center;
+}
+
+.ais-pagination li.ais-pagination--item__next span {
+  background: url(image_path("next_disabled.png")) no-repeat center center;
+}
+
+.ais-pagination li.ais-pagination--item__previous span {
+  background: url(image_path("previous_disabled.png")) no-repeat center center;
+}
+
+.ais-pagination li.ais-pagination--item__first span {
+  background: url(image_path("first_disabled.png")) no-repeat center center;
+}
+
+.ais-pagination li.ais-pagination--item__last span {
+  background: url(image_path("last_disabled.png")) no-repeat center center;
+}
+
+div#finder-header {
+  margin-top: 2em;
+}
