@@ -1,7 +1,10 @@
 version: '3'
 services:
   app:
-    image: decidim/decidim:0.22.0-test
+    build:
+      context: .
+      args:
+        rails_env: development
     tty: true
     stdin_open: true
     volumes:
@@ -23,9 +26,12 @@ services:
     volumes:
       - pg-data:/var/lib/postgresql/data/pgdata
     environment:
-      PGDATA: /var/lib/postgresql/data/pgdata
-      POSTGRES_DB: participa-catalunya_development
-      POSTGRES_PASSWORD: secret
+      - PORT=5432
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_DB=participa-catalunya_development
+      - POSTGRES_PASSWORD=secret
+    ports:
+      - 5432:5432
 volumes:
   node_modules: {}
   bundle: {}
