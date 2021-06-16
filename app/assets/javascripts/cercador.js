@@ -2,8 +2,8 @@
 
 //CHANGE ME!
 app({
-    appId: 'YIQONPL50S',
-    apiKey: 'bdb6aa5a3997de1fa9aecbade22f7e44',
+    appId: '',
+    apiKey: '',
     indexName: '3161_PRO_SAIP',
     hitsPerPage : 10
 });
