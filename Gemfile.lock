@@ -215,9 +215,10 @@ GIT
 
 GIT
   remote: https://github.com/gencat/decidim-department-admin.git
-  revision: 1ac132b0a5063c7c72e9eb1b5e8d1081b27704db
+  revision: 7995b623162a25023b11cd3ac9dab578091caa45
+  branch: 0.2-stable
   specs:
-    decidim-department_admin (0.2.0)
+    decidim-department_admin (0.2.1)
       decidim-core (< 0.24)
 
 PATH
@@ -827,7 +828,7 @@ DEPENDENCIES
   decidim!
   decidim-conferences!
   decidim-courses!
-  decidim-department_admin (= 0.2.0)!
+  decidim-department_admin (= 0.2.1)!
   decidim-dev!
   decidim-resource_banks!
   decidim-term_customizer!
