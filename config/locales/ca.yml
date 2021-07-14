@@ -24,7 +24,7 @@ ca:
       territory: Territori
       start_date: Data d’inici
       end_date: Data de fi
-      form: "De:"
+      from: "De:"
       to: "Fins a:"
       results: S'han trobat <strong>{{nbHits}}</strong> resultats
       no_results: No s'han trobat resultats per a la cerca <em>"{{query}}"</em>.
