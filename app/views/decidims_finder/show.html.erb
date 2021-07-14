@@ -2,12 +2,12 @@
   description: t("decidims_finder_page.description", scope: "participacatalunya")
 }) %>
 
-<%= stylesheet_link_tag 'cercador' %>
+<%= stylesheet_link_tag 'finder' %>
 <script type="text/javascript">
   window.I18n = <%= current_translations.to_json.html_safe %>
 </script>
 
-<div class="row columns" id="cercador-header">
+<div class="row columns" id="finder-header">
   <div class="title-action">
     <div class="row collapse">
       <h3 class="title-action__title section-heading"><%= t("menu.decidims_finder", scope: "participacatalunya") %></h3>
@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<section class="padding-xs padding-sm padding-md" id="cercador">
+<section class="padding-xs padding-sm padding-md" id="finder">
   <article class="container">
     <div class="row">
 
@@ -23,7 +23,7 @@
 
         <div class="card card--secondary show-for-mediumlarge">
           <div class="filters">
-            <form id="search-form" class="pd-15 listForm in" method="get" action="/cercador/" onsubmit="return false;">
+            <form id="search-form" class="pd-15 listForm in" method="get" action="/finder/" onsubmit="return false;">
               <div class="filters__section">
                 <div id="clear_button" class="pull-right"></div>
                 <label class="mini-title" for="query"><%= t("decidims_finder_page.txt", scope: "participacatalunya") %></label>
@@ -34,7 +34,7 @@
                   <legend class="mini-title">
                   <%= t("decidims_finder_page.territory", scope: "participacatalunya") %>
                   </legend>
-                  <div class="panel-body-cercador"></div>
+                  <div class="panel-body-finder"></div>
                 </fieldset>
               </div>
 
@@ -43,7 +43,7 @@
                   <legend class="mini-title">
                     <%= t("decidims_finder_page.start_date", scope: "participacatalunya") %>
                   </legend>
-                  <div class="panel-body-cercador"></div>
+                  <div class="panel-body-finder"></div>
                 </fieldset>
               </div>
               <div id="end_date" class="filters__section">
@@ -51,7 +51,7 @@
                   <legend class="mini-title">
                     <%= t("decidims_finder_page.end_date", scope: "participacatalunya") %>
                   </legend>
-                  <div class="panel-body-cercador"></div>
+                  <div class="panel-body-finder"></div>
                 </fieldset>
               </div>
             </form>
@@ -62,7 +62,7 @@
         <div class="row small-up-1 medium-up-2 card-grid">
           <p id="stats" class="txt_result"></p>
           <div id="hits"></div>
-          <div class="column paginacio">
+          <div class="column pagination">
             <div id="pagination"></div>
           </div>
         </div>
@@ -115,9 +115,9 @@
 <script type="text/html" id="stats-template">
 <%= raw t("decidims_finder_page.results", scope: "participacatalunya") %>
 </script>
-<!-- Fi TEMPLATES instantsearch -->
-<!-- Scripts especifics cercador -->
+<!-- END TEMPLATES instantsearch -->
 
+<!-- Search engine specific scripts -->
 <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
 <%= javascript_include_tag 'dates-range-widget' %>
-<%= javascript_include_tag 'cercador' %>
+<%= javascript_include_tag 'finder' %>
