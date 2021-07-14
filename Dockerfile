@@ -16,6 +16,5 @@ RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 ADD . $APP_HOME
 
-RUN gem install bundler -v 2.0.2
+RUN gem install bundler:2.2.16
 RUN bundle install
-

@@ -104,8 +104,8 @@ instantsearch.widgets.datesRange = function(args) {
             this.fromInput = createInput("from", fromValue, onChange);
             this.toInput = createInput("to", toValue, onChange);
 
-            createWidgetStructure(createLabel("from", "De:"), this.fromInput);
-            createWidgetStructure(createLabel("to", "Fins a:"), this.toInput);
+            createWidgetStructure(createLabel("from", I18n.participacatalunya.decidims_finder_page.from), this.fromInput);
+            createWidgetStructure(createLabel("to", I18n.participacatalunya.decidims_finder_page.to), this.toInput);
 
         },
         getConfiguration: function () {

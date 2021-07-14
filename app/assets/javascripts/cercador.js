@@ -2,9 +2,9 @@
 
 //CHANGE ME!
 app({
-    appId: '',
-    apiKey: '',
-    indexName: '3161_PRO_SAIP',
+    appId: 'YIQONPL50S',
+    apiKey: 'bdb6aa5a3997de1fa9aecbade22f7e44',
+    indexName: '3068_CercadorDecidims',
     hitsPerPage : 10
 });
 
@@ -47,7 +47,7 @@ function app(opts) {
             autoHideContainer: false,
             clearsQuery: true,
             templates: {
-                link: 'Neteja filtres'
+                link: I18n.participacatalunya.decidims_finder_page.clear
             },
         })
     );
@@ -55,7 +55,7 @@ function app(opts) {
     search.addWidget(
         instantsearch.widgets.searchBox({
             container: '#query',
-            placeholder: 'Cerca sol·licitud...',
+            placeholder: I18n.participacatalunya.decidims_finder_page.query_placeholder,
             reset: false,
             magnifier: false
         })
@@ -77,15 +77,15 @@ function app(opts) {
     search.addWidget(
         instantsearch.widgets.pagination({
             container: '#pagination',
-            autoHideContainer: true,
+            autoHideContainer: false,
             scrollTo: '#query',
             showFirstLast: true,
-            maxpages: 10,
+            maxpages: 12,
             labels: {
-                previous: "anterior",
-                next: "següent",
-                first: "primera",
-                last: "última"
+                previous: I18n.participacatalunya.decidims_finder_page.previous,
+                next: I18n.participacatalunya.decidims_finder_page.next,
+                first: I18n.participacatalunya.decidims_finder_page.first,
+                last: I18n.participacatalunya.decidims_finder_page.last
             },
             cssClasses: {
                 first: "hidden-xs",
@@ -98,23 +98,11 @@ function app(opts) {
         })
     );
 
-
     search.addWidget(
-        instantsearch.widgets.refinementList({
-            container: '#tematica .panel-body-cercador',
-            attributeName: 'tem_tica',
-            autoHideContainer: true,
-            limit: 100,
-            operator: 'or',
-            sortBy: ['name:asc']
-        })
-    );
-
-    search.addWidget(
-        instantsearch.widgets.refinementList({
-            container: '#info_generica .panel-body-cercador',
-            attributeName: 'tipologia_informaci_gen_rica',
-            autoHideContainer: true,
+        instantsearch.widgets.hierarchicalMenu({
+            container: '#territory .panel-body-cercador',
+            attributes: ['province', 'region', 'municipality'],
+            autoHideContainer: false,
             limit: 100,
             operator: 'or',
             sortBy: ['name:asc']
@@ -123,42 +111,21 @@ function app(opts) {
 
 
     search.addWidget(
-        instantsearch.widgets.refinementList({
-            container: '#info_especifica .panel-body-cercador',
-            attributeName: 'tipologia_informaci_espec_fica',
-            autoHideContainer: true,
-            limit: 100,
-            operator: 'or',
-            sortBy: ['name:asc']
-        })
-    );
-
-    search.addWidget(
-        instantsearch.widgets.refinementList({
-            container: '#tipus_resolucio .panel-body-cercador',
-            attributeName: 'tipus_de_resoluci',
-            autoHideContainer: true,
-            limit: 100,
-            operator: 'or',
-            sortBy: ['name:asc']
+        instantsearch.widgets.datesRange({
+            container: "#start_date .panel-body-cercador",
+            attributeName: 'start_date_timestamp',
+            id: "start_date"
         })
     );
 
     search.addWidget(
         instantsearch.widgets.datesRange({
-            container: "#data_entrada .panel-body-cercador",
-            attributeName: 'timestamp_entrada',
-            id: "data_entrada"
+            container: "#end_date .panel-body-cercador",
+            attributeName: 'end_date_timestamp',
+            id: "end_date"
         })
     );
 
-    search.addWidget(
-        instantsearch.widgets.datesRange({
-            container: "#data_resolucio .panel-body-cercador",
-            attributeName: 'timestamp_resolucio',
-            id: "data_resolucio"
-        })
-    );
 
     // Event listener to reset the Querybox and Date Range widgets as they aren't supported by InstantSearch v1.
     document.getElementById("clear_button").addEventListener("click", function() {
@@ -167,16 +134,16 @@ function app(opts) {
         document.getElementById("query").dispatchEvent(new Event('input'));
 
         //Data entrada range
-        document.getElementById("data_entrada_from").value = ""
-        document.getElementById("data_entrada_from").dispatchEvent(new Event('change'));
-        document.getElementById("data_entrada_to").value = ""
-        document.getElementById("data_entrada_to").dispatchEvent(new Event('change'));
+        document.getElementById("start_date_from").value = ""
+        document.getElementById("start_date_from").dispatchEvent(new Event('change'));
+        document.getElementById("start_date_to").value = ""
+        document.getElementById("start_date_to").dispatchEvent(new Event('change'));
 
         //Data resolucio range
-        document.getElementById("data_resolucio_from").value = ""
-        document.getElementById("data_resolucio_from").dispatchEvent(new Event('change'));
-        document.getElementById("data_resolucio_to").value = ""
-        document.getElementById("data_resolucio_to").dispatchEvent(new Event('change'));
+        document.getElementById("end_date_from").value = ""
+        document.getElementById("end_date_from").dispatchEvent(new Event('change'));
+        document.getElementById("end_date_to").value = ""
+        document.getElementById("end_date_to").dispatchEvent(new Event('change'));
     });
 
     search.start();
