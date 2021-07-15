@@ -1,14 +1,13 @@
 /* global instantsearch */
 
-//CHANGE ME!
 app({
-    appId: 'YIQONPL50S',
-    apiKey: 'bdb6aa5a3997de1fa9aecbade22f7e44',
-    indexName: '3068_CercadorDecidims',
+    appId: algolia.id,
+    apiKey: algolia.key,
+    indexName: algolia.index,
     hitsPerPage : 10
 });
 
-/* Funcions per a l'instant search*/
+/*Instant search functions*/
 function app(opts) {
 
     opts.urlSync = {
@@ -100,7 +99,7 @@ function app(opts) {
 
     search.addWidget(
         instantsearch.widgets.hierarchicalMenu({
-            container: '#territory .panel-body-cercador',
+            container: '#territory .panel-body-finder',
             attributes: ['province', 'region', 'municipality'],
             autoHideContainer: false,
             limit: 100,
@@ -112,7 +111,7 @@ function app(opts) {
 
     search.addWidget(
         instantsearch.widgets.datesRange({
-            container: "#start_date .panel-body-cercador",
+            container: "#start_date .panel-body-finder",
             attributeName: 'start_date_timestamp',
             id: "start_date"
         })
@@ -120,7 +119,7 @@ function app(opts) {
 
     search.addWidget(
         instantsearch.widgets.datesRange({
-            container: "#end_date .panel-body-cercador",
+            container: "#end_date .panel-body-finder",
             attributeName: 'end_date_timestamp',
             id: "end_date"
         })

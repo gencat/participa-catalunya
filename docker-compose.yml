@@ -16,6 +16,9 @@ services:
       - DATABASE_HOST=pg
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWORD=secret
+      - ALGOLIA_ID=YIQONPL50S
+      - ALGOLIA_KEY=bdb6aa5a3997de1fa9aecbade22f7e44
+      - ALGOLIA_INDEX=3068_CercadorDecidims
     ports:
       - 3000:3000
     links:
