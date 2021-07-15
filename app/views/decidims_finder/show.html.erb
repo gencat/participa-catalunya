@@ -2,9 +2,10 @@
   description: t("decidims_finder_page.description", scope: "participacatalunya")
 }) %>
 
-<%= stylesheet_link_tag 'finder' %>
+<%= stylesheet_link_tag 'decidims_finder' %>
 <script type="text/javascript">
   window.I18n = <%= current_translations.to_json.html_safe %>
+  window.algolia = <%= Rails.application.secrets.algolia.to_json.html_safe %>
 </script>
 
 <div class="row columns" id="finder-header">
@@ -120,4 +121,4 @@
 <!-- Search engine specific scripts -->
 <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
 <%= javascript_include_tag 'dates-range-widget' %>
-<%= javascript_include_tag 'finder' %>
+<%= javascript_include_tag 'decidims_finder' %>

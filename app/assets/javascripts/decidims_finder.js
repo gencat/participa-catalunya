@@ -1,10 +1,9 @@
 /* global instantsearch */
 
-//CHANGE ME!
 app({
-    appId: 'YIQONPL50S',
-    apiKey: 'bdb6aa5a3997de1fa9aecbade22f7e44',
-    indexName: '3068_CercadorDecidims',
+    appId: algolia.id,
+    apiKey: algolia.key,
+    indexName: algolia.index,
     hitsPerPage : 10
 });
 
