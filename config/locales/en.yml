@@ -12,26 +12,6 @@ en:
       home:
         feder:
           description: Aquest projecte ha estat cofinançat pel Fons Europeu de Desenvolupament Regional de la Unió Europea en el marc del Programa operatiu FEDER de Catalunya 2014-2020
-  participacatalunya:
-    menu:
-      decidims_finder: Decidims finder
-    decidims_finder_page:
-      description: Searcher of participatory processes of Catalan Decidims
-      clear: Clean filters
-      txt: Search by text
-      query_title: Enter the words to search
-      query_placeholder: Search...
-      territory: Territory
-      start_date: Start date
-      end_date: End date
-      from: "From:"
-      to: "To:"
-      results: Have been found <strong>{{nbHits}}</strong> results
-      no_results: No results found from search <em>"{{query}}"</em>.
-      previous: previous
-      next: next
-      first: first
-      last: last
   static:
     footer:
       legal_advice_title: Avís legal
