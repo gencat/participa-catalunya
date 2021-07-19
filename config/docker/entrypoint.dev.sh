@@ -1,15 +1,17 @@
-#!/bin/sh -x
+#!/bin/sh
 
 USER_UID=$(stat -c %u /code/Gemfile)
 USER_GID=$(stat -c %g /code/Gemfile)
 
 export USER_UID
 export USER_GID
+pwd
+rm /code/tmp/pids/server.pid
 
 usermod -u "$USER_UID" decidim 2> /dev/null
 groupmod -g "$USER_GID" decidim 2> /dev/null
 usermod -g "$USER_GID" decidim 2> /dev/null
-
+gem install rake && bundle install
 # chown -R -h "$USER_UID" "$BUNDLE_PATH"
 # chgrp -R -h "$USER_GID" "$BUNDLE_PATH"
 
@@ -19,7 +21,7 @@ if [ $# -gt 0 ]; then
     exec "$@"
 else
     echo "== Installing deps ..."
-    bundle check || bundle install
+    bundle install
     # yarn install --check-files
 
     echo "== Running migrations ..."
