@@ -7,10 +7,12 @@ a.ais-hierarchical-menu--link {
   text-decoration: none;
 }
 
-a.ais-hierarchical-menu--link:hover:before {
-  content: '> ';
-  color: #333;
-  font-size: smaller;
+.panel-body-finder label {
+  font-size: 0.8em;
+}
+
+a.ais-hierarchical-menu--link:hover, 
+div.ais-hierarchical-menu--list__lvl0 div.ais-hierarchical-menu--item__active > div > a {
   font-weight: bold;
 }
 
