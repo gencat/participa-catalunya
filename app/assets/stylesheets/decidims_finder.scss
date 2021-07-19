@@ -85,6 +85,10 @@ ul.ais-pagination {
   margin: 0 1.25em;
 }
 
+li.ais-pagination--item.ais-pagination--item__page.hidden-xs.ais-pagination--item__active {
+  height: auto;
+}
+
 li.ais-pagination--item.ais-pagination--item__last.hidden-xs.ais-pagination--item__disabled,
 li.ais-pagination--item.ais-pagination--item__first.hidden-xs.ais-pagination--item__disabled {
   display: none;
