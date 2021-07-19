@@ -101,10 +101,11 @@ function app(opts) {
         instantsearch.widgets.hierarchicalMenu({
             container: '#territory .panel-body-finder',
             attributes: ['province', 'region', 'municipality'],
-            autoHideContainer: false,
-            limit: 100,
-            operator: 'or',
-            sortBy: ['name:asc']
+            sortBy: function compare(a, b) {
+                if (a.name[0] < b.name[0] && b.name != 'Catalunya' || a.name == 'Catalunya') return -1;
+                if (a.name[0] > b.name[0] || b.name == 'Catalunya') return 1;
+                return 0;
+              }
         })
     );
 
