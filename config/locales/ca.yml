@@ -16,6 +16,10 @@ ca:
     menu:
       decidims_finder: Cercador de Decidims
     decidims_finder_page:
+      helper_html: >
+          El cercador de resolucions de les sol·licituds de dret d’accés a la informació pública permet la consulta de totes les sol·licituds que s’han dut a terme per la ciutadania des que va entrar en vigor la Llei 19/2014, del 29 de desembre, de transparència, accés a la informació pública i bon govern, el juliol del 2015, fins al 30 de juny de 2020. Des del 2015 al 2019, es publicaven les resolucions desestimatòries o estimatòries parcials per aplicació d’algun límit legal (i a partir del 2016, també les inadmeses), però a partir del 2020, per aprofundir en la transparència institucional, es publiquen els actes resolutoris de totes les sol·licituds d’accés, sigui quin sigui el seu sentit.</br>
+          Podeu cercar-los a través dels diferents camps establerts: cerca per text, temàtica, tipologia de la informació genèrica i específica, data d’entrada i de resolució, o, tipus o sentit de la resolució.</br>
+          Del resultat de les cerques, n’obtindreu una fitxa amb la principal informació de cada expedient i, a més, podreu accedir a l’acte resolutori esmentat.
       description: Cercador de processos participatius dels Decidims catalans
       clear: Netejar filtres
       txt: Cerca per text
@@ -26,7 +30,7 @@ ca:
       end_date: Data de fi
       from: "De:"
       to: "Fins a:"
-      results: S'han trobat <strong>{{nbHits}}</strong> resultats
+      results: S'han trobat <strong>{{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}</strong> resultats
       no_results: No s'han trobat resultats per a la cerca <em>"{{query}}"</em>.
       previous: anterior
       next: següent

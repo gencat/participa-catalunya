@@ -1,6 +1,6 @@
 /* global instantsearch */
 
-instantsearch.widgets.datesRange = function(args) {
+const datesRange = function(args) {
     var container = args['container'];
     var attributeName = args['attributeName'];
     var id = args['id'];

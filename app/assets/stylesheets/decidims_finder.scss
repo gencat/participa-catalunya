@@ -1,42 +1,39 @@
-span.ais-hierarchical-menu--count {
-  color: #333;
-  font-size: smaller;
-}
-
-a.ais-hierarchical-menu--link {
-  text-decoration: none;
-}
-
-.panel-body-finder label {
-  font-size: 0.8em;
-}
-
-a.ais-hierarchical-menu--link:hover, 
-div.ais-hierarchical-menu--list__lvl0 div.ais-hierarchical-menu--item__active > div > a {
-  font-weight: bold;
-}
-
-span.ais-hierarchical-menu--count:before {
-  content: '(';
-}
-
-span.ais-hierarchical-menu--count:after {
-  content: ')';
-}
-
-.ais-hierarchical-menu--list.ais-hierarchical-menu--list__lvl1,
-.ais-hierarchical-menu--list.ais-hierarchical-menu--list__lvl2 {
-  margin-left: 0.5em;
-}
-
 #hits {
   width: 100%;
 }
 
-a.ais-clear-all--link {
-  font-size: 0.9em;
-  position: relative;
-  top: -15px;
+li.ais-Hits-item,
+ul.ais-HierarchicalMenu-list {
+    list-style-type: none;
+}
+
+span.ais-HierarchicalMenu-count:after {
+    content: ')';
+}
+span.ais-HierarchicalMenu-count:before {
+  content: ' (';
+}
+
+span.ais-HierarchicalMenu-count {
+  color: #333;
+  font-size: smaller;
+}
+
+div.ais-HierarchicalMenu > ul {
+    margin-left: 0;
+}
+
+div.ais-HierarchicalMenu a {
+  text-decoration: none;
+}
+
+div.ais-HierarchicalMenu a:hover, 
+li.ais-HierarchicalMenu-item--selected > div > a {
+  font-weight: bold;
+}
+
+ul.ais-HierarchicalMenu-list {
+    margin-left: 0.8em;
 }
 
 .card__icondata ul li:nth-child(odd),
@@ -45,20 +42,30 @@ a.ais-clear-all--link {
   flex: 0;
 }
 
-.ais-pagination>li>a,
-.ais-pagination>li>a:hover,
-.ais-pagination>li>span {
-  text-decoration: none;
-  font-size: 1.250em;
+.ais-ClearRefinements {
+  float: right;
+  font-size: small;
+  position: relative;
+  top: -2em;
 }
 
-.ais-pagination li a,
-.ais-pagination li span {
-  width: 35px;
-  display: inline-block;
+.ais-ClearRefinements {
+  float: right;
+  font-size: small;
+  position: relative;
+  top: -2em;
+}
+
+.ais-ClearRefinements-button {
+  cursor: pointer;
+}
+
+.ais-ClearRefinements-button.ais-ClearRefinements-button--disabled {
+  cursor: default;
 }
 
 .column.pagination {
+  display: block;
   width: 100%;
   text-align: center;
 }
@@ -70,87 +77,78 @@ a.ais-clear-all--link {
   display: inline-block;
 }
 
-.ais-pagination>li {
+.ais-Pagination-item {
   display: inline-block;
-  height: 35px;
-  width: 35px;
+  min-width: 40px;
+  text-align: center;
 }
-
-.ais-pagination>li a,
-.ais-pagination>li span {
+.ais-Pagination-link {
+  font-size: 1.3em;
   font-weight: bold;
 }
 
-ul.ais-pagination {
-  margin: 0 1.25em;
+.ais-Pagination-link:hover {
+  text-decoration: none;
 }
 
-li.ais-pagination--item.ais-pagination--item__page.hidden-xs.ais-pagination--item__active {
-  height: auto;
+ul.ais-Pagination-list {
+  margin: 0 0.5em;
 }
 
-li.ais-pagination--item.ais-pagination--item__last.hidden-xs.ais-pagination--item__disabled,
-li.ais-pagination--item.ais-pagination--item__first.hidden-xs.ais-pagination--item__disabled {
-  display: none;
+p#stats {
+  margin-left: 2em;
 }
 
-.ais-pagination--item__active {
-  background-color: #eee;
+li.ais-Pagination-item.ais-Pagination-item--page.ais-Pagination-item--selected,
+li.ais-Pagination-item.ais-Pagination-item--page.ais-Pagination-item--selected:hover {
+  background: #e8e8e8;
+  color: #3d393c;
 }
 
-.ais-pagination--item__active a {
-  color: #333333;
-  text-decoration: none !important;
-}
-
-.ais-pagination li.ais-pagination--item__next a,
-.ais-pagination li.ais-pagination--item__previous a,
-.ais-pagination li.ais-pagination--item__first a,
-.ais-pagination li.ais-pagination--item__last a,
-.ais-pagination li.ais-pagination--item__next span,
-.ais-pagination li.ais-pagination--item__previous span,
-.ais-pagination li.ais-pagination--item__first span,
-.ais-pagination li.ais-pagination--item__last span {
+.ais-Pagination li.ais-Pagination-item--nextPage a,
+.ais-Pagination li.ais-Pagination-item--previousPage a,
+.ais-Pagination li.ais-Pagination-item--firstPage a,
+.ais-Pagination li.ais-Pagination-item--lastPage a,
+.ais-Pagination li.ais-Pagination-item--nextPage span,
+.ais-Pagination li.ais-Pagination-item--previousPage span,
+.ais-Pagination li.ais-Pagination-item--firstPage span,
+.ais-Pagination li.ais-Pagination-item--lastPage span {
   color: transparent;
-  padding: 0;
   display: block;
-  width: 30px;
+  width: 35px;
   height: 35px;
   content: '';
+  padding: 0 0.5em;
 }
 
-.ais-pagination li.ais-pagination--item__next a {
+.ais-Pagination li.ais-Pagination-item--nextPage a {
   background: url(image_path("next.png")) no-repeat center center;
 }
 
-.ais-pagination li.ais-pagination--item__previous a {
+.ais-Pagination li.ais-Pagination-item--previousPage a {
   background: url(image_path("previous.png")) no-repeat center center;
 }
 
-.ais-pagination li.ais-pagination--item__first a {
+.ais-Pagination li.ais-Pagination-item--firstPage a {
   background: url(image_path("first.png")) no-repeat center center;
 }
 
-.ais-pagination li.ais-pagination--item__last a {
+.ais-Pagination li.ais-Pagination-item--lastPage a {
   background: url(image_path("last.png")) no-repeat center center;
 }
 
-.ais-pagination li.ais-pagination--item__next span {
+.ais-Pagination li.ais-Pagination-item--nextPage span {
   background: url(image_path("next_disabled.png")) no-repeat center center;
 }
 
-.ais-pagination li.ais-pagination--item__previous span {
+.ais-Pagination li.ais-Pagination-item--previousPage span {
   background: url(image_path("previous_disabled.png")) no-repeat center center;
 }
 
-.ais-pagination li.ais-pagination--item__first span {
+.ais-Pagination li.ais-Pagination-item--firstPage span {
   background: url(image_path("first_disabled.png")) no-repeat center center;
 }
 
-.ais-pagination li.ais-pagination--item__last span {
+.ais-Pagination li.ais-Pagination-item--lastPage span {
   background: url(image_path("last_disabled.png")) no-repeat center center;
-}
-
-div#finder-header {
-  margin-top: 2em;
 }

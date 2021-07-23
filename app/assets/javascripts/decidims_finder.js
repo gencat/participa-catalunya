@@ -1,154 +1,149 @@
 /* global instantsearch */
 
-app({
-    appId: algolia.id,
-    apiKey: algolia.key,
-    indexName: algolia.index,
-    hitsPerPage : 10
+// Replace with your own values
+const searchClient = algoliasearch(
+  algolia.id,
+  algolia.key // search only API key, not admin API key
+);
+
+const search = instantsearch({
+  indexName: algolia.index,
+  searchClient,
+  routing: true,
 });
 
-/*Instant search functions*/
-function app(opts) {
+search.addWidgets([
+  instantsearch.widgets.configure({
+    hitsPerPage: 10,
+  })
+]);
 
-    opts.urlSync = {
-        trackedParameters: ['query', 'attribute:*', 'page']
-    };
+search.addWidgets([
+  instantsearch.widgets.searchBox({
+    container: '#query',
+    placeholder: I18n.participacatalunya.decidims_finder_page.query_placeholder,
+    searchAsYouType: true,
+    showReset: false,
+    showSubmit: false,
+    showLoadingIndicator: false,
+  })
+]);
 
-    opts.searchFunction = function (helper) {
-        /* ================================================================
-           SET HERE YOUR SEARCH API PARAMS (helper.state)
-           https://www.algolia.com/doc/api-reference/search-api-parameters/
-           ================================================================ */
-        helper.state.typoTolerance = false;
+search.addWidgets([
+  instantsearch.widgets.hits({
+    container: hits,
+    hitsPerPage: 10,
+    templates: {
+      item: getTemplate('hit'),
+      empty: getTemplate('no-results')
+    }
+  })
+]);
 
-        helper.search();
-    };
+search.addWidget(
+  instantsearch.widgets.clearRefinements({
+    container: '#clear-territory',
+    includedAttributes: ['province', 'region', 'municipality'],
+    templates: {
+      resetLabel: I18n.participacatalunya.decidims_finder_page.clear,
+    }
+  })
+);
 
-    var search = instantsearch(opts);
+search.addWidget(
+  instantsearch.widgets.clearRefinements({
+    container: '#clear-start_date',
+    includedAttributes: ['start_date_timestamp'],
+    templates: {
+      resetLabel: I18n.participacatalunya.decidims_finder_page.clear,
+    }
+  })
+);
 
-    search.addWidget(
-        instantsearch.widgets.hits({
-            container: hits,
-            hitsPerPage: 10,
-            templates: {
-                item: getTemplate('hit'),
-                empty: getTemplate('no-results')
-            },
-            transformData: function (item) {
-                return item;
-            }
-        })
-    );
+search.addWidget(
+  instantsearch.widgets.clearRefinements({
+    container: '#clear-end_date',
+    includedAttributes: ['end_date_timestamp'],
+    templates: {
+      resetLabel: I18n.participacatalunya.decidims_finder_page.clear,
+    }
+  })
+);
 
-    search.addWidget(
-        instantsearch.widgets.clearAll({
-            container: '#clear_button',
-            autoHideContainer: false,
-            clearsQuery: true,
-            templates: {
-                link: I18n.participacatalunya.decidims_finder_page.clear
-            },
-        })
-    );
+search.addWidget(
+  instantsearch.widgets.stats({
+    container: '#stats',
+    templates: {
+      text: '{{#hasManyResults}}' + I18n.participacatalunya.decidims_finder_page.results + '{{/hasManyResults}}'
+    }
+  })
+);
 
-    search.addWidget(
-        instantsearch.widgets.searchBox({
-            container: '#query',
-            placeholder: I18n.participacatalunya.decidims_finder_page.query_placeholder,
-            reset: false,
-            magnifier: false
-        })
-    );
+search.addWidget(
+  instantsearch.widgets.pagination({
+    container: '#pagination',
+    autoHideContainer: false,
+    scrollTo: '#query',
+    showFirstLast: true,
+    maxpages: 12,
+    labels: {
+      previous: I18n.participacatalunya.decidims_finder_page.previous,
+      next: I18n.participacatalunya.decidims_finder_page.next,
+      first: I18n.participacatalunya.decidims_finder_page.first,
+      last: I18n.participacatalunya.decidims_finder_page.last
+    }
+  })
+);
 
-    search.addWidget(
-        instantsearch.widgets.stats({
-            container: '#stats',
-            templates: {
-                body: getTemplate('stats')
-            },
-            transformData: function (item) {
-                item.nbHits = new Intl.NumberFormat('ca-ES').format(item.nbHits);
-                return item;
-            }
-        })
-    );
-
-    search.addWidget(
-        instantsearch.widgets.pagination({
-            container: '#pagination',
-            autoHideContainer: false,
-            scrollTo: '#query',
-            showFirstLast: true,
-            maxpages: 12,
-            labels: {
-                previous: I18n.participacatalunya.decidims_finder_page.previous,
-                next: I18n.participacatalunya.decidims_finder_page.next,
-                first: I18n.participacatalunya.decidims_finder_page.first,
-                last: I18n.participacatalunya.decidims_finder_page.last
-            },
-            cssClasses: {
-                first: "hidden-xs",
-                last: "hidden-xs",
-                page: "hidden-xs"
-            },
-            transformData: function (item) {
-                return item;
-            }
-        })
-    );
-
-    search.addWidget(
-        instantsearch.widgets.hierarchicalMenu({
-            container: '#territory .panel-body-finder',
-            attributes: ['province', 'region', 'municipality'],
-            sortBy: function compare(a, b) {
-                if (a.name[0] < b.name[0] && b.name != 'Catalunya' || a.name == 'Catalunya') return -1;
-                if (a.name[0] > b.name[0] || b.name == 'Catalunya') return 1;
-                return 0;
-              }
-        })
-    );
+search.addWidget(
+  instantsearch.widgets.hierarchicalMenu({
+    container: '#territory .panel-body-finder',
+    attributes: ['province', 'region', 'municipality'],
+    sortBy: function compare(a, b) {
+      if (a.name[0] < b.name[0] && b.name != 'Catalunya' || a.name == 'Catalunya') return -1;
+      if (a.name[0] > b.name[0] || b.name == 'Catalunya') return 1;
+      return 0;
+    }
+  })
+);
 
 
-    search.addWidget(
-        instantsearch.widgets.datesRange({
-            container: "#start_date .panel-body-finder",
-            attributeName: 'start_date_timestamp',
-            id: "start_date"
-        })
-    );
+search.addWidget(
+  datesRange({
+    container: "#start_date .panel-body-finder",
+    attributeName: 'start_date_timestamp',
+    id: "start_date"
+  })
+);
 
-    search.addWidget(
-        instantsearch.widgets.datesRange({
-            container: "#end_date .panel-body-finder",
-            attributeName: 'end_date_timestamp',
-            id: "end_date"
-        })
-    );
+search.addWidget(
+  datesRange({
+    container: "#end_date .panel-body-finder",
+    attributeName: 'end_date_timestamp',
+    id: "end_date"
+  })
+);
 
+// Event listener to reset the Date Range widgets as they aren't supported by InstantSearch v1.
 
-    // Event listener to reset the Querybox and Date Range widgets as they aren't supported by InstantSearch v1.
-    document.getElementById("clear_button").addEventListener("click", function() {
-        //Search box
-        document.getElementById("query").value = ""
-        document.getElementById("query").dispatchEvent(new Event('input'));
+//Start Date range
+document.getElementById("clear-start_date").addEventListener("click", function () {
+  document.getElementById("start_date_from").value = ""
+  document.getElementById("start_date_from").dispatchEvent(new Event('change'));
+  document.getElementById("start_date_to").value = ""
+  document.getElementById("start_date_to").dispatchEvent(new Event('change'));
+});
 
-        //Data entrada range
-        document.getElementById("start_date_from").value = ""
-        document.getElementById("start_date_from").dispatchEvent(new Event('change'));
-        document.getElementById("start_date_to").value = ""
-        document.getElementById("start_date_to").dispatchEvent(new Event('change'));
-
-        //Data resolucio range
-        document.getElementById("end_date_from").value = ""
-        document.getElementById("end_date_from").dispatchEvent(new Event('change'));
-        document.getElementById("end_date_to").value = ""
-        document.getElementById("end_date_to").dispatchEvent(new Event('change'));
-    });
-
-    search.start();
-}
+//End Date range
+document.getElementById("clear-end_date").addEventListener("click", function () {
+  document.getElementById("end_date_from").value = ""
+  document.getElementById("end_date_from").dispatchEvent(new Event('change'));
+  document.getElementById("end_date_to").value = ""
+  document.getElementById("end_date_to").dispatchEvent(new Event('change'));
+});
 
 function getTemplate(templateName) {
-    return document.querySelector('#' + templateName + '-template').innerHTML;
+  return document.querySelector('#' + templateName + '-template').innerHTML;
 }
+
+search.start();
