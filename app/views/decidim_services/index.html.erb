@@ -1,0 +1,16 @@
+<% add_decidim_meta_tags({
+  description: t("decidim_services.description", scope: "participacatalunya")
+}) %>
+
+<%= stylesheet_link_tag 'decidim_services' %>
+<div class="wrapper">
+  <div class="row column">
+    <div class="row">
+      <div class="columns medium-7 mediumlarge-8">
+        <div class="section">
+          <%= decidim_sanitize t("decidim_services.description", scope: "participacatalunya") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
