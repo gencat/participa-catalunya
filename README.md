@@ -31,6 +31,8 @@ You're good to go!
 
 ### Run tests
 
+Run `bin/rake decidim:generate_external_test_app` to generate a dummy application to test both the application and the modules.
+
 Use the `test` environment for the current application:
 
 ```bash
