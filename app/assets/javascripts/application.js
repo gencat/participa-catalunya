@@ -13,5 +13,5 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require cable
+//= require_tree ./channels
 //= require decidim

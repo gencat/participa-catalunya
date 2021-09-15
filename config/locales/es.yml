@@ -14,12 +14,11 @@ es:
           description: Este proyecto ha sido cofinanciado por el Fondo Europeo de Desarrollo Regional de la Unión Europea en el marco del Programa Operativo FEDER de Catalunya 2014-2020
   participacatalunya:
     menu:
-      decidims_finder: Buscador de Decidims
+      decidims_finder: Buscador de procesos participativos
     decidims_finder_page:
       helper_html: >
-          El cercador de resolucions de les sol·licituds de dret d’accés a la informació pública permet la consulta de totes les sol·licituds que s’han dut a terme per la ciutadania des que va entrar en vigor la Llei 19/2014, del 29 de desembre, de transparència, accés a la informació pública i bon govern, el juliol del 2015, fins al 30 de juny de 2020. Des del 2015 al 2019, es publicaven les resolucions desestimatòries o estimatòries parcials per aplicació d’algun límit legal (i a partir del 2016, també les inadmeses), però a partir del 2020, per aprofundir en la transparència institucional, es publiquen els actes resolutoris de totes les sol·licituds d’accés, sigui quin sigui el seu sentit.</br>
-          Podeu cercar-los a través dels diferents camps establerts: cerca per text, temàtica, tipologia de la informació genèrica i específica, data d’entrada i de resolució, o, tipus o sentit de la resolució.</br>
-          Del resultat de les cerques, n’obtindreu una fitxa amb la principal informació de cada expedient i, a més, podreu accedir a l’acte resolutori esmentat.
+          En este espacio podrás buscar los procesos participativos impulsados ​​por diferentes administraciones de Cataluña en sus portales de participación ciudadana que se basan en la plataforma digital de participación Decidim.<br/>
+          El buscador recoge procesos participativos y presupuestos participativos.
       description: Buscador de procesos participativos de los Decidims catalanes
       clear: Limpiar filtros
       txt: Buscar por texto
