@@ -842,6 +842,7 @@ DEPENDENCIES
   decidim-term_customizer!
   deface
   delayed_job_active_record
+  execjs (= 2.7.0)
   faker (~> 1.9)
   figaro
   letter_opener_web (~> 1.3)
