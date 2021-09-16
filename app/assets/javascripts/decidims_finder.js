@@ -2,12 +2,12 @@
 
 // Replace with your own values
 const searchClient = algoliasearch(
-  algolia.id,
-  algolia.key // search only API key, not admin API key
+  getAlgolia().id,
+  getAlgolia().key // search only API key, not admin API key
 );
 
 const search = instantsearch({
-  indexName: algolia.index,
+  indexName: getAlgolia().index,
   searchClient,
   routing: true,
 });
@@ -21,7 +21,7 @@ search.addWidgets([
 search.addWidgets([
   instantsearch.widgets.searchBox({
     container: '#query',
-    placeholder: I18n.participacatalunya.decidims_finder_page.query_placeholder,
+    placeholder: getTranslation("query_placeholder"),
     searchAsYouType: true,
     showReset: false,
     showSubmit: false,
@@ -45,7 +45,7 @@ search.addWidget(
     container: '#clear-territory',
     includedAttributes: ['province', 'region', 'municipality'],
     templates: {
-      resetLabel: I18n.participacatalunya.decidims_finder_page.clear,
+      resetLabel: getTranslation("clear"),
     }
   })
 );
@@ -55,7 +55,7 @@ search.addWidget(
     container: '#clear-start_date',
     includedAttributes: ['start_date_timestamp'],
     templates: {
-      resetLabel: I18n.participacatalunya.decidims_finder_page.clear,
+      resetLabel: getTranslation("clear"),
     }
   })
 );
@@ -65,7 +65,7 @@ search.addWidget(
     container: '#clear-end_date',
     includedAttributes: ['end_date_timestamp'],
     templates: {
-      resetLabel: I18n.participacatalunya.decidims_finder_page.clear,
+      resetLabel: getTranslation("clear"),
     }
   })
 );
@@ -74,7 +74,7 @@ search.addWidget(
   instantsearch.widgets.stats({
     container: '#stats',
     templates: {
-      text: '{{#hasManyResults}}' + I18n.participacatalunya.decidims_finder_page.results + '{{/hasManyResults}}'
+      text: '{{#hasManyResults}}' + getTranslation("results") + '{{/hasManyResults}}'
     }
   })
 );
@@ -87,10 +87,10 @@ search.addWidget(
     showFirstLast: true,
     maxpages: 12,
     labels: {
-      previous: I18n.participacatalunya.decidims_finder_page.previous,
-      next: I18n.participacatalunya.decidims_finder_page.next,
-      first: I18n.participacatalunya.decidims_finder_page.first,
-      last: I18n.participacatalunya.decidims_finder_page.last
+      previous: getTranslation("previous"),
+      next: getTranslation("next"),
+      first: getTranslation("first"),
+      last: getTranslation("last")
     }
   })
 );

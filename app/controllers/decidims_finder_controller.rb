@@ -5,10 +5,7 @@ class DecidimsFinderController < Decidim::ApplicationController
 
   helper_method :current_translations
 
-  def show; end
-
-  def current_translations
-    @translations ||= I18n.backend.send(:translations)
-    @translations[I18n.locale].with_indifferent_access
+  def show
+    @current_translations = I18n.t("participacatalunya.decidims_finder_page")
   end
 end

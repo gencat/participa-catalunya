@@ -4,8 +4,14 @@
 
 <%= stylesheet_link_tag 'decidims_finder' %>
 <script type="text/javascript">
-  window.I18n = <%= current_translations.to_json.html_safe %>
-  window.algolia = <%= Rails.application.secrets.algolia.to_json.html_safe %>
+  function getTranslation(translation) {
+    translations = <%= @current_translations.to_json.html_safe %>;
+    return translations[translation];
+  }
+
+  function getAlgolia() {
+    return <%= Rails.application.secrets.algolia.to_json.html_safe %>;
+  }
 </script>
 
 <div class="wrapper">
@@ -50,7 +56,7 @@
                 <fieldset>
                   <div id="clear-start_date"></div>
                   <legend class="mini-title">
-                    <%= t("decidims_finder_page.start_date", scope: "participacatalunya") %>
+                    <%= t("start_date", scope: "participacatalunya.decidims_finder_page") %>
                   </legend>
                   <div class="panel-body-finder"></div>
                 </fieldset>
@@ -59,7 +65,7 @@
                 <fieldset>
                   <div id="clear-end_date"></div>
                   <legend class="mini-title">
-                    <%= t("decidims_finder_page.end_date", scope: "participacatalunya") %>
+                    <%= t("end_date", scope: "participacatalunya.decidims_finder_page") %>
                   </legend>
                   <div class="panel-body-finder"></div>
                 </fieldset>
