@@ -38,6 +38,11 @@ Rails.application.config.to_prepare do
               position: 5.5,
               active: :inclusive
 
+    menu.item I18n.t("menu.decidims_finder", scope: "participacatalunya"),
+              Rails.application.routes.url_helpers.decidims_finder_page_path,
+              position: 6,
+              active: :inclusive
+
     menu.item I18n.t("menu.help", scope: "decidim"),
               decidim.pages_path,
               position: 7,
