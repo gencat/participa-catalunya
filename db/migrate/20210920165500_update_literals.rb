@@ -34,13 +34,13 @@ class UpdateLiterals < ActiveRecord::Migration[5.1]
         .where(locale: 'en')
         .update_all("value = 'Com. of practice'")
 
-    StaticPages.where(slug: 'avis-legal')
+    StaticPages.where("title ->> 'ca' = ?", 'Avís legal')
         .update_all(title: {"ca" => "Avís legal", "en" => "Legal advisement", "es" => "Aviso legal", "oc" => "Avís legau"})
 
-    StaticPages.where(slug: 'terms-and-conditions')
+    StaticPages.where("title ->> 'ca' = ?", 'Condicions d\'ús')
         .update_all(title: {"ca" => "Condicions d'ús", "en" => "Terms of use", "es" => "Condiciones de uso", "oc" => "Condicions d’usatge"})
 
-    StaticPages.where(slug: 'accessibiltiat')
+    StaticPages.where("title ->> 'ca' = ?", 'Accessibilitat')
       .update_all(title: {"ca" => "Accessibilitat", "en" => "Accessibility", "es" => "Accesibilidad", "oc" => "Accessibilitat"})
 
     StaticPageTopics.where("title ->> 'ca' = ?", 'Preguntes freqüents')
