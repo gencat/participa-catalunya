@@ -24,7 +24,7 @@ ca:
       txt: Cerca per text
       query_title: Introduïu les paraules a cercar
       query_placeholder: Cercar...
-      territory: Ambit territorial
+      territory: Territori
       start_date: Data d’inici
       end_date: Data de fi
       from: "De:"
