@@ -356,3 +356,9 @@ a, a:focus, a:hover, .card__link, .card__link:hover, .author-data .author__name{
   .main-nav .main-nav__link{ border-right: none; }
   .topbar__user__login a{ color: $white; }
 }
+
+.conference-speaker {
+  &:nth-of-type(4n + 5) .speaker-bio {
+    transform: translateY(-10%) translateX(-50%);
+  }
+}
