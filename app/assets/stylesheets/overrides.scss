@@ -358,7 +358,13 @@ a, a:focus, a:hover, .card__link, .card__link:hover, .author-data .author__name{
 }
 
 .conference-speaker {
-  &:nth-of-type(4n + 5) .speaker-bio {
+  &:nth-of-type(5n + 3) .speaker-bio,
+  &:nth-of-type(5n + 4) .speaker-bio,
+  &:nth-of-type(5n + 5) .speaker-bio {
     transform: translateY(-10%) translateX(-50%);
+  }
+  &:nth-of-type(5n + 1) .speaker-bio,
+  &:nth-of-type(5n + 2) .speaker-bio {
+    transform: translateY(-10%) translateX(-10%);
   }
 }
