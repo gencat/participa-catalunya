@@ -14,19 +14,19 @@ es:
           description: Este proyecto ha sido cofinanciado por el Fondo Europeo de Desarrollo Regional de la Unión Europea en el marco del Programa Operativo FEDER de Catalunya 2014-2020
   participacatalunya:
     menu:
-      decidims_finder: Buscador de procesos participativos
+      decidims_finder: Buscador procesos participativos
     decidims_finder_page:
       helper_html: >
-          En este espacio podrás buscar los procesos participativos impulsados ​​por diferentes administraciones de Cataluña en sus portales de participación ciudadana que se basan en la plataforma digital de participación Decidim.<br/>
+          En este espacio podrás buscar los procesos participativos impulsados por las diferentes administraciones de Cataluña en sus portales de participación ciudadana que se basen en la plataforma digital de participación Decidim.<br/>
           El buscador recoge procesos participativos y presupuestos participativos.
       description: Buscador de procesos participativos de los Decidims catalanes
-      clear: Limpiar filtros
-      txt: Buscar por texto
+      clear: Limpia filtros
+      txt: Busca por texto
       query_title: Introduzca las palabras a buscar
       query_placeholder: Buscar...
-      territory: Territorio
+      territory: Ambito territorial
       start_date: Fecha de inicio
-      end_date: Fecha de término
+      end_date: Fecha de fin
       from: "De:"
       to: "Hasta:"
       results: Se han encontrado <strong>{{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}</strong> resultados
