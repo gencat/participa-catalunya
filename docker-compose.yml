@@ -1,10 +1,7 @@
 version: '3'
 services:
   app:
-    build:
-      context: .
-      args:
-        rails_env: development
+    image: decidim/decidim:0.22.0-test
     tty: true
     stdin_open: true
     volumes:
@@ -16,9 +13,6 @@ services:
       - DATABASE_HOST=pg
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWORD=secret
-      - ALGOLIA_ID=CHANGE_ME
-      - ALGOLIA_KEY=CHANGE_ME
-      - ALGOLIA_INDEX=CHANGE_ME
     ports:
       - 3000:3000
     links:
@@ -29,12 +23,9 @@ services:
     volumes:
       - pg-data:/var/lib/postgresql/data/pgdata
     environment:
-      - PORT=5432
-      - PGDATA=/var/lib/postgresql/data/pgdata
-      - POSTGRES_DB=participa-catalunya_development
-      - POSTGRES_PASSWORD=secret
-    ports:
-      - 5432:5432
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_DB: participa-catalunya_development
+      POSTGRES_PASSWORD: secret
 volumes:
   node_modules: {}
   bundle: {}
