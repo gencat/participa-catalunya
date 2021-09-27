@@ -5,6 +5,4 @@ Rails.application.routes.draw do
 
   mount Decidim::Core::Engine => "/"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  get "/decidims_finder_page", to: "decidims_finder#show", as: "decidims_finder_page"
 end
