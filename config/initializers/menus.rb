@@ -33,6 +33,11 @@ Rails.application.config.to_prepare do
               if: Decidim::Conference.where(organization: current_organization).published.any?,
               active: :inclusive
 
+    menu.item I18n.t("menu.decidims_finder", scope: "participacatalunya"),
+              Rails.application.routes.url_helpers.decidims_finder_page_path,
+              position: 6,
+              active: :inclusive
+
     menu.item I18n.t("menu.help", scope: "decidim"),
               decidim.pages_path,
               position: 7,
