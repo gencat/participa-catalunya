@@ -2,6 +2,10 @@ es:
   decidim:
     admin:
       models:
+        user:
+          fields:
+            roles:
+              conference_admin: "Administradora de conferencias"
         course:
           fields:
             department: "Departamento/Área"
