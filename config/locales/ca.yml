@@ -1,4 +1,8 @@
 ca:
+  activemodel:
+    attributes:
+      assembly:
+        weight: "Pes"
   decidim:
     admin:
       models:

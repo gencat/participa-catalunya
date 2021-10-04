@@ -1,4 +1,8 @@
 es:
+  activemodel:
+    attributes:
+      assembly:
+        weight: "Peso"
   decidim:
     admin:
       models:
