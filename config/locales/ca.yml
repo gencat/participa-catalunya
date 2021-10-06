@@ -1,7 +1,15 @@
 ca:
+  activemodel:
+    attributes:
+      assembly:
+        weight: "Pes"
   decidim:
     admin:
       models:
+        user:
+          fields:
+            roles:
+              conference_admin: "Administradora de conferències"
         course:
           fields:
             department: "Departament/Àrea"
