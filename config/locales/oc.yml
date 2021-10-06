@@ -6,6 +6,10 @@ oc:
            description: Aguest projècte a estat cofinançat peth Hons Europèu de Desvolopament Regionau dera Union Europèa n'eth marc deth Programa operatiu FEDER de Catalonha 2014-2020
     admin:
       models:
+        user:
+          fields:
+            roles:
+              conference_admin: "Administradora de conferències"
         course:
           fields:
             department: "Departament/Àrea"
