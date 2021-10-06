@@ -12,10 +12,12 @@ gem "decidim-courses", path: "./decidim-courses"
 gem "decidim-resource_banks", path: "./decidim-resource_banks"
 gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git"
 
-gem "decidim-department_admin", "0.2.0", git: "https://github.com/gencat/decidim-department-admin.git"
+gem "decidim-department_admin", "0.2.1", git: "https://github.com/gencat/decidim-department-admin.git", branch: "0.2-stable"
 
 gem "bootsnap", "~> 1.3"
 gem "rails", "< 6"
+# remove the forcing of the execjs version when upgrading to rails 6
+gem "execjs", "2.7.0"
 
 gem "puma", ">= 4.3.5"
 gem "uglifier", "~> 4.1"
