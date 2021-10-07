@@ -32,7 +32,7 @@ es:
       txt: Busca por texto
       query_title: Introduzca las palabras a buscar
       query_placeholder: Buscar...
-      territory: Ambito territorial
+      territory: Ámbito territorial
       start_date: Fecha de inicio
       end_date: Fecha de fin
       from: "De:"

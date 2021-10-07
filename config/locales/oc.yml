@@ -40,7 +40,7 @@ oc:
       txt: Cerca per tèxte
       query_title: Introduïu les paraules a cercar
       query_placeholder: Cercar...
-      territory: Ambit territoriau
+      territory: Ámbit territoriau
       start_date: Data d’inici
       end_date: Data de fin
       from: "De:"
