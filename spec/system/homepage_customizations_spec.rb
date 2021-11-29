@@ -25,7 +25,7 @@ describe "Homepage customizations", type: :system do
 
   it "renders main menu customizations" do
     within ".main-nav" do
-      expect(page).to have_content("Serveis Decidim")
+      expect(page).to have_content("Servei Decidim")
     end
   end
 
