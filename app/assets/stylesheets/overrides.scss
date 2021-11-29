@@ -363,3 +363,26 @@ a, a:focus, a:hover, .card__link, .card__link:hover, .author-data .author__name{
   padding-left: 1em;
   padding-right: 1em;
 }
+
+.conference-speaker {
+  @include breakpoint(medium) {
+    .speaker-bio {
+      transform: translateY(-10%);
+    }
+    &:nth-of-type(5n + 1) .speaker-bio {
+      transform: translateX(35%);
+    }
+    &:nth-of-type(5n + 2) .speaker-bio {
+      transform: translateX(1%);
+    }
+    &:nth-of-type(5n + 3) .speaker-bio {
+      transform: translateX(-33%);
+    }
+    &:nth-of-type(5n + 4) .speaker-bio {
+      transform: translateX(-67%);
+    }
+    &:nth-of-type(5n + 5) .speaker-bio {
+      transform: translateX(-99%);
+    }
+  }
+}

@@ -1,7 +1,15 @@
 ca:
+  activemodel:
+    attributes:
+      assembly:
+        weight: "Pes"
   decidim:
     admin:
       models:
+        user:
+          fields:
+            roles:
+              conference_admin: "Administradora de conferències"
         course:
           fields:
             department: "Departament/Àrea"
@@ -24,7 +32,7 @@ ca:
       txt: Cerca per text
       query_title: Introduïu les paraules a cercar
       query_placeholder: Cercar...
-      territory: Territori
+      territory: Àmbit territorial
       start_date: Data d’inici
       end_date: Data de fi
       from: "De:"

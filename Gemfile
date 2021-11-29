@@ -10,9 +10,9 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-courses", path: "./decidim-courses"
 gem "decidim-resource_banks", path: "./decidim-resource_banks"
-gem "decidim-term_customizer", git: "https://github.com/CodiTramuntana/decidim-module-term_customizer.git"
+gem "decidim-term_customizer", "~> 0.23.0", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "0.23-stable"
 
-gem "decidim-department_admin", "0.2.1", git: "https://github.com/gencat/decidim-department-admin.git", branch: "0.2-stable"
+gem "decidim-department_admin", "~> 0.2.1", git: "https://github.com/gencat/decidim-module-department_admin.git", branch: "0.2-stable"
 
 gem "bootsnap", "~> 1.3"
 gem "rails", "< 6"
@@ -29,7 +29,7 @@ gem "whenever"
 gem "wicked_pdf"
 
 group :development, :test do
-  gem "byebug", "~> 11.0", platform: :mri
+  gem "byebug", "~> 11.1", platform: :mri
   gem "decidim-dev", DECIDIM_VERSION
 end
 

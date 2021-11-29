@@ -2,6 +2,10 @@ en:
   decidim:
     admin:
       models:
+        user:
+          fields:
+            roles:
+              conference_admin: "Conference administrator"
         course:
           fields:
             department: "Department/Area"
@@ -24,7 +28,7 @@ en:
       txt: Search by text
       query_title: Enter the words to search
       query_placeholder: Search...
-      territory: Territory
+      territory: Territorial scope
       start_date: Start date
       end_date: End date
       from: "From:"

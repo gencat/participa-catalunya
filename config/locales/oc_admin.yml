@@ -1,6 +1,8 @@
 oc:
   activemodel:
     attributes:
+      assembly:
+        weight: "Pes"
       area:
         area_type: Tipus d'àrea
         name: Nom
