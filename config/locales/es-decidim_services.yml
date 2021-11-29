@@ -1,10 +1,10 @@
 es:
   decidim:
     menu:
-      decidim_services: Servicios Decidim
+      decidim_services: Servicio Decidim
   participacatalunya:
     decidim_services:
-      description: Servicios Decidim
+      description: Servicio Decidim
       title1: Què és el servei Decidim Catalunya?
       description1_1: El servei Decidim Catalunya és un servei de participació ciutadana que consisteix en la instal·lació de la plataforma digital de participació ciutadana Decidim als ens locals.
       description1_2: Es tracta d’un servei integral que inclou, a més a més dels aspectes tecnològics i de suport tècnic, elements de suport en el disseny i l’organització de projectes de participació ciutadana.
