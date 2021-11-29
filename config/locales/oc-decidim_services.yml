@@ -1,0 +1,25 @@
+oc:
+  decidim:
+    menu:
+      decidim_services: Servei Decidim
+  participacatalunya:
+    decidim_services:
+      description: Servei Decidim
+      title1: Què és el servei Decidim Catalunya?
+      description1_1: El servei Decidim Catalunya és un servei de participació ciutadana que consisteix en la instal·lació de la plataforma digital de participació ciutadana Decidim als ens locals.
+      description1_2: Es tracta d’un servei integral que inclou, a més a més dels aspectes tecnològics i de suport tècnic, elements de suport en el disseny i l’organització de projectes de participació ciutadana.
+      title2: Què inclou?
+      description2_1: El servei té com objectiu principal proveir al món local de la plataforma digital Decidim per a l’impuls i la gestió de projectes de participació ciutadana. 
+      description2_2: La plataforma Decidim és una eina que ofereix un gran nombre de possibilitats. Tanmateix es vol garantir que l’ús de la eina es realitza des d’un coneixement de la participació ciutadana, les seves possibilitats, límits i sobretot criteris de qualitat importants. 
+      description2_3: Per aquest motiu, el servei també ofereix, als ajuntaments que ho requereixin o que s´hi vulguin acollir, un acompanyament en la concreció i planificació dels seus projectes de participació ciutadana.
+      title3: A qui s’adreça?
+      description3_1: El Servei Decidim Món Local s’adreça als ens locals de les províncies de Lleida i Tarragona. 
+      description3_2: Aquesta eina està sent utilitzada per la pròpia Generalitat de Catalunya i per les Diputacions de Girona i Barcelona, que ja donen suport en el desplegament del Decidim als ens locals de les seves demarcacions. Per tal de desplegar aquesta plataforma a la resta de Catalunya, la Direcció General de Participació, Processos Electorals del Departament d’Acció Exterior i Govern Obert de la Generalitat de Catalunya, en col·laboració amb les Diputacions de Lleida i Tarragona, i el Grup de Participació Ciutadana de la Xarxa de Governs Transparents, han decidit impulsar el Decidim als ens locals de Lleida i Tarragona on la seva implantació actualment és menor.
+      title4: Té algun cost o requisit?
+      description4_1: "El servei no implica cap cost per l’ens participant, però es requereix complir amb els següents requisits:"
+      option4_1: Compromís polític per impulsar la participació ciutadana a l’ens local.
+      option4_2: Disposar d’una persona referent responsable que participarà en les diferents accions del servei i serà el punt de contacte entre l’ens i resta d’institucions implicades.
+      option4_3: Compromís per executar un projecte de participació ciutadana amb l’ús del Decidim dins de l’any següent a la instal·lació de la plataforma. 
+      title5: Qui l’ofereix?
+      description5_1: La Generalitat de Catalunya coordina i finança aquest servei. El Consorci Administració Oberta de Catalunya s’encarrega d’instal·lar la plataforma Decidim, gestionar el servei tècnic, donar suport en les consultes i incidències, així com desenvolupar els evolutius que s’acordin. Les diputacions de Lleida i Tarragona donaran el servei d’assessorament als ens locals que ho requereixin.
+      description5_2: Es tracta d’una aposta ferma per la participació ciutadana com a element fonamental per a la qualitat democràtica, alhora que es desplega una infraestructura digital per donar suport al món local, en un marc col·laboració en què totes les administracions implicades sumen per avançar cap a un ecosistema de participació de país i de la màxima qualitat.

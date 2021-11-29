@@ -23,6 +23,12 @@ describe "Homepage customizations", type: :system do
     expect(page).to have_content("Participa-Catalunya")
   end
 
+  it "renders main menu customizations" do
+    within ".main-nav" do
+      expect(page).to have_content("Servei Decidim")
+    end
+  end
+
   it "renders the footer customizations" do
     within ".main-footer" do
       expect(page).to have_content("Descarrega els fitxers de dades obertes")
