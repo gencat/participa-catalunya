@@ -357,6 +357,13 @@ a, a:focus, a:hover, .card__link, .card__link:hover, .author-data .author__name{
   .topbar__user__login a{ color: $white; }
 }
 
+
+/* The Main public menu overflows right when many options accumulate */
+.main-nav__link a {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 .conference-speaker {
   @include breakpoint(medium) {
     .speaker-bio {
